@@ -2,7 +2,7 @@
   "name": "nightcall",
   "displayName": "Nightcall",
   "description": "A mellow, but colorful Visual Studio Code dark theme.",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "publisher": "bpat86",
   "license": "SEE LICENSE IN LICENSE.md",
   "repository": {
@@ -18,6 +18,9 @@
     "Purple Theme",
     "Accessible Theme"
   ],
+  "scripts": {
+    "publish": "vsce publish"
+  },
   "galleryBanner": {
     "color": "#121628",
     "theme": "dark"
