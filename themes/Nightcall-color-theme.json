@@ -12,7 +12,7 @@
     "foreground": "#F3E8FFc9",
     "widget.shadow": "#121628",
     "selection.background": "#f3e8ff3d",
-    "errorForeground": "#3d2d2d",
+    "errorForeground": "#F87171",
 
     "button.background": "#191F38cc",
     "button.foreground": "#F3E8FFcc",
@@ -340,6 +340,7 @@
     {
       "name": "Operator, Misc",
       "scope": [
+        "keyword.control",
         "punctuation",
         "meta.tag",
         "meta.brace",
