@@ -1,6 +1,26 @@
 # Nightcall 🌃
 
-A mellow, but colorful Visual Studio Code dark theme inspired by [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight) and [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl).
+A mellow, but colorful Visual Studio Code dark theme inspired by [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
+
+## Nightcall
+
+![Fullscreen](fullscreen.jpg)
+
+|         CSS         |         SCSS         |
+| :-----------------: | :------------------: |
+| ![](css-screen.jpg) | ![](scss-screen.jpg) |
+
+|     Javascript     |         React         |
+| :----------------: | :-------------------: |
+| ![](js-screen.jpg) | ![](react-screen.jpg) |
+
+|         Typescript React         |         Angular         |
+| :------------------------------: | :---------------------: |
+| ![](typescript-react-screen.jpg) | ![](angular-screen.jpg) |
+
+|         Vue         |            Laravel            |
+| :-----------------: | :---------------------------: |
+| ![](vue-screen.jpg) | ![](laravel-blade-screen.jpg) |
 
 ## Installation
 
@@ -10,7 +30,7 @@ A mellow, but colorful Visual Studio Code dark theme inspired by [Overnight Slum
 4. Code > Preferences > Color Theme > **Nightcall**
 5. Optional: Use the recommended settings below for best experience
 
-## No Italics
+## Disable Italics
 
 If you wish to disable italics, select **Nightcall (No Italics)** as the theme.
 
