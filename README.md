@@ -4,23 +4,23 @@ A mellow, but colorful Visual Studio Code dark theme inspired by [Night Owl](htt
 
 ## Nightcall
 
-![Fullscreen](fullscreen.jpg)
+![Fullscreen](https://github.com/bpat86/nightcall-vscode-theme/raw/main/fullscreen.jpg)
 
-|         CSS         |         SCSS         |
-| :-----------------: | :------------------: |
-| ![](css-screen.jpg) | ![](scss-screen.jpg) |
+|                                      CSS                                      |                                      SCSS                                      |
+| :---------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
+| ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/css-screen.jpg) | ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/scss-screen.jpg) |
 
-|     Javascript     |         React         |
-| :----------------: | :-------------------: |
-| ![](js-screen.jpg) | ![](react-screen.jpg) |
+|                                  Javascript                                  |                                      React                                      |
+| :--------------------------------------------------------------------------: | :-----------------------------------------------------------------------------: |
+| ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/js-screen.jpg) | ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react-screen.jpg) |
 
-|         Typescript React         |         Angular         |
-| :------------------------------: | :---------------------: |
-| ![](typescript-react-screen.jpg) | ![](angular-screen.jpg) |
+|                                      Typescript React                                      |                                      Angular                                      |
+| :----------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
+| ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/typescript-react-screen.jpg) | ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/angular-screen.jpg) |
 
-|         Vue         |            Laravel            |
-| :-----------------: | :---------------------------: |
-| ![](vue-screen.jpg) | ![](laravel-blade-screen.jpg) |
+|                                      Vue                                      |                                         Laravel                                         |
+| :---------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: |
+| ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/vue-screen.jpg) | ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/laravel-blade-screen.jpg) |
 
 ## Installation
 
