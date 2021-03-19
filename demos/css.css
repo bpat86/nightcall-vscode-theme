@@ -1,0 +1,53 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap");
+
+a,
+button,
+div,
+span {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.poppins-sans {
+  font-family: "Poppins", sans-serif;
+}
+.rubik-sans {
+  font-family: "Rubik", sans-serif;
+}
+
+.someClass {
+  font-family: serif;
+}
+
+.tailwind-class {
+  @apply uppercase tracking-wide font-bold text-85 mr-1;
+}
+
+#someID {
+  display: block;
+  position: relative;
+  background: rgb(31, 31, 24);
+  content: "";
+  z-index: 1;
+}
+
+.will-change {
+  will-change: transform;
+}
+
+main {
+  margin-top: 20px;
+}
+
+.some-other-class {
+  background: lightblue url("img_tree.gif") no-repeat fixed center;
+  padding: 20px;
+  box-shadow: 0 0 0 2px inset;
+}
+
+element {
+  --main-bg-color: brown;
+}

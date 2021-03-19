@@ -1,0 +1,45 @@
+{
+  "name": "nightcall",
+  "displayName": "Nightcall",
+  "description": "A mellow, but colorful Visual Studio Code dark theme.",
+  "version": "0.0.1",
+  "publisher": "bpat86",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bpat86/nightcall-vscode-theme"
+  },
+  "keywords": [
+    "Theme",
+    "Dark Theme",
+    "Night Theme",
+    "Nightcall",
+    "Pink Theme",
+    "Purple Theme",
+    "Accessible Theme"
+  ],
+  "galleryBanner": {
+    "color": "#121628",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.53.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Nightcall",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nightcall-color-theme.json"
+      },
+      {
+        "label": "Nightcall (No Italics)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nightcall-color-theme-noitalic.json"
+      }
+    ]
+  }
+}
