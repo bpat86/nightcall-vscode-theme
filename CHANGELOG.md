@@ -2,6 +2,12 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.1.4"
+
+- Better Markdown support
+- Update package.json: Update icon image
+- Update README: Update theme images
+
 ## "0.1.3"
 
 - Better Markdown support

@@ -4,7 +4,7 @@ A mellow, but colorful Visual Studio Code dark theme inspired by [Night Owl](htt
 
 ## Nightcall
 
-![Fullscreen](https://github.com/bpat86/nightcall-vscode-theme/raw/main/fullscreen.jpg)
+![Fullscreen](https://github.com/bpat86/nightcall-vscode-theme/raw/main/nightcall-main.jpg)
 
 |                                      CSS                                      |                                      SCSS                                      |
 | :---------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
