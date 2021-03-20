@@ -276,6 +276,9 @@
     "welcomePage.buttonHoverBackground": "#1C2240",
     "walkThrough.embeddedEditorBackground": "#121628",
 
+    "gitlens.gutterBackgroundColor": "#0F1221",
+    "gitlens.gutterUncommittedForegroundColor": "#FF7EC7",
+    "gitlens.gutterForegroundColor": "#7E85A8b4",
     "gitlens.trailingLineForegroundColor": "#7E85A8b4",
     "gitDecoration.modifiedResourceForeground": "#FF7EC7",
     "gitDecoration.deletedResourceForeground": "#F87171",

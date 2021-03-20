@@ -1,6 +1,6 @@
 # Nightcall 🌃
 
-A mellow, but colorful Visual Studio Code dark theme inspired by [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
+A mellow, but colorful VS Code dark theme inspired by [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
 
 ## Nightcall
 
@@ -65,10 +65,13 @@ Taking a page from [Night Owl's](https://marketplace.visualstudio.com/items?item
 
 ## Recommended Settings
 
-The font in the preview image is Fira Code, but Dank Mono also looks great and is [available here for purchase](https://dank.sh/).
-
 ```json
 "editor.semanticHighlighting.enabled": false,
+```
+
+These are the settings I'm using in the preview images. The font is Fira Code, however Dank Mono also looks great and is [available here for purchase](https://dank.sh/).
+
+```json
 "editor.fontFamily": "Fira Code, Dank Mono",
 "editor.fontLigatures": true,
 "editor.letterSpacing": 0.3,
@@ -79,15 +82,15 @@ The font in the preview image is Fira Code, but Dank Mono also looks great and i
 
 ## Recommended Plugin Settings
 
-The [Indent-Rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) color settings:
+The [Indent-Rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) color settings I'm using:
 
 ```json
 "indentRainbow.colors": [
-  "rgba( 126, 144, 255, 0.05 )",
-  "rgba( 187, 154, 247, 0.05) ",
-  "rgba( 250, 166, 216, 0.05 )",
-  "rgba( 255, 126, 199, 0.05 )",
-  "rgba( 218, 188, 254, 0.05 )"
+  "rgba(126, 144, 255, 0.05)",
+  "rgba(187, 154, 247, 0.05)",
+  "rgba(250, 166, 216, 0.05)",
+  "rgba(255, 126, 199, 0.05)",
+  "rgba(218, 188, 254, 0.05)",
 ],
 ```
 
@@ -99,7 +102,7 @@ The [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemNa
   "#FF7EC7",
   "#FAA6D8",
   "#BB9AF7",
-  "#7E90FF"
+  "#7E90FF",
 ],
 ```
 
@@ -118,6 +121,15 @@ The [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode
 "importCost.largePackageColor": "#F87171",
 ```
 
+The [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) color settings I'm using:
+
+```json
+"gitlens.gutterBackgroundColor": "#0F1221",
+"gitlens.gutterUncommittedForegroundColor": "#FF7EC7",
+"gitlens.gutterForegroundColor": "#7E85A8b4",
+"gitlens.trailingLineForegroundColor": "#7E85A8b4",
+```
+
 ## Misc
 
-This is my first theme and there are many languages and parts of VS Code I don't use, so if something looks off it's probably because I didn't know what I was doing.
+This is my first theme and there are many languages and parts of VS Code I don't use, so I'm sure I missed a few things.

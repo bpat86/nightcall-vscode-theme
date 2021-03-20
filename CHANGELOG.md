@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.1.5"
+
+- Update README: Update Plugin Settings section
+
 ## "0.1.4"
 
 - Better Markdown support
