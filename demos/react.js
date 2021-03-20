@@ -1,31 +1,59 @@
 import React from "react";
-import calculate from "../logic/calculate";
-import "./App.css";
-import ButtonPanel from "./ButtonPanel";
-import Display from "./Display";
+import { connect } from "react-redux";
+import ReactModal from "react-modal";
 
-class App extends React.Component {
+const mapStateToProps = (state) => ({
+  ...state.modal,
+});
+
+class ModalContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      total: null,
-      next: null,
-      operation: null,
+      modalIsOpen: props.modalProps.open,
     };
+    this.closeModal = this.closeModal.bind(this);
   }
 
-  handleClick = (buttonName) => {
-    this.setState(calculate(this.state, buttonName));
-  };
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.modalProps.open !== this.props.modalProps.open) {
+      this.setState({
+        modalIsOpen: nextProps.modalProps.open,
+      });
+    }
+  }
+
+  closeModal() {
+    this.props.hideModal();
+  }
 
   render() {
+    if (!this.props.modalType) {
+      return null;
+    }
     return (
-      <div className="component-app">
-        Tacos
-        <Display value={this.state.next || this.state.total || "0"} />
-        <ButtonPanel clickHandler={this.handleClick} />
+      <div>
+        <ReactModal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          contentLabel="Example Modal"
+          ariaHideApp={false}
+        >
+          <h2 ref={(subtitle) => (this.subtitle = subtitle)}>Hello</h2>
+          <button onClick={this.closeModal}>close</button>
+          <div>I am a modal</div>
+          <form>
+            <input />
+            <button>tab navigation</button>
+            <button>stays</button>
+            <button>inside</button>
+            <button>the modal</button>
+          </form>
+        </ReactModal>
       </div>
     );
   }
 }
-export default App;
+
+export default connect(mapStateToProps, null)(ModalContainer);
