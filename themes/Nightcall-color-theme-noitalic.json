@@ -286,7 +286,11 @@
   "tokenColors": [
     {
       "name": "Comment",
-      "scope": ["comment", "punctuation.definition.comment"],
+      "scope": [
+        "comment",
+        "punctuation.definition.comment",
+        "source.ini comment.line.number-sign.ini punctuation.definition.comment.ini"
+      ],
       "settings": {
         "fontStyle": "",
         "foreground": "#606580"
@@ -349,7 +353,8 @@
         "punctuation.section.embedded",
         "keyword.other.template",
         "keyword.other.substitution",
-        "keyword.control.conditional"
+        "keyword.control.conditional",
+        "source.ini punctuation.definition.comment"
       ],
       "settings": {
         "fontStyle": "",
@@ -642,6 +647,7 @@
       "name": "Markdown Entity Name",
       "scope": ["entity.name.section.markdown"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#7691FF"
       }
     },
@@ -1180,7 +1186,7 @@
       "scope": ["markup.bold", "markup.bold string"],
       "settings": {
         "fontStyle": "bold",
-        "foreground": "#DABCFE"
+        "foreground": "#BB9AF7"
       }
     },
     {
@@ -1287,7 +1293,7 @@
         "fenced_code.block.language.markdown"
       ],
       "settings": {
-        "foreground": "#FF7EC7"
+        "foreground": "#BB9AF7"
       }
     },
     {
@@ -1308,14 +1314,35 @@
     {
       "name": "Markup - JSON Property",
       "scope": [
+        "markup.fenced_code.block.markdown support.type.property-name.json",
+        "text.html.markdown markup.fenced_code.block.markdown string.quoted"
+      ],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#DABCFE"
+      }
+    },
+    {
+      "name": "Markup - JSON Fenced Property",
+      "scope": [
         "markup.fenced_code.block.markdown support.type.property-name.json"
+      ],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#FAA6D8"
+      }
+    },
+    {
+      "name": "Markup - JSON Array Value String Quoted",
+      "scope": [
+        "text.html.markdown meta.structure.dictionary.value string.quoted"
       ],
       "settings": {
         "foreground": "#FAA6D8"
       }
     },
     {
-      "name": "Markup - JSON Array String Quoted",
+      "name": "Markup - JSON Array Value String Quoted",
       "scope": ["text.html.markdown meta.structure.array.json string.quoted"],
       "settings": {
         "foreground": "#DABCFE"
@@ -1831,6 +1858,14 @@
     {
       "name": "ENV Punctuation Quoted Value",
       "scope": ["source.env string.quoted"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#DFCEF9"
+      }
+    },
+    {
+      "name": "Source Ini",
+      "scope": ["source.ini", "source.ini keyword.other"],
       "settings": {
         "fontStyle": "",
         "foreground": "#DFCEF9"
