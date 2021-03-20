@@ -2,7 +2,7 @@
   "name": "nightcall",
   "displayName": "Nightcall",
   "description": "A mellow, but colorful Visual Studio Code dark theme inspired by Night Owl and Overnight Slumber.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "bpat86",
   "license": "SEE LICENSE IN LICENSE.md",
   "repository": {
@@ -11,6 +11,10 @@
   },
   "keywords": [
     "Theme",
+    "Dark",
+    "Night",
+    "Pink",
+    "Purple",
     "Dark Theme",
     "Night Theme",
     "Nightcall",
