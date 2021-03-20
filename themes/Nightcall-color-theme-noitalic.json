@@ -1,5 +1,5 @@
 {
-  "name": "Nightcall (No Italics)",
+  "name": "Nightcall",
   "author": "Bobby",
   "type": "dark",
   "semanticHighlighting": false,
@@ -288,6 +288,7 @@
       "name": "Comment",
       "scope": ["comment", "punctuation.definition.comment"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#606580"
       }
     },
@@ -295,6 +296,7 @@
       "name": "Variables",
       "scope": ["variable", "string constant.other.placeholder"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#F3E8FF"
       }
     },
@@ -302,6 +304,7 @@
       "name": "Variables",
       "scope": ["variable", "string constant.other.placeholder"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#F3E8FF"
       }
     },
@@ -405,6 +408,7 @@
       "name": "Variable Property Other object property",
       "scope": ["variable.other.object.property"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#BB9AF7"
       }
     },
@@ -450,6 +454,7 @@
       "name": "Constant Language Boolean",
       "scope": ["constant.language.boolean"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FAA6D8"
       }
     },
@@ -504,6 +509,7 @@
       "name": "Math",
       "scope": ["support.constant.math", "support.function.math"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FAA6D8"
       }
     },
@@ -558,6 +564,7 @@
       "name": "Template Literal String",
       "scope": ["meta.block string.template"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FAA6D8"
       }
     },
@@ -607,6 +614,7 @@
         "support.type.sys-types"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FAA6D8"
       }
     },
@@ -634,7 +642,7 @@
       "name": "Markdown Entity Name",
       "scope": ["entity.name.section.markdown"],
       "settings": {
-        "foreground": "#7E90FF"
+        "foreground": "#7691FF"
       }
     },
     {
@@ -700,6 +708,7 @@
         "source.css meta.property-value.css"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#DABCFE"
       }
     },
@@ -853,6 +862,7 @@
         "source.css.less support.constant.property-value.css"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FAA6D8"
       }
     },
@@ -890,6 +900,7 @@
       "name": "entity.name.method.js",
       "scope": ["entity.name.method.js"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#BB9AF7"
       }
     },
@@ -907,6 +918,7 @@
       "name": "Attributes",
       "scope": ["entity.other.attribute-name"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#BB9AF7"
       }
     },
@@ -917,6 +929,7 @@
         "text.html.basic entity.other.attribute-name"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#7E90FF"
       }
     },
@@ -924,6 +937,7 @@
       "name": "CSS Classes",
       "scope": ["entity.other.attribute-name.class"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FAA6D8"
       }
     },
@@ -944,6 +958,7 @@
         "source.sass keyword.control"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FA4DA4"
       }
     },
@@ -972,6 +987,7 @@
       "name": "Regular Expressions",
       "scope": ["string.regexp"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#BB9AF7"
       }
     },
@@ -996,6 +1012,7 @@
         "tag.decorator.js punctuation.definition.tag.js"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#BB9AF7"
       }
     },
@@ -1005,6 +1022,7 @@
         "source.js constant.other.object.key.js string.unquoted.label.js"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FF7EC7"
       }
     },
@@ -1119,7 +1137,7 @@
         "punctuation.definition.list_item.markdown"
       ],
       "settings": {
-        "foreground": "#F3E8FF"
+        "foreground": "#DFCEF9"
       }
     },
     {
@@ -1146,7 +1164,7 @@
         "markup.heading.markdown punctuation.definition.heading.markdown"
       ],
       "settings": {
-        "foreground": "#F3E8FF"
+        "foreground": "#7691FF"
       }
     },
     {
@@ -1185,7 +1203,7 @@
       "scope": ["markup.underline"],
       "settings": {
         "fontStyle": "underline",
-        "foreground": "#F87171"
+        "foreground": "#FAA6D8"
       }
     },
     {
@@ -1199,14 +1217,14 @@
       "name": "Markup - Quote",
       "scope": ["markup.quote"],
       "settings": {
-        "fontStyle": "italic"
+        "fontStyle": ""
       }
     },
     {
       "name": "Markdown - Link",
       "scope": ["string.other.link.title.markdown"],
       "settings": {
-        "foreground": "#7E90FF"
+        "foreground": "#DABCFE"
       }
     },
     {
@@ -1264,7 +1282,10 @@
     },
     {
       "name": "Markdown Inline Raw String",
-      "scope": "markup.inline.raw.string.markdown",
+      "scope": [
+        "markup.inline.raw.string.markdown",
+        "fenced_code.block.language.markdown"
+      ],
       "settings": {
         "foreground": "#FF7EC7"
       }
@@ -1282,6 +1303,22 @@
       "scope": ["markup.table"],
       "settings": {
         "foreground": "#F3E8FF"
+      }
+    },
+    {
+      "name": "Markup - JSON Property",
+      "scope": [
+        "markup.fenced_code.block.markdown support.type.property-name.json"
+      ],
+      "settings": {
+        "foreground": "#FAA6D8"
+      }
+    },
+    {
+      "name": "Markup - JSON Array String Quoted",
+      "scope": ["text.html.markdown meta.structure.array.json string.quoted"],
+      "settings": {
+        "foreground": "#DABCFE"
       }
     },
     {
@@ -1414,6 +1451,7 @@
         "variable.other.object.tsx"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#F3E8FF"
       }
     },
@@ -1466,6 +1504,7 @@
         "meta.block variable.other.property.tsx"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#DABCFE"
       }
     },
@@ -1485,6 +1524,7 @@
       "name": "TypeScript[React] Meta Var Expression",
       "scope": ["meta.var.expr"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FF7EC7"
       }
     },
@@ -1717,6 +1757,7 @@
       "name": "Ruby Variables",
       "scope": ["variable.other.ruby"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FF7EC7"
       }
     },
