@@ -1,18 +1,30 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-function Example() {
-  const [count, setCount] = useState(0);
-
-  // Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
-    // Update the document title using the browser API
-    document.title = `You clicked ${count} times`;
+export const useScroll = () => {
+  // Set a single object `{ x: ..., y: ..., direction: ... }` once on init
+  const [scroll, setScroll] = useState({
+    x: document.body.getBoundingClientRect().left,
+    y: document.body.getBoundingClientRect().top,
+    direction: "",
   });
 
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-    </div>
-  );
-}
+  const listener = (e) => {
+    // `prev` provides us the previous state
+    setScroll((prev) => ({
+      x: document.body.getBoundingClientRect().left,
+      y: -document.body.getBoundingClientRect().top,
+      // Here we’re comparing the previous state to the current state to get the scroll direction
+      direction:
+        prev.y > -document.body.getBoundingClientRect().top ? "up" : "down",
+    }));
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", listener);
+    // cleanup function occurs on unmount
+    return () => window.removeEventListener("scroll", listener);
+    // Run `useEffect` only once on mount, so add `, []` after the closing curly brace }
+  }, []);
+
+  return scroll;
+};

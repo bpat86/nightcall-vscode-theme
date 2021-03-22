@@ -1626,7 +1626,7 @@
     },
     {
       "name": "PHP Tags",
-      "scope": "punctuation.section.embedded",
+      "scope": "text.html.php punctuation.section.embedded",
       "settings": {
         "foreground": "#F87171"
       }

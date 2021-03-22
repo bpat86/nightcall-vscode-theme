@@ -2,20 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap");
-
-a,
-button,
-div,
-span {
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 .poppins-sans {
   font-family: "Poppins", sans-serif;
-}
-.rubik-sans {
-  font-family: "Rubik", sans-serif;
 }
 
 .someClass {
@@ -34,12 +24,12 @@ span {
   z-index: 1;
 }
 
-.will-change {
-  will-change: transform;
-}
-
 main {
   margin-top: 20px;
+}
+
+.will-change {
+  will-change: transform;
 }
 
 .some-other-class {

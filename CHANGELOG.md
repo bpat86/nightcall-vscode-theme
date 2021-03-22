@@ -2,6 +2,11 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.1.6"
+
+- Fixed a scope issue with php tags
+- Update README: Update Plugin Settings section
+
 ## "0.1.5"
 
 - Update README: Update Plugin Settings section

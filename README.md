@@ -2,25 +2,7 @@
 
 A mellow, but colorful VS Code dark theme inspired by [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
 
-## Nightcall
-
-![Fullscreen](https://github.com/bpat86/nightcall-vscode-theme/raw/main/nightcall-main.jpg)
-
-|                                      CSS                                      |                                      SCSS                                      |
-| :---------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
-| ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/css-screen.jpg) | ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/scss-screen.jpg) |
-
-|                                  Javascript                                  |                                      React                                      |
-| :--------------------------------------------------------------------------: | :-----------------------------------------------------------------------------: |
-| ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/js-screen.jpg) | ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react-screen.jpg) |
-
-|                                      Typescript React                                      |                                      Angular                                      |
-| :----------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: |
-| ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/typescript-react-screen.jpg) | ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/angular-screen.jpg) |
-
-|                                      Vue                                      |                                         Laravel                                         |
-| :---------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: |
-| ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/vue-screen.jpg) | ![](https://github.com/bpat86/nightcall-vscode-theme/raw/main/laravel-blade-screen.jpg) |
+![Nightcall with Dank Mono](react_dm.png "Nightcall with Dank Mono")
 
 ## Installation
 
@@ -65,18 +47,15 @@ Taking a page from [Night Owl's](https://marketplace.visualstudio.com/items?item
 
 ## Recommended Settings
 
-```json
-"editor.semanticHighlighting.enabled": false,
-```
-
-These are the settings I'm using in the preview images. The font is Fira Code, however Dank Mono also looks great and is [available here for purchase](https://dank.sh/).
+The font I'm using is `Dank Mono` and is available [here for purchase](https://dank.sh/). `Fira Code` also looks pretty good and is available [here for free](https://github.com/tonsky/FiraCode).
 
 ```json
-"editor.fontFamily": "Fira Code, Dank Mono",
+"editor.semanticHighlighting.enabled": false, // Important!
+"editor.fontFamily": "Dank Mono, Fira Code",
 "editor.fontLigatures": true,
 "editor.letterSpacing": 0.3,
-"editor.lineHeight": 25,
-"editor.fontSize": 16,
+"editor.lineHeight": 26,
+"editor.fontSize": 17, // 16 for Fira Code
 "editor.tabSize": 2,
 ```
 
@@ -109,7 +88,7 @@ The [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemNa
 The [Footsteps](https://marketplace.visualstudio.com/items?itemName=Wattenberger.footsteps) color settings I'm using:
 
 ```json
-"footsteps.highlightColor": "rgb( 248, 167, 212 )",
+"footsteps.highlightColor": "rgb(248, 167, 212)",
 "footsteps.highlightColorMaxOpacity": 0.05,
 ```
 
@@ -119,15 +98,6 @@ The [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode
 "importCost.smallPackageColor": "#98FACA",
 "importCost.mediumPackageColor": "#98FACA",
 "importCost.largePackageColor": "#F87171",
-```
-
-The [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) color settings I'm using:
-
-```json
-"gitlens.gutterBackgroundColor": "#0F1221",
-"gitlens.gutterUncommittedForegroundColor": "#FF7EC7",
-"gitlens.gutterForegroundColor": "#7E85A8b4",
-"gitlens.trailingLineForegroundColor": "#7E85A8b4",
 ```
 
 ## Misc
