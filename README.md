@@ -2,7 +2,7 @@
 
 A mellow, but colorful VS Code dark theme inspired by [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
 
-![Nightcall with Dank Mono](react_dm.png "Nightcall with Dank Mono")
+![Nightcall with Dank Mono](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react_dm.png "Nightcall with Dank Mono")
 
 ## Installation
 
