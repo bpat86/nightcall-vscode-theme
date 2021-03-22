@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.1.7"
+
+- Update README: New screenshot images
+
 ## "0.1.6"
 
 - Fixed a scope issue with php tags

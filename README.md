@@ -2,19 +2,24 @@
 
 A mellow, but colorful VS Code dark theme inspired by [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
 
-![Nightcall with Dank Mono](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react_dm.png "Nightcall with Dank Mono")
+## Screens
+
+### Nightcall
+
+![Default Nightcall Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react_dm.png "Default Nightcall Theme")
+
+### Nightcall (No Italics)
+
+If you wish to disable italics, select `Nightcall (No Italics)` as the theme.
+![Nightcall No Italics Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react_dm-no-italics.png "Nightcall No Italics Theme")
 
 ## Installation
 
 1. Open **Extensions** sidebar panel in VS Code. `View → Extensions`
 2. Search for `Nightcall`
 3. Click **Install** to install it.
-4. Code > Preferences > Color Theme > **Nightcall**
-5. Optional: Use the recommended settings below for best experience
-
-## Disable Italics
-
-If you wish to disable italics, select **Nightcall (No Italics)** as the theme.
+4. `Code → Preferences → Color Theme → Nightcall`
+5. **Optional**: Use the recommended settings below for best experience
 
 ## Separate the Editor from the Sidebar
 
