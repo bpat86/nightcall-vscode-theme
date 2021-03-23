@@ -1,34 +1,45 @@
-from collections import deque
+# To add an item to the top of the stack, use append()
+class stack(list):
+    ''' push() to add an item to the top of the stack '''
+    push = list.append
 
 
-def topo(G, ind=None, Q=[1]):
-    if ind == None:
-        ind = [0] * (len(G) + 1)  # this is a comment
-        for u in G:
-            for v in G[u]:
-                ind[v] += 1
-        Q = deque()
-        for i in G:
-            if ind[i] == 0:
-                Q.append(i)
-    if len(Q) == 0:
-        return
-    v = Q.popleft()
-    print(v)
-    for w in G[v]:
-        ind[w] -= 1
-        if ind[w] == 0:
-            Q.append(w)
-    topo(G, ind, Q)
+# non-recursive quicksort
+def quicksort(items):
+    nItems = len(items)
+    if nItems < 2:
+        return items
+    todo = stack([(0, nItems - 1)])
+    while todo:
+        elem_idx, pivot_idx = low, high = todo.pop()
+        elem = items[elem_idx]
+        pivot = items[pivot_idx]
+        while pivot_idx > elem_idx:
+            if elem > pivot:
+                items[pivot_idx] = elem
+                pivot_idx -= 1
+                items[elem_idx] = elem = items[pivot_idx]
+            else:
+                elem_idx += 1
+                elem = items[elem_idx]
+        items[pivot_idx] = pivot
+
+        lsize = pivot_idx - low
+        hsize = high - pivot_idx
+        if lsize <= hsize:
+            if 1 < lsize:
+                todo.push((pivot_idx + 1, high))
+                todo.push((low, pivot_idx - 1))
+        else:
+            todo.push((low, pivot_idx - 1))
+        if 1 < hsize:
+            todo.push((pivot_idx + 1, high))
+    return items
 
 
-class SomeClass:
-    def create_arr(self):  # An instance method
-        self.arr = []
-
-    def insert_to_arr(self, value):  # An instance method
-        self.arr.append(value)
-
-    @classmethod
-    def class_method(cls):
-        print("the class method was called")
+if __name__ == '__main__':
+# run the sorting function
+    from random import randint
+    for _ in range(99):
+        test = [str(randint(0, 100)) for _ in range(randint(15, 99))]
+        assert (quicksort(test[:]) == sorted(test)), test

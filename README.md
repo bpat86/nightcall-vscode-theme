@@ -4,7 +4,7 @@ A mellow, but colorful VS Code dark theme inspired by [Night Owl](https://market
 
 ## Screens
 
-### Nightcall
+### Nightcall (Default)
 
 ![Default Nightcall Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react_dm.png "Default Nightcall Theme")
 

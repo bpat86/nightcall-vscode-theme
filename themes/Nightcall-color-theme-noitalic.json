@@ -518,7 +518,7 @@
       "scope": ["support.constant.math", "support.function.math"],
       "settings": {
         "fontStyle": "",
-        "foreground": "#FAA6D8"
+        "foreground": "#FF7EC7"
       }
     },
     {
@@ -1868,10 +1868,58 @@
     },
     {
       "name": "Source Ini",
-      "scope": ["source.ini", "source.ini keyword.other"],
+      "scope": ["source.ini", "source.ini keyword.other", "source.python"],
       "settings": {
         "fontStyle": "",
         "foreground": "#DFCEF9"
+      }
+    },
+    {
+      "name": "Source Python",
+      "scope": ["source.python"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#DFCEF9"
+      }
+    },
+    {
+      "name": "Python",
+      "scope": ["source.python support.variable"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#FF7EC7"
+      }
+    },
+    {
+      "name": "Python Function-Call Generic",
+      "scope": ["source.python meta.function-call.generic.python"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#7691FF"
+      }
+    },
+    {
+      "name": "Python Function-Call Arguments",
+      "scope": ["source.python support.function"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#FF7EC7"
+      }
+    },
+    {
+      "name": "Python Function-Call Arguments",
+      "scope": ["source.python meta.function-call.arguments.python"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#DFCEF9"
+      }
+    },
+    {
+      "name": "Python Docstring",
+      "scope": ["source.python string.quoted.docstring"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#FAA6D8"
       }
     }
   ]

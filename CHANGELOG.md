@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.1.8"
+
+- Better Python support
+
 ## "0.1.7"
 
 - Update README: New screenshot images
