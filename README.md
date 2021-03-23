@@ -6,12 +6,12 @@ A mellow, but colorful VS Code dark theme inspired by [Night Owl](https://market
 
 ### Nightcall (Default)
 
-![Default Nightcall Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react_dm.png "Default Nightcall Theme")
+![Default Nightcall Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/main_react-dm.png "Default Nightcall Theme")
 
 ### Nightcall (No Italics)
 
 If you wish to disable italics, select `Nightcall (No Italics)` as the theme.
-![Nightcall No Italics Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react_dm-no-italics.png "Nightcall No Italics Theme")
+![Nightcall No Italics Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/main_react-dm-no-italics.png "Nightcall No Italics Theme")
 
 ## Installation
 
