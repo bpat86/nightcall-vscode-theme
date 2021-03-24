@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.2"
+
+- Better consistency with ts and js
+
 ## "0.1.8"
 
 - Better Python support

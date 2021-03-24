@@ -5,7 +5,7 @@
   "semanticHighlighting": false,
   "colors": {
     "editor.background": "#121628",
-    "editor.foreground": "#F3E8FF",
+    "editor.foreground": "#DFCEF9",
 
     "contrastBorder": "#121628",
     "focusBorder": "#191F38",
@@ -122,9 +122,9 @@
     "tab.unfocusedActiveForeground": "#7E85A8",
     "tab.unfocusedInactiveForeground": "#7E85A8",
 
-    "editor.selectionBackground": "#7e85a88e",
-    "editor.selectionHighlightBackground": "#7E85A88e",
-    "editor.inactiveSelectionBackground": "#7E85A88e",
+    "editor.selectionBackground": "#4c536cba",
+    "editor.selectionHighlightBackground": "#4c536cba",
+    "editor.inactiveSelectionBackground": "#303649a4",
     "editor.wordHighlightBackground": "#1C224033",
     "editor.wordHighlightStrongBackground": "#1C224033",
     "editor.findMatchBackground": "#BB9AF76b",
@@ -303,16 +303,7 @@
       "name": "Variables",
       "scope": ["variable", "string constant.other.placeholder"],
       "settings": {
-        "fontStyle": "italic",
-        "foreground": "#F3E8FF"
-      }
-    },
-    {
-      "name": "Variables",
-      "scope": ["variable", "string constant.other.placeholder"],
-      "settings": {
-        "fontStyle": "italic",
-        "foreground": "#F3E8FF"
+        "foreground": "#7E90FF"
       }
     },
     {
@@ -330,7 +321,30 @@
       }
     },
     {
-      "name": "Keyword, Storage",
+      "name": "Storage",
+      "scope": ["storage.type.cs"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#DFCEF9"
+      }
+    },
+    {
+      "name": "Storage",
+      "scope": [
+        "storage",
+        "meta.var.expr",
+        "meta.class meta.method.declaration meta.var.expr storage.type.js",
+        "storage.type.property.js",
+        "storage.type.property.ts",
+        "storage.type.property.tsx"
+      ],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "#FF7EC7"
+      }
+    },
+    {
+      "name": "Keyword, Storage Types, Punctuation",
       "scope": [
         "keyword",
         "storage.type",
@@ -338,9 +352,18 @@
         "text.html.derivative punctuation.separator.key-value.html",
         "text.html.php.blade punctuation.separator.key-value.html",
         "source.vue punctuation.separator.key-value.html",
+        "source.vue storage.type.js",
         "text.html.vue-html meta.tag.block.any.html"
       ],
       "settings": {
+        "foreground": "#FF7EC7"
+      }
+    },
+    {
+      "name": "Keyword, Storage",
+      "scope": ["meta.method.declaration storage.type"],
+      "settings": {
+        "fontStyle": "",
         "foreground": "#FF7EC7"
       }
     },
@@ -357,7 +380,10 @@
         "keyword.other.template",
         "keyword.other.substitution",
         "keyword.control.conditional",
-        "source.ini punctuation.definition.comment"
+        "keyword.operator.spread",
+        "keyword.operator.type.annotation",
+        "source.ini punctuation.definition.comment",
+        "source.dart keyword.operator"
       ],
       "settings": {
         "fontStyle": "",
@@ -387,10 +413,10 @@
     {
       "name": "[HTML, React, TSX, Blade, Vue, Pug] Text in Tags",
       "scope": [
-        "text.html.derivative",
         "meta.jsx.children",
         "meta.jsx.children.js",
         "meta.jsx.children.tsx",
+        "text.html.derivative",
         "text.html.vue-html",
         "text.html.php.blade",
         "text.pug"
@@ -413,10 +439,17 @@
       }
     },
     {
-      "name": "Variable Property Other object property",
+      "name": "Support Class Component",
+      "scope": ["support.class.component.js", "support.class.component.tsx"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#FF7EC7"
+      }
+    },
+    {
+      "name": "Variable Property Other",
       "scope": ["variable.other.object.property"],
       "settings": {
-        "fontStyle": "italic",
         "foreground": "#BB9AF7"
       }
     },
@@ -445,40 +478,35 @@
       "name": "Block Level Variables",
       "scope": ["meta.block variable.other"],
       "settings": {
-        "foreground": "#F3E8FF"
+        "foreground": "#7E90FF"
       }
     },
     {
       "name": "Meta Object Literal Keys",
-      "scope": [
-        "meta.block meta.object-literal.key",
-        "meta.class meta.object-literal.key"
-      ],
+      "scope": ["meta.object-literal.key"],
       "settings": {
-        "foreground": "#FAA6D8"
+        "foreground": "#DFCEF9"
+      }
+    },
+    {
+      "name": "Meta Object Member Variable Other",
+      "scope": ["meta.object.member.js variable.other.readwrite.js"],
+      "settings": {
+        "foreground": "#DABCFE"
       }
     },
     {
       "name": "Constant Language Boolean",
       "scope": ["constant.language.boolean"],
       "settings": {
-        "fontStyle": "italic",
-        "foreground": "#FAA6D8"
+        "foreground": "#F87171"
       }
     },
     {
       "name": "Constant Language Null",
       "scope": ["constant.language.null"],
       "settings": {
-        "fontStyle": "",
-        "foreground": "#DABCFE"
-      }
-    },
-    {
-      "name": "Variable Other Constant",
-      "scope": ["meta.block variable.other.constant"],
-      "settings": {
-        "foreground": "#F3E8FF"
+        "foreground": "#F87171"
       }
     },
     {
@@ -489,20 +517,26 @@
       }
     },
     {
-      "name": "Number, Constant, Function Argument, Tag Attribute, Embedded",
+      "name": "Language, Constant, Function Argument, Tag Attribute, Embedded",
       "scope": [
-        "constant.numeric",
         "constant.language",
         "support.constant",
         "constant.character",
         "constant.escape",
-        "variable.parameter",
         "keyword.other.unit",
         "keyword.other"
       ],
       "settings": {
-        "fontStyle": "",
-        "foreground": "#F3E8FF"
+        "fontStyle": "italic",
+        "foreground": "#BB9AF7"
+      }
+    },
+    {
+      "name": "Variable Paramter",
+      "scope": ["variable.parameter"],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "#DABCFE"
       }
     },
     {
@@ -534,6 +568,17 @@
         "string.quoted",
         "string.quoted.single.js",
         "meta.object string.quoted"
+      ],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#FAA6D8"
+      }
+    },
+    {
+      "name": "String Quoted",
+      "scope": [
+        "meta.export.default string.quoted",
+        "source.json string.quoted"
       ],
       "settings": {
         "fontStyle": "",
@@ -579,10 +624,6 @@
     {
       "name": "Object Keys",
       "scope": [
-        "source.js",
-        "source.ts",
-        "source.tsx",
-        "source.vue",
         "constant.other.object.key.js",
         "constant.other.symbol",
         "constant.other.key",
@@ -596,7 +637,7 @@
       "name": "Object Keys Object-literal Key",
       "scope": ["meta.tag meta.object-literal.key"],
       "settings": {
-        "foreground": "#FAA6D8"
+        "foreground": "#DABCFE"
       }
     },
     {
@@ -612,7 +653,7 @@
     {
       "name": "Class, Support",
       "scope": [
-        "entity.name",
+        // "entity.name",
         "support.type",
         "support.class",
         "support.other.namespace.use.php",
@@ -622,8 +663,14 @@
         "support.type.sys-types"
       ],
       "settings": {
-        "fontStyle": "italic",
-        "foreground": "#FAA6D8"
+        "foreground": "#BB9AF7"
+      }
+    },
+    {
+      "name": "Class, Support",
+      "scope": ["meta.function-call support.class"],
+      "settings": {
+        "foreground": "#FF7EC7"
       }
     },
     {
@@ -652,13 +699,6 @@
       "settings": {
         "fontStyle": "",
         "foreground": "#7691FF"
-      }
-    },
-    {
-      "name": "Entity Types",
-      "scope": ["support.type"],
-      "settings": {
-        "foreground": "#BB9AF7"
       }
     },
     {
@@ -803,6 +843,7 @@
         "meta.property-list.scss"
       ],
       "settings": {
+        "fontStyle": "italic",
         "foreground": "#FAA6D8"
       }
     },
@@ -901,8 +942,8 @@
       "name": "Language methods",
       "scope": ["variable.language"],
       "settings": {
-        "fontStyle": "",
-        "foreground": "#DFCEF9"
+        "fontStyle": "italic",
+        "foreground": "#FF7EC7"
       }
     },
     {
@@ -1361,18 +1402,6 @@
         "variable.other.property"
       ],
       "settings": {
-        "fontStyle": "",
-        "foreground": "#DABCFE"
-      }
-    },
-    {
-      "name": "[Vue] Meta Object Literal Key Values",
-      "scope": [
-        "source.vue meta.objectliteral.js constant.language.boolean",
-        "source.vue meta.objectliteral.js constant.numeric"
-      ],
-      "settings": {
-        "fontStyle": "",
         "foreground": "#DABCFE"
       }
     },
@@ -1386,27 +1415,12 @@
       }
     },
     {
-      "name": "[Vue] Variable Other Readwrite",
-      "scope": ["text.html.vue-html variable.other.readwrite.js"],
+      "name": "[Vue] Entity Attributes",
+      "scope": [
+        "source.vue meta.directive.vue entity.other.attribute-name.html"
+      ],
       "settings": {
-        "fontStyle": "",
-        "foreground": "#F3E8FF"
-      }
-    },
-    {
-      "name": "[Vue] Variable Other Readwrite",
-      "scope": ["meta.object.member.js variable.other.readwrite.js"],
-      "settings": {
-        "fontStyle": "",
-        "foreground": "#DABCFE"
-      }
-    },
-    {
-      "name": "[Vue] Variables Other Property",
-      "scope": ["source.vue variable.other.property.js"],
-      "settings": {
-        "fontStyle": "",
-        "foreground": "#DABCFE"
+        "foreground": "#BB9AF7"
       }
     },
     {
@@ -1430,13 +1444,6 @@
       }
     },
     {
-      "name": "[Vue] Meta Array Literal Readwrite",
-      "scope": ["source.vue meta.array.literal.js variable.other.readwrite.js"],
-      "settings": {
-        "foreground": "#F3E8FF"
-      }
-    },
-    {
       "name": "[Vue] Object Literal Key",
       "scope": ["source.directive.vue meta.object-literal.key.js"],
       "settings": {
@@ -1446,9 +1453,7 @@
     {
       "name": "TypeScript[React] Variables and Object Properties",
       "scope": [
-        "meta.export.default.js variable.other.readwrite.js",
-        "meta.export.default.ts variable.other.readwrite.ts",
-        "meta.export.default.tsx variable.other.readwrite.tsx",
+        "source.vue variable.other.constant",
         "variable.other.readwrite.alias.js",
         "variable.other.readwrite.alias.ts",
         "variable.other.readwrite.alias.tsx",
@@ -1481,108 +1486,54 @@
         "variable.other.object.tsx"
       ],
       "settings": {
-        "fontStyle": "italic",
-        "foreground": "#F3E8FF"
+        "fontStyle": "italic"
       }
     },
     {
-      "name": "TypeScript[React] Variables and Object Properties",
-      "scope": ["entity.name.type.alias"],
+      "name": "TypeScript[React] Metatag Variable Other Property",
+      "scope": ["meta.tag.attributes variable.other.property"],
       "settings": {
-        "fontStyle": "",
-        "foreground": "#F3E8FF"
+        "fontStyle": ""
       }
     },
     {
-      "name": "TypeScript[React] Export Default Object Member Variable Other Readwrite",
+      "name": "TypeScript[React] Entity Name Types",
       "scope": [
-        "meta.definition.property.js variable.object.property.js",
-        "meta.definition.property.tsx variable.object.property.tsx",
-        "meta.export.default.js meta.object.member.js variable.other.readwrite.js",
-        "meta.export.default.tsx meta.object.member.js variable.other.readwrite.tsx"
+        "entity.name.type.ts",
+        "entity.name.type.tsx",
+        "entity.name.type.module.ts",
+        "entity.name.type.module.tsx"
       ],
       "settings": {
-        "foreground": "#F3E8FF"
-      }
-    },
-    {
-      "name": "TypeScript[React] Export Default Object Member Boolean, Numeric",
-      "scope": [
-        "meta.export.default meta.object.member.js constant.language.boolean",
-        "meta.export.default meta.object.member.js constant.numeric"
-      ],
-      "settings": {
-        "fontStyle": "",
-        "foreground": "#DABCFE"
-      }
-    },
-    {
-      "name": "TypeScript[React] Export Default Variable Other Readwrite",
-      "scope": [
-        "meta.export.default.js variable.other.readwrite.js",
-        "meta.export.default.tsx variable.other.readwrite.tsx"
-      ],
-      "settings": {
-        "foreground": "#DFCEF9"
-      }
-    },
-    {
-      "name": "TypeScript[React] Variables Other Property",
-      "scope": [
-        "meta.block variable.other.property.js",
-        "meta.block variable.other.property.ts",
-        "meta.block variable.other.property.tsx"
-      ],
-      "settings": {
-        "fontStyle": "italic",
-        "foreground": "#DABCFE"
-      }
-    },
-    {
-      "name": "TypeScript[React] Variables Other Property",
-      "scope": [
-        "meta.tag.attributes.js variable.other.property.js",
-        "meta.tag.attributes.js variable.other.property.ts",
-        "meta.tag.attributes.js variable.other.property.tsx"
-      ],
-      "settings": {
-        "fontStyle": "",
-        "foreground": "#DABCFE"
-      }
-    },
-    {
-      "name": "TypeScript[React] Meta Var Expression",
-      "scope": ["meta.var.expr"],
-      "settings": {
-        "fontStyle": "italic",
         "foreground": "#FF7EC7"
       }
     },
     {
-      "name": "[Vue] Variables",
-      "scope": ["source.vue variable.other.readwrite.js"],
+      "name": "TypeScript[React] Node Classes",
+      "scope": ["support.class.node.ts", "support.class.node.tsx"],
       "settings": {
         "foreground": "#7E90FF"
       }
     },
     {
-      "name": "YAML Entity Name Tags",
-      "scope": "entity.name.tag.yaml",
+      "name": "YAML Entity Name",
+      "scope": "source.yaml entity.name.tag",
       "settings": {
         "foreground": "#FAA6D8"
       }
     },
     {
-      "name": "[YAML] Values (String)",
-      "scope": [
-        "source.yaml string.unquoted.plain.out.yaml",
-        "source.yaml string.quoted.double.yaml",
-        "source.yaml string.quoted.single.yaml",
-        "source.yaml constant.language.boolean.yaml"
-      ],
+      "name": "YAML String Values",
+      "scope": "source.yaml string.unquoted",
       "settings": {
-        "fontStyle": "",
         "foreground": "#DABCFE"
+      }
+    },
+    {
+      "name": "YAML Array Values",
+      "scope": "source.yaml string.quoted",
+      "settings": {
+        "foreground": "#BB9AF7"
       }
     },
     {
@@ -1594,18 +1545,15 @@
       }
     },
     {
-      "name": "[Dockerfile] Values (string)",
+      "name": "[Dockerfile] String Values",
       "scope": "source.dockerfile",
       "settings": {
         "foreground": "#DABCFE"
       }
     },
     {
-      "name": "[Dockerfile] Values (array)",
-      "scope": [
-        "string.quoted.double.dockerfile",
-        "string.single.double.dockerfile"
-      ],
+      "name": "[Dockerfile] String Values",
+      "scope": "source.dockerfile string.quoted",
       "settings": {
         "foreground": "#BB9AF7"
       }
@@ -1614,6 +1562,7 @@
       "name": "[Blade] Keyword",
       "scope": "keyword.blade",
       "settings": {
+        "fontStyle": "italic",
         "foreground": "#BB9AF7"
       }
     },
@@ -1621,14 +1570,14 @@
       "name": "[Blade] Keyword",
       "scope": "meta.directive.blade string.quoted",
       "settings": {
-        "foreground": "#FAA6D8"
+        "foreground": "#DABCFE"
       }
     },
     {
       "name": "PHP Tags",
       "scope": "text.html.php punctuation.section.embedded",
       "settings": {
-        "foreground": "#F87171"
+        "foreground": "#FA4DA4"
       }
     },
     {
@@ -1647,7 +1596,8 @@
       "name": "PHP Variable",
       "scope": [
         "variable.other.php punctuation.definition.variable.php",
-        "variable.other.php"
+        "variable.other.php",
+        "variable.other.property.php"
       ],
       "settings": {
         "foreground": "#BB9AF7"
@@ -1719,13 +1669,33 @@
       }
     },
     {
+      "name": "Go Keywords",
+      "scope": [
+        "source.go keyword.package.go",
+        "source.go keyword.import.go",
+        "source.go keyword.function.go",
+        "source.go keyword.type.go",
+        "source.go keyword.struct.go",
+        "source.go keyword.interface.go",
+        "source.go keyword.const.go",
+        "source.go keyword.var.go",
+        "source.go keyword.map.go",
+        "source.go keyword.channel.go",
+        "source.go keyword.control.go"
+      ],
+      "settings": {
+        "foreground": "#BB9AF7",
+        "fontStyle": "italic"
+      }
+    },
+    {
       "name": "Go Constants e.g. nil, string format (%s, %d, etc.)",
       "scope": [
         "source.go constant.language.go",
         "source.go constant.other.placeholder.go"
       ],
       "settings": {
-        "foreground": "#BB9AF7"
+        "foreground": "#FF7EC7"
       }
     },
     {
@@ -1760,8 +1730,8 @@
       }
     },
     {
-      "name": "C++ Variable Parameter",
-      "scope": ["variable.parameter"],
+      "name": "Dart",
+      "scope": "source.dart",
       "settings": {
         "foreground": "#DFCEF9"
       }
@@ -1773,14 +1743,14 @@
         "string.interpolated.double.dart"
       ],
       "settings": {
-        "foreground": "#F87171"
+        "foreground": "#DABCFE"
       }
     },
     {
       "name": "Dart Class",
       "scope": "support.class.dart",
       "settings": {
-        "foreground": "#F3E8FF"
+        "foreground": "#DFCEF9"
       }
     },
     {
@@ -1828,7 +1798,6 @@
       "name": "ENV Variable",
       "scope": "source.env variable.other.env",
       "settings": {
-        "fontStyle": "",
         "foreground": "#BB9AF7"
       }
     },
@@ -1840,7 +1809,6 @@
         "source.env keyword.other.template.end.env"
       ],
       "settings": {
-        "fontStyle": "",
         "foreground": "#FF7EC7"
       }
     },
@@ -1854,47 +1822,34 @@
         "source.env keyword.other.template"
       ],
       "settings": {
-        "fontStyle": "",
-        "foreground": "#DFCEF9"
+        "foreground": "#DABCFE"
       }
     },
     {
       "name": "ENV Punctuation Quoted Value",
       "scope": ["source.env string.quoted"],
       "settings": {
-        "fontStyle": "",
         "foreground": "#DFCEF9"
       }
     },
     {
-      "name": "Source Ini",
-      "scope": ["source.ini", "source.ini keyword.other", "source.python"],
+      "name": "XML, Conf",
+      "scope": ["text.xml", "source.ini", "source.ini keyword.other"],
       "settings": {
-        "fontStyle": "",
-        "foreground": "#DFCEF9"
+        "foreground": "#DABCFE"
       }
     },
     {
       "name": "Source Python",
       "scope": ["source.python"],
       "settings": {
-        "fontStyle": "",
         "foreground": "#DFCEF9"
-      }
-    },
-    {
-      "name": "Python",
-      "scope": ["source.python support.variable"],
-      "settings": {
-        "fontStyle": "",
-        "foreground": "#FAA6D8"
       }
     },
     {
       "name": "Python Function-Call Generic",
       "scope": ["source.python meta.function-call.generic.python"],
       "settings": {
-        "fontStyle": "",
         "foreground": "#7691FF"
       }
     },
@@ -1902,7 +1857,6 @@
       "name": "Python Function-Call Arguments",
       "scope": ["source.python support.function"],
       "settings": {
-        "fontStyle": "",
         "foreground": "#FF7EC7"
       }
     },
@@ -1910,7 +1864,6 @@
       "name": "Python Function-Call Arguments",
       "scope": ["source.python meta.function-call.arguments.python"],
       "settings": {
-        "fontStyle": "",
         "foreground": "#DFCEF9"
       }
     },
@@ -1918,7 +1871,6 @@
       "name": "Python Docstring",
       "scope": ["source.python string.quoted.docstring"],
       "settings": {
-        "fontStyle": "",
         "foreground": "#FAA6D8"
       }
     }

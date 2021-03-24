@@ -1,17 +1,8 @@
 # Nightcall 🌃
 
-A mellow, but colorful VS Code dark theme inspired by [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
+A mellow, but colorful VS Code dark theme with pops of purple and pink. Inspired by [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
 
-## Screens
-
-### Nightcall (Default)
-
-![Default Nightcall Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/main_react-dm.png "Default Nightcall Theme")
-
-### Nightcall (No Italics)
-
-If you wish to disable italics, select `Nightcall (No Italics)` as the theme.
-![Nightcall No Italics Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/main_react-dm-no-italics.png "Nightcall No Italics Theme")
+![Default Nightcall Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/main.png "Default Nightcall Theme")
 
 ## Installation
 
@@ -20,6 +11,11 @@ If you wish to disable italics, select `Nightcall (No Italics)` as the theme.
 3. Click **Install** to install it.
 4. `Code → Preferences → Color Theme → Nightcall`
 5. **Optional**: Use the recommended settings below for best experience
+
+### Nightcall (No Italics)
+
+If you wish to disable italics, select `Nightcall (No Italics)` as the theme.
+![Nightcall No Italics Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/main_no-italics.png "Nightcall No Italics Theme")
 
 ## Separate the Editor from the Sidebar
 
@@ -107,4 +103,4 @@ The [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode
 
 ## Misc
 
-This is my first theme and there are many languages and parts of VS Code I don't use, so I'm sure I missed a few things.
+This is my first theme and there are many languages and parts of VS Code I don't use, so I might've missed a couple things 😅.
