@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.2.3"
+
+- Better consistency with Typescript-React, React, Vue, and Javascript
+
 ## "0.2.1"
 
 - Better consistency with ts and js

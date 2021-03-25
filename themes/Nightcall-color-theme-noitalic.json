@@ -71,6 +71,8 @@
     "list.inactiveSelectionBackground": "#1C2240",
     "list.inactiveSelectionForeground": "#F3E8FF",
     "list.deemphasizedForeground": "#F3E8FF",
+    "list.warningForeground": "#FED7AA",
+    "list.errorForeground": "#F87171",
     "tree.indentGuidesStroke": "#4549648c",
 
     "settings.headerForeground": "#F3E8FF",
@@ -333,7 +335,6 @@
       "scope": [
         "storage",
         "meta.var.expr",
-        "meta.class meta.method.declaration meta.var.expr storage.type.js",
         "storage.type.property.js",
         "storage.type.property.ts",
         "storage.type.property.tsx"
@@ -347,8 +348,6 @@
       "name": "Keyword, Storage Types, Punctuation",
       "scope": [
         "keyword",
-        "storage.type",
-        "storage.modifier",
         "text.html.derivative punctuation.separator.key-value.html",
         "text.html.php.blade punctuation.separator.key-value.html",
         "source.vue punctuation.separator.key-value.html",
@@ -356,14 +355,6 @@
         "text.html.vue-html meta.tag.block.any.html"
       ],
       "settings": {
-        "foreground": "#FF7EC7"
-      }
-    },
-    {
-      "name": "Keyword, Storage",
-      "scope": ["meta.method.declaration storage.type"],
-      "settings": {
-        "fontStyle": "",
         "foreground": "#FF7EC7"
       }
     },
@@ -450,6 +441,7 @@
       "name": "Variable Property Other",
       "scope": ["variable.other.object.property"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#BB9AF7"
       }
     },
@@ -460,25 +452,48 @@
         "entity.name.function",
         "meta.function-call",
         "variable.function",
-        "support.function",
         "keyword.other.special-method"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#7E90FF"
       }
     },
     {
-      "name": "Support Function Misc",
-      "scope": ["support.function.misc"],
+      "name": "Support Function",
+      "scope": ["support.function"],
       "settings": {
-        "foreground": "#DFCEF9"
+        "foreground": "#FF7EC7"
       }
     },
     {
       "name": "Block Level Variables",
-      "scope": ["meta.block variable.other"],
+      "scope": [
+        "meta.block variable.other",
+        "meta.definition.variable variable.other.readwrite.js"
+      ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#7E90FF"
+      }
+    },
+    {
+      "name": "Function Variables",
+      "scope": ["meta.function variable.other.readwrite.js"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#DABCFE"
+      }
+    },
+    {
+      "name": "Meta Tag Variables",
+      "scope": [
+        "meta.tag variable.other.readwrite.js",
+        "meta.tag variable.other.readwrite.ts",
+        "meta.tag variable.other.readwrite.tsx"
+      ],
+      "settings": {
+        "foreground": "#DABCFE"
       }
     },
     {
@@ -489,8 +504,8 @@
       }
     },
     {
-      "name": "Meta Object Member Variable Other",
-      "scope": ["meta.object.member.js variable.other.readwrite.js"],
+      "name": "Meta Method Declaration Variable",
+      "scope": ["meta.method.declaration variable.other.readwrite.js"],
       "settings": {
         "foreground": "#DABCFE"
       }
@@ -535,7 +550,7 @@
       "name": "Variable Paramter",
       "scope": ["variable.parameter"],
       "settings": {
-        "fontStyle": "",
+        // "fontStyle": "",
         "foreground": "#DABCFE"
       }
     },
@@ -780,20 +795,6 @@
       ],
       "settings": {
         "foreground": "#FF7EC7"
-      }
-    },
-    {
-      "name": "CSS Support Function",
-      "scope": [
-        "source.css support.function",
-        "source.css support.function.misc",
-        "source.css.scss support.function",
-        "source.css.scss support.function.misc",
-        "entity.name.function.stylus"
-      ],
-      "settings": {
-        "fontStyle": "",
-        "foreground": "#DFCEF9"
       }
     },
     {
@@ -1244,7 +1245,7 @@
         "markup.quote markup.bold string"
       ],
       "settings": {
-        "fontStyle": "bold italic",
+        "fontStyle": "bold",
         "foreground": "#DABCFE"
       }
     },
@@ -1453,7 +1454,6 @@
     {
       "name": "TypeScript[React] Variables and Object Properties",
       "scope": [
-        "source.vue variable.other.constant",
         "variable.other.readwrite.alias.js",
         "variable.other.readwrite.alias.ts",
         "variable.other.readwrite.alias.tsx",
@@ -1484,9 +1484,9 @@
         "variable.other.object.js",
         "variable.other.object.ts",
         "variable.other.object.tsx",
-        "variable.other.readwrite.js",
-        "variable.other.readwrite.ts",
-        "variable.other.readwrite.tsx"
+        "meta.object.member variable.other.readwrite.js",
+        "meta.object.member variable.other.readwrite.ts",
+        "meta.object.member variable.other.readwrite.tsx"
       ],
       "settings": {
         "fontStyle": ""
@@ -1854,13 +1854,6 @@
       "scope": ["source.python meta.function-call.generic.python"],
       "settings": {
         "foreground": "#7691FF"
-      }
-    },
-    {
-      "name": "Python Function-Call Arguments",
-      "scope": ["source.python support.function"],
-      "settings": {
-        "foreground": "#FF7EC7"
       }
     },
     {
