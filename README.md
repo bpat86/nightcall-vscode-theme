@@ -6,15 +6,15 @@ A mellow, but colorful VS Code dark theme with pops of purple and pink. Inspired
 
 ## Installation
 
-1. Open **Extensions** sidebar panel in VS Code. `View → Extensions`
-2. Search for `Nightcall`
+1. Open **Extensions** sidebar panel in VS Code. **View → Extensions**
+2. Search for **_Nightcall_**
 3. Click **Install** to install it.
-4. `Code → Preferences → Color Theme → Nightcall`
+4. **Code → Preferences → Color Theme → _Nightcall_**
 5. **Optional**: Use the recommended settings below for best experience
 
-### Nightcall (No Italics)
+## No Italics
 
-If you wish to disable italics, select `Nightcall (No Italics)` as the theme.
+If you wish to disable italics, select **_Nightcall (No Italics)_** as the theme.
 ![Nightcall No Italics Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/main_no-italics.png "Nightcall No Italics Theme")
 
 ## Separate the Editor from the Sidebar

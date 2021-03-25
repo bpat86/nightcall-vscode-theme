@@ -843,6 +843,7 @@
         "meta.property-list.scss"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FAA6D8"
       }
     },
@@ -1482,7 +1483,10 @@
       "scope": [
         "variable.other.object.js",
         "variable.other.object.ts",
-        "variable.other.object.tsx"
+        "variable.other.object.tsx",
+        "variable.other.readwrite.js",
+        "variable.other.readwrite.ts",
+        "variable.other.readwrite.tsx"
       ],
       "settings": {
         "fontStyle": ""
