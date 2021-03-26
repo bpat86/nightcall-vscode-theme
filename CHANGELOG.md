@@ -2,9 +2,9 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
-## "0.2.6"
+## "0.2.7"
 
-- Fixed typo in README
+- Fixed typos in README
 
 ## "0.2.5"
 

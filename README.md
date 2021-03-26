@@ -101,7 +101,7 @@ These are the settings I'm using:
 
 ## Misc
 
-My goal in making this theme was to achieve a healthy balance of subtlety and contrast. I wanted a dark theme I can use any time of day while I <s>stare endlessly and wonder why I went through the trouble of setting up yet another Next.js project in Docker only to not work on it and contemplate possible career changes</s> working really hard on so many very important things.
+My goal in making this theme was to achieve a healthy balance of subtlety and contrast. I wanted a dark theme I can use any time of day while I <s>stare endlessly and wonder why I went through the trouble of setting up yet another Next.js project in Docker only to not work on it and contemplate possible career changes</s> work really hard on so many very important things.
 
 Color palette, accessibility considerations, attention to detail, and overall vibes were inspired in part by Sarah Drasner's [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
 
