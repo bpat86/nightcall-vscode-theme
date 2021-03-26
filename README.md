@@ -1,8 +1,8 @@
 # Nightcall 🌃
 
-A mellow, but colorful VS Code dark theme with pops of purple and pink. Inspired by [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
+A mellow, but colorful VS Code dark theme with pops of purple and pink.
 
-![Default Nightcall Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/showcase.png "Default Nightcall Theme")
+![Default Nightcall Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react-main.png "Default Nightcall Theme")
 
 ## Installation
 
@@ -15,7 +15,7 @@ A mellow, but colorful VS Code dark theme with pops of purple and pink. Inspired
 ## No Italics
 
 If you wish to disable italics, select **Nightcall (No Italics)** as the theme.
-![Nightcall No Italics Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/showcase_no-italics.png "Nightcall No Italics Theme")
+![Nightcall No Italics Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react-main_no-italics.png "Nightcall No Italics Theme")
 
 ## Separate the Editor from the Sidebar
 
@@ -48,21 +48,19 @@ Taking a page from [Night Owl's](https://marketplace.visualstudio.com/items?item
 
 ## Recommended Settings
 
-The font I'm using is `Dank Mono` and is available [here for purchase](https://dank.sh/). `Fira Code` also looks pretty good and is available [here for free](https://github.com/tonsky/FiraCode).
+The font I'm using in the preview images is `Dank Mono` and is available [here for purchase](https://dank.sh/). For those not interested in buying a fancy font with cool italics, `Fira Code` also looks pretty good and can be downloaded [here for free](https://github.com/tonsky/FiraCode).
 
 ```json
-"editor.semanticHighlighting.enabled": false, // Important!
-"editor.fontFamily": "Dank Mono, Fira Code",
+"editor.fontFamily": "Dank Mono",
 "editor.fontLigatures": true,
 "editor.letterSpacing": 0.3,
-"editor.lineHeight": 26,
-"editor.fontSize": 17, // 16 for Fira Code
-"editor.tabSize": 2,
 ```
 
 ## Recommended Plugin Settings
 
-The [Indent-Rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) color settings I'm using:
+These are the settings I'm using:
+
+### [Indent-Rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow "Indent-Rainbow")
 
 ```json
 "indentRainbow.colors": [
@@ -74,7 +72,7 @@ The [Indent-Rainbow](https://marketplace.visualstudio.com/items?itemName=oderwat
 ],
 ```
 
-The [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2) color settings I'm using:
+### [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2 "Bracket Pair Colorizer 2")
 
 ```json
 "bracket-pair-colorizer-2.forceIterationColorCycle": true,
@@ -86,14 +84,14 @@ The [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemNa
 ],
 ```
 
-The [Footsteps](https://marketplace.visualstudio.com/items?itemName=Wattenberger.footsteps) color settings I'm using:
+### [Footsteps](https://marketplace.visualstudio.com/items?itemName=Wattenberger.footsteps "Footsteps")
 
 ```json
 "footsteps.highlightColor": "rgb(248, 167, 212)",
 "footsteps.highlightColorMaxOpacity": 0.05,
 ```
 
-The [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost) color settings I'm using:
+### [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost "Import Cost")
 
 ```json
 "importCost.smallPackageColor": "#98FACA",
@@ -103,4 +101,10 @@ The [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode
 
 ## Misc
 
-This is my first theme and there are many languages and parts of VS Code I don't use, so I might've missed a couple things 😅.
+My goal in making this theme was to achieve aa decent balance of subtlety and contrast. I wanted a dark theme I could use any time of day that wasn't too jarring for my eyes as I ~~stare endlessly into the screen wondering why I went through the trouble of setting up another Next.js project in Docker just so I can not work on it or why my code isn't working or contemplating possible career changes~~ work really hard on so many very important things.
+
+Color palette, accessibility considerations, attention to detail, and overall vibes were inspired in part by Sarah Drasner's [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
+
+It is my personal belief that the colors pink and purple are criminally underutilized and downright sophisticated (So many people are saying this!).
+
+This is my first theme and there are many languages and parts of VS Code I don't use, so I might've missed a couple things 😅. Feel free to file an issue if something doesn't appear intentional, or nightcall-sy if you will.

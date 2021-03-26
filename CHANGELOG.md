@@ -2,6 +2,12 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.2.4"
+
+- Better support for ENV and Docker
+- Better consistency with Typescript-React, React, Vue, and Javascript
+- Updated README
+
 ## "0.2.3"
 
 - Better consistency with Typescript-React, React, Vue, and Javascript
