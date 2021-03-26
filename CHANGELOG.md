@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.2.6"
+
+- Fixed typo in README
+
 ## "0.2.5"
 
 - Better support for ENV and Docker
