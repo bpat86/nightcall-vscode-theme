@@ -2,9 +2,13 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.3.0"
+
+- Made the hottest pink color less hot
+
 ## "0.2.8"
 
-Fixed typos in README 😅
+- Fixed typos in README 😅
 
 ## "0.2.7"
 

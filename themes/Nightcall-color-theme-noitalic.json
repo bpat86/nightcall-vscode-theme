@@ -466,7 +466,7 @@
       "name": "Support Function",
       "scope": ["support.function"],
       "settings": {
-        "foreground": "#FA4DA4"
+        "foreground": "#FA5BBE"
       }
     },
     {
@@ -575,7 +575,7 @@
       "scope": ["support.constant.math", "support.function.math"],
       "settings": {
         "fontStyle": "",
-        "foreground": "#FA4DA4"
+        "foreground": "#FA5BBE"
       }
     },
     {
@@ -883,7 +883,7 @@
         "source.stylus keyword.other.stylus"
       ],
       "settings": {
-        "foreground": "#FA4DA4"
+        "foreground": "#FA5BBE"
       }
     },
     {
@@ -1006,7 +1006,7 @@
         "entity.other.attribute-name.id punctuation.definition.entity.css"
       ],
       "settings": {
-        "foreground": "#FA4DA4"
+        "foreground": "#FA5BBE"
       }
     },
     {
@@ -1018,7 +1018,7 @@
       ],
       "settings": {
         "fontStyle": "",
-        "foreground": "#FA4DA4"
+        "foreground": "#FA5BBE"
       }
     },
     {
