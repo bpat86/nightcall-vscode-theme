@@ -2,7 +2,7 @@
   "name": "nightcall",
   "displayName": "Nightcall",
   "description": "A mellow, but colorful VS Code dark theme with pops of purple and pink.",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "publisher": "bpat86",
   "license": "SEE LICENSE IN LICENSE.md",
   "repository": {
@@ -35,7 +35,7 @@
   "categories": [
     "Themes"
   ],
-  "icon": "icon.png",
+  "icon": "main-icon.png",
   "contributes": {
     "themes": [
       {

@@ -107,4 +107,4 @@ Color palette, accessibility considerations, attention to detail, and overall vi
 
 It is my personal belief that the colors pink and purple are criminally underutilized and downright sophisticated (So many people are saying this!).
 
-This is my first theme and there are many languages and parts of VS Code I don't use, so I might've missed a couple things 😅. Feel free to file an issue if something doesn't appear intentional, or nightcall-sy if you will.
+This is my first theme and there are many languages and parts of VS Code I don't use, so I might've missed a couple things 😅. Feel free to file an issue if something doesn't appear intentional, or "Nightcall-sy" if you will.
