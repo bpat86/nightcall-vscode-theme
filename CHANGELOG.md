@@ -2,6 +2,11 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.3.2"
+
+- Better consistency between css, scss, less, and stylus
+- Better support for regular expressions
+
 ## "0.3.1"
 
 - Made the hottest pink color less hot

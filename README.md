@@ -101,10 +101,8 @@ These are the settings I'm using:
 
 ## Misc
 
-My goal in making this theme was to achieve a healthy balance of subtlety and contrast. I wanted a dark theme I can use any time of day while I <s>stare endlessly and wonder why I went through the trouble of setting up yet another Next.js project in Docker only to not work on it and contemplate possible career changes</s> work really hard on so many very important things.
+This is my first theme and there are many languages and parts of VS Code I don't use, so needless to say I might've missed some things 😅. Feel free to file an issue if something doesn't appear intentional, or "Nightcall-sy" if you will.
 
-Color palette, accessibility considerations, attention to detail, and overall vibes were inspired in part by Sarah Drasner's [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) and [Overnight Slumber](https://marketplace.visualstudio.com/items?itemName=cev.overnight).
+My goal in making this theme was to achieve a balance of contrast and subtlety versatile enough to use any time of day, better enabling me to <s>stare at the same broken block of code for several hours hopelessly contemplating a possible career change and how different my life could be if I was smarter</s> work super hard on a lot of very important things.
 
-It is my personal belief that the colors pink and purple are criminally underutilized and downright sophisticated (So many people are saying this!).
-
-This is my first theme and there are many languages and parts of VS Code I don't use, so I might've missed a couple things 😅. Feel free to file an issue if something doesn't appear intentional, or "Nightcall-sy" if you will.
+Accessibility considerations were inspired by Sarah Drasner's [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl).

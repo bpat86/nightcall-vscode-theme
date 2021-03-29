@@ -464,7 +464,7 @@
     },
     {
       "name": "Support Function",
-      "scope": ["support.function"],
+      "scope": ["support.function", "entity.name.function.stylus"],
       "settings": {
         "foreground": "#FA5BBE"
       }
@@ -772,12 +772,13 @@
       }
     },
     {
-      "name": "CSS Vendored Property Name",
+      "name": "CSS Vendored Property Name, Meta Property Value",
       "scope": [
         "meta.property-name.css support.type.vendored.property-name.css",
         "source.css.scss support.type.vendored.property-name.css",
         "source.css.less meta.property-list.css support.type.vendored.property-name.css",
-        "source.css meta.property-value.css"
+        "source.css meta.property-value.css",
+        "source.css.scss meta.property-list.scss meta.property-value.scss support.type.property-name.css"
       ],
       "settings": {
         "fontStyle": "",
@@ -786,10 +787,7 @@
     },
     {
       "name": "CSS/SCSS Meta Property Value",
-      "scope": [
-        "source.css.scss meta.property-list.scss meta.property-value.scss support.type.property-name.css",
-        "meta.property-value.css support.constant.property-value.css"
-      ],
+      "scope": ["meta.property-value.css support.constant.property-value.css"],
       "settings": {
         "foreground": "#BB9AF7"
       }
@@ -837,8 +835,12 @@
     },
     {
       "name": "CSS Unit",
-      "scope": ["keyword.other.unit"],
+      "scope": [
+        "source.css keyword.other.unit",
+        "source.stylus keyword.other.unit"
+      ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FF7EC7"
       }
     },
@@ -994,24 +996,19 @@
     },
     {
       "name": "CSS Classes",
-      "scope": ["entity.other.attribute-name.class"],
+      "scope": [
+        "punctuation.definition.entity.css",
+        "entity.other.attribute-name.class"
+      ],
       "settings": {
         "fontStyle": "",
         "foreground": "#FAA6D8"
       }
     },
     {
-      "name": "CSS ID Punctuation (#)",
-      "scope": [
-        "entity.other.attribute-name.id punctuation.definition.entity.css"
-      ],
-      "settings": {
-        "foreground": "#FA5BBE"
-      }
-    },
-    {
       "name": "CSS ID's",
       "scope": [
+        "entity.other.attribute-name.id punctuation.definition.entity.css",
         "entity.other.attribute-name.id.css",
         "source.css.less entity.other.attribute-name.id",
         "source.sass keyword.control"
@@ -1025,7 +1022,7 @@
       "name": "Inserted",
       "scope": ["markup.inserted"],
       "settings": {
-        "foreground": "#92DEDF"
+        "foreground": "#98FACA"
       }
     },
     {
@@ -1044,17 +1041,26 @@
     },
     {
       "name": "Regular Expressions",
-      "scope": ["string.regexp"],
+      "scope": ["string.regexp", "string.regexp keyword.other"],
       "settings": {
         "fontStyle": "",
         "foreground": "#BB9AF7"
       }
     },
     {
+      "name": "Regular Expressions",
+      "scope": ["string.regexp punctuation.definition.string"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#DABCFE"
+      }
+    },
+    {
       "name": "Escape Characters",
       "scope": ["constant.character.escape"],
       "settings": {
-        "foreground": "#BB9AF7"
+        "fontStyle": "",
+        "foreground": "#F87171"
       }
     },
     {
@@ -1083,13 +1089,6 @@
       "settings": {
         "fontStyle": "",
         "foreground": "#FF7EC7"
-      }
-    },
-    {
-      "name": "JSON Object String Value",
-      "scope": ["constant.language.json.comments"],
-      "settings": {
-        "foreground": "#DABCFE"
       }
     },
     {
