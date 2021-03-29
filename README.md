@@ -103,6 +103,6 @@ These are the settings I'm using:
 
 This is my first theme and there are many languages and parts of VS Code I don't use, so needless to say I might've missed some things 😅. Feel free to file an issue if something doesn't appear intentional, or "Nightcall-sy" if you will.
 
-My goal in making this theme was to achieve a balance of contrast and subtlety versatile enough to use any time of day, better enabling me to <s>stare at the same broken block of code for several hours hopelessly contemplating a possible career change and how different my life could be if I was smarter</s> work super hard on a lot of very important things.
+My goal in making this theme was to achieve a balance of contrast and subtlety versatile enough to use any time of day, better enabling me to <s>stare at the same broken block of code for hours while contemplating a possible career change</s> work very hard on lots of super important things.
 
-Accessibility considerations were inspired by Sarah Drasner's [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl).
+Accessibility considerations and prolific use of italics inspired by Sarah Drasner's [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) theme.

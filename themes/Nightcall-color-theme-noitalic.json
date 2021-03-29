@@ -377,7 +377,8 @@
         "keyword.operator.spread",
         "keyword.operator.type.annotation",
         "source.ini punctuation.definition.comment",
-        "source.dart keyword.operator"
+        "source.dart keyword.operator",
+        "keyword.operator.stylus"
       ],
       "settings": {
         "fontStyle": "",
@@ -830,7 +831,7 @@
       "name": "CSS Pseudo Element",
       "scope": ["entity.other.attribute-name.pseudo-element"],
       "settings": {
-        "foreground": "#BB9AF7"
+        "foreground": "#FF7EC7"
       }
     },
     {
@@ -850,7 +851,6 @@
         "variable.css",
         "variable.scss",
         "variable.stylus",
-        "keyword.operator.stylus",
         "meta.property-list.scss"
       ],
       "settings": {
@@ -995,11 +995,18 @@
       }
     },
     {
-      "name": "CSS Classes",
+      "name": "CSS Class Punctuation",
       "scope": [
-        "punctuation.definition.entity.css",
-        "entity.other.attribute-name.class"
+        "entity.other.attribute-name.class punctuation.definition.entity.css"
       ],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#FAA6D8"
+      }
+    },
+    {
+      "name": "CSS Classes",
+      "scope": ["entity.other.attribute-name.class"],
       "settings": {
         "fontStyle": "",
         "foreground": "#FAA6D8"
