@@ -2,6 +2,12 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.4.0"
+
+- A few small tweaks to CSS, SCSS, LESS syntax coloring
+- Added a new color
+- Better consistency between React and Typescript React syntax, variables, etc.
+
 ## "0.3.3"
 
 - Better consistency between css, scss, less, and stylus
