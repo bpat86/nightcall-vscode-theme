@@ -2,9 +2,9 @@
 
 A mellow, but colorful VS Code dark theme with vibrant shades of pink and purple.
 
-My goal was to make a theme versatile enough to use any time of day that could better enable me to <s>stare at broken bits of code for hours at a time while contemplating a possible career change</s> work hard on so many very important things.
+I set out to make a dark theme versatile enough for any time of day that could better enable me to <s>stare endlessly at broken blocks of code while I contemplate possible career changes</s> work hard on so many very important things and projects.
 
-![Default Nightcall Theme](react-main.png?id=0325040521 "Default Nightcall Theme")
+![Default Nightcall Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react-main.png?id=1155040621 "Default Nightcall Theme")
 
 ## Installation
 
@@ -16,8 +16,8 @@ My goal was to make a theme versatile enough to use any time of day that could b
 
 ## No Italics
 
-If you wish to disable italics, select **Nightcall (No Italics)** as the theme.
-![Nightcall No Italics Theme](react-main_no-italics.png?id=0325040521 "Nightcall No Italics Theme")
+If you don't like italics (how dare you), select **Nightcall (No Italics)** as the theme.
+![Nightcall No Italics Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react-main_no-italics.png?id=1155040621 "Nightcall No Italics Theme")
 
 ## Separate the Editor from the Sidebar
 
@@ -103,8 +103,8 @@ These are the settings I'm using:
 
 ## Misc
 
-This is my first theme and there are many languages and parts of VS Code I don't use often or at all, so needless to say I might've missed a few things 😅. Feel free to file an issue if something doesn't appear intentional on my part, or very "Nightcall-sy" if you will.
+This is my first theme and there are many languages and parts of VS Code I don't use often (or at all), so needless to say I might've missed a few things 😅. Feel free to file an issue if something doesn't appear intentional, or very "Nightcall-sy" if you will.
 
 Accessibility considerations and prolific use of italics inspired by Sarah Drasner's [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) theme.
 
-_Possible TODO item: Add a "muted" color theme option._
+**TODO**: Eventually add a more _muted_ color theme option.

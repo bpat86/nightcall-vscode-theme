@@ -2,6 +2,12 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.4.4"
+
+- Adjusted the color of variables to a lighter color to make them more noticeable while scanning and differentiate them from other keywords
+- Adjusted the color of buttons, inputs, and dropdowns in the settings section
+- Adjusted the color of titles, file names, etc in the sidebar to more readable
+
 ## "0.4.3"
 
 - Updated the color of buttons, inputs, and dropdowns in the settings section
