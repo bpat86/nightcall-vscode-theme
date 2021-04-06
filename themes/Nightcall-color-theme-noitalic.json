@@ -14,9 +14,9 @@
     "selection.background": "#C2BDE03d",
     "errorForeground": "#F87171",
 
-    "button.background": "#141629cc",
+    "button.background": "#23263F",
     "button.foreground": "#C2BDE0",
-    "button.hoverBackground": "#141629",
+    "button.hoverBackground": "#23263Fcc",
 
     "dropdown.listBackground": "#23263F",
     "dropdown.background": "#141629af",
@@ -25,7 +25,7 @@
 
     "icon.foreground": "#C2BDE0",
 
-    "input.background": "#141629",
+    "input.background": "#141629", //
     "input.border": "#141629",
     "input.foreground": "#C2BDE0",
     "input.placeholderForeground": "#DFCEF9",
@@ -91,7 +91,7 @@
     "settings.textInputBackground": "#2729405a",
     "settings.textInputBorder": "#2729405a",
     "settings.textInputForeground": "#C2BDE0",
-    "settings.focusedRowBackground": "#2729403f",
+    "settings.focusedRowBackground": "#272940be",
 
     "activityBar.background": "#141629",
     "activityBar.dropBorder": "#5A5D85",
@@ -211,7 +211,7 @@
     "merge.border": null,
 
     "panel.background": "#23263F",
-    "panel.border": "#23263F44",
+    "panel.border": "#23263F44", // Terminal lives here
 
     "panelTitle.activeBorder": "#5A5D85",
     "panelTitle.activeForeground": "#C2BDE0",
@@ -246,8 +246,8 @@
     "notificationLink.foreground": "#7E90FF",
 
     "extensionButton.prominentForeground": "#C2BDE0",
-    "extensionButton.prominentBackground": "#484B70cc",
-    "extensionButton.prominentHoverBackground": "#484B70",
+    "extensionButton.prominentBackground": "#23263F",
+    "extensionButton.prominentHoverBackground": "#23263Fcc",
 
     "terminal.ansiWhite": "#C2BDE0",
     "terminal.ansiBlack": "#141629",
