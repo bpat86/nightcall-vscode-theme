@@ -1269,7 +1269,7 @@
       "name": "Markup - Italic",
       "scope": ["markup.italic"],
       "settings": {
-        "fontStyle": "",
+        "fontStyle": "italic",
         "foreground": "#DABCFE"
       }
     },

@@ -2,7 +2,7 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
-## "0.4.2"
+## "0.4.3"
 
 - Updated the color of buttons, inputs, and dropdowns in the settings section
 
