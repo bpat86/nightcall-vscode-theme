@@ -2,7 +2,7 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
-## "0.4.0"
+## "0.4.1"
 
 - A few small tweaks to CSS, SCSS, LESS syntax coloring
 - Added a new color

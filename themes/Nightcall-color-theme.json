@@ -112,7 +112,7 @@
     "editorGroup.border": "#141629",
     "editorGroup.dropBackground": "#141629",
     "editorGroupHeader.noTabsBackground": "#141629",
-    "editorGroupHeader.tabsBackground": "#23263F",
+    "editorGroupHeader.tabsBackground": "#141629",
     "editorGroupHeader.tabsBorder": "#23263f44",
 
     "tab.activeBackground": "#23263F",
@@ -1155,7 +1155,7 @@
       ],
       "settings": {
         "fontStyle": "",
-        "foreground": "#E181DC"
+        "foreground": "#FAA6D8"
       }
     },
     {

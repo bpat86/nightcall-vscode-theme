@@ -25,7 +25,7 @@
 
     "icon.foreground": "#C2BDE0",
 
-    "input.background": "#141629", //
+    "input.background": "#141629",
     "input.border": "#141629",
     "input.foreground": "#C2BDE0",
     "input.placeholderForeground": "#DFCEF9",
@@ -112,7 +112,7 @@
     "editorGroup.border": "#141629",
     "editorGroup.dropBackground": "#141629",
     "editorGroupHeader.noTabsBackground": "#141629",
-    "editorGroupHeader.tabsBackground": "#23263F",
+    "editorGroupHeader.tabsBackground": "#141629",
     "editorGroupHeader.tabsBorder": "#23263f44",
 
     "tab.activeBackground": "#23263F",
@@ -211,7 +211,7 @@
     "merge.border": null,
 
     "panel.background": "#23263F",
-    "panel.border": "#23263F44", // Terminal lives here
+    "panel.border": "#23263F44",
 
     "panelTitle.activeBorder": "#5A5D85",
     "panelTitle.activeForeground": "#C2BDE0",
@@ -1155,7 +1155,7 @@
       ],
       "settings": {
         "fontStyle": "",
-        "foreground": "#E181DC"
+        "foreground": "#FAA6D8"
       }
     },
     {
