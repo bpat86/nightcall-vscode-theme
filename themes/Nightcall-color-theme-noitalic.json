@@ -7,8 +7,8 @@
     "editor.background": "#141629",
     "editor.foreground": "#E7D2FF",
 
-    "contrastBorder": "#23263f44",
-    "focusBorder": "#141629",
+    "contrastBorder": "#23263F45",
+    "focusBorder": "#141629af",
     "foreground": "#DACCFFcc",
     "widget.shadow": "#141629",
     "selection.background": "#E7D2FF3d",
@@ -19,19 +19,19 @@
     "button.hoverBackground": "#23263Fcc",
 
     "dropdown.listBackground": "#23263F",
-    "dropdown.background": "#141629af",
+    "dropdown.background": "#23263Faf",
     "dropdown.border": "#23263F",
     "dropdown.foreground": "#E7D2FF",
 
     "icon.foreground": "#E7D2FF",
 
-    "input.background": "#141629", //
-    "input.border": "#141629",
+    "input.background": "#101221af",
+    "input.border": "#23263F",
     "input.foreground": "#E7D2FF",
     "input.placeholderForeground": "#E7D2FF",
 
     "pickerGroup.foreground": "#E7D2FF",
-    "pickerGroup.border": "#141629af",
+    "pickerGroup.border": "#23263F",
 
     "quickInput.background": "#23263F",
     "quickInputTitle.background": "#23263F",
@@ -44,10 +44,10 @@
     "inputValidation.warningBackground": "#FED7AAF2",
     "inputValidation.warningBorder": "#FED7AA",
 
-    "scrollbar.shadow": "#010b14",
-    "scrollbarSlider.activeBackground": "#2B2E4D",
-    "scrollbarSlider.background": "#2B2E4D",
-    "scrollbarSlider.hoverBackground": "#2B2E4D",
+    "scrollbar.shadow": "#010b145d",
+    "scrollbarSlider.activeBackground": "#3D3C5F",
+    "scrollbarSlider.background": "#3D3C5F",
+    "scrollbarSlider.hoverBackground": "#3D3C5F",
 
     "badge.background": "#FF7EC7",
     "badge.foreground": "#141629",
@@ -74,27 +74,27 @@
     "list.deemphasizedForeground": "#E7D2FF",
     "list.warningForeground": "#FED7AA",
     "list.errorForeground": "#F87171",
-    "tree.indentGuidesStroke": "#23263f44",
+    "tree.indentGuidesStroke": "#23263Faf",
 
     "settings.headerForeground": "#DACCFF",
-    "settings.modifiedItemIndicator": "#FF7EC7cc",
-    "settings.checkboxBackground": "#2729405a",
-    "settings.checkboxBorder": "#2729405a",
+    "settings.modifiedItemIndicator": "#BB9AF7fa",
+    "settings.checkboxBackground": "#23263Faf",
+    "settings.checkboxBorder": "#23263F",
     "settings.checkboxForeground": "#DACCFFcc",
-    "settings.dropdownBackground": "#2729405a",
-    "settings.dropdownBorder": "#2729405a",
+    "settings.dropdownBackground": "#23263Faf",
+    "settings.dropdownBorder": "#23263F",
     "settings.dropdownForeground": "#DACCFFcc",
-    "settings.dropdownListBorder": "#2729405a",
-    "settings.numberInputBackground": "#2729405a",
-    "settings.numberInputBorder": "#2729405a",
+    "settings.dropdownListBorder": "#23263F",
+    "settings.numberInputBackground": "#23263Faf",
+    "settings.numberInputBorder": "#23263F",
     "settings.numberInputForeground": "#DACCFFcc",
-    "settings.textInputBackground": "#2729405a",
-    "settings.textInputBorder": "#2729405a",
+    "settings.textInputBackground": "#23263Faf",
+    "settings.textInputBorder": "#23263F",
     "settings.textInputForeground": "#DACCFFcc",
-    "settings.focusedRowBackground": "#0f111fab",
+    "settings.focusedRowBackground": "#141629",
 
-    "notebook.focusedRowBorder": "#0f111fab",
-    "notebook.rowHoverBackground": "#0F111fab",
+    "notebook.focusedRowBorder": "#23263F",
+    "notebook.rowHoverBackground": "#141629",
 
     "activityBar.background": "#141629",
     "activityBar.dropBorder": "#B6AFE4af",
@@ -187,7 +187,7 @@
     "editorSuggestWidget.selectedBackground": "#141629",
 
     "editorHoverWidget.background": "#23263F",
-    "editorHoverWidget.border": "#141629",
+    "editorHoverWidget.border": "#23263F",
     "debugExceptionWidget.background": "#23263F",
     "debugExceptionWidget.border": "#6C6D9E",
     "editorMarkerNavigation.background": "#141629",
@@ -212,9 +212,9 @@
     "merge.incomingHeaderBackground": "#F9A8D45a",
     "merge.incomingContentBackground": null,
     "merge.border": null,
-
-    "panel.background": "#23263F",
-    "panel.border": "#23263F44", // Terminal lives here
+    // Terminal lives here
+    "panel.background": "#141629",
+    "panel.border": "#23263Faf",
 
     "panelTitle.activeBorder": "#716E94",
     "panelTitle.activeForeground": "#E7D2FF",
@@ -222,7 +222,7 @@
 
     "statusBar.background": "#23263F",
     "statusBar.foreground": "#B6AFE4cc",
-    "statusBar.border": "#141629",
+    "statusBar.border": "#23263F",
     "statusBar.debuggingBackground": "#141629",
     "statusBar.debuggingForeground": null,
     "statusBar.debuggingBorder": "#141629",
@@ -270,7 +270,7 @@
     "terminal.ansiBrightYellow": "#FED7AA",
     "terminal.selectionBackground": "#1416294d",
 
-    "terminal.background": "#23263F",
+    "terminal.background": "#141629",
     "terminal.border": "#141629",
     "terminalCursor.background": "#23263F",
 

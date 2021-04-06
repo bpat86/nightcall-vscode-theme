@@ -2,15 +2,19 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.4.5"
+
+- Adjusted the colors of inputs, and dropdowns in the settings section
+
 ## "0.4.4"
 
-- Adjusted the color of variables to a lighter color to make them more noticeable while scanning and differentiate them from other keywords
-- Adjusted the color of buttons, inputs, and dropdowns in the settings section
-- Adjusted the color of titles, file names, etc in the sidebar to more readable
+- Adjusted the colors of variables to a lighter color to make them more noticeable while scanning and differentiate them from other keywords
+- Adjusted the colors of buttons, inputs, and dropdowns in the settings section
+- Adjusted the colors of titles, file names, etc in the sidebar to more readable
 
 ## "0.4.3"
 
-- Updated the color of buttons, inputs, and dropdowns in the settings section
+- Updated the colors of buttons, inputs, and dropdowns in the settings section
 
 ## "0.4.1"
 
@@ -87,7 +91,7 @@ All notable changes to the "nightcall" extension will be documented in this file
 
 ## "0.1.1"
 
-- Change the color of imports, etc to purple
+- Change the colors of imports, etc to purple
 - Make error text more legible
 
 ## "0.1.0"
