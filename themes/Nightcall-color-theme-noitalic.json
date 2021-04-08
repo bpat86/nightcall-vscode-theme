@@ -312,7 +312,7 @@
       ],
       "settings": {
         "fontStyle": "",
-        "foreground": "#716E94cc"
+        "foreground": "#716E94"
       }
     },
     {
@@ -1642,7 +1642,15 @@
         "keyword.other.type.php"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#BB9AF7"
+      }
+    },
+    {
+      "name": "PHP Doc",
+      "scope": ["keyword.other.phpdoc.php", "keyword.other.type.php"],
+      "settings": {
+        "fontStyle": ""
       }
     },
     {
@@ -1680,9 +1688,13 @@
     },
     {
       "name": "PHP Support Class, Entity Name Type",
-      "scope": ["support.class.php", "entity.name.type.class.php"],
+      "scope": [
+        "support.class.php",
+        "entity.name.class.php",
+        "entity.name.type.class.php"
+      ],
       "settings": {
-        "foreground": "#FAA6D8"
+        "foreground": "#DABCFE"
       }
     },
     {
@@ -1694,7 +1706,7 @@
     },
     {
       "name": "PHP Key Values",
-      "scope": ["source.php string.quoted"],
+      "scope": ["source.php string.quoted.single", "string.quoted.double"],
       "settings": {
         "foreground": "#FAA6D8"
       }
@@ -1707,7 +1719,7 @@
       ],
       "settings": {
         "fontStyle": "",
-        "foreground": "#DABCFE"
+        "foreground": "#FAA6D8"
       }
     },
     {

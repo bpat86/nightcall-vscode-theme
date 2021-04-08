@@ -4,6 +4,10 @@ All notable changes to the "nightcall" extension will be documented in this file
 
 ## "0.4.6"
 
+- Adjusted PHP Support Class colors for better consistency
+
+## "0.4.6"
+
 - Better consistency with highlighted colors across the editor, sidebar, and settings
 
 ## "0.4.5"
