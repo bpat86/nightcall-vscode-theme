@@ -333,6 +333,7 @@
       "name": "Colors",
       "scope": ["constant.other.color"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#DABCFE"
       }
     },
@@ -1706,7 +1707,10 @@
     },
     {
       "name": "PHP Key Values",
-      "scope": ["source.php string.quoted.single", "string.quoted.double"],
+      "scope": [
+        "source.php string.quoted.single",
+        "source.php string.quoted.double"
+      ],
       "settings": {
         "foreground": "#FAA6D8"
       }

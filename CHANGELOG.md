@@ -2,7 +2,7 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
-## "0.4.8"
+## "0.4.9"
 
 - Fixed issue where JSON values color was overridden by a different scope
 

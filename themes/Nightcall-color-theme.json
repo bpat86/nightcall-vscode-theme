@@ -333,6 +333,7 @@
       "name": "Colors",
       "scope": ["constant.other.color"],
       "settings": {
+        "fontStyle": "",
         "foreground": "#DABCFE"
       }
     },
