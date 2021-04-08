@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.5.0"
+
+- Improved the visibility of selected text highlighting in the editor
+
 ## "0.4.9"
 
 - Fixed issue where JSON values color was overridden by a different scope

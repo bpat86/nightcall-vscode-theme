@@ -135,13 +135,13 @@
     "editorUnnecessaryCode.border": "#FF7EC7",
     "editorUnnecessaryCode.opacity": "#FF7EC7af",
 
-    "editor.selectionBackground": "#23263F",
-    "editor.selectionHighlightBackground": "#23263F",
-    "editor.inactiveSelectionBackground": "#23263F",
-    "editor.wordHighlightBackground": "#23263F",
-    "editor.wordHighlightStrongBackground": "#23263F",
-    "editor.findMatchBackground": "#23263F",
-    "editor.findMatchHighlightBackground": "#23263F",
+    "editor.selectionBackground": "#C5AEF53f",
+    "editor.selectionHighlightBackground": "#C5AEF53f",
+    "editor.inactiveSelectionBackground": "#C5AEF53f",
+    "editor.wordHighlightBackground": "#C5AEF53f",
+    "editor.wordHighlightStrongBackground": "#C5AEF53f",
+    "editor.findMatchBackground": "#C5AEF53f",
+    "editor.findMatchHighlightBackground": "#C5AEF53f",
     "editor.findRangeHighlightBackground": null,
     "editor.hoverHighlightBackground": "#23263F",
     "editor.lineHighlightBackground": "#23263F",
@@ -910,7 +910,7 @@
         "source.stylus keyword.other.stylus"
       ],
       "settings": {
-        "foreground": "#FA5BBE"
+        "foreground": "#F87171"
       }
     },
     {
