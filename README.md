@@ -1,5 +1,8 @@
 # Nightcall 🌃
 
+[![Version](https://vsmarketplacebadge.apphb.com/version-short/bpat86.nightcall.svg)](https://github.com/bpat86/nightcall-vscode-theme)
+[![Downloads](https://vsmarketplacebadge.apphb.com/downloads/bpat86.nightcall.svg)](https://marketplace.visualstudio.com/items?itemName=bpat86.nightcall&ssr=false#overview)
+
 A mellow, but colorful VS Code dark theme with vibrant shades of pink and purple.
 
 I set out to make a dark theme versatile enough for any time of day that could better enable me to <s>stare endlessly at broken blocks of code while I contemplate possible career changes</s> work hard on so many very important things and projects.

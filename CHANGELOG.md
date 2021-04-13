@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.5.1"
+
+- Better consistency between React and Typescript React syntax, variables, etc.
+
 ## "0.5.0"
 
 - Improved the visibility of selected text highlighting in the editor

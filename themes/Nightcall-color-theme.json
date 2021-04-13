@@ -375,7 +375,7 @@
         "source.vue punctuation.separator.key-value.html",
         "source.vue storage.type.js",
         "text.html.vue-html meta.tag.block.any.html",
-        "punctuation.separator.key-value.mapping.yaml",
+
         "keyword.other.template.begin.env",
         "keyword.other.template.end.env"
       ],
@@ -439,6 +439,17 @@
         "text.pug"
       ],
       "settings": {
+        "foreground": "#DABCFE"
+      }
+    },
+    {
+      "name": "[Unrecognized Meta Attribute",
+      "scope": [
+        "text.html.derivative meta.attribute.unrecognized string.quoted",
+        "text.html.php.blade meta.attribute.unrecognized string.quoted"
+      ],
+      "settings": {
+        "fontStyle": "italic",
         "foreground": "#DABCFE"
       }
     },
@@ -632,10 +643,7 @@
     },
     {
       "name": "String Quoted",
-      "scope": [
-        "meta.export.default string.quoted",
-        "source.json string.quoted"
-      ],
+      "scope": ["source.json string.quoted"],
       "settings": {
         "fontStyle": "",
         "foreground": "#DABCFE"
@@ -1574,7 +1582,7 @@
       "scope": "source.yaml entity.name.tag",
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#BB9AF7"
+        "foreground": "#FAA6D8"
       }
     },
     {
@@ -1588,28 +1596,22 @@
       "name": "YAML Array Values",
       "scope": "source.yaml string.quoted",
       "settings": {
-        "foreground": "#FAA6D8"
+        "foreground": "#DABCFE"
       }
     },
     {
       "name": "[Dockerfile] Methods",
       "scope": "keyword.other.special-method.dockerfile",
       "settings": {
-        "foreground": "#BB9AF7"
+        "fontStyle": "",
+        "foreground": "#FAA6D8"
       }
     },
     {
-      "name": "[Dockerfile] String Values",
-      "scope": "source.dockerfile",
+      "name": "[Dockerfile] Values",
+      "scope": ["source.dockerfile", "source.dockerfile string.quoted"],
       "settings": {
         "foreground": "#DABCFE"
-      }
-    },
-    {
-      "name": "[Dockerfile] String Values",
-      "scope": "source.dockerfile string.quoted",
-      "settings": {
-        "foreground": "#BB9AF7"
       }
     },
     {
