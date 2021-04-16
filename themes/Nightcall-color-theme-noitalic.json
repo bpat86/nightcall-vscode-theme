@@ -5,7 +5,7 @@
   "semanticHighlighting": false,
   "colors": {
     "editor.background": "#141629",
-    "editor.foreground": "#CFC1F2",
+    "editor.foreground": "#CFC1F2dd",
 
     "contrastBorder": "#23263F45",
     "focusBorder": "#141629af",
@@ -78,7 +78,7 @@
     "tree.tableColumnsBorder": "#23263Faf",
 
     "window.activeBorder": "#23263F",
-    "window.inactiveBorder": "#BB9AF7",
+    "window.inactiveBorder": "#FF7EC7",
 
     "settings.headerForeground": "#DACCFF",
     "settings.modifiedItemIndicator": "#BB9AF7",
@@ -422,7 +422,11 @@
     },
     {
       "name": "Normalize Keyword Operator and Storage Type",
-      "scope": ["keyword.operator", "storage.type"],
+      "scope": [
+        "keyword.operator",
+        "storage.type",
+        "source.js meta.var.expr.js storage.type.js"
+      ],
       "settings": {
         "fontStyle": ""
       }
@@ -1619,7 +1623,7 @@
       "scope": "keyword.blade",
       "settings": {
         "fontStyle": "",
-        "foreground": "#BB9AF7"
+        "foreground": "#E848A3"
       }
     },
     {
