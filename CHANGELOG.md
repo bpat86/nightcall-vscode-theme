@@ -2,6 +2,13 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.5.3"
+
+- Changed keyword syntax color in Laravel blade files
+- Adjusted pink colors to be less hot
+- Adjusted the lightest shade of purple to be brighter
+- Adjusted the red color to be less orange
+
 ## "0.5.2"
 
 - Better consistency between React and Typescript React syntax, variables, etc.
