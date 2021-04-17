@@ -375,7 +375,6 @@
         "source.vue punctuation.separator.key-value.html",
         "source.vue storage.type.js",
         "text.html.vue-html meta.tag.block.any.html",
-
         "keyword.other.template.begin.env",
         "keyword.other.template.end.env"
       ],
@@ -397,7 +396,6 @@
         "keyword.other.substitution",
         "keyword.control.conditional",
         "keyword.operator.spread",
-        "keyword.operator.logical",
         "keyword.operator.type.annotation",
         "source.ini punctuation.definition.comment",
         "source.dart keyword.operator",
@@ -732,7 +730,7 @@
         "support.type.sys-types"
       ],
       "settings": {
-        "foreground": "#BB9AF7"
+        "foreground": "#FA5BBE"
       }
     },
     {
@@ -759,7 +757,7 @@
       "scope": ["support.class.builtin"],
       "settings": {
         "fontStyle": "",
-        "foreground": "#BB9AF7"
+        "foreground": "#FA5BBE"
       }
     },
     {
@@ -991,7 +989,7 @@
       "scope": ["variable.language"],
       "settings": {
         "fontStyle": "",
-        "foreground": "#FA5BBE"
+        "foreground": "#FF7EC7"
       }
     },
     {
@@ -999,7 +997,7 @@
       "scope": ["variable.language.this"],
       "settings": {
         "fontStyle": "",
-        "foreground": "#FA5BBE"
+        "foreground": "#FF7EC7"
       }
     },
     {
@@ -1609,7 +1607,12 @@
     },
     {
       "name": "[Blade] Keyword",
-      "scope": "keyword.blade",
+      "scope": [
+        "keyword.blade",
+        "text.html.php.blade support.function.construct",
+        "text.html.php.blade begin.bracket",
+        "text.html.php.blade end.bracket"
+      ],
       "settings": {
         "foreground": "#BB9AF7"
       }

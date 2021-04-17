@@ -5,9 +5,9 @@
 
 A mellow, but colorful VS Code dark theme with vibrant shades of pink and purple.
 
-I set out to make a dark theme versatile enough for any time of day that could better enable me to <s>stare endlessly at broken blocks of code while I contemplate possible career changes</s> work hard on so many very important things and projects.
+I set out to make a theme versatile enough for any time of day that could better enable me to <s>stare blankly at broken blocks of code while contemplating possible career changes</s> work tirelessly on so many exciting and personally fulfilling projects.
 
-![Default Nightcall Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react-main.png?id=1155040621 "Default Nightcall Theme")
+![Default Nightcall Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/js.png?id=04230417 "Default Nightcall Theme")
 
 ## Installation
 
@@ -20,7 +20,7 @@ I set out to make a dark theme versatile enough for any time of day that could b
 ## No Italics
 
 If you don't like italics (how dare you), select **Nightcall (No Italics)** as the theme.
-![Nightcall No Italics Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/react-main_no-italics.png?id=1155040621 "Nightcall No Italics Theme")
+![Nightcall No Italics Theme](https://github.com/bpat86/nightcall-vscode-theme/raw/main/js_no-italics.png?id=04230417 "Nightcall No Italics Theme")
 
 ## Separate the Editor from the Sidebar
 
