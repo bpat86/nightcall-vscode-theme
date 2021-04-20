@@ -2,7 +2,7 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
-## "0.5.5"
+## "0.5.6"
 
 - Better php support
 

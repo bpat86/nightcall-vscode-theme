@@ -1680,17 +1680,6 @@
     },
     {
       "name": "PHP Variable Other Global",
-      "scope": [
-        "punctuation.definition.variable.php",
-        "variable.other.global.php"
-      ],
-      "settings": {
-        "fontStyle": "",
-        "foreground": "#FF7EC7"
-      }
-    },
-    {
-      "name": "PHP Variable Other Global",
       "scope": ["support.constant.ext", "source.php constant.other"],
       "settings": {
         "fontStyle": "",
@@ -1701,10 +1690,13 @@
       "name": "PHP Variable Other Global",
       "scope": [
         "variable.other.global.safer.php punctuation.definition.variable.php",
-        "variable.other.global.safer.php"
+        "variable.other.global.safer.php",
+        "punctuation.definition.variable.php",
+        "variable.other.global.php"
       ],
       "settings": {
-        "foreground": "#E1C7FF"
+        "fontStyle": "",
+        "foreground": "#FF7EC7"
       }
     },
     {
