@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.5.5"
+
+- Better php support
+
 ## "0.5.4"
 
 - Changed keyword syntax colors in Laravel blade files

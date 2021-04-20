@@ -399,7 +399,9 @@
         "keyword.operator.type.annotation",
         "source.ini punctuation.definition.comment",
         "source.dart keyword.operator",
-        "keyword.operator.stylus"
+        "keyword.operator.stylus",
+        "source.php keyword.control.if",
+        "source.php keyword.control.else"
       ],
       "settings": {
         "fontStyle": "",
@@ -413,7 +415,8 @@
         "keyword.control.flow",
         "keyword.control.import",
         "keyword.control.from",
-        "storage.modifier"
+        "storage.modifier",
+        "source.php support.function.construct.output"
       ],
       "settings": {
         "fontStyle": "italic"
@@ -559,7 +562,8 @@
       "scope": [
         "constant.language.boolean",
         "constant.language.env",
-        "constant.language.json"
+        "constant.language.json",
+        "constant.language.php"
       ],
       "settings": {
         "fontStyle": "",
@@ -1677,6 +1681,25 @@
     {
       "name": "PHP Variable Other Global",
       "scope": [
+        "punctuation.definition.variable.php",
+        "variable.other.global.php"
+      ],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#FF7EC7"
+      }
+    },
+    {
+      "name": "PHP Variable Other Global",
+      "scope": ["support.constant.ext", "source.php constant.other"],
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#DEA5ED"
+      }
+    },
+    {
+      "name": "PHP Variable Other Global",
+      "scope": [
         "variable.other.global.safer.php punctuation.definition.variable.php",
         "variable.other.global.safer.php"
       ],
@@ -1728,13 +1751,6 @@
       "settings": {
         "fontStyle": "",
         "foreground": "#FF7EC7"
-      }
-    },
-    {
-      "name": "PHP Constants",
-      "scope": "source.php constant.language.php",
-      "settings": {
-        "foreground": "#7E90FF"
       }
     },
     {
