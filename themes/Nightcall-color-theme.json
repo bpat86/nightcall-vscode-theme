@@ -1656,14 +1656,21 @@
       }
     },
     {
-      "name": "PHP Variable",
+      "name": "PHP Punctuation Definition",
       "scope": [
-        "variable.other.php punctuation.definition.variable.php",
-        "variable.other.php",
-        "variable.other.property.php"
+        "punctuation.definition.variable.php",
+        "variable.other.global.safer.php punctuation.definition.variable.php"
       ],
       "settings": {
-        "fontStyle": "",
+        "fontStyle": "italic",
+        "foreground": "#BB9AF7"
+      }
+    },
+    {
+      "name": "PHP Variable Other",
+      "scope": ["variable.other.php", "variable.other.property.php"],
+      "settings": {
+        "fontStyle": "italic",
         "foreground": "#E1C7FF"
       }
     },
@@ -1680,23 +1687,18 @@
     },
     {
       "name": "PHP Variable Other Global",
-      "scope": ["support.constant.ext", "source.php constant.other"],
+      "scope": ["source.php constant.other", "support.constant.ext"],
       "settings": {
-        "fontStyle": "",
+        "fontStyle": "italic",
         "foreground": "#DEA5ED"
       }
     },
     {
       "name": "PHP Variable Other Global",
-      "scope": [
-        "variable.other.global.safer.php punctuation.definition.variable.php",
-        "variable.other.global.safer.php",
-        "punctuation.definition.variable.php",
-        "variable.other.global.php"
-      ],
+      "scope": ["variable.other.global.safer.php", "variable.other.global.php"],
       "settings": {
-        "fontStyle": "",
-        "foreground": "#FF7EC7"
+        "fontStyle": "italic",
+        "foreground": "#E1C7FF"
       }
     },
     {
