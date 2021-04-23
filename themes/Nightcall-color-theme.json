@@ -148,6 +148,8 @@
     "editor.lineHighlightBorder": null,
     "editor.rangeHighlightBackground": "#23263F",
 
+    "minimap.selectionHighlight": "#C5AEF53f",
+
     "editorLineNumber.foreground": "#E1C7FF60",
     "editorLineNumber.activeForeground": "#E1C7FF",
 
@@ -330,11 +332,19 @@
       }
     },
     {
-      "name": "Colors",
-      "scope": ["constant.other.color"],
+      "name": "Variable Parameter Url",
+      "scope": ["variable.parameter.url.scss", "keyword.operator.css"],
       "settings": {
         "fontStyle": "",
-        "foreground": "#E1C7FF"
+        "foreground": "#FDA7CE"
+      }
+    },
+    {
+      "name": "Colors",
+      "scope": "constant.other.color",
+      "settings": {
+        "fontStyle": "",
+        "foreground": "#DEA5ED"
       }
     },
     {
@@ -342,14 +352,6 @@
       "scope": ["invalid", "invalid.illegal"],
       "settings": {
         "foreground": "#FC6573"
-      }
-    },
-    {
-      "name": "Storage",
-      "scope": ["storage.type.cs"],
-      "settings": {
-        "fontStyle": "",
-        "foreground": "#E1C7FF"
       }
     },
     {
@@ -376,7 +378,8 @@
         "source.vue storage.type.js",
         "text.html.vue-html meta.tag.block.any.html",
         "keyword.other.template.begin.env",
-        "keyword.other.template.end.env"
+        "keyword.other.template.end.env",
+        "entity.name.type.instance.jsdoc"
       ],
       "settings": {
         "foreground": "#FF7EC7"
@@ -389,12 +392,16 @@
         "punctuation",
         "meta.tag",
         "meta.brace",
+        "punctuation.definition.parameters",
+        "punctuation.definition.block",
         "punctuation.definition.tag",
         "punctuation.separator.inheritance.php",
         "punctuation.section.embedded",
         "keyword.other.template",
         "keyword.other.substitution",
         "keyword.control.conditional",
+        "keyword.control.flow",
+        "keyword.control.loop",
         "keyword.operator.spread",
         "keyword.operator.type.annotation",
         "source.ini punctuation.definition.comment",
@@ -412,14 +419,30 @@
       "name": "Keyword Control, Storage",
       "scope": [
         "keyword.control",
-        "keyword.control.flow",
         "keyword.control.import",
         "keyword.control.from",
         "storage.modifier",
-        "source.php support.function.construct.output"
+        "source.php support.function.construct.output",
+        "punctuation.definition.keyword.css",
+        "punctuation.definition.keyword.scss",
+        "punctuation.definition.keyword.less",
+        "punctuation.definition.keyword.stylus",
+        "storage.type.class.jsdoc",
+        "variable.other.jsdoc"
       ],
       "settings": {
         "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "JS Doc",
+      "scope": [
+        "punctuation.definition.block.tag.jsdoc",
+        "entity.name.type.instance.jsdoc"
+      ],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "#BB9AF7"
       }
     },
     {
@@ -514,8 +537,22 @@
     },
     {
       "name": "Support Function",
-      "scope": ["support.function", "entity.name.function.stylus"],
+      "scope": ["support.function"],
       "settings": {
+        "foreground": "#FA5BBE"
+      }
+    },
+    {
+      "name": "Support Function",
+      "scope": [
+        "source.css support.function",
+        "support.function.misc.scss",
+        "entity.name.function.stylus",
+        "support.function.any-method.builtin.url.css",
+        "support.function.misc.css"
+      ],
+      "settings": {
+        "fontStyle": "italic",
         "foreground": "#FA5BBE"
       }
     },
@@ -606,7 +643,7 @@
     },
     {
       "name": "Variable Paramter",
-      "scope": ["variable.parameter"],
+      "scope": "variable.parameter",
       "settings": {
         "fontStyle": "italic",
         "foreground": "#E1C7FF"
@@ -805,15 +842,7 @@
     },
     {
       "name": "CSS Class and Support",
-      "scope": [
-        "source.css support.type.property-name.css",
-        "source.css.scss support.type.property-name.css",
-        "source.css.less support.type.property-name.css",
-        "source.stylus support.type.property-name.css",
-        "source.postcss support.type.property-name.css",
-        "meta.property-list.scss entity.name.tag.css",
-        "source.css.less meta.property-list.css entity.name.tag.css"
-      ],
+      "scope": ["support.type.property-name.css"],
       "settings": {
         "fontStyle": "",
         "foreground": "#E1C7FF"
@@ -831,13 +860,6 @@
       "settings": {
         "fontStyle": "italic",
         "foreground": "#E1C7FF"
-      }
-    },
-    {
-      "name": "CSS/SCSS Meta Property Value",
-      "scope": ["meta.property-value.css support.constant.property-value.css"],
-      "settings": {
-        "foreground": "#BB9AF7"
       }
     },
     {
@@ -876,8 +898,12 @@
     },
     {
       "name": "CSS Pseudo Element",
-      "scope": ["entity.other.attribute-name.pseudo-element"],
+      "scope": [
+        "entity.other.attribute-name.pseudo-element",
+        "entity.other.attribute-name.pseudo-class"
+      ],
       "settings": {
+        "fontStyle": "italic",
         "foreground": "#FF7EC7"
       }
     },
@@ -889,41 +915,36 @@
       ],
       "settings": {
         "fontStyle": "",
-        "foreground": "#FF7EC7"
+        "foreground": "#DEA5ED"
       }
     },
     {
       "name": "CSS/SCSS Variables",
-      "scope": [
-        "variable.css",
-        "variable.scss",
-        "variable.stylus",
-        "meta.property-list.scss"
-      ],
+      "scope": ["variable.css", "variable.scss", "variable.stylus"],
       "settings": {
-        "fontStyle": "italic",
-        "foreground": "#E1C7FF"
+        "fontStyle": "italic"
       }
     },
     {
-      "name": "CSS/SCSS Tailwind at-rule @apply",
+      "name": "CSS/SCSS Tailwind At-Rule",
       "scope": [
         "punctuation.definition.keyword.tailwind",
         "keyword.control.at-rule.apply.tailwind"
       ],
       "settings": {
+        "fontStyle": "italic",
         "foreground": "#BB9AF7"
       }
     },
     {
       "name": "CSS/SCSS Keyword Important",
       "scope": [
-        "source.css keyword.other.important.css",
-        "source.css.scss keyword.other.important.scss",
-        "source.css.less keyword.other.important.css",
-        "source.stylus keyword.other.stylus"
+        "keyword.other.important.css",
+        "keyword.other.important.scss",
+        "keyword.other.stylus"
       ],
       "settings": {
+        "fontStyle": "",
         "foreground": "#FC6573"
       }
     },
@@ -969,7 +990,7 @@
     {
       "name": "LESS Variables",
       "scope": [
-        "source.css.less punctuation.definition.variable.less",
+        "punctuation.definition.variable.less",
         "source.css.less variable.other.less"
       ],
       "settings": {

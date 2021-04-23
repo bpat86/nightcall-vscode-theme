@@ -2,6 +2,12 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.5.8"
+
+- Better consistency between CSS and SCSS
+- Better JSDoc support
+- Adjusted the use of italics
+
 ## "0.5.7"
 
 - Better php support
