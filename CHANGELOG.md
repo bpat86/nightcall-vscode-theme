@@ -2,11 +2,11 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
-## "0.6.0"
+## "0.6.1"
 
 - Adjusted pink colors
 - Better consistency between CSS and SCSS
-- Small tweaks to editor styles
+- Small tweaks to editor and minimap
 
 ## "0.5.8"
 
