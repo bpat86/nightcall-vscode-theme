@@ -2,6 +2,12 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "0.6.0"
+
+- Adjusted pink colors
+- Better consistency between CSS and SCSS
+- Small tweaks to editor styles
+
 ## "0.5.8"
 
 - Better consistency between CSS and SCSS
