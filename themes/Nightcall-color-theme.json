@@ -145,7 +145,7 @@
     "editor.findRangeHighlightBackground": null,
     "editor.hoverHighlightBackground": "#23263F",
     "editor.lineHighlightBackground": "#23263F",
-    "editor.lineHighlightBorder": null,
+    "editor.lineHighlightBorder": "#C5AEF500",
     "editor.rangeHighlightBackground": "#23263F",
 
     "minimap.selectionHighlight": "#C5AEF53f",
@@ -160,11 +160,11 @@
     "editorLink.activeForeground": null,
     "editorWhitespace.foreground": null,
     "editorIndentGuide.background": "#716E9452",
-    "editorIndentGuide.activeBackground": "#7E97AC",
+    "editorIndentGuide.activeBackground": "#BB9AF7",
     "editorRuler.foreground": "#716E9452",
     "editorCodeLens.foreground": "#716E94b4",
-    "editorBracketMatch.background": "#5f7e974d",
-    "editorBracketMatch.border": null,
+    "editorBracketMatch.background": "#C5AEF53f",
+    "editorBracketMatch.border": "#c4aef500",
 
     "editorOverviewRuler.currentContentForeground": "#F9A8D4",
     "editorOverviewRuler.incomingContentForeground": "#F9A8D4",
