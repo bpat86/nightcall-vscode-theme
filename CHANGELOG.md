@@ -2,7 +2,7 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
-## "0.6.2"
+## "0.6.3"
 
 - Fixed inconsistency with matching bracket highlighting in the editor
 
