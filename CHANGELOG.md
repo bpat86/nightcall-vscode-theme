@@ -2,7 +2,7 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
-## "0.7"
+## "0.7.0"
 
 - Changed breadcrumb colors
 - Changed the colors of badges, buttons, and highlights in the settings and extensions sections
