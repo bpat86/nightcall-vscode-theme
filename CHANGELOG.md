@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "1.0.0"
+
+- Increment version to 1.0.0 🎉
+
 ## "0.7.0"
 
 - Changed breadcrumb colors

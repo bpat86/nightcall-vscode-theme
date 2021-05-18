@@ -49,8 +49,8 @@
     "scrollbarSlider.background": "#3D3C5F",
     "scrollbarSlider.hoverBackground": "#3D3C5F",
 
-    "badge.background": "#FF83CA",
-    "badge.foreground": "#141629",
+    "badge.background": "#E1A7F2",
+    "badge.foreground": "#23263F",
 
     "progressBar.background": "#F9A8D4",
 
@@ -81,7 +81,7 @@
     "window.inactiveBorder": "#E1A7F2",
 
     "settings.headerForeground": "#DACCFF",
-    "settings.modifiedItemIndicator": "#BB9AF7",
+    "settings.modifiedItemIndicator": "#E1A7F2",
     "settings.checkboxBackground": "#23263Faf",
     "settings.checkboxBorder": "#23263F",
     "settings.checkboxForeground": "#DACCFFcc",
@@ -105,7 +105,7 @@
     "activityBar.foreground": "#E4CCFFaf",
     "activityBar.border": "#141629",
 
-    "activityBarBadge.background": "#E1A7F2dd",
+    "activityBarBadge.background": "#E1A7F2",
     "activityBarBadge.foreground": "#E4CCFF",
 
     "sideBar.background": "#141629",
@@ -257,9 +257,9 @@
     "notifications.foreground": "#E4CCFF",
     "notificationLink.foreground": "#7E90FF",
 
-    "extensionButton.prominentForeground": "#E4CCFF",
-    "extensionButton.prominentBackground": "#23263F",
-    "extensionButton.prominentHoverBackground": "#23263Fcc",
+    "extensionButton.prominentForeground": "#23263F",
+    "extensionButton.prominentBackground": "#E1A7F2",
+    "extensionButton.prominentHoverBackground": "#E1A7F2cc",
 
     "terminal.ansiWhite": "#E4CCFF",
     "terminal.ansiBlack": "#141629",
@@ -1708,7 +1708,7 @@
     },
     {
       "name": "PHP Variable Other Global",
-      "scope": ["source.php constant.other", "support.constant.ext"],
+      "scope": ["support.constant.ext"],
       "settings": {
         "fontStyle": "",
         "foreground": "#E1A7F2"

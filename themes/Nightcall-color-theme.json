@@ -1708,7 +1708,7 @@
     },
     {
       "name": "PHP Variable Other Global",
-      "scope": ["source.php constant.other", "support.constant.ext"],
+      "scope": ["support.constant.ext"],
       "settings": {
         "fontStyle": "italic",
         "foreground": "#E1A7F2"
