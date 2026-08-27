@@ -4,6 +4,8 @@ A mellow yet colorful Visual Studio Code theme built around vibrant shades of pi
 
 ![Nightcall theme banner](https://raw.githubusercontent.com/bpat86/nightcall-vscode-theme/main/banner.jpg)
 
+Designed for productive coding sessions spent ~~reviewing 600 lines of AI-generated code to fix the one-line problem I started with~~ building exciting and personally fulfilling things, completely unbothered by the state of the industry or your future employment prospects.
+
 ## Installation
 
 1. Open the **Extensions** view in VS Code (`⇧⌘X` on macOS).
@@ -14,14 +16,14 @@ A mellow yet colorful Visual Studio Code theme built around vibrant shades of pi
 
 ## Theme Variants
 
-- **Nightcall**: the default palette with curated italics.
-- **Nightcall (No Italics)**: the default palette without italics.
-- **Nightcall Muted**: softer neutral colors with curated italics.
-- **Nightcall Muted (No Italics)**: the muted palette without italics.
-- **Nightcall Classic**: the original Nightcall look, remastered on the current theme pipeline with semantic highlighting and modern workbench colors.
-- **Nightcall Classic (No Italics)**: the classic palette without italics.
+- **Nightcall**: the default palette with selective italics.
+- **Nightcall (No Italics)**: the default palette without italics, if you must.
+- **Nightcall Muted**: a softer, more subdued take on Nightcall with selective italics.
+- **Nightcall Muted (No Italics)**: a softer, more subdued take on Nightcall without italics.
+- **Nightcall Classic**: The classic Nightcall color palette, remastered with modern workbench colors and other subtle refinements.
+- **Nightcall Classic (No Italics)**: the classic palette without italics. How dare you.
 
-The italic variants reserve italics for emphasis, comments, control flow, declaration modifiers, and contextual language variables such as `this`, `self`, and `super`.
+The italic variants use italics selectively for comments, control flow, imports and exports, declarations, and contextual keywords such as `this`, `self`, and `super`.
 
 ## Recommended Settings
 
@@ -54,4 +56,8 @@ These colors pair well with the [Indent Rainbow](https://marketplace.visualstudi
 
 ## Feedback
 
-If you notice something that looks unintentional, please open an issue and include the language or file type and, when possible, a screenshot.
+VS Code has a lot of languages, syntax rules, UI states, and little corners I may never personally encounter, so despite my best efforts, I’m sure I’ve missed a few things.
+
+If you see anything that looks unintentional, or insufficiently Nightcall-y, please open an issue. Including the language or file type and, when possible, a screenshot.
+
+And with any luck, it won’t take me another five years to fix it.
