@@ -538,7 +538,7 @@ function createTokenColors(color, { italics }) {
     {
       scope: "punctuation.section.embedded",
       settings: {
-        foreground: color.syntax.punctuation,
+        foreground: color.syntax.embedded,
       },
     },
     {
@@ -1483,13 +1483,13 @@ function createTokenColors(color, { italics }) {
     {
       scope: "punctuation.section.embedded.begin",
       settings: {
-        foreground: color.syntax.punctuation,
+        foreground: color.syntax.embedded,
       },
     },
     {
       scope: "punctuation.section.embedded.end",
       settings: {
-        foreground: color.syntax.punctuation,
+        foreground: color.syntax.embedded,
       },
     },
     {

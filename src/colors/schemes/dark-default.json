@@ -72,6 +72,7 @@
     "keyword": "{purple.250}",
     "operator": "{purple.250}",
     "punctuation": "{purple.250}",
+    "embedded": "{purple.250}",
     "decorator": "{purple.250}",
     "storage": "{pink.250}",
     "string": "{pink.150}",
