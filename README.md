@@ -52,10 +52,6 @@ These colors pair well with the [Indent Rainbow](https://marketplace.visualstudi
 }
 ```
 
-## Development
-
-See `PRIVATE_README.md` in the repository for maintainer notes.
-
 ## Feedback
 
 If you notice something that looks unintentional, please open an issue and include the language or file type and, when possible, a screenshot.
