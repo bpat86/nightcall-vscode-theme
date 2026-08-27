@@ -1,4 +1,10 @@
-node_modules
-*.vsix
 .DS_Store
-.prettierrc
+.vscode/
+node_modules/
+/themes/
+/themes_old/
+package-lock.json
+build
+*.vsix
+.env
+PRIVATE_README.md
