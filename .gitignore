@@ -2,7 +2,6 @@
 .vscode/
 demos/
 node_modules/
-/themes/
 /themes_old/
 package-lock.json
 build
