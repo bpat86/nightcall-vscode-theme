@@ -2,6 +2,12 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "2.0.1"
+
+- Refined Classic theme color handling and isolated its palette from shared colors
+- Improved embedded syntax coloring
+- Removed unsupported workbench color properties
+
 ## "2.0.0"
 
 - Rebuilt the theme generation and validation pipeline around shared palettes, color schemes, semantic token colors, typography, and workbench colors
