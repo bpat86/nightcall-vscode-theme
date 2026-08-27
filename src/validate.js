@@ -3,7 +3,11 @@ const path = require("path");
 const chroma = require("chroma-js");
 const { ITALIC_SCOPES } = require("./theme/typography");
 const themeDefinitions = require("./theme-definitions");
-const { palette, PALETTE_REFERENCE_PATTERN } = require("./palette");
+const {
+  palette,
+  paletteSources,
+  PALETTE_REFERENCE_PATTERN,
+} = require("./palette");
 const createSemanticTokenColors = require("./theme/semantic-token-colors");
 const createTokenColors = require("./theme/token-colors");
 const createWorkbenchColors = require("./theme/workbench-colors");
@@ -92,40 +96,46 @@ function collectUsedColorPaths(resolvedScheme, fileName) {
 }
 
 function validatePaletteReferences() {
-  for (const [family, scale] of Object.entries(palette)) {
-    if (!scale || typeof scale !== "object" || Array.isArray(scale)) {
-      errors.push(`palette.json: ${family} must be an object`);
-      continue;
-    }
-
-    let previousLuminance = Infinity;
-
-    for (const [shade, value] of Object.entries(scale).sort(
-      ([left], [right]) => Number(left) - Number(right),
-    )) {
-      const numericShade = Number(shade);
-
-      if (
-        !Number.isInteger(numericShade) ||
-        numericShade < 50 ||
-        numericShade > 950 ||
-        numericShade % 50 !== 0
-      ) {
-        errors.push(`palette.json: ${family}.${shade} is not a valid shade`);
-      }
-
-      if (!isColor(value)) {
-        errors.push(`palette.json: ${family}.${shade} is not a hex color`);
+  for (const [paletteFileName, families] of Object.entries(paletteSources)) {
+    for (const [family, scale] of Object.entries(families)) {
+      if (!scale || typeof scale !== "object" || Array.isArray(scale)) {
+        errors.push(`${paletteFileName}: ${family} must be an object`);
         continue;
       }
 
-      const luminance = chroma(value).luminance();
-      if (luminance > previousLuminance) {
-        errors.push(
-          `palette.json: ${family}.${shade} must not be lighter than the previous shade`,
-        );
+      let previousLuminance = Infinity;
+
+      for (const [shade, value] of Object.entries(scale).sort(
+        ([left], [right]) => Number(left) - Number(right),
+      )) {
+        const numericShade = Number(shade);
+
+        if (
+          !Number.isInteger(numericShade) ||
+          numericShade < 50 ||
+          numericShade > 950 ||
+          numericShade % 50 !== 0
+        ) {
+          errors.push(
+            `${paletteFileName}: ${family}.${shade} is not a valid shade`,
+          );
+        }
+
+        if (!isColor(value)) {
+          errors.push(
+            `${paletteFileName}: ${family}.${shade} is not a hex color`,
+          );
+          continue;
+        }
+
+        const luminance = chroma(value).luminance();
+        if (luminance > previousLuminance) {
+          errors.push(
+            `${paletteFileName}: ${family}.${shade} must not be lighter than the previous shade`,
+          );
+        }
+        previousLuminance = luminance;
       }
-      previousLuminance = luminance;
     }
   }
 

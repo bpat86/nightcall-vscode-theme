@@ -1,6 +1,24 @@
 const path = require("path");
 
-const palette = require("./colors/palette.json");
+// Classic-only color families live in their own file; families must not repeat.
+const paletteSources = {
+  "palette.json": require("./colors/palette.json"),
+  "palette-classic.json": require("./colors/palette-classic.json"),
+};
+
+const palette = {};
+
+for (const [fileName, families] of Object.entries(paletteSources)) {
+  for (const [family, scale] of Object.entries(families)) {
+    if (palette[family]) {
+      throw new Error(
+        `Palette family ${family} in ${fileName} is already defined in another palette file`,
+      );
+    }
+
+    palette[family] = scale;
+  }
+}
 
 const PALETTE_REFERENCE_PATTERN = /^\{([A-Za-z][\w]*)\.(\d+)\}$/;
 
@@ -53,5 +71,6 @@ module.exports = {
   getThemeColors,
   loadScheme,
   palette,
+  paletteSources,
   PALETTE_REFERENCE_PATTERN,
 };
