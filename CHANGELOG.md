@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "2.0.2"
+
+- Updated README
+
 ## "2.0.1"
 
 - Refined Classic theme color handling and isolated its palette from shared colors
