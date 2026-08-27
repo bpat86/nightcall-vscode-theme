@@ -1,45 +1,47 @@
 <template>
-  <div>
+  <section>
+    <h1>{{ title }}</h1>
     <button
+      type="button"
+      :disabled="uiState === 'listening'"
       @click="getNewIntent"
-      :class="{ disabled: uiState === 'listening' }"
-    ></button>
-  </div>
+    >
+      {{ uiState === "listening" ? "Listening..." : "Start listening" }}
+    </button>
+  </section>
 </template>
 
-<script>
-export default {
-  props: {
-    aborted: {
-      type: Boolean,
-      default: false,
-      required: true,
-    },
-  },
-  computed: {
-    uiState() {
-      return this.$store.state.uiState;
-    },
-  },
-  methods: {
-    getNewIntent() {
-      this.$store.dispatch("getSpeech");
-      this.$emit("isaborted", false);
-    },
-  },
-};
+<script setup lang="ts">
+import { computed } from "vue";
+import { useSpeechStore } from "@/stores/speech";
+
+withDefaults(defineProps<{ title?: string }>(), {
+  title: "Speech controls",
+});
+
+const emit = defineEmits<{
+  statusChange: [aborted: boolean];
+}>();
+
+const store = useSpeechStore();
+const uiState = computed(() => store.uiState);
+
+async function getNewIntent() {
+  await store.getSpeech();
+  emit("statusChange", false);
+}
 </script>
 
 <style scoped>
 button {
-  border-radius: 1000px;
+  border-radius: 0.5rem;
   background: teal;
   margin-top: 10px;
-  transition: 0.3s all ease-out;
+  transition: background-color 200ms ease-out;
 }
 
-button.disabled {
+button:disabled {
   background: #ccc;
-  cursor: none;
+  cursor: not-allowed;
 }
 </style>

@@ -1,57 +1,28 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@spacing: 0.25rem;
+@breakpoint-wide: 64rem;
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap");
+.surface(@background: #171821; @foreground: #f7f7fb) {
+  color: @foreground;
+  background-color: @background;
+}
 
-@layer utilities {
-  @variants responsive {
-    .mt-screen {
-      margin-top: 100vh !important;
+.project-grid {
+  display: grid;
+  gap: @spacing * 4;
+
+  .project-card {
+    .surface();
+    padding: @spacing * 6;
+    border: 1px solid fade(#ff7ec7, 40%);
+
+    &--featured {
+      border-color: #ff7ec7;
     }
   }
 }
 
-a,
-button,
-div,
-span {
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+@media (min-width: @breakpoint-wide) {
+  .project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
-
-.poppins-sans {
-  font-family: "Poppins", sans-serif;
-}
-.rubik-sans {
-  font-family: "Rubik", sans-serif;
-}
-
-.someClass {
-  font-family: serif;
-}
-
-.tailwind-class {
-  @apply uppercase tracking-wide font-bold text-85 mr-1;
-}
-
-#someID {
-  display: block;
-  background: rgb(31, 31, 24);
-  content: "";
-  z-index: 1;
-}
-
-.will-change {
-  will-change: transform;
-}
-
-main {
-  margin-top: 20px;
-}
-
-.some-other-class {
-  padding: 20px;
-  box-shadow: 0 0 0 2px inset;
-}
-
-@width: 10px;

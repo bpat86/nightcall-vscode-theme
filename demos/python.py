@@ -1,45 +1,38 @@
-# To add an item to the top of the stack, use append()
-class stack(list):
-    ''' push() to add an item to the top of the stack '''
-    push = list.append
+from collections.abc import Iterable
+from dataclasses import dataclass
+from enum import StrEnum, auto
+from pathlib import Path
+import json
 
 
-# non-recursive quicksort
-def quicksort(items):
-    nItems = len(items)
-    if nItems < 2:
-        return items
-    todo = stack([(0, nItems - 1)])
-    while todo:
-        elem_idx, pivot_idx = low, high = todo.pop()
-        elem = items[elem_idx]
-        pivot = items[pivot_idx]
-        while pivot_idx > elem_idx:
-            if elem > pivot:
-                items[pivot_idx] = elem
-                pivot_idx -= 1
-                items[elem_idx] = elem = items[pivot_idx]
-            else:
-                elem_idx += 1
-                elem = items[elem_idx]
-        items[pivot_idx] = pivot
-
-        lsize = pivot_idx - low
-        hsize = high - pivot_idx
-        if lsize <= hsize:
-            if 1 < lsize:
-                todo.push((pivot_idx + 1, high))
-                todo.push((low, pivot_idx - 1))
-        else:
-            todo.push((low, pivot_idx - 1))
-        if 1 < hsize:
-            todo.push((pivot_idx + 1, high))
-    return items
+class Status(StrEnum):
+    ACTIVE = auto()
+    ARCHIVED = auto()
 
 
-if __name__ == '__main__':
-# run the sorting function
-    from random import randint
-    for _ in range(99):
-        test = [str(randint(0, 100)) for _ in range(randint(15, 99))]
-        assert (quicksort(test[:]) == sorted(test)), test
+@dataclass(frozen=True, slots=True)
+class Project:
+    name: str
+    status: Status = Status.ACTIVE
+    tags: tuple[str, ...] = ()
+
+    @classmethod
+    def from_mapping(cls, value: dict[str, object]) -> "Project":
+        match value:
+            case {"name": str(name), "status": str(status), **metadata}:
+                tags = tuple(str(tag) for tag in metadata.get("tags", []))
+                return cls(name=name, status=Status(status), tags=tags)
+            case _:
+                raise ValueError(f"Invalid project: {value!r}")
+
+
+def load_projects(path: Path) -> Iterable[Project]:
+    with path.open(encoding="utf-8") as source:
+        values: list[dict[str, object]] = json.load(source)
+
+    return (Project.from_mapping(value) for value in values)
+
+
+if __name__ == "__main__":
+    for project in load_projects(Path("projects.json")):
+        print(f"{project.name}: {project.status}")

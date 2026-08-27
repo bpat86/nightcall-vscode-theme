@@ -1,22 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import * as TestUtils from "react-dom/test-utils";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import CheckboxWithLabel from "../CheckboxWithLabel";
 
-it("CheckboxWithLabel changes the text after click", () => {
-  // Render a checkbox with label in the document
-  const checkbox = TestUtils.renderIntoDocument(
-    <CheckboxWithLabel labelOn="On" labelOff="Off" />
-  );
+it("changes the label after a click", async () => {
+  const user = userEvent.setup();
+  render(<CheckboxWithLabel labelOn="On" labelOff="Off" />);
 
-  const checkboxNode = ReactDOM.findDOMNode(checkbox);
+  const checkbox = screen.getByRole("checkbox", { name: "Off" });
+  expect(checkbox).not.toBeChecked();
 
-  // Verify that it's Off by default
-  expect(checkboxNode.textContent).toEqual("Off");
+  await user.click(checkbox);
 
-  // Simulate a click and verify that it is now On
-  TestUtils.Simulate.change(
-    TestUtils.findRenderedDOMComponentWithTag(checkbox, "input")
-  );
-  expect(checkboxNode.textContent).toEqual("On");
+  expect(screen.getByRole("checkbox", { name: "On" })).toBeChecked();
 });

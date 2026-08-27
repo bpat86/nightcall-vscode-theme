@@ -1,54 +1,42 @@
+#nullable enable
+
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Runtime.CompilerServices;
+using System.Threading;
 
-namespace Nightcall.demo
+namespace Nightcall.Demo;
+
+public sealed record Project(Guid Id, required string Name, ProjectStatus Status)
 {
-    public class CSharp
+    public string Slug => Name.Trim().ToLowerInvariant().Replace(' ', '-');
+}
+
+public sealed class ProjectService(HttpClient httpClient)
+{
+    /// <summary>Streams active projects from the API.</summary>
+    public async IAsyncEnumerable<Project> GetActiveProjectsAsync(
+        [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
-        private readonly string _testField;
+        Project[] projects =
+            await httpClient.GetFromJsonAsync<Project[]>("api/projects", cancellationToken)
+            ?? [];
 
-        public string TestProperty { get; set; }
-
-        #region RegionTest
-        public string Getter => TestProperty;
-
-        public CSharp(string testField)
+        foreach (Project project in projects)
         {
-            _testField = testField;
-            string text = $"{TestProperty} this is a text string";
-            int number = 1;
-        }
-
-        #endregion
-
-        /// <summary>
-        /// Hello this is an xml comment
-        /// </summary>
-        /// <param name="testParam">param comment</param>
-        /// <returns></returns>
-        public async Task<string> TestMethod(string testParam)
-        {
-            for(var i = 0; i <= 5; i++)
+            if (project.Status is ProjectStatus.Active)
             {
-                testParam.Trim();
-                _testField?.Trim();
-
-                var enumVal = (int)TestEnum.TestValue;
-
-
-                // Hello this is a normal comment
-                new List<string>().Where(c => c == "Test");
+                yield return project with { Name = project.Name.Trim() };
             }
-
-            return await Task.FromResult(testParam);
         }
     }
+}
 
-    public enum TestEnum
-    {
-        TestValue
-    }
+public enum ProjectStatus
+{
+    Draft,
+    Active,
+    Archived,
 }

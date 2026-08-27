@@ -108,9 +108,14 @@ This is my first theme and there are many languages and parts of VS Code I don't
 
 This is `code`
 
--[ ] check check 12 12 -[ ] check check 12 12
+- [ ] Incomplete task
+- [x] Completed task
+
+<!-- markdownlint-disable MD025 -->
 
 # Heading 1
+
+<!-- markdownlint-enable MD025 -->
 
 ## Heading 2
 

@@ -1,29 +1,20 @@
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 
-export const useScroll = () => {
-  // Set a single object `{ x: ..., y: ..., direction: ... }` once on init
-  const [scroll, setScroll] = useState({
-    x: document.body.getBoundingClientRect().left,
-    y: document.body.getBoundingClientRect().top,
-    direction: "",
-  });
-
-  const listener = (e) => {
-    // `prev` provides us the previous state
-    setScroll((prev) => ({
-      x: document.body.getBoundingClientRect().left,
-      y: -document.body.getBoundingClientRect().top,
-      // Here we’re comparing the previous state to the current state
-      direction:
-        prev.y > -document.body.getBoundingClientRect().top ? "up" : "down",
-    }));
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", listener);
-    // cleanup function occurs on unmount
-    return () => window.removeEventListener("scroll", listener);
-  }, []);
-
-  return scroll;
+const subscribe = (onStoreChange) => {
+  window.addEventListener("scroll", onStoreChange, { passive: true });
+  return () => window.removeEventListener("scroll", onStoreChange);
 };
+
+const getSnapshot = () => `${window.scrollX}:${window.scrollY}`;
+const getServerSnapshot = () => "0:0";
+
+export function useScrollPosition() {
+  const snapshot = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
+  const [x, y] = snapshot.split(":").map(Number);
+
+  return { x, y };
+}

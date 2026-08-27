@@ -1,59 +1,29 @@
-import React from "react";
-import { connect } from "react-redux";
+import { useId, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ReactModal from "react-modal";
+import { hideModal } from "./modalSlice";
 
-const mapStateToProps = (state) => ({
-  ...state.modal,
-});
+export default function ModalContainer() {
+  const dispatch = useDispatch();
+  const headingRef = useRef(null);
+  const headingId = useId();
+  const { modalType, modalProps } = useSelector((state) => state.modal);
 
-class ModalContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalIsOpen: props.modalProps.open,
-    };
-    this.closeModal = this.closeModal.bind(this);
-  }
+  if (!modalType) return null;
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.modalProps.open !== this.props.modalProps.open) {
-      this.setState({
-        modalIsOpen: nextProps.modalProps.open,
-      });
-    }
-  }
-
-  closeModal() {
-    this.props.hideModal();
-  }
-
-  render() {
-    if (!this.props.modalType) {
-      return null;
-    }
-    return (
-      <div>
-        <ReactModal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          contentLabel="Example Modal"
-          ariaHideApp={false}
-        >
-          <h2 ref={(subtitle) => (this.subtitle = subtitle)}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
-        </ReactModal>
-      </div>
-    );
-  }
+  return (
+    <ReactModal
+      isOpen={modalProps?.open ?? false}
+      onAfterOpen={() => headingRef.current?.focus()}
+      onRequestClose={() => dispatch(hideModal())}
+      aria={{ labelledby: headingId }}
+    >
+      <h2 id={headingId} ref={headingRef} tabIndex={-1}>
+        {modalProps.title ?? "Example modal"}
+      </h2>
+      <button type="button" onClick={() => dispatch(hideModal())}>
+        Close
+      </button>
+    </ReactModal>
+  );
 }
-
-export default connect(mapStateToProps, null)(ModalContainer);

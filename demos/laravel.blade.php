@@ -2,32 +2,35 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
-	<div class="flex-center position-ref full-height">
+    <header>
+        <nav aria-label="Account">
+            @auth
+                <a href="{{ route('dashboard') }}">Dashboard</a>
+            @else
+                <a href="{{ route('login') }}">Log in</a>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}">Register</a>
+                @endif
+            @endauth
+        </nav>
+    </header>
 
-		@if (Route::has('login') && Auth::check())
-		<div class="top-right links">
-			<a href="{{ url('/home') }}">Dashboard</a>
-		</div>
-		@elseif (Route::has('login') && !Auth::check())
-		<div class="top-right links">
-			<a href="{{ url('/login') }}">Login</a>
-			<a href="{{ url('/register') }}">Register</a>
-		</div>
-		@endif
+    <main>
+        <h1>{{ $heading ?? 'Laravel' }}</h1>
 
-		<div class="content">
-			<div class="title m-b-md">
-				Laravel
-			</div>
-		</div>
-	</div>
+        @forelse ($projects as $project)
+            <x-project-card :project="$project" />
+        @empty
+            <p>No projects yet.</p>
+        @endforelse
+    </main>
 </body>
 
 </html>

@@ -1,62 +1,57 @@
-import 'package:flutter/material.dart' as material;
+import 'package:flutter/material.dart';
 
-void main(){  
-  runApp(
-    new MaterialApp(
-      home: new MyButton(),
-    )
-  );
-}
+void main() => runApp(const DemoApp());
 
-class MyButton extends StatefulWidget{
+class DemoApp extends StatelessWidget {
+  const DemoApp({super.key});
+
   @override
-  MyButtonState createState() => new MyButtonState();
-}
-
-class MyButtonState extends State<MyButton>{
-  String flutterText = "";
-  List<String> collection = ['Flutter', 'is', 'great'];
-  int index = 0;
-
-  void changeText(){
-    setState(
-      () {
-        flutterText = collection[index];
-        index++;
-        index = index % 3;
-      }
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        useMaterial3: true,
+      ),
+      home: const WordCarousel(),
     );
   }
+}
+
+class WordCarousel extends StatefulWidget {
+  const WordCarousel({super.key});
 
   @override
-  Widget build(BuildContext context){
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Stateful Widget"),
-        backgroundColor: Colors.orangeAccent,
+  State<WordCarousel> createState() => _WordCarouselState();
+}
+
+class _WordCarouselState extends State<WordCarousel> {
+  static const words = ['Flutter', 'is', 'great'];
+  int index = 0;
+
+  void showNextWord() => setState(() => index = (index + 1) % words.length);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Stateful widget'),
       ),
-      body: Center(
-        child: new Column(
+      body: Semantics(
+        liveRegion: true,
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text(
-              flutterText,
-              style: new TextStyle(fontSize: 40.0)
+          children: [
+            Text(words[index], style: Theme.of(context).textTheme.displaySmall),
+            const SizedBox(height: 16),
+            FilledButton.icon(
+              onPressed: showNextWord,
+              icon: const Icon(Icons.refresh),
+              label: const Text('Update'),
             ),
-            new Padding(
-              padding: new EdgeInsets.all(10.0)
-            ),
-            new RaisedButton(
-              child: new Text(
-                "Update",
-                style: new TextStyle(color: Colors.white)
-              ),
-              color: Colors.blueAccent,
-              onPressed: changeText,
-            )
           ],
-        )
-      )
+        ),
+      ),
     );
   }
 }

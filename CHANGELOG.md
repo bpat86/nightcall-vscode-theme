@@ -2,9 +2,16 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "2.0.0"
+
+- Rebuilt the theme generation and validation pipeline around shared palettes, color schemes, semantic token colors, typography, and workbench colors
+- Added six theme variants: default, muted, and classic palettes, each with italic and no-italics options
+- Improved semantic highlighting and refreshed syntax and interface colors across the supported language demos
+- Added the new extension icon and README banner, and refreshed the project documentation
+
 ## "1.0.0"
 
-- Increment version to 1.0.0 🎉
+- Initial release
 
 ## "0.7.0"
 

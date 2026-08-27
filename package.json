@@ -1,10 +1,13 @@
 {
   "name": "nightcall",
   "displayName": "Nightcall",
-  "description": "A mellow, but colorful VS Code dark theme with vibrant shades of pink and purple.",
-  "version": "1.0.0",
+  "description": "A mellow yet colorful Visual Studio Code theme built around vibrant shades of pink, purple, and blue.",
+  "version": "2.0.0",
+  "engines": {
+    "vscode": "^1.125.0"
+  },
   "publisher": "bpat86",
-  "license": "SEE LICENSE IN LICENSE.md",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/bpat86/nightcall-vscode-theme"
@@ -20,22 +23,28 @@
     "Nightcall",
     "Pink Theme",
     "Purple Theme",
-    "Accessible Theme"
+    "Synthwave",
+    "Retrowave",
+    "Neon",
+    "Pastel",
+    "Lavender",
+    "Violet",
+    "Midnight",
+    "Italics",
+    "No Italics",
+    "Semantic Highlighting",
+    "Muted",
+    "Color Theme",
+    "Dark Mode"
   ],
-  "scripts": {
-    "publish": "vsce publish"
-  },
   "galleryBanner": {
-    "color": "#1C2240",
+    "color": "#1a203f",
     "theme": "dark"
-  },
-  "engines": {
-    "vscode": "^1.53.0"
   },
   "categories": [
     "Themes"
   ],
-  "icon": "main-icon.png",
+  "icon": "nightcall-icon.png",
   "contributes": {
     "themes": [
       {
@@ -46,8 +55,49 @@
       {
         "label": "Nightcall (No Italics)",
         "uiTheme": "vs-dark",
-        "path": "./themes/Nightcall-color-theme-noitalic.json"
+        "path": "./themes/Nightcall-color-theme-no-italics.json"
+      },
+      {
+        "label": "Nightcall Muted",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nightcall-color-theme-muted.json"
+      },
+      {
+        "label": "Nightcall Muted (No Italics)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nightcall-color-theme-muted-no-italics.json"
+      },
+      {
+        "label": "Nightcall Classic",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nightcall-color-theme-classic.json"
+      },
+      {
+        "label": "Nightcall Classic (No Italics)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nightcall-color-theme-classic-no-italics.json"
       }
     ]
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^1.0.0",
+    "@changesets/cli": "^3.0.1",
+    "@vscode/vsce": "^3.9.2",
+    "chroma-js": "^3.2.0",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.9.6"
+  },
+  "scripts": {
+    "start": "nodemon --watch src src/index.js",
+    "format": "prettier --write \"src/**/*.{js,json}\" README.md package.json",
+    "format:check": "prettier --check \"src/**/*.{js,json}\" README.md package.json",
+    "build": "node src/index.js && mkdir -p build",
+    "validate": "npm run format:check && npm run build && node src/validate.js",
+    "validate:ci": "npm run validate && git diff --exit-code themes/",
+    "vscode:prepublish": "npm run validate",
+    "package": "vsce package -o ./build/nightcall.vsix",
+    "publish:marketplace": "vsce publish",
+    "changeset": "changeset",
+    "version": "changeset version"
   }
 }

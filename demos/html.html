@@ -1,21 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <meta name="description" content="Modern HTML syntax demonstration" />
+    <title>Theme preview</title>
   </head>
 
   <body>
-    <div id="app" class="w-full">Tacos Tacos</div>
+    <header>
+      <nav aria-label="Primary navigation">
+        <a href="/">Nightcall</a>
+      </nav>
+    </header>
 
-    <p>Tacos tacos tacos</p>
-    <!--comment-->
+    <main id="app">
+      <article data-theme="nightcall">
+        <h1>Theme preview</h1>
+        <p data-quote>Loading a quote&hellip;</p>
+        <button type="button" commandfor="details" command="show-modal">
+          Open details
+        </button>
+      </article>
+    </main>
 
-    <script>
-      const x = "100";
-      x.toString();
-    </script>
+    <dialog id="details">
+      <form method="dialog">
+        <p>Semantic HTML uses meaningful elements and native controls.</p>
+        <button>Close</button>
+      </form>
+    </dialog>
+
+    <script type="module" src="./js.js"></script>
   </body>
 </html>

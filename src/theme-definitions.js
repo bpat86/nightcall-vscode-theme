@@ -1,0 +1,47 @@
+module.exports = [
+  {
+    scheme: "dark-default",
+    type: "dark",
+    name: "Nightcall",
+    author: "Robert Patterson",
+    fileName: "Nightcall-color-theme.json",
+  },
+  {
+    scheme: "dark-default",
+    type: "dark",
+    name: "Nightcall (No Italics)",
+    author: "Robert Patterson",
+    italics: false,
+    fileName: "Nightcall-color-theme-no-italics.json",
+  },
+  {
+    scheme: "dark-muted",
+    type: "dark",
+    name: "Nightcall Muted",
+    author: "Robert Patterson",
+    fileName: "Nightcall-color-theme-muted.json",
+  },
+  {
+    scheme: "dark-muted",
+    type: "dark",
+    name: "Nightcall Muted (No Italics)",
+    author: "Robert Patterson",
+    italics: false,
+    fileName: "Nightcall-color-theme-muted-no-italics.json",
+  },
+  {
+    scheme: "dark-classic",
+    type: "dark",
+    name: "Nightcall Classic",
+    author: "Robert Patterson",
+    fileName: "Nightcall-color-theme-classic.json",
+  },
+  {
+    scheme: "dark-classic",
+    type: "dark",
+    name: "Nightcall Classic (No Italics)",
+    author: "Robert Patterson",
+    italics: false,
+    fileName: "Nightcall-color-theme-classic-no-italics.json",
+  },
+];

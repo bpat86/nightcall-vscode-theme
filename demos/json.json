@@ -1,14 +1,16 @@
 {
-  "env": {
-    "es6": true,
-    "mocha": true,
-    "node": true
-  },
-  "extends": "eslint:recommended",
-  "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"]
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nightcall project data",
+  "enabled": true,
+  "version": 2,
+  "accentColors": ["#ff7ec7", "#bb9af7", "#7790ff"],
+  "project": {
+    "id": "9df2fd9e-a8af-4d42-9bc9-2e56d1f472fb",
+    "name": "Theme preview",
+    "description": null,
+    "metadata": {
+      "tags": ["theme", "accessibility"],
+      "contrastRatio": 7.42
+    }
   }
 }

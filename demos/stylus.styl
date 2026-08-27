@@ -1,16 +1,22 @@
-.someClass {
-  font-family: serif;
-}
+$accent = #ff7ec7
+$spacing = .25rem
 
-#someID {
-  background: yellow;
-}
+surface($background = #171821)
+  color #f7f7fb
+  background-color $background
 
-main {
-  margin-top: 20px;
-}
+.project-grid
+  display grid
+  gap $spacing * 4
 
-.some-other-class {
-  padding: 20px;
-  box-shadow: 0 0 0 2px inset;
-}
+  &__card
+    surface()
+    padding $spacing * 6
+    border 1px solid alpha($accent, .4)
+
+    &:hover
+      transform translateY(-$spacing)
+
+@media (min-width: 64rem)
+  .project-grid
+    grid-template-columns repeat(3, minmax(0, 1fr))

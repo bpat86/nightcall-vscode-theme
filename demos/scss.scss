@@ -1,46 +1,28 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@use "sass:color";
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+$accent: #ff7ec7;
+$spacing: 0.25rem;
 
-@layer utilities {
-  @variants responsive {
-    .mt-screen {
-      margin-top: 100vh !important;
+@mixin surface($background: #171821) {
+  color: #f7f7fb;
+  background-color: $background;
+}
+
+.project-grid {
+  display: grid;
+  gap: $spacing * 4;
+
+  &__card {
+    @include surface;
+    padding: $spacing * 6;
+    border: 1px solid color.adjust($accent, $alpha: -0.6);
+
+    &:has(img) {
+      grid-row: span 2;
+    }
+
+    @media (width >= 64rem) {
+      padding: $spacing * 8;
     }
   }
 }
-
-.poppins-sans {
-  font-family: "Poppins", sans-serif;
-}
-
-.someClass {
-  font-family: serif;
-}
-
-.tailwind-class {
-  @apply uppercase tracking-wide font-bold text-85 mr-1;
-}
-
-#someID {
-  display: block;
-  background: rgb(31, 31, 24);
-  content: "";
-  z-index: 1;
-}
-
-main {
-  margin-top: 20px;
-}
-
-.will-change {
-  will-change: transform;
-}
-
-main {
-  margin-top: 20px;
-}
-
-$variablename: value;

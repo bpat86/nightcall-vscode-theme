@@ -1,4 +1,8 @@
 .vscode/**
 .vscode-test/**
+build/**
+src/**
+themes_old/**
 .gitignore
+PRIVATE_README.md
 vsc-extension-quickstart.md
