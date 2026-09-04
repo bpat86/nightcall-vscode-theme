@@ -22,21 +22,21 @@
   },
   "accent": {
     "fg": "{pink.200}",
-    "subtle": "{pink.200}",
-    "emphasis": "{pink.200}",
+    "subtle": "{pink.150}",
+    "emphasis": "{pink.250}",
     "secondary": "{purple.200}",
     "secondaryEmphasis": "{purple.350}",
     "tertiary": "{blue.300}"
   },
   "success": {
-    "fg": "{green.500}",
-    "muted": "{green.500}",
-    "emphasis": "{green.500}"
+    "fg": "{green.200}",
+    "muted": "{green.150}",
+    "emphasis": "{green.250}"
   },
   "attention": {
-    "fg": "{yellow.100}",
-    "muted": "{yellow.200}",
-    "emphasis": "{yellow.100}"
+    "fg": "{orange.150}",
+    "muted": "{orange.100}",
+    "emphasis": "{orange.200}"
   },
   "danger": {
     "fg": "{red.250}",
@@ -44,8 +44,8 @@
     "emphasis": "{red.300}"
   },
   "info": {
-    "fg": "{cyan.500}",
-    "muted": "{cyan.500}",
+    "fg": "{cyan.400}",
+    "muted": "{cyan.300}",
     "emphasis": "{cyan.500}"
   },
   "interaction": {
@@ -93,22 +93,34 @@
     "component": "{pink.200}",
     "invalid": "{red.250}"
   },
+  "sourceControl": {
+    "added": "{green.250}",
+    "modified": "{orange.200}",
+    "renamed": "{lime.150}",
+    "deleted": "{red.250}",
+    "untracked": "{green.300}",
+    "ignored": "{neutral.300}",
+    "conflicting": "{red.350}",
+    "stageModified": "{orange.200}",
+    "stageDeleted": "{red.250}",
+    "submodule": "{cyan.200}"
+  },
   "ansi": {
     "black": "{neutral.700}",
     "red": "{red.250}",
-    "green": "{green.500}",
-    "yellow": "{yellow.100}",
+    "green": "{green.250}",
+    "yellow": "{yellow.150}",
     "blue": "{blue.300}",
     "magenta": "{purple.350}",
-    "cyan": "{cyan.500}",
+    "cyan": "{cyan.200}",
     "white": "{neutral.100}",
     "brightBlack": "{neutral.750}",
     "brightRed": "{red.100}",
-    "brightGreen": "{green.500}",
+    "brightGreen": "{green.300}",
     "brightYellow": "{yellow.200}",
-    "brightBlue": "{blue.300}",
+    "brightBlue": "{blue.250}",
     "brightMagenta": "{purple.450}",
-    "brightCyan": "{cyan.500}",
+    "brightCyan": "{cyan.250}",
     "brightWhite": "{neutral.100}"
   }
 }

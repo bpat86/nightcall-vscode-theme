@@ -1,4 +1,4 @@
-// Keep the curated policy here so theme generation and validation share one scope list.
+// Keep the italic scope policy in one place for generation and validation.
 const italicScopeGroups = Object.freeze({
   emphasis: ["italic", "markup.italic.markdown"],
   comments: ["comment", "comment.line.double-slash"],
@@ -9,7 +9,7 @@ const italicScopeGroups = Object.freeze({
 
 const ITALIC_SCOPES = Object.freeze(Object.values(italicScopeGroups).flat());
 
-// Always emits the italic policy; the no-italics variant strips it afterward.
+// Generate italic rules consistently; the no-italics variant removes them later.
 function createTypographyTokenColors(color) {
   return [
     {
@@ -34,7 +34,7 @@ function createTypographyTokenColors(color) {
       },
     },
     {
-      // Font-style-only rules preserve the language-specific colors declared below.
+      // Style-only rules preserve colors assigned by language-specific rules below.
       scope: [...italicScopeGroups.controlFlow, ...italicScopeGroups.modifiers],
       settings: {
         fontStyle: "italic",

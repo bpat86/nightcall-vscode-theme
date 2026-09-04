@@ -23,29 +23,29 @@
   "accent": {
     "fg": "{pink.250}",
     "subtle": "{pink.200}",
-    "emphasis": "{pink.250}",
+    "emphasis": "{pink.300}",
     "secondary": "{purple.250}",
     "secondaryEmphasis": "{purple.400}",
     "tertiary": "{blue.350}"
   },
   "success": {
-    "fg": "{green.500}",
-    "muted": "{green.500}",
-    "emphasis": "{green.500}"
+    "fg": "{green.250}",
+    "muted": "{green.200}",
+    "emphasis": "{green.300}"
   },
   "attention": {
-    "fg": "{yellow.600}",
-    "muted": "{yellow.300}",
-    "emphasis": "{yellow.600}"
+    "fg": "{orange.200}",
+    "muted": "{orange.150}",
+    "emphasis": "{orange.250}"
   },
   "danger": {
     "fg": "{red.350}",
-    "muted": "{red.400}",
+    "muted": "{red.300}",
     "emphasis": "{red.400}"
   },
   "info": {
-    "fg": "{cyan.500}",
-    "muted": "{cyan.500}",
+    "fg": "{cyan.400}",
+    "muted": "{cyan.300}",
     "emphasis": "{cyan.500}"
   },
   "interaction": {
@@ -93,22 +93,34 @@
     "component": "{pink.250}",
     "invalid": "{red.300}"
   },
+  "sourceControl": {
+    "added": "{green.250}",
+    "modified": "{orange.250}",
+    "renamed": "{lime.150}",
+    "deleted": "{red.250}",
+    "untracked": "{green.300}",
+    "ignored": "{neutral.300}",
+    "conflicting": "{red.350}",
+    "stageModified": "{orange.250}",
+    "stageDeleted": "{red.250}",
+    "submodule": "{cyan.200}"
+  },
   "ansi": {
     "black": "{neutral.800}",
-    "red": "{red.350}",
-    "green": "{green.500}",
-    "yellow": "{yellow.600}",
-    "blue": "{blue.350}",
-    "magenta": "{purple.400}",
-    "cyan": "{cyan.500}",
+    "red": "{red.300}",
+    "green": "{green.300}",
+    "yellow": "{yellow.200}",
+    "blue": "{blue.300}",
+    "magenta": "{purple.350}",
+    "cyan": "{cyan.250}",
     "white": "{neutral.100}",
-    "brightBlack": "{neutral.850}",
-    "brightRed": "{red.300}",
+    "brightBlack": "{neutral.750}",
+    "brightRed": "{red.100}",
     "brightGreen": "{green.500}",
-    "brightYellow": "{yellow.300}",
-    "brightBlue": "{blue.350}",
-    "brightMagenta": "{purple.400}",
-    "brightCyan": "{cyan.500}",
+    "brightYellow": "{yellow.200}",
+    "brightBlue": "{blue.300}",
+    "brightMagenta": "{purple.450}",
+    "brightCyan": "{cyan.300}",
     "brightWhite": "{neutral.100}"
   }
 }

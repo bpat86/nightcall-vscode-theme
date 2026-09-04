@@ -10,10 +10,10 @@ function alpha(value, percentage) {
     .hex();
 }
 
-// Related alphas that must stay in step; one-off values stay inline.
+// These paired guide states use a deliberate, stable contrast relationship.
 const BRACKET_GUIDE_ACTIVE_ALPHA = 75;
 const BRACKET_GUIDE_INACTIVE_ALPHA = 60;
-// Raised-surface overlays: resting (line highlight, sliders) vs engaged (hover, matches, hints).
+// Keep resting overlays quieter than engaged states such as hover and matches.
 const OVERLAY_RESTING_ALPHA = 40;
 const OVERLAY_ENGAGED_ALPHA = 55;
 
@@ -39,18 +39,31 @@ function createWorkbenchColors(color) {
     // Buttons, inputs, and controls
     "button.background": color.control.primary.bg,
     "button.foreground": color.control.primary.fg,
+    "button.border": color.control.primary.border,
+    "button.separator": color.border.muted,
     "button.hoverBackground": color.control.primary.hoverBg,
     "button.secondaryBackground": color.control.secondary.bg,
     "button.secondaryForeground": color.control.secondary.fg,
     "button.secondaryHoverBackground": color.control.secondary.hoverBg,
-    "sash.hoverBorder": color.control.secondary.bg,
-    "checkbox.background": color.canvas.inset,
-    "checkbox.border": color.border.muted,
+    "checkbox.background": color.canvas.overlay,
+    "checkbox.border": color.border.emphasis,
     "checkbox.foreground": color.fg.default,
+    "checkbox.selectBackground": color.canvas.overlay,
+    "checkbox.selectBorder": color.border.emphasis,
+    "checkbox.disabled.background": color.canvas.overlay,
+    "checkbox.disabled.foreground": color.fg.default,
     "dropdown.background": color.control.secondary.bg,
     "dropdown.border": color.border.muted,
     "dropdown.foreground": color.fg.emphasis,
     "dropdown.listBackground": color.control.secondary.bg,
+    "radio.activeForeground": color.fg.default,
+    "radio.activeBackground": color.canvas.overlay,
+    "radio.activeBorder": color.border.emphasis,
+    "radio.inactiveForeground": color.fg.muted,
+    "radio.inactiveBackground": color.canvas.overlay,
+    "radio.inactiveBorder": color.border.emphasis,
+    "radio.inactiveHoverBackground": color.canvas.overlay,
+    "sash.hoverBorder": color.control.secondary.bg,
     "input.background": color.canvas.default,
     "input.border": color.border.default,
     "input.foreground": color.fg.default,
@@ -58,7 +71,6 @@ function createWorkbenchColors(color) {
     "badge.foreground": color.fg.muted,
     "badge.background": color.canvas.inset,
     "progressBar.background": color.fg.default,
-    "button.border": color.control.primary.border,
     "extensionButton.prominentBackground": color.accent.tertiary,
     "extensionButton.prominentForeground": color.canvas.inset,
     "extensionButton.prominentHoverBackground": color.accent.subtle,
@@ -76,6 +88,8 @@ function createWorkbenchColors(color) {
     "inputValidation.warningForeground": color.fg.onEmphasis,
 
     // Window chrome and primary navigation
+    "editor.border": color.border.default,
+    "surface.border": color.border.default,
     "titleBar.activeForeground": color.fg.muted,
     "titleBar.activeBackground": color.canvas.default,
     "titleBar.inactiveForeground": color.fg.subtle,
@@ -95,7 +109,7 @@ function createWorkbenchColors(color) {
     "activityBarTop.border": color.border.muted,
     "activityBarBadge.foreground": color.fg.muted,
     "activityBarBadge.background": color.canvas.inset,
-    "sideBar.foreground": color.fg.subtle,
+    "sideBar.foreground": color.fg.muted,
     "sideBar.background": color.canvas.inset,
     "sideBar.border": color.border.muted,
     "sideBarTitle.foreground": color.fg.muted,
@@ -111,8 +125,6 @@ function createWorkbenchColors(color) {
     "commandCenter.background": color.canvas.inset,
     "commandCenter.border": color.border.muted,
     "commandCenter.activeBorder": color.accent.fg,
-    "surface.border": color.border.default,
-    "editor.border": color.border.default,
 
     // Lists, trees, notifications, and pickers
     "list.hoverForeground": color.fg.default,
@@ -247,7 +259,6 @@ function createWorkbenchColors(color) {
       color.canvas.raised,
       OVERLAY_RESTING_ALPHA,
     ),
-    // "editor.lineHighlightBorder": color.accent.fg,
     "editorLineNumber.foreground": color.fg.subtle,
     "editorLineNumber.activeForeground": color.fg.default,
     "editorWhitespace.foreground": color.fg.subtle,
@@ -386,13 +397,13 @@ function createWorkbenchColors(color) {
     ),
 
     // Source control, diffs, and scrolling
-    "editorGutter.modifiedBackground": color.accent.tertiary,
-    "editorGutter.addedBackground": color.success.emphasis,
-    "editorGutter.deletedBackground": color.danger.fg,
-    "diffEditor.insertedLineBackground": alpha(color.success.muted, 15),
-    "diffEditor.insertedTextBackground": alpha(color.success.muted, 10),
-    "diffEditor.removedLineBackground": alpha(color.danger.muted, 15),
-    "diffEditor.removedTextBackground": alpha(color.danger.muted, 10),
+    "editorGutter.modifiedBackground": alpha(color.sourceControl.modified, 60),
+    "editorGutter.addedBackground": alpha(color.sourceControl.added, 60),
+    "editorGutter.deletedBackground": alpha(color.sourceControl.deleted, 60),
+    "diffEditor.insertedLineBackground": alpha(color.sourceControl.added, 15),
+    "diffEditor.insertedTextBackground": alpha(color.sourceControl.added, 10),
+    "diffEditor.removedLineBackground": alpha(color.sourceControl.deleted, 15),
+    "diffEditor.removedTextBackground": alpha(color.sourceControl.deleted, 10),
     "scrollbar.shadow": color.canvas.default,
     "scrollbarSlider.background": alpha(
       color.canvas.raised,
@@ -425,17 +436,17 @@ function createWorkbenchColors(color) {
     "diffEditor.border": color.border.muted,
     "editorGutter.background": color.canvas.default,
     "editorGutter.commentRangeForeground": color.fg.muted,
-    "editorOverviewRuler.addedForeground": color.success.fg,
+    "editorOverviewRuler.addedForeground": color.sourceControl.added,
     "editorOverviewRuler.bracketMatchForeground":
       color.accent.secondaryEmphasis,
     "editorOverviewRuler.commonContentForeground": color.fg.default,
     "editorOverviewRuler.currentContentForeground": color.accent.tertiary,
-    "editorOverviewRuler.deletedForeground": color.danger.fg,
+    "editorOverviewRuler.deletedForeground": color.sourceControl.deleted,
     "editorOverviewRuler.errorForeground": color.danger.fg,
     "editorOverviewRuler.findMatchForeground": alpha(color.fg.default, 60),
     "editorOverviewRuler.incomingContentForeground": color.success.fg,
     "editorOverviewRuler.infoForeground": color.info.fg,
-    "editorOverviewRuler.modifiedForeground": color.accent.tertiary,
+    "editorOverviewRuler.modifiedForeground": color.sourceControl.modified,
     "editorOverviewRuler.rangeHighlightForeground": alpha(
       color.accent.secondary,
       25,
@@ -454,8 +465,8 @@ function createWorkbenchColors(color) {
       color.accent.secondary,
       25,
     ),
-    "editorOverviewRuler.inlineChatInserted": color.success.fg,
-    "editorOverviewRuler.inlineChatRemoved": color.danger.fg,
+    "editorOverviewRuler.inlineChatInserted": color.sourceControl.added,
+    "editorOverviewRuler.inlineChatRemoved": color.sourceControl.deleted,
     "merge.border": color.border.default,
     "merge.commonContentBackground": alpha(color.canvas.inset, 10),
     "merge.commonHeaderBackground": alpha(color.canvas.inset, 20),
@@ -473,10 +484,10 @@ function createWorkbenchColors(color) {
     "minimap.warningHighlight": color.attention.fg,
     "minimap.infoHighlight": color.info.fg,
     "minimap.chatEditHighlight": color.accent.tertiary,
-    "minimapGutter.addedBackground": color.success.fg,
-    "minimapGutter.modifiedBackground": color.accent.tertiary,
-    "minimapGutter.deletedBackground": color.danger.fg,
-    "editorMinimap.inlineChatInserted": color.success.fg,
+    "minimapGutter.addedBackground": color.sourceControl.added,
+    "minimapGutter.modifiedBackground": color.sourceControl.modified,
+    "minimapGutter.deletedBackground": color.sourceControl.deleted,
+    "editorMinimap.inlineChatInserted": color.sourceControl.added,
 
     // Panels and debugging
     "panel.background": color.canvas.inset,
@@ -486,10 +497,10 @@ function createWorkbenchColors(color) {
     "panelTitle.inactiveForeground": color.fg.default,
     "panelInput.border": color.border.muted,
     "debugIcon.breakpointForeground": color.danger.fg,
-    "debugConsole.infoForeground": color.fg.subtle,
+    "debugConsole.infoForeground": color.info.fg,
     "debugConsole.warningForeground": color.attention.fg,
     "debugConsole.errorForeground": color.danger.fg,
-    "debugConsole.sourceForeground": color.attention.muted,
+    "debugConsole.sourceForeground": color.fg.subtle,
     "debugConsoleInputIcon.foreground": color.accent.secondaryEmphasis,
     "debugTokenExpression.name": color.accent.tertiary,
     "debugTokenExpression.value": color.accent.subtle,
@@ -649,15 +660,22 @@ function createWorkbenchColors(color) {
     ),
 
     // Source control decorations
-    "gitDecoration.addedResourceForeground": color.success.fg,
-    "gitDecoration.modifiedResourceForeground": color.accent.secondary,
-    "gitDecoration.deletedResourceForeground": color.danger.fg,
-    "gitDecoration.untrackedResourceForeground": color.success.fg,
-    "gitDecoration.ignoredResourceForeground": alpha(color.fg.subtle, 50),
-    "gitDecoration.conflictingResourceForeground": color.danger.fg,
-    "gitDecoration.stageModifiedResourceForeground": color.accent.tertiary,
-    "gitDecoration.stageDeletedResourceForeground": color.danger.fg,
-    "gitDecoration.submoduleResourceForeground": color.fg.muted,
+    "gitDecoration.addedResourceForeground": color.sourceControl.added,
+    "gitDecoration.modifiedResourceForeground": color.sourceControl.modified,
+    "gitDecoration.renamedResourceForeground": color.sourceControl.renamed,
+    "gitDecoration.deletedResourceForeground": color.sourceControl.deleted,
+    "gitDecoration.untrackedResourceForeground": color.sourceControl.untracked,
+    "gitDecoration.ignoredResourceForeground": alpha(
+      color.sourceControl.ignored,
+      50,
+    ),
+    "gitDecoration.conflictingResourceForeground":
+      color.sourceControl.conflicting,
+    "gitDecoration.stageModifiedResourceForeground":
+      color.sourceControl.stageModified,
+    "gitDecoration.stageDeletedResourceForeground":
+      color.sourceControl.stageDeleted,
+    "gitDecoration.submoduleResourceForeground": color.sourceControl.submodule,
 
     // Debugging and peek views
     "debugToolBar.background": color.canvas.default,
@@ -694,7 +712,7 @@ function createWorkbenchColors(color) {
     "welcomePage.progress.foreground": color.accent.fg,
     "welcomePage.tileBackground": color.canvas.overlay,
     "welcomePage.tileHoverBackground": color.canvas.overlay,
-    "settings.checkboxBackground": color.canvas.inset,
+    "settings.checkboxBackground": color.canvas.overlay,
     "settings.checkboxBorder": color.border.muted,
     "settings.checkboxForeground": color.fg.default,
     "settings.dropdownBackground": color.canvas.inset,
@@ -722,9 +740,9 @@ function createWorkbenchColors(color) {
     "chat.slashCommandForeground": color.fg.emphasis,
     "chat.avatarBackground": color.canvas.overlay,
     "chat.avatarForeground": color.fg.emphasis,
-    "chat.editedFileForeground": color.accent.tertiary,
-    "chat.linesAddedForeground": alpha(color.success.muted, 60),
-    "chat.linesRemovedForeground": alpha(color.danger.muted, 60),
+    "chat.editedFileForeground": color.sourceControl.modified,
+    "chat.linesAddedForeground": alpha(color.sourceControl.added, 60),
+    "chat.linesRemovedForeground": alpha(color.sourceControl.deleted, 60),
     "chat.checkpointSeparator": color.canvas.overlay,
     "chat.thinkingShimmer": alpha(color.accent.fg, 60),
     "chat.inputWorkingBorderColor1": color.accent.fg,
@@ -757,8 +775,8 @@ function createWorkbenchColors(color) {
     "inlineChatInput.border": color.border.default,
     "inlineChatInput.focusBorder": color.accent.tertiary,
     "inlineChatInput.placeholderForeground": color.fg.muted,
-    "inlineChatDiff.inserted": alpha(color.success.muted, 20),
-    "inlineChatDiff.removed": alpha(color.danger.muted, 20),
+    "inlineChatDiff.inserted": alpha(color.sourceControl.added, 20),
+    "inlineChatDiff.removed": alpha(color.sourceControl.deleted, 20),
     "interactive.activeCodeBorder": color.accent.tertiary,
     "interactive.inactiveCodeBorder": color.border.default,
   };

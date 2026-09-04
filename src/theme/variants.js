@@ -1,5 +1,5 @@
-// A variant transforms exactly one section of a generated theme. Variants
-// apply in definition order, so later variants see earlier results.
+// Each variant transforms one generated-theme section. Names are applied in
+// order, so a later variant receives the previous variant's result.
 
 function colorReference(key) {
   return Object.freeze({ colorReference: key });
@@ -37,11 +37,6 @@ const BORDERLESS_OVERRIDES = Object.freeze({
   "tab.border": TRANSPARENT,
   "panel.border": TRANSPARENT,
   "editorStickyScroll.border": EDITOR_OVERVIEW_RULER_BORDER,
-  // Terminal
-  // "panel.background": EDITOR_BACKGROUND,
-  // "terminal.border": TRANSPARENT,
-  // "terminal.background": EDITOR_BACKGROUND,
-  // "terminalCursor.background": EDITOR_BACKGROUND,
 });
 
 function resolveOverride(colors, key, value) {
@@ -62,7 +57,8 @@ function resolveOverride(colors, key, value) {
   return colors[value.colorReference];
 }
 
-// References resolve against the colors as they were before these overrides.
+// Resolve references from the original map so overrides cannot depend on
+// another override's order.
 function applyOverrides(colors, overrides) {
   return {
     ...colors,
@@ -75,7 +71,7 @@ function applyOverrides(colors, overrides) {
   };
 }
 
-// An empty fontStyle explicitly cancels italics inherited from VS Code defaults.
+// Keep non-italic rules explicit so VS Code defaults cannot reintroduce italics.
 function removeItalic(rule) {
   const styles = rule.settings.fontStyle?.split(" ") ?? [];
 

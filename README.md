@@ -16,20 +16,31 @@ Designed for productive coding sessions spent ~~reviewing 600 lines of AI-genera
 
 ## Theme Variants
 
+The standard Nightcall variants feature an updated color palette and are designed with the modern VS Code layout in mind, including its more noticeable workbench borders.
+
+If you prefer a cleaner, borderless look, choose one of the Borderless variants or adjust your VS Code settings to disable the newer layout UI. If you prefer the original Nightcall color palette, the Classic variants preserve that familiar look while refining it for modern VS Code.
+
 - **Nightcall**: the default palette with selective italics.
+
 - **Nightcall (No Italics)**: the default palette without italics, if you must.
+
 - **Nightcall (Borderless)**: the default palette with prominent layout borders hidden.
+
 - **Nightcall Muted**: a softer, more subdued take on Nightcall with selective italics.
+
 - **Nightcall Muted (No Italics)**: a softer, more subdued take on Nightcall without italics.
+
 - **Nightcall Muted (Borderless)**: the muted palette with prominent layout borders hidden.
-- **Nightcall Classic**: the classic Nightcall color palette, remastered with modern workbench colors, a borderless layout, and other subtle refinements.
-- **Nightcall Classic (No Italics)**: the classic palette without italics. How dare you.
+
+- **Nightcall Classic**: the original Nightcall look, refined for modern VS Code with updated workbench colors, the classic borderless layout, and other subtle improvements.
+
+- **Nightcall Classic (No Italics)**: the refined, borderless Classic experience without italics. How dare you.
 
 The italic variants use italics selectively for comments, control flow, imports and exports, declarations, and contextual keywords such as `this`, `self`, and `super`.
 
 ## Recommended Settings
 
-I personally use [Dank Mono](https://philpl.gumroad.com/l/dank-mono), though the theme is designed to work well with any editor font.
+I personally use [Dank Mono](https://philpl.gumroad.com/l/dank-mono), though the theme should work well with any editor font.
 
 If you use Dank Mono, you can enable it with:
 

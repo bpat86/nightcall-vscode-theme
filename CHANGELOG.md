@@ -2,6 +2,13 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "2.0.5"
+
+- Added more complete workbench color coverage for buttons, checkboxes, radio buttons, and related controls
+- Added dedicated colors for Git decorations, diffs, minimaps, and chat edits to better align with source-control color conventions
+- Refined status colors for success, warnings, errors, and informational states across all themes
+- Improved consistency and contrast across editor, terminal, diagnostics, controls, and ANSI colors
+
 ## "2.0.4"
 
 - Added Nightcall (Borderless) and Nightcall Muted (Borderless) variants, which hide the borders between the title bar, activity bar, sidebar, editor groups, panel, and status bar
