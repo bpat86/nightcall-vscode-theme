@@ -2,6 +2,20 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "2.0.4"
+
+- Added Nightcall (Borderless) and Nightcall Muted (Borderless) variants, which hide the borders between the title bar, activity bar, sidebar, editor groups, panel, and status bar
+- Nightcall Classic and Nightcall Classic (No Italics) now use the borderless layout
+- Gave declarations their own syntax color, separate from storage keywords
+- Shifted booleans, invalid tokens, errors, and terminal red toward red across all palettes; Classic types and classes now use a neutral gray
+- Softened overlay highlights, sidebar text, the overview ruler border, and git decoration colors
+- Brightened the terminal's bright black color for better visibility
+- Added Open VSX publishing support
+
+## "2.0.3"
+
+- Version bump only; no theme changes
+
 ## "2.0.2"
 
 - Updated README

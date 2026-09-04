@@ -3,7 +3,6 @@
 demos/
 node_modules/
 /themes_old/
-package-lock.json
 build
 *.vsix
 .env

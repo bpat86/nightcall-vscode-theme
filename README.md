@@ -18,9 +18,11 @@ Designed for productive coding sessions spent ~~reviewing 600 lines of AI-genera
 
 - **Nightcall**: the default palette with selective italics.
 - **Nightcall (No Italics)**: the default palette without italics, if you must.
+- **Nightcall (Borderless)**: the default palette with prominent layout borders hidden.
 - **Nightcall Muted**: a softer, more subdued take on Nightcall with selective italics.
 - **Nightcall Muted (No Italics)**: a softer, more subdued take on Nightcall without italics.
-- **Nightcall Classic**: The classic Nightcall color palette, remastered with modern workbench colors and other subtle refinements.
+- **Nightcall Muted (Borderless)**: the muted palette with prominent layout borders hidden.
+- **Nightcall Classic**: the classic Nightcall color palette, remastered with modern workbench colors, a borderless layout, and other subtle refinements.
 - **Nightcall Classic (No Italics)**: the classic palette without italics. How dare you.
 
 The italic variants use italics selectively for comments, control flow, imports and exports, declarations, and contextual keywords such as `this`, `self`, and `super`.

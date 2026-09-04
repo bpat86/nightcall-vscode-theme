@@ -39,9 +39,9 @@
     "emphasis": "{classicYellow.100}"
   },
   "danger": {
-    "fg": "{classicPink.500}",
-    "muted": "{classicPink.500}",
-    "emphasis": "{classicPink.500}"
+    "fg": "{classicRed.400}",
+    "muted": "{classicRed.400}",
+    "emphasis": "{classicRed.400}"
   },
   "info": {
     "fg": "{classicCyan.500}",
@@ -56,10 +56,10 @@
   },
   "control": {
     "primary": {
-      "bg": "{classicGray.850}",
-      "fg": "{classicGray.200}",
-      "hoverBg": "{classicGray.800}",
-      "border": "{classicGray.750}"
+      "bg": "{classicPink.300}",
+      "fg": "{classicGray.900}",
+      "hoverBg": "{classicPink.300}",
+      "border": "{classicPink.300}"
     },
     "secondary": {
       "bg": "{classicGray.800}",
@@ -73,28 +73,29 @@
     "operator": "{classicPurple.250}",
     "punctuation": "{classicPurple.250}",
     "embedded": "{classicRed.400}",
+    "declaration": "{classicPurple.250}",
     "decorator": "{classicBlue.400}",
     "storage": "{classicPink.300}",
     "string": "{classicPink.200}",
     "number": "{classicPink.200}",
-    "boolean": "{classicPink.500}",
+    "boolean": "{classicRed.400}",
     "regexp": "{classicBlue.400}",
     "constant": "{classicPurple.200}",
-    "builtin": "{classicPink.450}",
+    "builtin": "{classicPink.400}",
     "variable": "{classicGray.200}",
     "parameter": "{classicGray.200}",
     "property": "{classicPurple.200}",
     "function": "{classicBlue.400}",
     "method": "{classicBlue.400}",
-    "type": "{classicPink.300}",
-    "class": "{classicPink.300}",
+    "type": "{classicGray.200}",
+    "class": "{classicGray.200}",
     "tag": "{classicPink.300}",
     "component": "{classicPink.300}",
-    "invalid": "{classicPink.500}"
+    "invalid": "{classicRed.400}"
   },
   "ansi": {
     "black": "{classicGray.900}",
-    "red": "{classicPink.500}",
+    "red": "{classicRed.400}",
     "green": "{classicGreen.500}",
     "yellow": "{classicGreen.200}",
     "blue": "{classicBlue.400}",
@@ -102,7 +103,7 @@
     "cyan": "{classicCyan.500}",
     "white": "{classicGray.200}",
     "brightBlack": "{classicGray.550}",
-    "brightRed": "{classicPink.500}",
+    "brightRed": "{classicRed.400}",
     "brightGreen": "{classicGreen.500}",
     "brightYellow": "{classicYellow.100}",
     "brightBlue": "{classicBlue.400}",

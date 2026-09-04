@@ -14,8 +14,8 @@ function alpha(value, percentage) {
 const BRACKET_GUIDE_ACTIVE_ALPHA = 75;
 const BRACKET_GUIDE_INACTIVE_ALPHA = 60;
 // Raised-surface overlays: resting (line highlight, sliders) vs engaged (hover, matches, hints).
-const OVERLAY_RESTING_ALPHA = 45;
-const OVERLAY_ENGAGED_ALPHA = 50;
+const OVERLAY_RESTING_ALPHA = 40;
+const OVERLAY_ENGAGED_ALPHA = 55;
 
 function createWorkbenchColors(color) {
   return {
@@ -43,6 +43,7 @@ function createWorkbenchColors(color) {
     "button.secondaryBackground": color.control.secondary.bg,
     "button.secondaryForeground": color.control.secondary.fg,
     "button.secondaryHoverBackground": color.control.secondary.hoverBg,
+    "sash.hoverBorder": color.control.secondary.bg,
     "checkbox.background": color.canvas.inset,
     "checkbox.border": color.border.muted,
     "checkbox.foreground": color.fg.default,
@@ -94,7 +95,7 @@ function createWorkbenchColors(color) {
     "activityBarTop.border": color.border.muted,
     "activityBarBadge.foreground": color.fg.muted,
     "activityBarBadge.background": color.canvas.inset,
-    "sideBar.foreground": color.fg.muted,
+    "sideBar.foreground": color.fg.subtle,
     "sideBar.background": color.canvas.inset,
     "sideBar.border": color.border.muted,
     "sideBarTitle.foreground": color.fg.muted,
@@ -405,7 +406,10 @@ function createWorkbenchColors(color) {
       color.canvas.raised,
       OVERLAY_ENGAGED_ALPHA,
     ),
-    "editorOverviewRuler.border": color.border.muted,
+    "editorOverviewRuler.border": alpha(
+      color.border.muted,
+      OVERLAY_ENGAGED_ALPHA,
+    ),
     "minimapSlider.background": alpha(
       color.canvas.raised,
       OVERLAY_RESTING_ALPHA,
@@ -646,10 +650,10 @@ function createWorkbenchColors(color) {
 
     // Source control decorations
     "gitDecoration.addedResourceForeground": color.success.fg,
-    "gitDecoration.modifiedResourceForeground": color.accent.tertiary,
+    "gitDecoration.modifiedResourceForeground": color.accent.secondary,
     "gitDecoration.deletedResourceForeground": color.danger.fg,
     "gitDecoration.untrackedResourceForeground": color.success.fg,
-    "gitDecoration.ignoredResourceForeground": alpha(color.fg.subtle, 75),
+    "gitDecoration.ignoredResourceForeground": alpha(color.fg.subtle, 50),
     "gitDecoration.conflictingResourceForeground": color.danger.fg,
     "gitDecoration.stageModifiedResourceForeground": color.accent.tertiary,
     "gitDecoration.stageDeletedResourceForeground": color.danger.fg,

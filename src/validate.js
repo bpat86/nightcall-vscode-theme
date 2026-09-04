@@ -11,6 +11,7 @@ const {
 const createSemanticTokenColors = require("./theme/semantic-token-colors");
 const createTokenColors = require("./theme/token-colors");
 const createWorkbenchColors = require("./theme/workbench-colors");
+const { VARIANTS } = require("./theme/variants");
 
 const root = path.join(__dirname, "..");
 const colorDirectory = path.join(__dirname, "colors");
@@ -90,7 +91,7 @@ function collectUsedColorPaths(resolvedScheme, fileName) {
 
   const color = wrap(resolvedScheme, "");
   createWorkbenchColors(color);
-  createTokenColors(color, { italics: true });
+  createTokenColors(color);
   createSemanticTokenColors(color);
   return usedPaths;
 }
@@ -215,7 +216,7 @@ function validateColor(value, location) {
   }
 }
 
-function validateTokenColors(theme, fileName, { italics = true, sourceFile }) {
+function validateTokenColors(theme, fileName, { variants, sourceFile }) {
   const scopes = new Map();
   const italicScopes = new Set();
 
@@ -263,7 +264,7 @@ function validateTokenColors(theme, fileName, { italics = true, sourceFile }) {
     return;
   }
 
-  if (!italics) {
+  if (variants.includes("no-italics")) {
     if (italicScopes.size > 0) {
       errors.push(
         `${fileName}: contains italic scopes: ${[...italicScopes].join(", ")}`,
@@ -301,6 +302,16 @@ function validateThemeDefinitions() {
 
   for (const definition of themeDefinitions) {
     const { fileName, name } = definition;
+
+    if (!Array.isArray(definition.variants)) {
+      errors.push(`${fileName}: variants must be an array`);
+    } else {
+      for (const variant of definition.variants) {
+        if (!VARIANTS[variant]) {
+          errors.push(`${fileName}: unknown variant ${variant}`);
+        }
+      }
+    }
 
     if (themeDefinitionsByFileName.has(fileName)) {
       errors.push(`${fileName}: duplicate source theme definition`);

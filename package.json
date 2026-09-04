@@ -2,7 +2,7 @@
   "name": "nightcall",
   "displayName": "Nightcall",
   "description": "A mellow yet colorful Visual Studio Code theme built around vibrant shades of pink, purple, and blue.",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "engines": {
     "vscode": "^1.125.0"
   },
@@ -58,6 +58,11 @@
         "path": "./themes/Nightcall-color-theme-no-italics.json"
       },
       {
+        "label": "Nightcall (Borderless)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nightcall-color-theme-borderless.json"
+      },
+      {
         "label": "Nightcall Muted",
         "uiTheme": "vs-dark",
         "path": "./themes/Nightcall-color-theme-muted.json"
@@ -66,6 +71,11 @@
         "label": "Nightcall Muted (No Italics)",
         "uiTheme": "vs-dark",
         "path": "./themes/Nightcall-color-theme-muted-no-italics.json"
+      },
+      {
+        "label": "Nightcall Muted (Borderless)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Nightcall-color-theme-muted-borderless.json"
       },
       {
         "label": "Nightcall Classic",
@@ -85,6 +95,7 @@
     "@vscode/vsce": "^3.9.2",
     "chroma-js": "^3.2.0",
     "nodemon": "^3.1.14",
+    "ovsx": "^1.1.1",
     "prettier": "^3.9.6"
   },
   "scripts": {
@@ -97,6 +108,8 @@
     "vscode:prepublish": "npm run validate",
     "package": "vsce package -o ./build/nightcall.vsix",
     "publish:marketplace": "vsce publish",
+    "publish:openvsx": "ovsx publish ./build/nightcall.vsix",
+    "publish:all": "npm run package && npm run publish:marketplace && npm run publish:openvsx",
     "changeset": "changeset",
     "version": "changeset version"
   }

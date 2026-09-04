@@ -39,7 +39,7 @@
     "emphasis": "{yellow.100}"
   },
   "danger": {
-    "fg": "{red.200}",
+    "fg": "{red.250}",
     "muted": "{red.400}",
     "emphasis": "{red.300}"
   },
@@ -73,11 +73,12 @@
     "operator": "{purple.200}",
     "punctuation": "{purple.200}",
     "embedded": "{purple.200}",
+    "declaration": "{purple.200}",
     "decorator": "{purple.200}",
     "storage": "{pink.200}",
     "string": "{pink.100}",
     "number": "{pink.200}",
-    "boolean": "{red.200}",
+    "boolean": "{red.250}",
     "regexp": "{blue.300}",
     "constant": "{neutral.100}",
     "builtin": "{pink.200}",
@@ -90,18 +91,18 @@
     "class": "{neutral.100}",
     "tag": "{pink.200}",
     "component": "{pink.200}",
-    "invalid": "{red.200}"
+    "invalid": "{red.250}"
   },
   "ansi": {
     "black": "{neutral.700}",
-    "red": "{red.200}",
+    "red": "{red.250}",
     "green": "{green.500}",
     "yellow": "{yellow.100}",
     "blue": "{blue.300}",
     "magenta": "{purple.350}",
     "cyan": "{cyan.500}",
     "white": "{neutral.100}",
-    "brightBlack": "{neutral.500}",
+    "brightBlack": "{neutral.750}",
     "brightRed": "{red.100}",
     "brightGreen": "{green.500}",
     "brightYellow": "{yellow.200}",

@@ -9,16 +9,14 @@ const italicScopeGroups = Object.freeze({
 
 const ITALIC_SCOPES = Object.freeze(Object.values(italicScopeGroups).flat());
 
-function createTypographyTokenColors(color, { italics }) {
-  // An empty style explicitly cancels inherited italics in No Italics variants.
-  const italic = italics ? "italic" : "";
-
+// Always emits the italic policy; the no-italics variant strips it afterward.
+function createTypographyTokenColors(color) {
   return [
     {
       scope: italicScopeGroups.emphasis,
       settings: {
         foreground: color.syntax.keyword,
-        fontStyle: italic,
+        fontStyle: "italic",
       },
     },
     {
@@ -32,21 +30,21 @@ function createTypographyTokenColors(color, { italics }) {
       scope: italicScopeGroups.comments,
       settings: {
         foreground: color.syntax.comment,
-        fontStyle: italic,
+        fontStyle: "italic",
       },
     },
     {
       // Font-style-only rules preserve the language-specific colors declared below.
       scope: [...italicScopeGroups.controlFlow, ...italicScopeGroups.modifiers],
       settings: {
-        fontStyle: italic,
+        fontStyle: "italic",
       },
     },
     {
       scope: italicScopeGroups.languageVariables,
       settings: {
         foreground: color.syntax.builtin,
-        fontStyle: italic,
+        fontStyle: "italic",
       },
     },
   ];

@@ -1,8 +1,8 @@
 const { createTypographyTokenColors } = require("./typography");
 
-function createTokenColors(color, { italics }) {
+function createTokenColors(color) {
   return [
-    ...createTypographyTokenColors(color, { italics }),
+    ...createTypographyTokenColors(color),
 
     // Shared syntax and markup
     {
@@ -442,6 +442,13 @@ function createTokenColors(color, { italics }) {
         "keyword.control.def.ruby",
         "keyword.control.loop.js",
         "keyword.control.loop.ts",
+      ],
+      settings: {
+        foreground: color.syntax.storage,
+      },
+    },
+    {
+      scope: [
         "keyword.control.import.js",
         "keyword.control.import.ts",
         "keyword.control.import.tsx",
@@ -450,7 +457,7 @@ function createTokenColors(color, { italics }) {
         "keyword.control.from.tsx",
       ],
       settings: {
-        foreground: color.syntax.storage,
+        foreground: color.syntax.declaration,
       },
     },
     {
