@@ -115,7 +115,7 @@ function validatePaletteReferences() {
           !Number.isInteger(numericShade) ||
           numericShade < 50 ||
           numericShade > 950 ||
-          numericShade % 50 !== 0
+          numericShade % 25 !== 0
         ) {
           errors.push(
             `${paletteFileName}: ${family}.${shade} is not a valid shade`,

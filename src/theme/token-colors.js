@@ -1129,12 +1129,6 @@ function createTokenColors(color) {
       },
     },
     {
-      scope: "entity.name.function.decorator.python",
-      settings: {
-        foreground: color.syntax.keyword,
-      },
-    },
-    {
       scope: "source.python variable.language.special",
       settings: {
         foreground: color.syntax.function,

@@ -37,7 +37,10 @@ function createSemanticTokenColors(color) {
     number: color.syntax.number,
     regexp: color.syntax.regexp,
     operator: color.syntax.operator,
-    decorator: color.syntax.decorator,
+    decorator: {
+      foreground: color.syntax.decorator,
+      italic: true,
+    },
     macro: color.syntax.function,
   };
 }

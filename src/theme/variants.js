@@ -1,5 +1,5 @@
-// Each variant transforms one generated-theme section. Names are applied in
-// order, so a later variant receives the previous variant's result.
+// Names are applied in order, so a later variant receives the previous
+// variant's result.
 
 function colorReference(key) {
   return Object.freeze({ colorReference: key });
@@ -18,10 +18,11 @@ const EDITOR_OVERVIEW_RULER_BORDER = colorReference(
 );
 
 const BORDERLESS_OVERRIDES = Object.freeze({
+  "editor.border": TRANSPARENT,
+  "surface.border": TRANSPARENT,
   "titleBar.border": TRANSPARENT,
   "activityBar.border": TRANSPARENT,
   "activityBar.background": EDITOR_BACKGROUND,
-  "activityBarTop.border": TRANSPARENT,
   "activityBarTop.background": EDITOR_BACKGROUND,
   "sideBar.border": TRANSPARENT,
   "sideBar.background": EDITOR_BACKGROUND,
@@ -30,8 +31,6 @@ const BORDERLESS_OVERRIDES = Object.freeze({
   "statusBar.border": TRANSPARENT,
   "statusBar.debuggingBorder": TRANSPARENT,
   "statusBar.noFolderBorder": TRANSPARENT,
-  "surface.border": TRANSPARENT,
-  "editor.border": TRANSPARENT,
   "editorGroupHeader.tabsBorder": TRANSPARENT,
   "editorGroup.border": TRANSPARENT,
   "tab.border": TRANSPARENT,
@@ -88,15 +87,27 @@ function removeItalic(rule) {
   };
 }
 
+function removeSemanticItalics(tokenColors) {
+  return Object.fromEntries(
+    Object.entries(tokenColors).map(([selector, style]) => [
+      selector,
+      typeof style === "object" && style.italic
+        ? { ...style, italic: false }
+        : style,
+    ]),
+  );
+}
+
 const VARIANTS = Object.freeze({
-  borderless: {
-    section: "colors",
-    apply: (colors) => applyOverrides(colors, BORDERLESS_OVERRIDES),
-  },
-  "no-italics": {
-    section: "tokenColors",
-    apply: (tokenColors) => tokenColors.map(removeItalic),
-  },
+  borderless: (theme) => ({
+    ...theme,
+    colors: applyOverrides(theme.colors, BORDERLESS_OVERRIDES),
+  }),
+  "no-italics": (theme) => ({
+    ...theme,
+    tokenColors: theme.tokenColors.map(removeItalic),
+    semanticTokenColors: removeSemanticItalics(theme.semanticTokenColors),
+  }),
 });
 
 function applyVariants(theme, names) {
@@ -107,10 +118,7 @@ function applyVariants(theme, names) {
       throw new Error(`Unknown variant: ${name}`);
     }
 
-    return {
-      ...result,
-      [variant.section]: variant.apply(result[variant.section]),
-    };
+    return variant(result);
   }, theme);
 }
 

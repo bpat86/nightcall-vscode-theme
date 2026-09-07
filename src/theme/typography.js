@@ -3,6 +3,7 @@ const italicScopeGroups = Object.freeze({
   emphasis: ["italic", "markup.italic.markdown"],
   comments: ["comment", "comment.line.double-slash"],
   controlFlow: ["keyword.control"],
+  decorators: ["entity.name.function.decorator.python"],
   modifiers: ["storage.modifier"],
   languageVariables: ["variable.language"],
 });
@@ -37,6 +38,13 @@ function createTypographyTokenColors(color) {
       // Style-only rules preserve colors assigned by language-specific rules below.
       scope: [...italicScopeGroups.controlFlow, ...italicScopeGroups.modifiers],
       settings: {
+        fontStyle: "italic",
+      },
+    },
+    {
+      scope: italicScopeGroups.decorators,
+      settings: {
+        foreground: color.syntax.decorator,
         fontStyle: "italic",
       },
     },

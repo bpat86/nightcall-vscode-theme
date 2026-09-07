@@ -3,11 +3,11 @@
     "default": "{neutral.900}",
     "inset": "{neutral.950}",
     "overlay": "{neutral.850}",
-    "raised": "{neutral.650}"
+    "raised": "{neutral.600}"
   },
   "fg": {
     "default": "{neutral.200}",
-    "emphasis": "{neutral.100}",
+    "emphasis": "{neutral.150}",
     "muted": "{neutral.300}",
     "subtle": "{neutral.400}",
     "onEmphasis": "{neutral.950}"
@@ -58,7 +58,7 @@
     "primary": {
       "bg": "{pink.250}",
       "fg": "{neutral.900}",
-      "hoverBg": "{pink.250}",
+      "hoverBg": "{pink.275}",
       "border": "{pink.250}"
     },
     "secondary": {
@@ -80,15 +80,15 @@
     "number": "{pink.250}",
     "boolean": "{red.300}",
     "regexp": "{blue.350}",
-    "constant": "{neutral.100}",
+    "constant": "{purple.150}",
     "builtin": "{pink.250}",
-    "variable": "{neutral.200}",
-    "parameter": "{neutral.100}",
-    "property": "{neutral.100}",
+    "variable": "{purple.175}",
+    "parameter": "{purple.150}",
+    "property": "{purple.150}",
     "function": "{blue.350}",
     "method": "{blue.350}",
-    "type": "{neutral.100}",
-    "class": "{neutral.100}",
+    "type": "{purple.150}",
+    "class": "{purple.150}",
     "tag": "{pink.250}",
     "component": "{pink.250}",
     "invalid": "{red.300}"
@@ -113,7 +113,7 @@
     "blue": "{blue.300}",
     "magenta": "{purple.350}",
     "cyan": "{cyan.250}",
-    "white": "{neutral.100}",
+    "white": "{neutral.150}",
     "brightBlack": "{neutral.750}",
     "brightRed": "{red.100}",
     "brightGreen": "{green.500}",
@@ -121,6 +121,6 @@
     "brightBlue": "{blue.300}",
     "brightMagenta": "{purple.450}",
     "brightCyan": "{cyan.300}",
-    "brightWhite": "{neutral.100}"
+    "brightWhite": "{neutral.150}"
   }
 }

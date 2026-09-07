@@ -2,6 +2,12 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## "2.0.6"
+
+- Refined palette, syntax, semantic, typography, and workbench colors across all theme variants
+- Added more complete workbench color coverage for buttons, checkboxes, radio buttons, and related controls
+- Added VS Code extension and MCP colors for extension action buttons, remote badges, and extension status icons
+
 ## "2.0.5"
 
 - Added more complete workbench color coverage for buttons, checkboxes, radio buttons, and related controls

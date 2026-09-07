@@ -3,11 +3,11 @@
     "default": "{neutral.800}",
     "inset": "{neutral.850}",
     "overlay": "{neutral.750}",
-    "raised": "{neutral.550}"
+    "raised": "{neutral.500}"
   },
   "fg": {
     "default": "{neutral.200}",
-    "emphasis": "{neutral.100}",
+    "emphasis": "{neutral.150}",
     "muted": "{neutral.300}",
     "subtle": "{neutral.400}",
     "onEmphasis": "{neutral.950}"
@@ -49,16 +49,16 @@
     "emphasis": "{cyan.500}"
   },
   "interaction": {
-    "hover": "{neutral.650}",
-    "pressed": "{neutral.650}",
-    "selected": "{neutral.650}",
-    "selectedInactive": "{neutral.650}"
+    "hover": "{neutral.700}",
+    "pressed": "{neutral.700}",
+    "selected": "{neutral.700}",
+    "selectedInactive": "{neutral.700}"
   },
   "control": {
     "primary": {
       "bg": "{pink.200}",
       "fg": "{neutral.800}",
-      "hoverBg": "{pink.200}",
+      "hoverBg": "{pink.225}",
       "border": "{pink.200}"
     },
     "secondary": {
@@ -76,19 +76,19 @@
     "declaration": "{purple.200}",
     "decorator": "{purple.200}",
     "storage": "{pink.200}",
-    "string": "{pink.100}",
+    "string": "{pink.125}",
     "number": "{pink.200}",
     "boolean": "{red.250}",
     "regexp": "{blue.300}",
-    "constant": "{neutral.100}",
+    "constant": "{purple.125}",
     "builtin": "{pink.200}",
-    "variable": "{neutral.200}",
-    "parameter": "{neutral.100}",
-    "property": "{neutral.100}",
+    "variable": "{purple.150}",
+    "parameter": "{purple.125}",
+    "property": "{purple.125}",
     "function": "{blue.300}",
     "method": "{blue.300}",
-    "type": "{neutral.100}",
-    "class": "{neutral.100}",
+    "type": "{purple.125}",
+    "class": "{purple.125}",
     "tag": "{pink.200}",
     "component": "{pink.200}",
     "invalid": "{red.250}"
@@ -113,7 +113,7 @@
     "blue": "{blue.300}",
     "magenta": "{purple.350}",
     "cyan": "{cyan.200}",
-    "white": "{neutral.100}",
+    "white": "{neutral.150}",
     "brightBlack": "{neutral.750}",
     "brightRed": "{red.100}",
     "brightGreen": "{green.300}",
@@ -121,6 +121,6 @@
     "brightBlue": "{blue.250}",
     "brightMagenta": "{purple.450}",
     "brightCyan": "{cyan.250}",
-    "brightWhite": "{neutral.100}"
+    "brightWhite": "{neutral.150}"
   }
 }
