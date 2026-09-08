@@ -105,13 +105,13 @@
     "test": "node --test test/*.test.js",
     "build": "node src/index.js && mkdir -p build",
     "validate": "npm run format:check && npm run build && npm test",
-    "release": "npm run validate && npm run package",
     "validate:ci": "npm run validate && git diff --exit-code themes/",
     "vscode:prepublish": "npm run validate",
     "package": "vsce package -o ./build/nightcall.vsix",
     "publish:marketplace": "vsce publish --packagePath ./build/nightcall.vsix",
     "publish:openvsx": "ovsx publish ./build/nightcall.vsix",
     "publish:all": "npm run package && npm run publish:marketplace && npm run publish:openvsx",
+    "release": "npm run validate && npm run package",
     "changeset": "changeset",
     "version": "changeset version"
   }
