@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.9
+
+### Patch Changes
+
+- Improve extension packaging so VS Code retrieves updated theme assets reliably.
+
 ## 2.0.8
 
 - Refresh the Nightcall icon.
