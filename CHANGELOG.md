@@ -1,27 +1,30 @@
 # Change Log
 
+## 2.0.8
+
+- Refresh the Nightcall icon.
+- Move extension images into a dedicated `images` directory and update the manifest and README references.
+
 All notable changes to the "nightcall" extension will be documented in this file.
 
 ## 2.0.7
 
-### Patch Changes
-
 - Improve syntax-color consistency for YAML mappings and shell scripts, including a distinct color treatment for `.zshrc` alias names.
 
-## "2.0.6"
+## 2.0.6
 
 - Refined palette, syntax, semantic, typography, and workbench colors across all theme variants
 - Added more complete workbench color coverage for buttons, checkboxes, radio buttons, and related controls
 - Added VS Code extension and MCP colors for extension action buttons, remote badges, and extension status icons
 
-## "2.0.5"
+## 2.0.5
 
 - Added more complete workbench color coverage for buttons, checkboxes, radio buttons, and related controls
 - Added dedicated colors for Git decorations, diffs, minimaps, and chat edits to better align with source-control color conventions
 - Refined status colors for success, warnings, errors, and informational states across all themes
 - Improved consistency and contrast across editor, terminal, diagnostics, controls, and ANSI colors
 
-## "2.0.4"
+## 2.0.4
 
 - Added Nightcall (Borderless) and Nightcall Muted (Borderless) variants, which hide the borders between the title bar, activity bar, sidebar, editor groups, panel, and status bar
 - Nightcall Classic and Nightcall Classic (No Italics) now use the borderless layout
@@ -31,21 +34,21 @@ All notable changes to the "nightcall" extension will be documented in this file
 - Brightened the terminal's bright black color for better visibility
 - Added Open VSX publishing support
 
-## "2.0.3"
+## 2.0.3
 
 - Version bump only; no theme changes
 
-## "2.0.2"
+## 2.0.2
 
 - Updated README
 
-## "2.0.1"
+## 2.0.1
 
 - Refined Classic theme color handling and isolated its palette from shared colors
 - Improved embedded syntax coloring
 - Removed unsupported workbench color properties
 
-## "2.0.0"
+## 2.0.0
 
 - Rebuilt the theme generation and validation pipeline around shared palettes, color schemes, semantic token colors, typography, and workbench colors
 - Added six theme variants: default, muted, and classic palettes, each with italic and no-italics options
@@ -54,36 +57,36 @@ All notable changes to the "nightcall" extension will be documented in this file
 - Refined embedded syntax coloring and removed unsupported workbench color properties
 - Added the new extension icon and README banner, and refreshed the project documentation
 
-## "1.0.0"
+## 1.0.0
 
 - Initial release
 
-## "0.7.0"
+## 0.7.0
 
 - Changed breadcrumb colors
 - Changed the colors of badges, buttons, and highlights in the settings and extensions sections
 
-## "0.6.3"
+## 0.6.3
 
 - Fixed inconsistency with matching bracket highlighting in the editor
 
-## "0.6.1"
+## 0.6.1
 
 - Adjusted pink colors
 - Better consistency between CSS and SCSS
 - Small tweaks to editor and minimap
 
-## "0.5.8"
+## 0.5.8
 
 - Better consistency between CSS and SCSS
 - Better JSDoc support
 - Adjusted the use of italics
 
-## "0.5.7"
+## 0.5.7
 
 - Better php support
 
-## "0.5.4"
+## 0.5.4
 
 - Changed keyword syntax colors in Laravel blade files
 - Adjusted pink colors to be less hot
@@ -91,122 +94,122 @@ All notable changes to the "nightcall" extension will be documented in this file
 - Adjusted the red color to be less orange
 - Updated screenshots
 
-## "0.5.2"
+## 0.5.2
 
 - Better consistency between React and Typescript React syntax, variables, etc.
 
-## "0.5.1"
+## 0.5.1
 
 - Better consistency between React and Typescript React syntax, variables, etc.
 
-## "0.5.0"
+## 0.5.0
 
 - Improved the visibility of selected text highlighting in the editor
 
-## "0.4.9"
+## 0.4.9
 
 - Fixed issue where JSON values color was overridden by a different scope
 
-## "0.4.7"
+## 0.4.7
 
 - Adjusted PHP Support Class colors for better consistency
 
-## "0.4.6"
+## 0.4.6
 
 - Better consistency with highlighted colors across the editor, sidebar, and settings
 
-## "0.4.5"
+## 0.4.5
 
 - Adjusted the colors of inputs, and dropdowns in the settings section
 
-## "0.4.4"
+## 0.4.4
 
 - Adjusted the colors of variables to a lighter color to make them more noticeable while scanning and differentiate them from other keywords
 - Adjusted the colors of buttons, inputs, and dropdowns in the settings section
 - Adjusted the colors of titles, file names, etc in the sidebar to more readable
 
-## "0.4.3"
+## 0.4.3
 
 - Updated the colors of buttons, inputs, and dropdowns in the settings section
 
-## "0.4.1"
+## 0.4.1
 
 - A few small tweaks to CSS, SCSS, LESS syntax coloring
 - Added a new color
 - Better consistency between React and Typescript React syntax, variables, etc.
 
-## "0.3.3"
+## 0.3.3
 
 - Better consistency between css, scss, less, and stylus
 - Better support for regular expressions
 
-## "0.3.1"
+## 0.3.1
 
 - Made the hottest pink color less hot
 
-## "0.2.8"
+## 0.2.8
 
 - Fixed typos in README 😅
 
-## "0.2.7"
+## 0.2.7
 
 - Fixed typos in README
 
-## "0.2.5"
+## 0.2.5
 
 - Better support for ENV and Docker
 - Better consistency with Typescript-React, React, Vue, and Javascript
 - Updated README
 
-## "0.2.3"
+## 0.2.3
 
 - Better consistency with Typescript-React, React, Vue, and Javascript
 
-## "0.2.1"
+## 0.2.1
 
 - Better consistency with ts and js
 
-## "0.2.0"
+## 0.2.0
 
 - Better consistency with ts and js
 
-## "0.1.8"
+## 0.1.8
 
 - Better Python support
 
-## "0.1.7"
+## 0.1.7
 
 - Update README: New screenshot images
 
-## "0.1.6"
+## 0.1.6
 
 - Fixed a scope issue with php tags
 - Update README: Update Plugin Settings section
 
-## "0.1.5"
+## 0.1.5
 
 - Update README: Update Plugin Settings section
 
-## "0.1.4"
+## 0.1.4
 
 - Better Markdown support
 - Update package.json: Update icon image
 - Update README: Update theme images
 
-## "0.1.3"
+## 0.1.3
 
 - Better Markdown support
 
-## "0.1.2"
+## 0.1.2
 
 - Update package.json: Added icon image
 - Update README: Added theme images
 
-## "0.1.1"
+## 0.1.1
 
 - Change the colors of imports, etc to purple
 - Make error text more legible
 
-## "0.1.0"
+## 0.1.0
 
 - Initial release

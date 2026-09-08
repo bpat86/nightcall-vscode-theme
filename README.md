@@ -2,7 +2,7 @@
 
 A mellow yet colorful Visual Studio Code theme built around vibrant shades of pink, purple, and blue.
 
-![Nightcall theme banner](https://raw.githubusercontent.com/bpat86/nightcall-vscode-theme/main/banner.jpg)
+![Nightcall theme banner](images/banner.jpg)
 
 Designed for productive coding sessions spent ~~reviewing 600 lines of AI-generated code to fix the one-line problem I started with~~ building exciting and personally fulfilling things, completely unbothered by the state of the industry or your future employment prospects.
 
