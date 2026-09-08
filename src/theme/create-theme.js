@@ -4,9 +4,10 @@ const createTokenColors = require("./token-colors");
 const createWorkbenchColors = require("./workbench-colors");
 const { applyVariants } = require("./variants");
 
-function createTheme({ scheme, type, name, author, variants }) {
-  const color = getThemeColors(scheme);
-
+function createTheme(
+  { scheme, type, name, author, variants = [] },
+  color = getThemeColors(scheme),
+) {
   const base = {
     $schema: "vscode://schemas/color-theme",
     name,

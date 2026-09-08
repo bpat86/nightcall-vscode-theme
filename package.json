@@ -2,7 +2,7 @@
   "name": "nightcall",
   "displayName": "Nightcall",
   "description": "A mellow yet colorful Visual Studio Code theme built around vibrant shades of pink, purple, and blue.",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "engines": {
     "vscode": "^1.125.0"
   },
@@ -100,14 +100,15 @@
   },
   "scripts": {
     "start": "nodemon --watch src src/index.js",
-    "format": "prettier --write \"src/**/*.{js,json}\" README.md package.json",
-    "format:check": "prettier --check \"src/**/*.{js,json}\" README.md package.json",
+    "format": "prettier --write \"src/**/*.{js,json}\" \"test/**/*.js\" README.md package.json",
+    "format:check": "prettier --check \"src/**/*.{js,json}\" \"test/**/*.js\" README.md package.json",
+    "test": "node --test test/*.test.js",
     "build": "node src/index.js && mkdir -p build",
-    "validate": "npm run format:check && npm run build && node src/validate.js",
+    "validate": "npm run format:check && npm run build && npm test",
     "validate:ci": "npm run validate && git diff --exit-code themes/",
     "vscode:prepublish": "npm run validate",
     "package": "vsce package -o ./build/nightcall.vsix",
-    "publish:marketplace": "vsce publish",
+    "publish:marketplace": "vsce publish --packagePath ./build/nightcall.vsix",
     "publish:openvsx": "ovsx publish ./build/nightcall.vsix",
     "publish:all": "npm run package && npm run publish:marketplace && npm run publish:openvsx",
     "changeset": "changeset",

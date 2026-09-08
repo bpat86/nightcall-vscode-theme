@@ -21,7 +21,7 @@
     "keybindingLabel.foreground": "#E4CCFF",
     "button.background": "#FF83CA",
     "button.foreground": "#141629",
-    "button.border": "#2E3250",
+    "button.border": "#FF83CA",
     "button.separator": "#23263F",
     "button.hoverBackground": "#FF83CA",
     "button.secondaryBackground": "#2E3250",
@@ -406,7 +406,7 @@
     "testing.iconQueued": "#E4CCFF",
     "testing.iconUnset": "#B9AEDC",
     "testing.iconSkipped": "#F0D2A8",
-    "testing.runAction": "#85D483",
+    "testing.runAction": "#6BBF73",
     "testing.peekBorder": "#23263F",
     "testing.peekHeaderBackground": "#141629",
     "testing.message.info.decorationForeground": "#86ECF6",
@@ -1854,9 +1854,24 @@
       }
     },
     {
-      "scope": "entity.name.command.shell",
+      "scope": [
+        "entity.name.command.shell",
+        "entity.name.function.shell"
+      ],
       "settings": {
         "foreground": "#7E90FF"
+      }
+    },
+    {
+      "scope": "support.function.shell",
+      "settings": {
+        "foreground": "#FB5FC0"
+      }
+    },
+    {
+      "scope": "variable.other.assignment.shell",
+      "settings": {
+        "foreground": "#E1A7F2"
       }
     },
     {
@@ -1959,7 +1974,7 @@
     {
       "scope": "entity.name.tag.yaml",
       "settings": {
-        "foreground": "#FF83CA"
+        "foreground": "#E1A7F2"
       }
     },
     {

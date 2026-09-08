@@ -1,72 +1,47 @@
 // Names are applied in order, so a later variant receives the previous
 // variant's result.
 
-function colorReference(key) {
-  return Object.freeze({ colorReference: key });
-}
-
-function isColorReference(value) {
-  return (
-    typeof value === "object" && value !== null && "colorReference" in value
-  );
-}
-
 const TRANSPARENT = "#00000000";
-const EDITOR_BACKGROUND = colorReference("editor.background");
-const EDITOR_OVERVIEW_RULER_BORDER = colorReference(
-  "editorOverviewRuler.border",
-);
 
-const BORDERLESS_OVERRIDES = Object.freeze({
-  "editor.border": TRANSPARENT,
-  "surface.border": TRANSPARENT,
-  "titleBar.border": TRANSPARENT,
-  "activityBar.border": TRANSPARENT,
-  "activityBar.background": EDITOR_BACKGROUND,
-  "activityBarTop.background": EDITOR_BACKGROUND,
-  "sideBar.border": TRANSPARENT,
-  "sideBar.background": EDITOR_BACKGROUND,
-  "sideBarSectionHeader.border": EDITOR_OVERVIEW_RULER_BORDER,
-  "sideBarSectionHeader.background": EDITOR_BACKGROUND,
-  "statusBar.border": TRANSPARENT,
-  "statusBar.debuggingBorder": TRANSPARENT,
-  "statusBar.noFolderBorder": TRANSPARENT,
-  "editorGroupHeader.tabsBorder": TRANSPARENT,
-  "editorGroup.border": TRANSPARENT,
-  "tab.border": TRANSPARENT,
-  "panel.border": TRANSPARENT,
-  "editorStickyScroll.border": EDITOR_OVERVIEW_RULER_BORDER,
-});
-
-function resolveOverride(colors, key, value) {
+function getColor(colors, key) {
   if (!Object.hasOwn(colors, key)) {
-    throw new Error(`Override targets unknown workbench color ${key}`);
+    throw new Error(`Borderless uses unknown workbench color ${key}`);
   }
 
-  if (!isColorReference(value)) {
-    return value;
-  }
-
-  if (!Object.hasOwn(colors, value.colorReference)) {
-    throw new Error(
-      `Override for ${key} references unknown workbench color ${value.colorReference}`,
-    );
-  }
-
-  return colors[value.colorReference];
+  return colors[key];
 }
 
-// Resolve references from the original map so overrides cannot depend on
-// another override's order.
-function applyOverrides(colors, overrides) {
+function applyBorderless(theme) {
+  const background = getColor(theme.colors, "editor.background");
+  const subtleBorder = getColor(theme.colors, "editorOverviewRuler.border");
+  const overrides = {
+    "editor.border": TRANSPARENT,
+    "surface.border": TRANSPARENT,
+    "titleBar.border": TRANSPARENT,
+    "activityBar.border": TRANSPARENT,
+    "activityBar.background": background,
+    "activityBarTop.background": background,
+    "sideBar.border": TRANSPARENT,
+    "sideBar.background": background,
+    "sideBarSectionHeader.border": subtleBorder,
+    "sideBarSectionHeader.background": background,
+    "statusBar.border": TRANSPARENT,
+    "statusBar.debuggingBorder": TRANSPARENT,
+    "statusBar.noFolderBorder": TRANSPARENT,
+    "editorGroupHeader.tabsBorder": TRANSPARENT,
+    "editorGroup.border": TRANSPARENT,
+    "tab.border": TRANSPARENT,
+    "panel.border": TRANSPARENT,
+    "editorStickyScroll.border": subtleBorder,
+  };
+
+  for (const key of Object.keys(overrides)) {
+    getColor(theme.colors, key);
+  }
+
   return {
-    ...colors,
-    ...Object.fromEntries(
-      Object.entries(overrides).map(([key, value]) => [
-        key,
-        resolveOverride(colors, key, value),
-      ]),
-    ),
+    ...theme,
+    colors: { ...theme.colors, ...overrides },
   };
 }
 
@@ -99,10 +74,7 @@ function removeSemanticItalics(tokenColors) {
 }
 
 const VARIANTS = Object.freeze({
-  borderless: (theme) => ({
-    ...theme,
-    colors: applyOverrides(theme.colors, BORDERLESS_OVERRIDES),
-  }),
+  borderless: applyBorderless,
   "no-italics": (theme) => ({
     ...theme,
     tokenColors: theme.tokenColors.map(removeItalic),
@@ -112,13 +84,11 @@ const VARIANTS = Object.freeze({
 
 function applyVariants(theme, names) {
   return names.reduce((result, name) => {
-    const variant = VARIANTS[name];
-
-    if (!variant) {
+    if (!Object.hasOwn(VARIANTS, name)) {
       throw new Error(`Unknown variant: ${name}`);
     }
 
-    return variant(result);
+    return VARIANTS[name](result);
   }, theme);
 }
 

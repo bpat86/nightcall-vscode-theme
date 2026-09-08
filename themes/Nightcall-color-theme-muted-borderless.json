@@ -21,7 +21,7 @@
     "keybindingLabel.foreground": "#C1C1D7",
     "button.background": "#FFADDC",
     "button.foreground": "#2F2F4B",
-    "button.border": "#3F3F64",
+    "button.border": "#FFADDC",
     "button.separator": "#373758",
     "button.hoverBackground": "#FFA3D8",
     "button.secondaryBackground": "#3F3F64",
@@ -406,7 +406,7 @@
     "testing.iconQueued": "#C1C1D7",
     "testing.iconUnset": "#A0A0C2",
     "testing.iconSkipped": "#FFE2BE",
-    "testing.runAction": "#b9f8cf",
+    "testing.runAction": "#9AF5BC",
     "testing.peekBorder": "#373758",
     "testing.peekHeaderBackground": "#2F2F4B",
     "testing.message.info.decorationForeground": "#00d3f2",
@@ -686,13 +686,13 @@
     {
       "scope": "string",
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
       "scope": "string.quoted",
       "settings": {
-        "foreground": "#FFCCE9",
+        "foreground": "#FFD6ED",
         "fontStyle": ""
       }
     },
@@ -1028,7 +1028,7 @@
     {
       "scope": "constant.other.color",
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
@@ -1075,7 +1075,7 @@
     {
       "scope": "punctuation.definition.string",
       "settings": {
-        "foreground": "#FFCCE9",
+        "foreground": "#FFD6ED",
         "fontStyle": ""
       }
     },
@@ -1266,7 +1266,7 @@
     {
       "scope": "string.template punctuation.definition.string",
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
@@ -1370,7 +1370,7 @@
     {
       "scope": "source.elixir punctuation.definition.string",
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
@@ -1592,7 +1592,7 @@
         "string.quoted.double.json punctuation.definition.string.json"
       ],
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
@@ -1854,9 +1854,24 @@
       }
     },
     {
-      "scope": "entity.name.command.shell",
+      "scope": [
+        "entity.name.command.shell",
+        "entity.name.function.shell"
+      ],
       "settings": {
         "foreground": "#a0b7f6"
+      }
+    },
+    {
+      "scope": "support.function.shell",
+      "settings": {
+        "foreground": "#FFADDC"
+      }
+    },
+    {
+      "scope": "variable.other.assignment.shell",
+      "settings": {
+        "foreground": "#E3D5FB"
       }
     },
     {
@@ -1959,7 +1974,7 @@
     {
       "scope": "entity.name.tag.yaml",
       "settings": {
-        "foreground": "#FFADDC"
+        "foreground": "#E3D5FB"
       }
     },
     {
@@ -2087,13 +2102,13 @@
     {
       "scope": "string.quoted.single",
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
       "scope": "string.quoted.double",
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
@@ -2129,13 +2144,13 @@
     {
       "scope": "punctuation.definition.string.begin",
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
       "scope": "punctuation.definition.string.end",
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
@@ -2199,19 +2214,19 @@
     {
       "scope": "string.template",
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
       "scope": "punctuation.definition.string.template.begin",
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
       "scope": "punctuation.definition.string.template.end",
       "settings": {
-        "foreground": "#FFCCE9"
+        "foreground": "#FFD6ED"
       }
     },
     {
@@ -2313,7 +2328,7 @@
     "namespace.declaration": "#E3D5FB",
     "keyword": "#CCB4F9",
     "comment": "#7F7FAC",
-    "string": "#FFCCE9",
+    "string": "#FFD6ED",
     "number": "#FFADDC",
     "regexp": "#a0b7f6",
     "operator": "#CCB4F9",

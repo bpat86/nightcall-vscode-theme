@@ -3,8 +3,36 @@ const { createTypographyTokenColors } = require("./typography");
 function createTokenColors(color) {
   return [
     ...createTypographyTokenColors(color),
+    ...createSharedTokenColors(color),
+    ...createCoffeeScriptTokenColors(color),
+    ...createCSharpTokenColors(color),
+    ...createCssTokenColors(color),
+    ...createElixirTokenColors(color),
+    ...createClojureTokenColors(color),
+    ...createGoTokenColors(color),
+    ...createCppTokenColors(color),
+    ...createPowerShellTokenColors(color),
+    ...createHtmlTokenColors(color),
+    ...createJavaScriptTokenColors(color),
+    ...createJsonTokenColors(color),
+    ...createJavaScriptObjectTokenColors(color),
+    ...createRubyTokenColors(color),
+    ...createLessTokenColors(color),
+    ...createMarkdownTokenColors(color),
+    ...createPhpTokenColors(color),
+    ...createPythonTokenColors(color),
+    ...createSassTokenColors(color),
+    ...createSqlTokenColors(color),
+    ...createShellTokenColors(color),
+    ...createTypeScriptTokenColors(color),
+    ...createYamlTokenColors(color),
+    ...createJsxTokenColors(color),
+    ...createSharedOverrideTokenColors(color),
+  ];
+}
 
-    // Shared syntax and markup
+function createSharedTokenColors(color) {
+  return [
     {
       scope: [
         "markup.changed",
@@ -600,8 +628,11 @@ function createTokenColors(color) {
         foreground: color.syntax.comment,
       },
     },
+  ];
+}
 
-    // CoffeeScript
+function createCoffeeScriptTokenColors(color) {
+  return [
     {
       scope: "variable.parameter.function.coffee",
       settings: {
@@ -614,8 +645,11 @@ function createTokenColors(color) {
         foreground: color.syntax.variable,
       },
     },
+  ];
+}
 
-    // C#
+function createCSharpTokenColors(color) {
+  return [
     {
       scope: "variable.other.readwrite.cs",
       settings: {
@@ -634,8 +668,11 @@ function createTokenColors(color) {
         foreground: color.syntax.variable,
       },
     },
+  ];
+}
 
-    // CSS
+function createCssTokenColors(color) {
+  return [
     {
       scope: [
         "entity.name.tag.css",
@@ -665,8 +702,11 @@ function createTokenColors(color) {
         foreground: color.syntax.type,
       },
     },
+  ];
+}
 
-    // Elixir
+function createElixirTokenColors(color) {
+  return [
     {
       scope: [
         "source.elixir support.type.elixir",
@@ -713,16 +753,22 @@ function createTokenColors(color) {
         fontStyle: "",
       },
     },
+  ];
+}
 
-    // Clojure
+function createClojureTokenColors(color) {
+  return [
     {
       scope: "constant.keyword.clojure",
       settings: {
         foreground: color.syntax.constant,
       },
     },
+  ];
+}
 
-    // Go
+function createGoTokenColors(color) {
+  return [
     {
       scope: "source.go meta.function-call.go",
       settings: {
@@ -759,8 +805,11 @@ function createTokenColors(color) {
         foreground: color.syntax.constant,
       },
     },
+  ];
+}
 
-    // C and C++
+function createCppTokenColors(color) {
+  return [
     {
       scope: ["entity.name.function.preprocessor.cpp", "entity.scope.name.cpp"],
       settings: {
@@ -785,8 +834,11 @@ function createTokenColors(color) {
         foreground: color.syntax.variable,
       },
     },
+  ];
+}
 
-    // PowerShell
+function createPowerShellTokenColors(color) {
+  return [
     {
       scope: "variable.other.readwrite.powershell",
       settings: {
@@ -799,8 +851,11 @@ function createTokenColors(color) {
         foreground: color.syntax.builtin,
       },
     },
+  ];
+}
 
-    // HTML
+function createHtmlTokenColors(color) {
+  return [
     {
       scope: "entity.other.attribute-name.id.html",
       settings: {
@@ -820,8 +875,11 @@ function createTokenColors(color) {
         fontStyle: "",
       },
     },
+  ];
+}
 
-    // JavaScript and JSDoc
+function createJavaScriptTokenColors(color) {
+  return [
     {
       scope: "meta.method.declaration storage.type.js",
       settings: {
@@ -903,8 +961,11 @@ function createTokenColors(color) {
         foreground: color.syntax.variable,
       },
     },
+  ];
+}
 
-    // JSON and JSON with Comments
+function createJsonTokenColors(color) {
+  return [
     {
       scope: "support.constant.json",
       settings: {
@@ -937,16 +998,22 @@ function createTokenColors(color) {
         foreground: color.syntax.boolean,
       },
     },
+  ];
+}
 
-    // Additional JavaScript scope
+function createJavaScriptObjectTokenColors(color) {
+  return [
     {
       scope: "variable.other.object.js",
       settings: {
         foreground: color.syntax.type,
       },
     },
+  ];
+}
 
-    // Ruby
+function createRubyTokenColors(color) {
+  return [
     {
       scope: "variable.other.ruby",
       settings: {
@@ -971,8 +1038,11 @@ function createTokenColors(color) {
         foreground: color.syntax.constant,
       },
     },
+  ];
+}
 
-    // Less
+function createLessTokenColors(color) {
+  return [
     {
       scope: "entity.name.tag.less",
       settings: {
@@ -992,8 +1062,11 @@ function createTokenColors(color) {
         foreground: color.syntax.tag,
       },
     },
+  ];
+}
 
-    // Markdown
+function createMarkdownTokenColors(color) {
+  return [
     {
       scope: [
         "markup.heading.markdown",
@@ -1064,8 +1137,11 @@ function createTokenColors(color) {
         foreground: color.syntax.keyword,
       },
     },
+  ];
+}
 
-    // PHP
+function createPhpTokenColors(color) {
+  return [
     {
       scope: "variable.other.php",
       settings: {
@@ -1102,8 +1178,11 @@ function createTokenColors(color) {
         foreground: color.syntax.keyword,
       },
     },
+  ];
+}
 
-    // Python
+function createPythonTokenColors(color) {
+  return [
     {
       scope: "constant.language.python",
       settings: {
@@ -1134,8 +1213,11 @@ function createTokenColors(color) {
         foreground: color.syntax.function,
       },
     },
+  ];
+}
 
-    // Sass and SCSS
+function createSassTokenColors(color) {
+  return [
     {
       scope: [
         "variable.scss",
@@ -1177,8 +1259,11 @@ function createTokenColors(color) {
         foreground: color.syntax.number,
       },
     },
+  ];
+}
 
-    // SQL
+function createSqlTokenColors(color) {
+  return [
     {
       scope: [
         "constant.other.table-name.sql",
@@ -1188,12 +1273,27 @@ function createTokenColors(color) {
         foreground: color.syntax.type,
       },
     },
+  ];
+}
 
-    // Shell scripts
+function createShellTokenColors(color) {
+  return [
     {
-      scope: "entity.name.command.shell",
+      scope: ["entity.name.command.shell", "entity.name.function.shell"],
       settings: {
         foreground: color.syntax.function,
+      },
+    },
+    {
+      scope: "support.function.shell",
+      settings: {
+        foreground: color.syntax.builtin,
+      },
+    },
+    {
+      scope: "variable.other.assignment.shell",
+      settings: {
+        foreground: color.syntax.property,
       },
     },
     {
@@ -1202,8 +1302,11 @@ function createTokenColors(color) {
         foreground: color.syntax.constant,
       },
     },
+  ];
+}
 
-    // TypeScript
+function createTypeScriptTokenColors(color) {
+  return [
     {
       scope: [
         "variable.other.readwrite.alias.ts",
@@ -1289,12 +1392,15 @@ function createTokenColors(color) {
         foreground: color.syntax.function,
       },
     },
+  ];
+}
 
-    // YAML
+function createYamlTokenColors(color) {
+  return [
     {
       scope: "entity.name.tag.yaml",
       settings: {
-        foreground: color.syntax.tag,
+        foreground: color.syntax.constant,
       },
     },
     {
@@ -1303,8 +1409,11 @@ function createTokenColors(color) {
         foreground: color.syntax.keyword,
       },
     },
+  ];
+}
 
-    // JSX and TSX
+function createJsxTokenColors(color) {
+  return [
     {
       scope: ["support.class.component", "support.class.component.tsx"],
       settings: {
@@ -1339,8 +1448,11 @@ function createTokenColors(color) {
         foreground: color.syntax.function,
       },
     },
+  ];
+}
 
-    // Additional shared JavaScript and TypeScript scopes
+function createSharedOverrideTokenColors(color) {
+  return [
     {
       scope: "keyword.operator.type.annotation",
       settings: {

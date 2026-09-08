@@ -3,6 +3,7 @@
 demos/**
 build/**
 src/**
+test/**
 themes_old/**
 .gitignore
 PRIVATE_README.md

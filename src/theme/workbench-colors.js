@@ -39,7 +39,7 @@ function createWorkbenchColors(color) {
     // Buttons, inputs, and controls
     "button.background": color.control.primary.bg,
     "button.foreground": color.control.primary.fg,
-    "button.border": color.border.default,
+    "button.border": color.control.primary.border,
     "button.separator": color.border.muted,
     "button.hoverBackground": color.control.primary.hoverBg,
     "button.secondaryBackground": color.control.secondary.bg,
@@ -533,7 +533,7 @@ function createWorkbenchColors(color) {
     "testing.iconQueued": color.fg.default,
     "testing.iconUnset": color.fg.muted,
     "testing.iconSkipped": color.attention.fg,
-    "testing.runAction": color.success.fg,
+    "testing.runAction": color.success.emphasis,
     "testing.peekBorder": color.border.muted,
     "testing.peekHeaderBackground": color.canvas.default,
     "testing.message.info.decorationForeground": color.info.fg,

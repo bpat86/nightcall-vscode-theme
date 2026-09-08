@@ -76,7 +76,7 @@
     "declaration": "{purple.200}",
     "decorator": "{purple.200}",
     "storage": "{pink.200}",
-    "string": "{pink.125}",
+    "string": "{pink.100}",
     "number": "{pink.200}",
     "boolean": "{red.250}",
     "regexp": "{blue.300}",

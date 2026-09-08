@@ -3,23 +3,14 @@ const path = require("path");
 const chroma = require("chroma-js");
 const { ITALIC_SCOPES } = require("./theme/typography");
 const themeDefinitions = require("./theme-definitions");
-const {
-  palette,
-  paletteSources,
-  PALETTE_REFERENCE_PATTERN,
-} = require("./palette");
-const createSemanticTokenColors = require("./theme/semantic-token-colors");
-const createTokenColors = require("./theme/token-colors");
-const createWorkbenchColors = require("./theme/workbench-colors");
+const { paletteSources, resolveScheme, isColor } = require("./palette");
+const createTheme = require("./theme/create-theme");
 const { VARIANTS } = require("./theme/variants");
 
 const root = path.join(__dirname, "..");
 const colorDirectory = path.join(__dirname, "colors");
 const schemeDirectory = path.join(colorDirectory, "schemes");
 const packageJson = require(path.join(root, "package.json"));
-const errors = [];
-const warnings = [];
-const themeDefinitionsByFileName = new Map();
 
 function collectLeafPaths(value, prefix = [], leaves = new Map()) {
   if (value && typeof value === "object" && !Array.isArray(value)) {
@@ -33,34 +24,9 @@ function collectLeafPaths(value, prefix = [], leaves = new Map()) {
   return leaves;
 }
 
-function isColor(value) {
-  return (
-    typeof value === "string" && /^#[0-9a-f]{6}(?:[0-9a-f]{2})?$/i.test(value)
-  );
-}
-
-// Fall back to a placeholder so one bad leaf doesn't abort the whole scheme pass.
-function resolveSchemeWithFallback(value) {
-  if (typeof value === "string") {
-    const [, family, shade] = PALETTE_REFERENCE_PATTERN.exec(value) || [];
-    return palette[family]?.[shade] ?? "#000000";
-  }
-
-  if (value && typeof value === "object" && !Array.isArray(value)) {
-    return Object.fromEntries(
-      Object.entries(value).map(([key, child]) => [
-        key,
-        resolveSchemeWithFallback(child),
-      ]),
-    );
-  }
-
-  return "#000000";
-}
-
 // Runs the theme creators against a recording proxy so used and missing
 // color paths are observed exactly, instead of scraped from source text.
-function collectUsedColorPaths(resolvedScheme, fileName) {
+function collectUsedColorPaths(resolvedScheme) {
   const usedPaths = new Set();
 
   function wrap(node, prefix) {
@@ -78,9 +44,8 @@ function collectUsedColorPaths(resolvedScheme, fileName) {
           return wrap(value, leafPath);
         }
 
-        if (value === undefined) {
-          errors.push(`${fileName}: invalid reference color.${leafPath}`);
-          return "#000000";
+        if (!Object.hasOwn(target, key)) {
+          throw new Error(`invalid reference color.${leafPath}`);
         }
 
         usedPaths.add(leafPath);
@@ -90,13 +55,11 @@ function collectUsedColorPaths(resolvedScheme, fileName) {
   }
 
   const color = wrap(resolvedScheme, "");
-  createWorkbenchColors(color);
-  createTokenColors(color);
-  createSemanticTokenColors(color);
+  createTheme({}, color);
   return usedPaths;
 }
 
-function validatePaletteReferences() {
+function validatePalette({ errors }) {
   for (const [paletteFileName, families] of Object.entries(paletteSources)) {
     for (const [family, scale] of Object.entries(families)) {
       if (!scale || typeof scale !== "object" || Array.isArray(scale)) {
@@ -139,51 +102,38 @@ function validatePaletteReferences() {
       }
     }
   }
+}
 
-  const schemeFiles = fs
-    .readdirSync(schemeDirectory)
-    .filter((fileName) => fileName.endsWith(".json"));
+function readSchemes() {
+  return Object.fromEntries(
+    fs
+      .readdirSync(schemeDirectory)
+      .filter((fileName) => fileName.endsWith(".json"))
+      .sort()
+      .map((fileName) => {
+        try {
+          const scheme = JSON.parse(
+            fs.readFileSync(path.join(schemeDirectory, fileName), "utf8"),
+          );
+          return [path.basename(fileName, ".json"), scheme];
+        } catch (error) {
+          throw new Error(`${fileName}: ${error.message}`);
+        }
+      }),
+  );
+}
+
+function validateSchemes(
+  schemes,
+  definitions,
+  colorsByScheme,
+  { errors, warnings },
+) {
   let expectedLeafPaths;
 
-  for (const fileName of schemeFiles) {
-    const scheme = JSON.parse(
-      fs.readFileSync(path.join(schemeDirectory, fileName), "utf8"),
-    );
-    const leafEntries = collectLeafPaths(scheme);
-    const leafPaths = [...leafEntries.keys()].sort();
-    const usedPaths = collectUsedColorPaths(
-      resolveSchemeWithFallback(scheme),
-      fileName,
-    );
-
-    for (const [leafPath, paletteReference] of leafEntries) {
-      if (typeof paletteReference !== "string") {
-        errors.push(`${fileName}: ${leafPath} must be a palette reference`);
-        continue;
-      }
-
-      const referenceMatch = PALETTE_REFERENCE_PATTERN.exec(paletteReference);
-
-      if (!referenceMatch) {
-        errors.push(
-          `${fileName}: ${leafPath} has invalid palette reference ${paletteReference}`,
-        );
-        continue;
-      }
-
-      const [, family, shade] = referenceMatch;
-
-      if (!isColor(palette[family]?.[shade])) {
-        errors.push(
-          `${fileName}: ${leafPath} references missing palette color ${paletteReference}`,
-        );
-      }
-
-      if (!usedPaths.has(leafPath)) {
-        warnings.push(`${fileName}: unused ${leafPath}`);
-      }
-    }
-
+  for (const [name, scheme] of Object.entries(schemes)) {
+    const fileName = `${name}.json`;
+    const leafPaths = [...collectLeafPaths(scheme).keys()].sort();
     if (!expectedLeafPaths) {
       expectedLeafPaths = leafPaths;
     } else if (
@@ -191,32 +141,48 @@ function validatePaletteReferences() {
     ) {
       errors.push(`${fileName}: semantic roles must match the other schemes`);
     }
+
+    try {
+      const colors = resolveScheme(scheme);
+      const usedPaths = collectUsedColorPaths(colors);
+      colorsByScheme.set(name, colors);
+      for (const leafPath of leafPaths) {
+        if (!usedPaths.has(leafPath)) {
+          warnings.push(`${fileName}: unused ${leafPath}`);
+        }
+      }
+    } catch (error) {
+      errors.push(`${fileName}: ${error.message}`);
+    }
   }
 
-  const configuredSchemes = new Set(
-    themeDefinitions.flatMap(({ scheme }) => (scheme ? [scheme] : [])),
-  );
+  const configuredSchemes = new Set(definitions.map(({ scheme }) => scheme));
 
   for (const scheme of configuredSchemes) {
-    if (!schemeFiles.includes(`${scheme}.json`)) {
+    if (!Object.hasOwn(schemes, scheme)) {
       errors.push(`${scheme}.json: configured color scheme is missing`);
     }
   }
 
-  for (const fileName of schemeFiles) {
-    if (!configuredSchemes.has(path.basename(fileName, ".json"))) {
-      warnings.push(`${fileName}: unused color scheme`);
+  for (const name of Object.keys(schemes)) {
+    if (!configuredSchemes.has(name)) {
+      warnings.push(`${name}.json: unused color scheme`);
     }
   }
 }
 
-function validateColor(value, location) {
+function validateColor(value, location, errors) {
   if (!isColor(value)) {
     errors.push(`${location} is not a generated hex color`);
   }
 }
 
-function validateTokenColors(theme, fileName, { variants, sourceFile }) {
+function validateTokenColors(
+  theme,
+  fileName,
+  { variants },
+  { errors, warnings },
+) {
   const scopes = new Map();
   const italicScopes = new Set();
 
@@ -226,6 +192,7 @@ function validateTokenColors(theme, fileName, { variants, sourceFile }) {
         validateColor(
           settings[property],
           `${fileName}: tokenColors[${index}].settings.${property}`,
+          errors,
         );
       }
     }
@@ -244,7 +211,7 @@ function validateTokenColors(theme, fileName, { variants, sourceFile }) {
         italicScopes.add(selector);
       }
 
-      if (!sourceFile && scopes.has(selector)) {
+      if (scopes.has(selector)) {
         if (scopes.get(selector) !== serializedSettings) {
           errors.push(
             `${fileName}: conflicting token settings for ${selector}`,
@@ -259,10 +226,6 @@ function validateTokenColors(theme, fileName, { variants, sourceFile }) {
       }
     }
   });
-
-  if (sourceFile) {
-    return;
-  }
 
   if (variants.includes("no-italics")) {
     if (italicScopes.size > 0) {
@@ -287,10 +250,11 @@ function validateTokenColors(theme, fileName, { variants, sourceFile }) {
   }
 }
 
-function validateThemeDefinitions() {
+function validateThemeDefinitions(definitions, contributions, { errors }) {
   const contributionsByFileName = new Map();
+  const themeDefinitionsByFileName = new Map();
 
-  for (const contribution of packageJson.contributes.themes) {
+  for (const contribution of contributions) {
     const fileName = path.basename(contribution.path);
 
     if (contributionsByFileName.has(fileName)) {
@@ -300,14 +264,14 @@ function validateThemeDefinitions() {
     }
   }
 
-  for (const definition of themeDefinitions) {
+  for (const definition of definitions) {
     const { fileName, name } = definition;
 
     if (!Array.isArray(definition.variants)) {
       errors.push(`${fileName}: variants must be an array`);
     } else {
       for (const variant of definition.variants) {
-        if (!VARIANTS[variant]) {
+        if (!Object.hasOwn(VARIANTS, variant)) {
           errors.push(`${fileName}: unknown variant ${variant}`);
         }
       }
@@ -328,6 +292,11 @@ function validateThemeDefinitions() {
         `${fileName}: contribution label ${JSON.stringify(contribution.label)} does not match theme name ${JSON.stringify(name)}`,
       );
     }
+    if (contribution && contribution.path !== `./themes/${fileName}`) {
+      errors.push(
+        `${fileName}: contribution path must be ./themes/${fileName}`,
+      );
+    }
   }
 
   for (const fileName of contributionsByFileName.keys()) {
@@ -337,7 +306,7 @@ function validateThemeDefinitions() {
   }
 }
 
-function validateContrast(theme, fileName) {
+function validateContrast(theme, fileName, { errors }) {
   const pairs = [
     ["foreground", "editor.background"],
     ["input.foreground", "input.background"],
@@ -365,7 +334,63 @@ function validateContrast(theme, fileName) {
   }
 }
 
+function validateSources({
+  definitions = themeDefinitions,
+  contributions = packageJson.contributes.themes,
+  schemes = readSchemes(),
+} = {}) {
+  const diagnostics = { errors: [], warnings: [] };
+  const colorsByScheme = new Map();
+  validateThemeDefinitions(definitions, contributions, diagnostics);
+  validatePalette(diagnostics);
+  validateSchemes(schemes, definitions, colorsByScheme, diagnostics);
+  return { ...diagnostics, colorsByScheme };
+}
+
+function validateTheme(theme, definition) {
+  const diagnostics = { errors: [], warnings: [] };
+  const { errors } = diagnostics;
+  const fileName = `themes/${definition.fileName}`;
+
+  if (theme.$schema !== "vscode://schemas/color-theme") {
+    errors.push(`${fileName}: missing the VS Code color-theme schema`);
+  }
+  if (theme.name !== definition.name || theme.type !== definition.type) {
+    errors.push(
+      `${fileName}: generated name or type does not match its definition`,
+    );
+  }
+  if (theme.semanticHighlighting !== true) {
+    errors.push(`${fileName}: semantic highlighting must be enabled`);
+  }
+
+  for (const [key, value] of Object.entries(theme.colors)) {
+    validateColor(value, `${fileName}: colors.${key}`, errors);
+  }
+
+  validateTokenColors(theme, fileName, definition, diagnostics);
+
+  for (const [key, value] of Object.entries(theme.semanticTokenColors)) {
+    validateColor(
+      typeof value === "string" ? value : value.foreground,
+      `${fileName}: semanticTokenColors.${key}`,
+      errors,
+    );
+    if (definition.variants.includes("no-italics") && value.italic === true) {
+      errors.push(`${fileName}: semanticTokenColors.${key} must not be italic`);
+    }
+  }
+
+  validateContrast(theme, fileName, diagnostics);
+  return diagnostics;
+}
+
 function validateGeneratedThemes() {
+  const diagnostics = { errors: [], warnings: [] };
+  const { errors, warnings } = diagnostics;
+  const definitionsByFileName = new Map(
+    themeDefinitions.map((definition) => [definition.fileName, definition]),
+  );
   for (const contribution of packageJson.contributes.themes) {
     const filePath = path.join(root, contribution.path);
     const fileName = path.relative(root, filePath);
@@ -375,50 +400,58 @@ function validateGeneratedThemes() {
       continue;
     }
 
-    const theme = JSON.parse(fs.readFileSync(filePath, "utf8"));
-    const themeDefinition = themeDefinitionsByFileName.get(
-      path.basename(filePath),
-    );
+    const definition = definitionsByFileName.get(path.basename(filePath));
 
-    if (!themeDefinition) {
+    if (!definition) {
       errors.push(`${fileName}: missing source theme definition`);
       continue;
     }
 
-    if (theme.$schema !== "vscode://schemas/color-theme") {
-      errors.push(`${fileName}: missing the VS Code color-theme schema`);
+    try {
+      const theme = JSON.parse(fs.readFileSync(filePath, "utf8"));
+      const result = validateTheme(theme, definition);
+      errors.push(...result.errors);
+      warnings.push(...result.warnings);
+    } catch (error) {
+      errors.push(`${fileName}: ${error.message}`);
     }
-
-    for (const [key, value] of Object.entries(theme.colors)) {
-      validateColor(value, `${fileName}: colors.${key}`);
-    }
-
-    validateTokenColors(theme, fileName, themeDefinition);
-
-    for (const [key, value] of Object.entries(theme.semanticTokenColors)) {
-      validateColor(
-        typeof value === "string" ? value : value.foreground,
-        `${fileName}: semanticTokenColors.${key}`,
-      );
-    }
-
-    validateContrast(theme, fileName);
   }
+  return diagnostics;
 }
 
-validatePaletteReferences();
-validateThemeDefinitions();
-validateGeneratedThemes();
-
-for (const warning of warnings) {
-  console.warn(`Warning: ${warning}`);
-}
-
-if (errors.length > 0) {
+function reportDiagnostics({ errors, warnings }) {
+  for (const warning of warnings) {
+    console.warn(`Warning: ${warning}`);
+  }
   for (const error of errors) {
     console.error(`Error: ${error}`);
   }
-  process.exitCode = 1;
-} else {
-  console.log("Theme validation passed.");
 }
+
+function main() {
+  const sources = validateSources();
+  reportDiagnostics(sources);
+  if (sources.errors.length > 0) {
+    process.exitCode = 1;
+    return;
+  }
+
+  const output = validateGeneratedThemes();
+  reportDiagnostics(output);
+  if (output.errors.length > 0) {
+    process.exitCode = 1;
+  } else {
+    console.log("Theme validation passed.");
+  }
+}
+
+if (require.main === module) {
+  try {
+    main();
+  } catch (error) {
+    console.error(error.message);
+    process.exitCode = 1;
+  }
+}
+
+module.exports = { validateSources, validateTheme, reportDiagnostics };

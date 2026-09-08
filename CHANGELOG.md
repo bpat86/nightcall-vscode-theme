@@ -2,6 +2,12 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.0.7
+
+### Patch Changes
+
+- Improve syntax-color consistency for YAML mappings and shell scripts, including a distinct color treatment for `.zshrc` alias names.
+
 ## "2.0.6"
 
 - Refined palette, syntax, semantic, typography, and workbench colors across all theme variants
