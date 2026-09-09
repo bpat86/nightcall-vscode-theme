@@ -1,8 +1,10 @@
 # Change Log
 
-## 2.0.9
+## 2.0.10
 
-### Patch Changes
+- Improve JavaScript and TypeScript syntax highlighting, including distinct colors for imported bindings and broader TextMate coverage for JS, JSX, TS, and TSX.
+
+## 2.0.9
 
 - Improve extension packaging so VS Code retrieves updated theme assets reliably.
 
