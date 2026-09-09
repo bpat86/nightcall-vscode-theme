@@ -90,8 +90,8 @@
     ]
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^1.0.0",
-    "@changesets/cli": "^3.0.1",
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.2",
     "@vscode/vsce": "^3.9.2",
     "chroma-js": "^3.2.0",
     "nodemon": "^3.1.14",
