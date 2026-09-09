@@ -1,5 +1,7 @@
 # Change Log
 
+All notable changes to the "nightcall" extension will be documented in this file.
+
 ## 2.0.10
 
 - Improve JavaScript and TypeScript syntax highlighting, including distinct colors for imported bindings and broader TextMate coverage for JS, JSX, TS, and TSX.
@@ -12,8 +14,6 @@
 
 - Refresh the Nightcall icon.
 - Move extension images into a dedicated `images` directory and update the manifest and README references.
-
-All notable changes to the "nightcall" extension will be documented in this file.
 
 ## 2.0.7
 
