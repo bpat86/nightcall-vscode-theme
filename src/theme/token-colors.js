@@ -470,6 +470,7 @@ function createSharedTokenColors(color) {
         "keyword.control.def.ruby",
         "keyword.control.loop.js",
         "keyword.control.loop.ts",
+        "keyword.control.loop.tsx",
       ],
       settings: {
         foreground: color.syntax.storage,
@@ -880,6 +881,72 @@ function createHtmlTokenColors(color) {
 
 function createJavaScriptTokenColors(color) {
   return [
+    ...["js", "jsx", "ts", "tsx"].flatMap((language) => [
+      {
+        scope: `variable.other.readwrite.alias.${language}`,
+        settings: { foreground: color.syntax.variable },
+      },
+      {
+        scope: [
+          `meta.import.${language} variable.other.readwrite.alias.${language}`,
+          `meta.import.${language} variable.other.readwrite.${language}`,
+          `meta.import.${language} variable.other.object.${language}`,
+          `meta.import.${language} variable.other.constant.${language}`,
+          `meta.import.${language} variable.other.constant.object.${language}`,
+        ],
+        settings: {
+          foreground: color.syntax.importBinding,
+        },
+      },
+      {
+        scope: `meta.object-literal.key.${language}`,
+        settings: { foreground: color.syntax.property },
+      },
+      {
+        scope: `meta.decorator punctuation.decorator.${language}`,
+        settings: { foreground: color.syntax.decorator },
+      },
+      {
+        scope: [
+          `variable.parameter.${language}`,
+          `variable.parameter.function.${language}`,
+        ],
+        settings: { foreground: color.syntax.parameter },
+      },
+      {
+        scope: [
+          `variable.other.constant.${language}`,
+          `variable.other.constant.object.${language}`,
+          `variable.other.enummember.${language}`,
+        ],
+        settings: { foreground: color.syntax.constant },
+      },
+      {
+        scope: [
+          `variable.other.constant.property.${language}`,
+          `variable.other.constant.object.property.${language}`,
+        ],
+        settings: { foreground: color.syntax.property },
+      },
+      {
+        scope: [
+          `support.function.${language}`,
+          `support.function.console.${language}`,
+          `support.function.json.${language}`,
+          `support.function.math.${language}`,
+          `support.function.dom.${language}`,
+          `support.function.process.${language}`,
+          `support.class.${language}`,
+          `support.class.console.${language}`,
+          `support.class.node.${language}`,
+          `support.class.dom.${language}`,
+          `support.variable.dom.${language}`,
+          `support.variable.object.process.${language}`,
+          `support.constant.json.${language}`,
+        ],
+        settings: { foreground: color.syntax.builtin },
+      },
+    ]),
     {
       scope: "meta.method.declaration storage.type.js",
       settings: {
@@ -925,12 +992,6 @@ function createJavaScriptTokenColors(color) {
       },
     },
     {
-      scope: "variable.parameter.function.js",
-      settings: {
-        foreground: color.syntax.type,
-      },
-    },
-    {
       scope: "variable.other.object.jsx",
       settings: {
         foreground: color.syntax.variable,
@@ -953,12 +1014,6 @@ function createJavaScriptTokenColors(color) {
       settings: {
         foreground: color.syntax.type,
         fontStyle: "",
-      },
-    },
-    {
-      scope: "support.class.js",
-      settings: {
-        foreground: color.syntax.variable,
       },
     },
   ];
@@ -1006,7 +1061,7 @@ function createJavaScriptObjectTokenColors(color) {
     {
       scope: "variable.other.object.js",
       settings: {
-        foreground: color.syntax.type,
+        foreground: color.syntax.variable,
       },
     },
   ];
@@ -1309,8 +1364,6 @@ function createTypeScriptTokenColors(color) {
   return [
     {
       scope: [
-        "variable.other.readwrite.alias.ts",
-        "variable.other.readwrite.alias.tsx",
         "variable.other.readwrite.ts",
         "variable.other.readwrite.tsx",
         "variable.other.object.ts",
@@ -1321,7 +1374,7 @@ function createTypeScriptTokenColors(color) {
         "variable.ts",
       ],
       settings: {
-        foreground: color.syntax.type,
+        foreground: color.syntax.variable,
       },
     },
     {
@@ -1346,6 +1399,8 @@ function createTypeScriptTokenColors(color) {
       scope: [
         "punctuation.definition.typeparameters.begin.ts",
         "punctuation.definition.typeparameters.end.ts",
+        "punctuation.definition.typeparameters.begin.tsx",
+        "punctuation.definition.typeparameters.end.tsx",
       ],
       settings: {
         foreground: color.syntax.punctuation,
@@ -1355,12 +1410,6 @@ function createTypeScriptTokenColors(color) {
       scope: "entity.name.type.ts",
       settings: {
         foreground: color.syntax.type,
-      },
-    },
-    {
-      scope: ["support.class.node.ts", "support.class.node.tsx"],
-      settings: {
-        foreground: color.syntax.builtin,
       },
     },
     {
@@ -1381,15 +1430,6 @@ function createTypeScriptTokenColors(color) {
       ],
       settings: {
         foreground: color.syntax.punctuation,
-      },
-    },
-    {
-      scope: [
-        "meta.decorator punctuation.decorator.ts",
-        "meta.decorator punctuation.decorator.tsx",
-      ],
-      settings: {
-        foreground: color.syntax.function,
       },
     },
   ];
@@ -1486,7 +1526,7 @@ function createSharedOverrideTokenColors(color) {
     {
       scope: "variable.other.readwrite.js",
       settings: {
-        foreground: color.syntax.type,
+        foreground: color.syntax.variable,
         fontStyle: "",
       },
     },

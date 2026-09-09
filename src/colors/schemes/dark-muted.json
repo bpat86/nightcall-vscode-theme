@@ -58,13 +58,14 @@
     "primary": {
       "bg": "{pink.200}",
       "fg": "{neutral.800}",
-      "hoverBg": "{pink.225}",
-      "border": "{pink.200}"
+      "hoverBg": "{pink.175}",
+      "border": "{neutral.600}"
     },
     "secondary": {
       "bg": "{neutral.700}",
       "fg": "{neutral.200}",
-      "hoverBg": "{neutral.700}"
+      "hoverBg": "{neutral.600}",
+      "border": "{neutral.600}"
     }
   },
   "syntax": {
@@ -82,6 +83,7 @@
     "regexp": "{blue.300}",
     "constant": "{purple.125}",
     "builtin": "{pink.200}",
+    "importBinding": "{purple.125}",
     "variable": "{purple.150}",
     "parameter": "{purple.125}",
     "property": "{purple.125}",

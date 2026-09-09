@@ -21,11 +21,12 @@
     "keybindingLabel.foreground": "#C1C1D7",
     "button.background": "#FF99D3",
     "button.foreground": "#202133",
-    "button.border": "#FF99D3",
+    "button.border": "#2F2F4B",
     "button.separator": "#27283F",
-    "button.hoverBackground": "#FF8ECF",
+    "button.hoverBackground": "#FFA3D8",
     "button.secondaryBackground": "#2F2F4B",
     "button.secondaryForeground": "#C1C1D7",
+    "button.secondaryBorder": "#2F2F4B",
     "button.secondaryHoverBackground": "#2F2F4B",
     "checkbox.background": "#27283F",
     "checkbox.border": "#3F3F64",
@@ -55,7 +56,7 @@
     "progressBar.background": "#FF99D3",
     "extensionButton.prominentBackground": "#FF99D3",
     "extensionButton.prominentForeground": "#202133",
-    "extensionButton.prominentHoverBackground": "#FF8ECF",
+    "extensionButton.prominentHoverBackground": "#FFA3D8",
     "extensionButton.background": "#2F2F4B",
     "extensionButton.foreground": "#C1C1D7",
     "extensionButton.hoverBackground": "#2F2F4B",
@@ -105,7 +106,7 @@
     "activityBarTop.activeBorder": "#FF99D3",
     "activityBarTop.activeFocusBorder": "#FF99D3",
     "activityBarTop.border": "#27283F",
-    "activityBarBadge.foreground": "#A0A0C2",
+    "activityBarBadge.foreground": "#FF99D3",
     "activityBarBadge.background": "#1C1D2D",
     "sideBar.foreground": "#A0A0C2",
     "sideBar.background": "#202133",
@@ -1120,7 +1121,8 @@
         "keyword.control.class.ruby",
         "keyword.control.def.ruby",
         "keyword.control.loop.js",
-        "keyword.control.loop.ts"
+        "keyword.control.loop.ts",
+        "keyword.control.loop.tsx"
       ],
       "settings": {
         "foreground": "#FF99D3"
@@ -1490,6 +1492,318 @@
       }
     },
     {
+      "scope": "variable.other.readwrite.alias.js",
+      "settings": {
+        "foreground": "#D3BDFA"
+      }
+    },
+    {
+      "scope": [
+        "meta.import.js variable.other.readwrite.alias.js",
+        "meta.import.js variable.other.readwrite.js",
+        "meta.import.js variable.other.object.js",
+        "meta.import.js variable.other.constant.js",
+        "meta.import.js variable.other.constant.object.js"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": "meta.object-literal.key.js",
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": "meta.decorator punctuation.decorator.js",
+      "settings": {
+        "foreground": "#BB9AF7"
+      }
+    },
+    {
+      "scope": [
+        "variable.parameter.js",
+        "variable.parameter.function.js"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "variable.other.constant.js",
+        "variable.other.constant.object.js",
+        "variable.other.enummember.js"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "variable.other.constant.property.js",
+        "variable.other.constant.object.property.js"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "support.function.js",
+        "support.function.console.js",
+        "support.function.json.js",
+        "support.function.math.js",
+        "support.function.dom.js",
+        "support.function.process.js",
+        "support.class.js",
+        "support.class.console.js",
+        "support.class.node.js",
+        "support.class.dom.js",
+        "support.variable.dom.js",
+        "support.variable.object.process.js",
+        "support.constant.json.js"
+      ],
+      "settings": {
+        "foreground": "#FF99D3"
+      }
+    },
+    {
+      "scope": "variable.other.readwrite.alias.jsx",
+      "settings": {
+        "foreground": "#D3BDFA"
+      }
+    },
+    {
+      "scope": [
+        "meta.import.jsx variable.other.readwrite.alias.jsx",
+        "meta.import.jsx variable.other.readwrite.jsx",
+        "meta.import.jsx variable.other.object.jsx",
+        "meta.import.jsx variable.other.constant.jsx",
+        "meta.import.jsx variable.other.constant.object.jsx"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": "meta.object-literal.key.jsx",
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": "meta.decorator punctuation.decorator.jsx",
+      "settings": {
+        "foreground": "#BB9AF7"
+      }
+    },
+    {
+      "scope": [
+        "variable.parameter.jsx",
+        "variable.parameter.function.jsx"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "variable.other.constant.jsx",
+        "variable.other.constant.object.jsx",
+        "variable.other.enummember.jsx"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "variable.other.constant.property.jsx",
+        "variable.other.constant.object.property.jsx"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "support.function.jsx",
+        "support.function.console.jsx",
+        "support.function.json.jsx",
+        "support.function.math.jsx",
+        "support.function.dom.jsx",
+        "support.function.process.jsx",
+        "support.class.jsx",
+        "support.class.console.jsx",
+        "support.class.node.jsx",
+        "support.class.dom.jsx",
+        "support.variable.dom.jsx",
+        "support.variable.object.process.jsx",
+        "support.constant.json.jsx"
+      ],
+      "settings": {
+        "foreground": "#FF99D3"
+      }
+    },
+    {
+      "scope": "variable.other.readwrite.alias.ts",
+      "settings": {
+        "foreground": "#D3BDFA"
+      }
+    },
+    {
+      "scope": [
+        "meta.import.ts variable.other.readwrite.alias.ts",
+        "meta.import.ts variable.other.readwrite.ts",
+        "meta.import.ts variable.other.object.ts",
+        "meta.import.ts variable.other.constant.ts",
+        "meta.import.ts variable.other.constant.object.ts"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": "meta.object-literal.key.ts",
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": "meta.decorator punctuation.decorator.ts",
+      "settings": {
+        "foreground": "#BB9AF7"
+      }
+    },
+    {
+      "scope": [
+        "variable.parameter.ts",
+        "variable.parameter.function.ts"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "variable.other.constant.ts",
+        "variable.other.constant.object.ts",
+        "variable.other.enummember.ts"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "variable.other.constant.property.ts",
+        "variable.other.constant.object.property.ts"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "support.function.ts",
+        "support.function.console.ts",
+        "support.function.json.ts",
+        "support.function.math.ts",
+        "support.function.dom.ts",
+        "support.function.process.ts",
+        "support.class.ts",
+        "support.class.console.ts",
+        "support.class.node.ts",
+        "support.class.dom.ts",
+        "support.variable.dom.ts",
+        "support.variable.object.process.ts",
+        "support.constant.json.ts"
+      ],
+      "settings": {
+        "foreground": "#FF99D3"
+      }
+    },
+    {
+      "scope": "variable.other.readwrite.alias.tsx",
+      "settings": {
+        "foreground": "#D3BDFA"
+      }
+    },
+    {
+      "scope": [
+        "meta.import.tsx variable.other.readwrite.alias.tsx",
+        "meta.import.tsx variable.other.readwrite.tsx",
+        "meta.import.tsx variable.other.object.tsx",
+        "meta.import.tsx variable.other.constant.tsx",
+        "meta.import.tsx variable.other.constant.object.tsx"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": "meta.object-literal.key.tsx",
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": "meta.decorator punctuation.decorator.tsx",
+      "settings": {
+        "foreground": "#BB9AF7"
+      }
+    },
+    {
+      "scope": [
+        "variable.parameter.tsx",
+        "variable.parameter.function.tsx"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "variable.other.constant.tsx",
+        "variable.other.constant.object.tsx",
+        "variable.other.enummember.tsx"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "variable.other.constant.property.tsx",
+        "variable.other.constant.object.property.tsx"
+      ],
+      "settings": {
+        "foreground": "#D9C6FA"
+      }
+    },
+    {
+      "scope": [
+        "support.function.tsx",
+        "support.function.console.tsx",
+        "support.function.json.tsx",
+        "support.function.math.tsx",
+        "support.function.dom.tsx",
+        "support.function.process.tsx",
+        "support.class.tsx",
+        "support.class.console.tsx",
+        "support.class.node.tsx",
+        "support.class.dom.tsx",
+        "support.variable.dom.tsx",
+        "support.variable.object.process.tsx",
+        "support.constant.json.tsx"
+      ],
+      "settings": {
+        "foreground": "#FF99D3"
+      }
+    },
+    {
       "scope": "meta.method.declaration storage.type.js",
       "settings": {
         "foreground": "#FF99D3"
@@ -1537,12 +1851,6 @@
       }
     },
     {
-      "scope": "variable.parameter.function.js",
-      "settings": {
-        "foreground": "#D9C6FA"
-      }
-    },
-    {
       "scope": "variable.other.object.jsx",
       "settings": {
         "foreground": "#D3BDFA"
@@ -1571,12 +1879,6 @@
       "settings": {
         "foreground": "#D9C6FA",
         "fontStyle": ""
-      }
-    },
-    {
-      "scope": "support.class.js",
-      "settings": {
-        "foreground": "#D3BDFA"
       }
     },
     {
@@ -1613,7 +1915,7 @@
     {
       "scope": "variable.other.object.js",
       "settings": {
-        "foreground": "#D9C6FA"
+        "foreground": "#D3BDFA"
       }
     },
     {
@@ -1882,8 +2184,6 @@
     },
     {
       "scope": [
-        "variable.other.readwrite.alias.ts",
-        "variable.other.readwrite.alias.tsx",
         "variable.other.readwrite.ts",
         "variable.other.readwrite.tsx",
         "variable.other.object.ts",
@@ -1894,7 +2194,7 @@
         "variable.ts"
       ],
       "settings": {
-        "foreground": "#D9C6FA"
+        "foreground": "#D3BDFA"
       }
     },
     {
@@ -1921,7 +2221,9 @@
     {
       "scope": [
         "punctuation.definition.typeparameters.begin.ts",
-        "punctuation.definition.typeparameters.end.ts"
+        "punctuation.definition.typeparameters.end.ts",
+        "punctuation.definition.typeparameters.begin.tsx",
+        "punctuation.definition.typeparameters.end.tsx"
       ],
       "settings": {
         "foreground": "#BB9AF7"
@@ -1931,15 +2233,6 @@
       "scope": "entity.name.type.ts",
       "settings": {
         "foreground": "#D9C6FA"
-      }
-    },
-    {
-      "scope": [
-        "support.class.node.ts",
-        "support.class.node.tsx"
-      ],
-      "settings": {
-        "foreground": "#FF99D3"
       }
     },
     {
@@ -1960,15 +2253,6 @@
       ],
       "settings": {
         "foreground": "#BB9AF7"
-      }
-    },
-    {
-      "scope": [
-        "meta.decorator punctuation.decorator.ts",
-        "meta.decorator punctuation.decorator.tsx"
-      ],
-      "settings": {
-        "foreground": "#8FAAFB"
       }
     },
     {
@@ -2062,7 +2346,7 @@
     {
       "scope": "variable.other.readwrite.js",
       "settings": {
-        "foreground": "#D9C6FA",
+        "foreground": "#D3BDFA",
         "fontStyle": ""
       }
     },
@@ -2296,37 +2580,31 @@
   "semanticHighlighting": true,
   "semanticTokenColors": {
     "function": "#8FAAFB",
-    "function.declaration": "#8FAAFB",
-    "function.defaultLibrary": "#8FAAFB",
+    "function.defaultLibrary": "#FF99D3",
     "method": "#8FAAFB",
-    "method.declaration": "#8FAAFB",
+    "method.defaultLibrary": "#FF99D3",
     "variable": "#D3BDFA",
-    "variable.declaration": "#D3BDFA",
     "variable.readonly": "#D9C6FA",
     "parameter.readonly": "#D9C6FA",
     "variable.defaultLibrary": "#FF99D3",
+    "variable.readonly.defaultLibrary": "#FF99D3",
     "property": "#D9C6FA",
-    "property.declaration": "#D9C6FA",
     "property.readonly": "#D9C6FA",
     "property.defaultLibrary": "#FF99D3",
     "parameter": "#D9C6FA",
     "type": "#D9C6FA",
-    "type.declaration": "#D9C6FA",
     "type.defaultLibrary": "#FF99D3",
     "typeParameter": "#D9C6FA",
-    "typeParameter.declaration": "#D9C6FA",
     "class": "#D9C6FA",
-    "class.declaration": "#D9C6FA",
     "class.defaultLibrary": "#FF99D3",
     "interface": "#D9C6FA",
-    "interface.declaration": "#D9C6FA",
+    "struct": "#D9C6FA",
     "enum": "#D9C6FA",
-    "enum.declaration": "#D9C6FA",
     "enumMember": "#D9C6FA",
-    "enumMember.declaration": "#D9C6FA",
+    "event": "#D9C6FA",
     "namespace": "#D9C6FA",
-    "namespace.declaration": "#D9C6FA",
     "keyword": "#BB9AF7",
+    "label": "#BB9AF7",
     "comment": "#7F7FAC",
     "string": "#FFC2E4",
     "number": "#FF99D3",

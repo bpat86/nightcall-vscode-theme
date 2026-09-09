@@ -96,7 +96,9 @@
     "chroma-js": "^3.2.0",
     "nodemon": "^3.1.14",
     "ovsx": "^1.1.1",
-    "prettier": "^3.9.6"
+    "prettier": "^3.9.6",
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.3.2"
   },
   "scripts": {
     "start": "nodemon --watch src src/index.js",
@@ -112,6 +114,7 @@
     "publish:openvsx": "ovsx publish ./build/nightcall.vsix",
     "publish:all": "npm run package && npm run publish:marketplace && npm run publish:openvsx",
     "release": "npm run validate && npm run package",
+    "release:prepare": "npm run version && npm run release",
     "changeset": "changeset",
     "version": "changeset version"
   }

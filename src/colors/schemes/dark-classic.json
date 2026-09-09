@@ -59,12 +59,13 @@
       "bg": "{classicPink.300}",
       "fg": "{classicNeutral.900}",
       "hoverBg": "{classicPink.300}",
-      "border": "{classicPink.300}"
+      "border": "{classicNeutral.800}"
     },
     "secondary": {
       "bg": "{classicNeutral.800}",
       "fg": "{classicNeutral.200}",
-      "hoverBg": "{classicNeutral.750}"
+      "hoverBg": "{classicNeutral.750}",
+      "border": "{classicNeutral.750}"
     }
   },
   "syntax": {
@@ -82,6 +83,7 @@
     "regexp": "{classicBlue.400}",
     "constant": "{classicPurple.200}",
     "builtin": "{classicPink.400}",
+    "importBinding": "{classicPurple.200}",
     "variable": "{classicNeutral.200}",
     "parameter": "{classicNeutral.200}",
     "property": "{classicPurple.200}",

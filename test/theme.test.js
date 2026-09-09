@@ -6,6 +6,44 @@ const createTheme = require("../src/theme/create-theme");
 const definitions = require("../src/theme-definitions");
 const { applyVariants } = require("../src/theme/variants");
 
+const STANDARD_SEMANTIC_TOKEN_TYPES = new Set([
+  "namespace",
+  "type",
+  "class",
+  "enum",
+  "interface",
+  "struct",
+  "typeParameter",
+  "parameter",
+  "variable",
+  "property",
+  "enumMember",
+  "event",
+  "function",
+  "method",
+  "macro",
+  "label",
+  "comment",
+  "string",
+  "keyword",
+  "number",
+  "regexp",
+  "operator",
+  "decorator",
+]);
+const STANDARD_SEMANTIC_TOKEN_MODIFIERS = new Set([
+  "declaration",
+  "definition",
+  "readonly",
+  "static",
+  "deprecated",
+  "abstract",
+  "async",
+  "modification",
+  "documentation",
+  "defaultLibrary",
+]);
+
 for (const definition of definitions) {
   test(`${definition.name} matches the checked-in output`, () => {
     const actual = `${JSON.stringify(createTheme(definition), null, 2)}\n`;
@@ -16,6 +54,30 @@ for (const definition of definitions) {
     assert.equal(actual, expected);
   });
 }
+
+test("semantic token rules use and cover the standard token types", () => {
+  const semanticTokenColors = createTheme(definitions[0]).semanticTokenColors;
+  const coveredTypes = new Set();
+
+  for (const selector of Object.keys(semanticTokenColors)) {
+    const [type, ...modifiers] = selector.split(".");
+    assert.ok(STANDARD_SEMANTIC_TOKEN_TYPES.has(type), `invalid type ${type}`);
+    for (const modifier of modifiers) {
+      assert.ok(
+        STANDARD_SEMANTIC_TOKEN_MODIFIERS.has(modifier),
+        `invalid modifier ${modifier}`,
+      );
+    }
+    if (modifiers.length === 0) {
+      coveredTypes.add(type);
+    }
+  }
+
+  assert.deepEqual(coveredTypes, STANDARD_SEMANTIC_TOKEN_TYPES);
+  for (const type of ["variable", "parameter", "property"]) {
+    assert.ok(Object.hasOwn(semanticTokenColors, `${type}.readonly`));
+  }
+});
 
 test("no-italics clears both token systems and preserves other styles", () => {
   const base = createTheme(definitions[0]);
