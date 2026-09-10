@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.0.11
+
+- Restored the intended semantic token colors after a regression caused some syntax elements to display incorrect colors.
+
 ## 2.0.10
 
 - Improve JavaScript and TypeScript syntax highlighting, including distinct colors for imported bindings and broader TextMate coverage for JS, JSX, TS, and TSX.
