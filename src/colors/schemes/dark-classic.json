@@ -28,6 +28,14 @@
     "secondaryEmphasis": "{classicPurple.400}",
     "tertiary": "{classicBlue.400}"
   },
+  "brackets": {
+    "one": "{classicPurple.250}",
+    "two": "{classicPink.300}",
+    "three": "{classicPurple.250}",
+    "four": "{classicPink.300}",
+    "five": "{classicPurple.250}",
+    "six": "{classicPink.300}"
+  },
   "success": {
     "fg": "{classicGreen.500}",
     "muted": "{classicGreen.400}",

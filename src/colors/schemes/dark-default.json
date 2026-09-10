@@ -28,6 +28,14 @@
     "secondaryEmphasis": "{purple.400}",
     "tertiary": "{blue.350}"
   },
+  "brackets": {
+    "one": "{purple.250}",
+    "two": "{pink.250}",
+    "three": "{purple.250}",
+    "four": "{pink.250}",
+    "five": "{purple.250}",
+    "six": "{pink.250}"
+  },
   "success": {
     "fg": "{green.250}",
     "muted": "{green.200}",
@@ -85,12 +93,12 @@
     "builtin": "{pink.250}",
     "importBinding": "{purple.150}",
     "variable": "{purple.175}",
-    "parameter": "{purple.150}",
+    "parameter": "{purple.175}",
     "property": "{purple.150}",
     "function": "{blue.350}",
     "method": "{blue.350}",
-    "type": "{purple.150}",
-    "class": "{purple.150}",
+    "type": "{purple.125}",
+    "class": "{purple.125}",
     "tag": "{pink.250}",
     "component": "{pink.250}",
     "invalid": "{red.300}"

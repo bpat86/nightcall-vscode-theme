@@ -218,8 +218,8 @@ function createWorkbenchColors(color) {
     "statusBar.border": color.border.default,
     "statusBar.focusBorder": alpha(color.accent.fg, 50),
     "statusBar.noFolderBackground": color.canvas.default,
-    "statusBar.debuggingForeground": color.fg.muted,
-    "statusBar.debuggingBackground": color.canvas.default,
+    "statusBar.debuggingForeground": color.fg.onEmphasis,
+    "statusBar.debuggingBackground": color.control.primary.bg,
     "statusBarItem.prominentBackground": color.neutral.muted,
     "statusBarItem.prominentForeground": color.fg.onEmphasis,
     "statusBarItem.remoteForeground": color.fg.default,
@@ -371,12 +371,12 @@ function createWorkbenchColors(color) {
     "editorStickyScroll.border": color.border.muted,
     "editorStickyScroll.shadow": alpha(color.canvas.inset, 25),
     "editorGhostText.foreground": color.fg.emphasis,
-    "editorBracketHighlight.foreground1": color.accent.secondary,
-    "editorBracketHighlight.foreground2": color.accent.fg,
-    "editorBracketHighlight.foreground3": color.accent.tertiary,
-    "editorBracketHighlight.foreground4": color.fg.default,
-    "editorBracketHighlight.foreground5": color.accent.secondaryEmphasis,
-    "editorBracketHighlight.foreground6": color.accent.subtle,
+    "editorBracketHighlight.foreground1": color.brackets.one,
+    "editorBracketHighlight.foreground2": color.brackets.two,
+    "editorBracketHighlight.foreground3": color.brackets.three,
+    "editorBracketHighlight.foreground4": color.brackets.four,
+    "editorBracketHighlight.foreground5": color.brackets.five,
+    "editorBracketHighlight.foreground6": color.brackets.six,
     "editorBracketHighlight.unexpectedBracket.foreground": color.danger.fg,
 
     // Editor diagnostics, rulers, and widgets
@@ -629,51 +629,51 @@ function createWorkbenchColors(color) {
 
     // Bracket pairs
     "editorBracketPairGuide.activeBackground1": alpha(
-      color.accent.secondary,
+      color.brackets.one,
       BRACKET_GUIDE_ACTIVE_ALPHA,
     ),
     "editorBracketPairGuide.activeBackground2": alpha(
-      color.accent.fg,
+      color.brackets.two,
       BRACKET_GUIDE_ACTIVE_ALPHA,
     ),
     "editorBracketPairGuide.activeBackground3": alpha(
-      color.accent.tertiary,
+      color.brackets.three,
       BRACKET_GUIDE_ACTIVE_ALPHA,
     ),
     "editorBracketPairGuide.activeBackground4": alpha(
-      color.fg.default,
+      color.brackets.four,
       BRACKET_GUIDE_ACTIVE_ALPHA,
     ),
     "editorBracketPairGuide.activeBackground5": alpha(
-      color.accent.secondaryEmphasis,
+      color.brackets.five,
       BRACKET_GUIDE_ACTIVE_ALPHA,
     ),
     "editorBracketPairGuide.activeBackground6": alpha(
-      color.accent.subtle,
+      color.brackets.six,
       BRACKET_GUIDE_ACTIVE_ALPHA,
     ),
     "editorBracketPairGuide.background1": alpha(
-      color.accent.secondary,
+      color.brackets.one,
       BRACKET_GUIDE_INACTIVE_ALPHA,
     ),
     "editorBracketPairGuide.background2": alpha(
-      color.accent.fg,
+      color.brackets.two,
       BRACKET_GUIDE_INACTIVE_ALPHA,
     ),
     "editorBracketPairGuide.background3": alpha(
-      color.accent.tertiary,
+      color.brackets.three,
       BRACKET_GUIDE_INACTIVE_ALPHA,
     ),
     "editorBracketPairGuide.background4": alpha(
-      color.fg.default,
+      color.brackets.four,
       BRACKET_GUIDE_INACTIVE_ALPHA,
     ),
     "editorBracketPairGuide.background5": alpha(
-      color.accent.secondaryEmphasis,
+      color.brackets.five,
       BRACKET_GUIDE_INACTIVE_ALPHA,
     ),
     "editorBracketPairGuide.background6": alpha(
-      color.accent.subtle,
+      color.brackets.six,
       BRACKET_GUIDE_INACTIVE_ALPHA,
     ),
 

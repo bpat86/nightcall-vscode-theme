@@ -2,6 +2,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const test = require("node:test");
+const { getThemeColors } = require("../src/palette");
 const createTheme = require("../src/theme/create-theme");
 const definitions = require("../src/theme-definitions");
 const { applyVariants } = require("../src/theme/variants");
@@ -76,6 +77,25 @@ test("semantic token rules use and cover the standard token types", () => {
   assert.deepEqual(coveredTypes, STANDARD_SEMANTIC_TOKEN_TYPES);
   for (const type of ["variable", "parameter", "property"]) {
     assert.ok(Object.hasOwn(semanticTokenColors, `${type}.readonly`));
+  }
+});
+
+test("bracket colors use the dedicated palette roles", () => {
+  const theme = createTheme(definitions[0]);
+  const brackets = getThemeColors(definitions[0].scheme).brackets;
+
+  for (const [index, key] of [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+  ].entries()) {
+    assert.equal(
+      theme.colors[`editorBracketHighlight.foreground${index + 1}`],
+      brackets[key],
+    );
   }
 });
 
