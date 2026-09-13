@@ -5,11 +5,12 @@
     "overlay": "{neutral.750}",
     "raised": "{neutral.500}"
   },
-  "fg": {
-    "default": "{neutral.200}",
-    "emphasis": "{neutral.150}",
-    "muted": "{neutral.300}",
-    "subtle": "{neutral.400}",
+  "foreground": {
+    "default": "{neutral.225}",
+    "emphasis": "{neutral.125}",
+    "prominent": "{purple.100}",
+    "muted": "{neutral.325}",
+    "subtle": "{neutral.425}",
     "onEmphasis": "{neutral.950}"
   },
   "border": {
@@ -17,42 +18,39 @@
     "muted": "{neutral.750}",
     "emphasis": "{neutral.600}"
   },
-  "neutral": {
-    "muted": "{neutral.750}"
-  },
   "accent": {
-    "fg": "{pink.200}",
+    "foreground": "{pink.175}",
     "subtle": "{pink.150}",
-    "emphasis": "{pink.250}",
-    "secondary": "{purple.200}",
-    "secondaryEmphasis": "{purple.350}",
-    "tertiary": "{blue.300}"
+    "emphasis": "{pink.225}",
+    "secondary": "{violet.200}",
+    "secondaryEmphasis": "{violet.350}",
+    "tertiary": "{blue.275}"
   },
   "brackets": {
-    "one": "{purple.200}",
-    "two": "{pink.200}",
-    "three": "{purple.200}",
-    "four": "{pink.200}",
-    "five": "{purple.200}",
-    "six": "{pink.200}"
+    "one": "{purple.175}",
+    "two": "{violet.225}",
+    "three": "{pink.175}",
+    "four": "{purple.175}",
+    "five": "{violet.225}",
+    "six": "{pink.175}"
   },
   "success": {
-    "fg": "{green.200}",
+    "foreground": "{green.200}",
     "muted": "{green.150}",
     "emphasis": "{green.250}"
   },
   "attention": {
-    "fg": "{orange.150}",
+    "foreground": "{orange.150}",
     "muted": "{orange.100}",
     "emphasis": "{orange.200}"
   },
   "danger": {
-    "fg": "{red.250}",
+    "foreground": "{red.250}",
     "muted": "{red.400}",
     "emphasis": "{red.300}"
   },
   "info": {
-    "fg": "{cyan.400}",
+    "foreground": "{cyan.400}",
     "muted": "{cyan.300}",
     "emphasis": "{cyan.500}"
   },
@@ -64,43 +62,43 @@
   },
   "control": {
     "primary": {
-      "bg": "{pink.200}",
-      "fg": "{neutral.800}",
-      "hoverBg": "{pink.175}",
+      "background": "{pink.175}",
+      "foreground": "{neutral.800}",
+      "hoverBackground": "{pink.175}",
       "border": "{neutral.600}"
     },
     "secondary": {
-      "bg": "{neutral.700}",
-      "fg": "{neutral.200}",
-      "hoverBg": "{neutral.600}",
+      "background": "{neutral.700}",
+      "foreground": "{neutral.225}",
+      "hoverBackground": "{neutral.600}",
       "border": "{neutral.600}"
     }
   },
   "syntax": {
-    "comment": "{neutral.400}",
+    "comment": "{neutral.425}",
     "keyword": "{purple.200}",
     "operator": "{purple.200}",
-    "punctuation": "{purple.200}",
+    "punctuation": "{purple.225}",
     "embedded": "{purple.200}",
     "declaration": "{purple.200}",
-    "decorator": "{purple.200}",
+    "decorator": "{pink.175}",
     "storage": "{pink.200}",
     "string": "{pink.100}",
-    "number": "{pink.200}",
+    "number": "{red.250}",
     "boolean": "{red.250}",
-    "regexp": "{blue.300}",
+    "regexp": "{blue.275}",
     "constant": "{purple.125}",
-    "builtin": "{pink.200}",
+    "builtin": "{pink.175}",
     "importBinding": "{purple.125}",
     "variable": "{purple.150}",
-    "parameter": "{purple.150}",
+    "parameter": "{violet.150}",
     "property": "{purple.125}",
-    "function": "{blue.300}",
-    "method": "{blue.300}",
+    "function": "{blue.275}",
+    "method": "{blue.275}",
     "type": "{purple.100}",
     "class": "{purple.100}",
-    "tag": "{pink.200}",
-    "component": "{pink.200}",
+    "tag": "{pink.125}",
+    "component": "{pink.175}",
     "invalid": "{red.250}"
   },
   "sourceControl": {
@@ -108,7 +106,7 @@
     "modified": "{orange.200}",
     "renamed": "{lime.150}",
     "deleted": "{red.250}",
-    "untracked": "{green.300}",
+    "untracked": "{green.200}",
     "ignored": "{neutral.300}",
     "conflicting": "{red.350}",
     "stageModified": "{orange.200}",
@@ -117,20 +115,20 @@
   },
   "ansi": {
     "black": "{neutral.700}",
-    "red": "{red.250}",
-    "green": "{green.250}",
-    "yellow": "{yellow.150}",
-    "blue": "{blue.300}",
-    "magenta": "{purple.350}",
-    "cyan": "{cyan.200}",
-    "white": "{neutral.150}",
-    "brightBlack": "{neutral.750}",
-    "brightRed": "{red.100}",
-    "brightGreen": "{green.300}",
-    "brightYellow": "{yellow.200}",
+    "red": "{red.300}",
+    "green": "{green.350}",
+    "yellow": "{yellow.300}",
+    "blue": "{blue.350}",
+    "magenta": "{violet.350}",
+    "cyan": "{cyan.400}",
+    "white": "{neutral.250}",
+    "brightBlack": "{neutral.500}",
+    "brightRed": "{red.150}",
+    "brightGreen": "{green.250}",
+    "brightYellow": "{yellow.150}",
     "brightBlue": "{blue.250}",
-    "brightMagenta": "{purple.450}",
+    "brightMagenta": "{violet.250}",
     "brightCyan": "{cyan.250}",
-    "brightWhite": "{neutral.150}"
+    "brightWhite": "{neutral.100}"
   }
 }

@@ -101,11 +101,11 @@
     "vscode-textmate": "^9.3.2"
   },
   "scripts": {
-    "start": "nodemon --watch src src/index.js",
+    "start": "nodemon --watch src src/build.js",
     "format": "prettier --write \"src/**/*.{js,json}\" \"test/**/*.js\" README.md package.json",
     "format:check": "prettier --check \"src/**/*.{js,json}\" \"test/**/*.js\" README.md package.json",
     "test": "node --test test/*.test.js",
-    "build": "node src/index.js && mkdir -p build",
+    "build": "node src/build.js && mkdir -p build",
     "validate": "npm run format:check && npm run build && npm test",
     "validate:ci": "npm run validate && git diff --exit-code themes/",
     "vscode:prepublish": "npm run validate",

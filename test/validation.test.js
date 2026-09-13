@@ -1,9 +1,12 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
 const { validateSources, validateTheme } = require("../src/validate");
-const { getThemeColors, resolveScheme } = require("../src/palette");
-const definitions = require("../src/theme-definitions");
-const createTheme = require("../src/theme/create-theme");
+const {
+  loadResolvedColorScheme,
+  resolveColorScheme,
+} = require("../src/colors/color-scheme");
+const createTheme = require("../src/theme/create");
+const definitions = require("../src/theme/definitions");
 const contributions = require("../package.json").contributes.themes;
 
 function copySchemes() {
@@ -18,8 +21,8 @@ function copySchemes() {
 test("source validation returns resolved colors without retaining diagnostics", () => {
   const first = validateSources();
   assert.deepEqual(first.errors, []);
-  for (const [name, colors] of first.colorsByScheme) {
-    assert.deepEqual(colors, getThemeColors(name));
+  for (const [name, colors] of first.resolvedColorsByScheme) {
+    assert.deepEqual(colors, loadResolvedColorScheme(name));
   }
   first.errors.push("test error");
   assert.deepEqual(validateSources().errors, []);
@@ -39,13 +42,13 @@ test("missing color groups produce a diagnostic instead of a TypeError", () => {
       message.includes("semantic roles must match"),
     ),
   );
-  assert.equal(result.colorsByScheme.has("dark-default"), false);
+  assert.equal(result.resolvedColorsByScheme.has("dark-default"), false);
 });
 
 test("the shared resolver rejects malformed and missing palette references", () => {
   for (const value of ["#ffffff", "{missing.100}", "{pink.999}", null, []]) {
     assert.throws(
-      () => resolveScheme({ syntax: { keyword: value } }),
+      () => resolveColorScheme({ syntax: { keyword: value } }),
       /syntax.keyword/,
     );
     const schemes = copySchemes();
@@ -58,7 +61,7 @@ test("the shared resolver rejects malformed and missing palette references", () 
   }
 });
 
-test("missing schemes and unregistered variants are reported", () => {
+test("missing schemes and invalid theme options are reported", () => {
   const schemes = copySchemes();
   delete schemes["dark-muted"];
   assert.ok(
@@ -66,12 +69,12 @@ test("missing schemes and unregistered variants are reported", () => {
       message.includes("configured color scheme is missing"),
     ),
   );
-  for (const variant of ["missing", "constructor", "toString", "__proto__"]) {
+  for (const option of ["borders", "italics"]) {
     const modified = structuredClone(definitions);
-    modified[0].variants = [variant];
+    modified[0][option] = "invalid";
     assert.ok(
       validateSources({ definitions: modified }).errors.some((message) =>
-        message.includes(`unknown variant ${variant}`),
+        message.includes(`${option} must be a boolean`),
       ),
     );
   }
@@ -103,10 +106,8 @@ test("generated themes satisfy validation for every definition", () => {
   }
 });
 
-test("no-italics validation covers both TextMate and semantic rules", () => {
-  const definition = definitions.find(({ variants }) =>
-    variants.includes("no-italics"),
-  );
+test("disabled italics validation covers both TextMate and semantic rules", () => {
+  const definition = definitions.find(({ italics }) => !italics);
   const theme = createTheme(definition);
   theme.semanticTokenColors.decorator.italic = true;
   theme.tokenColors[0].settings.fontStyle = "italic";

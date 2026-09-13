@@ -5,9 +5,10 @@
     "overlay": "{classicNeutral.850}",
     "raised": "{classicNeutral.800}"
   },
-  "fg": {
+  "foreground": {
     "default": "{classicNeutral.200}",
     "emphasis": "{classicNeutral.100}",
+    "prominent": "{classicNeutral.100}",
     "muted": "{classicNeutral.350}",
     "subtle": "{classicNeutral.500}",
     "onEmphasis": "{classicNeutral.900}"
@@ -17,11 +18,8 @@
     "muted": "{classicNeutral.850}",
     "emphasis": "{classicNeutral.750}"
   },
-  "neutral": {
-    "muted": "{classicNeutral.850}"
-  },
   "accent": {
-    "fg": "{classicPurple.200}",
+    "foreground": "{classicPurple.200}",
     "subtle": "{classicPurple.200}",
     "emphasis": "{classicPurple.200}",
     "secondary": "{classicPurple.250}",
@@ -37,22 +35,22 @@
     "six": "{classicPink.300}"
   },
   "success": {
-    "fg": "{classicGreen.500}",
+    "foreground": "{classicGreen.500}",
     "muted": "{classicGreen.400}",
     "emphasis": "{classicGreen.550}"
   },
   "attention": {
-    "fg": "{classicYellow.200}",
+    "foreground": "{classicYellow.200}",
     "muted": "{classicYellow.100}",
     "emphasis": "{classicYellow.300}"
   },
   "danger": {
-    "fg": "{classicRed.400}",
+    "foreground": "{classicRed.400}",
     "muted": "{classicRed.300}",
     "emphasis": "{classicRed.450}"
   },
   "info": {
-    "fg": "{classicCyan.400}",
+    "foreground": "{classicCyan.400}",
     "muted": "{classicCyan.300}",
     "emphasis": "{classicCyan.500}"
   },
@@ -64,15 +62,15 @@
   },
   "control": {
     "primary": {
-      "bg": "{classicPink.300}",
-      "fg": "{classicNeutral.900}",
-      "hoverBg": "{classicPink.300}",
+      "background": "{classicPink.300}",
+      "foreground": "{classicNeutral.900}",
+      "hoverBackground": "{classicPink.300}",
       "border": "{classicNeutral.800}"
     },
     "secondary": {
-      "bg": "{classicNeutral.800}",
-      "fg": "{classicNeutral.200}",
-      "hoverBg": "{classicNeutral.750}",
+      "background": "{classicNeutral.800}",
+      "foreground": "{classicNeutral.200}",
+      "hoverBackground": "{classicNeutral.750}",
       "border": "{classicNeutral.750}"
     }
   },
@@ -104,16 +102,16 @@
     "invalid": "{classicRed.400}"
   },
   "sourceControl": {
-    "added": "{green.250}",
-    "modified": "{orange.250}",
-    "renamed": "{lime.150}",
-    "deleted": "{red.250}",
-    "untracked": "{green.300}",
-    "ignored": "{neutral.300}",
-    "conflicting": "{red.350}",
-    "stageModified": "{orange.250}",
-    "stageDeleted": "{red.250}",
-    "submodule": "{cyan.200}"
+    "added": "{classicGreen.500}",
+    "modified": "{classicYellow.200}",
+    "renamed": "{classicGreen.400}",
+    "deleted": "{classicRed.400}",
+    "untracked": "{classicGreen.400}",
+    "ignored": "{classicNeutral.350}",
+    "conflicting": "{classicRed.500}",
+    "stageModified": "{classicYellow.200}",
+    "stageDeleted": "{classicRed.400}",
+    "submodule": "{classicCyan.400}"
   },
   "ansi": {
     "black": "{classicNeutral.900}",

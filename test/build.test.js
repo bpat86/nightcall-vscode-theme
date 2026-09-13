@@ -4,7 +4,7 @@ const os = require("node:os");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
 const test = require("node:test");
-const definitions = require("../src/theme-definitions");
+const definitions = require("../src/theme/definitions");
 
 const root = path.join(__dirname, "..");
 
@@ -29,7 +29,7 @@ function fixture(context) {
 function runBuild(directory) {
   return spawnSync(
     process.execPath,
-    [path.join(directory, "src", "index.js")],
+    [path.join(directory, "src", "build.js")],
     {
       cwd: directory,
       encoding: "utf8",
@@ -37,20 +37,25 @@ function runBuild(directory) {
   );
 }
 
-test("a clean build produces exactly the current theme files", (context) => {
+test("a clean build replaces output with the registered themes", (context) => {
   const directory = fixture(context);
+  const output = path.join(directory, "themes");
+  fs.mkdirSync(output);
+  fs.writeFileSync(path.join(output, "obsolete-theme.json"), "obsolete");
+
   const result = runBuild(directory);
   assert.equal(result.status, 0, result.stderr);
   assert.deepEqual(
-    fs.readdirSync(path.join(directory, "themes")).sort(),
+    fs.readdirSync(output).sort(),
     definitions.map(({ fileName }) => fileName).sort(),
   );
-  for (const { fileName } of definitions) {
-    assert.equal(
-      fs.readFileSync(path.join(directory, "themes", fileName), "utf8"),
-      fs.readFileSync(path.join(root, "themes", fileName), "utf8"),
-      fileName,
+  for (const definition of definitions) {
+    const theme = JSON.parse(
+      fs.readFileSync(path.join(output, definition.fileName), "utf8"),
     );
+    assert.equal(theme.name, definition.name);
+    assert.equal(theme.type, definition.type);
+    assert.equal(theme.$schema, "vscode://schemas/color-theme");
   }
 });
 
@@ -91,7 +96,7 @@ test("invalid generated output is rejected before creating the output directory"
     "dark-default.json",
   );
   const scheme = JSON.parse(fs.readFileSync(schemePath, "utf8"));
-  scheme.fg.default = scheme.canvas.default;
+  scheme.foreground.default = scheme.canvas.default;
   fs.writeFileSync(schemePath, JSON.stringify(scheme));
   const result = runBuild(directory);
   assert.equal(result.status, 1, result.stderr);

@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const path = require("path");
-const createTheme = require("./theme/create-theme");
-const themeDefinitions = require("./theme-definitions");
+const createTheme = require("./theme/create");
+const themeDefinitions = require("./theme/definitions");
 const {
   validateSources,
   validateTheme,
@@ -10,6 +10,26 @@ const {
 
 const root = path.join(__dirname, "..");
 const outputDirectory = path.join(root, "themes");
+
+async function writeThemes(themes) {
+  const stagingDirectory = await fs.mkdtemp(path.join(root, ".themes-"));
+
+  try {
+    await Promise.all(
+      themes.map(({ definition, theme }) =>
+        fs.writeFile(
+          path.join(stagingDirectory, definition.fileName),
+          `${JSON.stringify(theme, null, 2)}\n`,
+        ),
+      ),
+    );
+    await fs.rm(outputDirectory, { recursive: true, force: true });
+    await fs.rename(stagingDirectory, outputDirectory);
+  } catch (error) {
+    await fs.rm(stagingDirectory, { recursive: true, force: true });
+    throw error;
+  }
+}
 
 async function build() {
   const sources = validateSources();
@@ -22,7 +42,7 @@ async function build() {
     definition,
     theme: createTheme(
       definition,
-      sources.colorsByScheme.get(definition.scheme),
+      sources.resolvedColorsByScheme.get(definition.scheme),
     ),
   }));
   let invalid = false;
@@ -35,15 +55,7 @@ async function build() {
     throw new Error("Generated theme validation failed.");
   }
 
-  await fs.mkdir(outputDirectory, { recursive: true });
-  await Promise.all(
-    themes.map(({ definition, theme }) =>
-      fs.writeFile(
-        path.join(outputDirectory, definition.fileName),
-        `${JSON.stringify(theme, null, 2)}\n`,
-      ),
-    ),
-  );
+  await writeThemes(themes);
 }
 
 build().catch((error) => {

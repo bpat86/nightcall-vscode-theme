@@ -1,11 +1,9 @@
 const assert = require("node:assert/strict");
-const fs = require("node:fs");
-const path = require("node:path");
 const test = require("node:test");
-const { getThemeColors } = require("../src/palette");
-const createTheme = require("../src/theme/create-theme");
-const definitions = require("../src/theme-definitions");
-const { applyVariants } = require("../src/theme/variants");
+const { loadResolvedColorScheme } = require("../src/colors/color-scheme");
+const createTheme = require("../src/theme/create");
+const definitions = require("../src/theme/definitions");
+const { applyThemeOptions } = require("../src/theme/options");
 
 const STANDARD_SEMANTIC_TOKEN_TYPES = new Set([
   "namespace",
@@ -45,17 +43,6 @@ const STANDARD_SEMANTIC_TOKEN_MODIFIERS = new Set([
   "defaultLibrary",
 ]);
 
-for (const definition of definitions) {
-  test(`${definition.name} matches the checked-in output`, () => {
-    const actual = `${JSON.stringify(createTheme(definition), null, 2)}\n`;
-    const expected = fs.readFileSync(
-      path.join(__dirname, "..", "themes", definition.fileName),
-      "utf8",
-    );
-    assert.equal(actual, expected);
-  });
-}
-
 test("semantic token rules use and cover the standard token types", () => {
   const semanticTokenColors = createTheme(definitions[0]).semanticTokenColors;
   const coveredTypes = new Set();
@@ -82,7 +69,7 @@ test("semantic token rules use and cover the standard token types", () => {
 
 test("bracket colors use the dedicated palette roles", () => {
   const theme = createTheme(definitions[0]);
-  const brackets = getThemeColors(definitions[0].scheme).brackets;
+  const brackets = loadResolvedColorScheme(definitions[0].scheme).brackets;
 
   for (const [index, key] of [
     "one",
@@ -99,14 +86,14 @@ test("bracket colors use the dedicated palette roles", () => {
   }
 });
 
-test("no-italics clears both token systems and preserves other styles", () => {
+test("disabling italics clears both token systems and preserves other styles", () => {
   const base = createTheme(definitions[0]);
   base.tokenColors.push({
     scope: "test.style",
     settings: { fontStyle: "bold italic underline" },
   });
   const before = structuredClone(base);
-  const actual = applyVariants(base, ["no-italics"]);
+  const actual = applyThemeOptions(base, { italics: false });
 
   assert.deepEqual(base, before);
   assert.deepEqual(actual.colors, base.colors);
@@ -124,7 +111,7 @@ test("no-italics clears both token systems and preserves other styles", () => {
 test("borderless changes only its intended workbench colors", () => {
   const base = createTheme(definitions[0]);
   const before = structuredClone(base);
-  const actual = applyVariants(base, ["borderless"]);
+  const actual = applyThemeOptions(base, { borders: false });
   const expectedColors = { ...base.colors };
   for (const key of [
     "editor.border",
@@ -161,22 +148,23 @@ test("borderless changes only its intended workbench colors", () => {
   assert.deepEqual(actual, { ...base, colors: expectedColors });
 });
 
-test("variants compose in either order and are idempotent", () => {
+test("theme options compose and are idempotent", () => {
   const base = createTheme(definitions[0]);
-  const combined = applyVariants(base, ["borderless", "no-italics"]);
-  assert.deepEqual(combined, applyVariants(base, ["no-italics", "borderless"]));
+  const combined = applyThemeOptions(base, {
+    borders: false,
+    italics: false,
+  });
   assert.deepEqual(
     combined,
-    applyVariants(combined, ["borderless", "no-italics"]),
+    applyThemeOptions(applyThemeOptions(base, { borders: false }), {
+      italics: false,
+    }),
   );
-  assert.equal(applyVariants(base, []), base);
-});
-
-test("unknown and inherited variant names are rejected", () => {
-  const base = createTheme(definitions[0]);
-  for (const name of ["missing", "constructor", "toString", "__proto__"]) {
-    assert.throws(() => applyVariants(base, [name]), /Unknown variant/);
-  }
+  assert.deepEqual(
+    combined,
+    applyThemeOptions(combined, { borders: false, italics: false }),
+  );
+  assert.equal(applyThemeOptions(base), base);
 });
 
 test("borderless rejects missing target and reference colors", () => {
@@ -188,7 +176,7 @@ test("borderless rejects missing target and reference colors", () => {
     const base = createTheme(definitions[0]);
     delete base.colors[key];
     assert.throws(
-      () => applyVariants(base, ["borderless"]),
+      () => applyThemeOptions(base, { borders: false }),
       /unknown workbench color/,
     );
   }

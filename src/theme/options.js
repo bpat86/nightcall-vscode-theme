@@ -1,17 +1,14 @@
-// Names are applied in order, so a later variant receives the previous
-// variant's result.
-
 const TRANSPARENT = "#00000000";
 
 function getColor(colors, key) {
   if (!Object.hasOwn(colors, key)) {
-    throw new Error(`Borderless uses unknown workbench color ${key}`);
+    throw new Error(`Borderless theme uses unknown workbench color ${key}`);
   }
 
   return colors[key];
 }
 
-function applyBorderless(theme) {
+function removeBorders(theme) {
   const background = getColor(theme.colors, "editor.background");
   const subtleBorder = getColor(theme.colors, "editorOverviewRuler.border");
   const overrides = {
@@ -73,26 +70,25 @@ function removeSemanticItalics(tokenColors) {
   );
 }
 
-const VARIANTS = Object.freeze({
-  borderless: applyBorderless,
-  "no-italics": (theme) => ({
+function removeItalics(theme) {
+  return {
     ...theme,
     tokenColors: theme.tokenColors.map(removeItalic),
     semanticTokenColors: removeSemanticItalics(theme.semanticTokenColors),
-  }),
-});
-
-function applyVariants(theme, names) {
-  return names.reduce((result, name) => {
-    if (!Object.hasOwn(VARIANTS, name)) {
-      throw new Error(`Unknown variant: ${name}`);
-    }
-
-    return VARIANTS[name](result);
-  }, theme);
+  };
 }
 
-module.exports = {
-  applyVariants,
-  VARIANTS,
-};
+function applyThemeOptions(theme, { borders = true, italics = true } = {}) {
+  let result = theme;
+
+  if (!borders) {
+    result = removeBorders(result);
+  }
+  if (!italics) {
+    result = removeItalics(result);
+  }
+
+  return result;
+}
+
+module.exports = { applyThemeOptions };

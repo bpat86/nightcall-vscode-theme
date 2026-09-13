@@ -5,8 +5,8 @@ const test = require("node:test");
 const { Registry, INITIAL, parseRawGrammar } = require("vscode-textmate");
 const { loadWASM, OnigScanner, OnigString } = require("vscode-oniguruma");
 const createTokenColors = require("../src/theme/token-colors");
-const { getThemeColors } = require("../src/palette");
-const { applyVariants } = require("../src/theme/variants");
+const { loadResolvedColorScheme } = require("../src/colors/color-scheme");
+const { applyThemeOptions } = require("../src/theme/options");
 
 const syntax = Object.fromEntries(
   Object.keys(require("../src/colors/schemes/dark-default.json").syntax).map(
@@ -30,15 +30,15 @@ const onigLib = loadWASM(
 }));
 
 function createRegistry(noItalics) {
-  const theme = applyVariants(
+  const theme = applyThemeOptions(
     {
       tokenColors: createTokenColors({
-        ...getThemeColors("dark-default"),
+        ...loadResolvedColorScheme("dark-default"),
         syntax,
       }),
       semanticTokenColors: {},
     },
-    noItalics ? ["no-italics"] : [],
+    { italics: !noItalics },
   );
   return new Registry({
     onigLib,

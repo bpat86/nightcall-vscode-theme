@@ -10,7 +10,7 @@ const italicScopeGroups = Object.freeze({
 
 const ITALIC_SCOPES = Object.freeze(Object.values(italicScopeGroups).flat());
 
-// Generate italic rules consistently; the no-italics variant removes them later.
+// Generate italic rules consistently; the theme option removes them when disabled.
 function createTypographyTokenColors(color) {
   return [
     {

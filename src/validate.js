@@ -1,11 +1,11 @@
 const fs = require("fs");
 const path = require("path");
 const chroma = require("chroma-js");
+const { resolveColorScheme } = require("./colors/color-scheme");
+const { isHexColor, paletteSources } = require("./colors/color-scales");
 const { ITALIC_SCOPES } = require("./theme/typography");
-const themeDefinitions = require("./theme-definitions");
-const { paletteSources, resolveScheme, isColor } = require("./palette");
-const createTheme = require("./theme/create-theme");
-const { VARIANTS } = require("./theme/variants");
+const createTheme = require("./theme/create");
+const themeDefinitions = require("./theme/definitions");
 
 const root = path.join(__dirname, "..");
 const colorDirectory = path.join(__dirname, "colors");
@@ -85,7 +85,7 @@ function validatePalette({ errors }) {
           );
         }
 
-        if (!isColor(value)) {
+        if (!isHexColor(value)) {
           errors.push(
             `${paletteFileName}: ${family}.${shade} is not a hex color`,
           );
@@ -126,7 +126,7 @@ function readSchemes() {
 function validateSchemes(
   schemes,
   definitions,
-  colorsByScheme,
+  resolvedColorsByScheme,
   { errors, warnings },
 ) {
   let expectedLeafPaths;
@@ -143,9 +143,9 @@ function validateSchemes(
     }
 
     try {
-      const colors = resolveScheme(scheme);
+      const colors = resolveColorScheme(scheme);
       const usedPaths = collectUsedColorPaths(colors);
-      colorsByScheme.set(name, colors);
+      resolvedColorsByScheme.set(name, colors);
       for (const leafPath of leafPaths) {
         if (!usedPaths.has(leafPath)) {
           warnings.push(`${fileName}: unused ${leafPath}`);
@@ -172,7 +172,7 @@ function validateSchemes(
 }
 
 function validateColor(value, location, errors) {
-  if (!isColor(value)) {
+  if (!isHexColor(value)) {
     errors.push(`${location} is not a generated hex color`);
   }
 }
@@ -180,7 +180,7 @@ function validateColor(value, location, errors) {
 function validateTokenColors(
   theme,
   fileName,
-  { variants },
+  { italics },
   { errors, warnings },
 ) {
   const scopes = new Map();
@@ -227,7 +227,7 @@ function validateTokenColors(
     }
   });
 
-  if (variants.includes("no-italics")) {
+  if (!italics) {
     if (italicScopes.size > 0) {
       errors.push(
         `${fileName}: contains italic scopes: ${[...italicScopes].join(", ")}`,
@@ -267,13 +267,9 @@ function validateThemeDefinitions(definitions, contributions, { errors }) {
   for (const definition of definitions) {
     const { fileName, name } = definition;
 
-    if (!Array.isArray(definition.variants)) {
-      errors.push(`${fileName}: variants must be an array`);
-    } else {
-      for (const variant of definition.variants) {
-        if (!Object.hasOwn(VARIANTS, variant)) {
-          errors.push(`${fileName}: unknown variant ${variant}`);
-        }
+    for (const option of ["borders", "italics"]) {
+      if (typeof definition[option] !== "boolean") {
+        errors.push(`${fileName}: ${option} must be a boolean`);
       }
     }
 
@@ -321,7 +317,7 @@ function validateContrast(theme, fileName, { errors }) {
     const foreground = theme.colors[foregroundKey];
     const background = theme.colors[backgroundKey];
 
-    if (!isColor(foreground) || !isColor(background)) {
+    if (!isHexColor(foreground) || !isHexColor(background)) {
       continue;
     }
 
@@ -340,11 +336,11 @@ function validateSources({
   schemes = readSchemes(),
 } = {}) {
   const diagnostics = { errors: [], warnings: [] };
-  const colorsByScheme = new Map();
+  const resolvedColorsByScheme = new Map();
   validateThemeDefinitions(definitions, contributions, diagnostics);
   validatePalette(diagnostics);
-  validateSchemes(schemes, definitions, colorsByScheme, diagnostics);
-  return { ...diagnostics, colorsByScheme };
+  validateSchemes(schemes, definitions, resolvedColorsByScheme, diagnostics);
+  return { ...diagnostics, resolvedColorsByScheme };
 }
 
 function validateTheme(theme, definition) {
@@ -376,7 +372,7 @@ function validateTheme(theme, definition) {
       `${fileName}: semanticTokenColors.${key}`,
       errors,
     );
-    if (definition.variants.includes("no-italics") && value.italic === true) {
+    if (!definition.italics && value.italic === true) {
       errors.push(`${fileName}: semanticTokenColors.${key} must not be italic`);
     }
   }

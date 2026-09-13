@@ -5,11 +5,12 @@
     "overlay": "{neutral.850}",
     "raised": "{neutral.600}"
   },
-  "fg": {
-    "default": "{neutral.200}",
+  "foreground": {
+    "default": "{neutral.250}",
     "emphasis": "{neutral.150}",
-    "muted": "{neutral.300}",
-    "subtle": "{neutral.400}",
+    "prominent": "{purple.125}",
+    "muted": "{neutral.350}",
+    "subtle": "{neutral.450}",
     "onEmphasis": "{neutral.950}"
   },
   "border": {
@@ -17,42 +18,39 @@
     "muted": "{neutral.850}",
     "emphasis": "{neutral.700}"
   },
-  "neutral": {
-    "muted": "{neutral.850}"
-  },
   "accent": {
-    "fg": "{pink.250}",
-    "subtle": "{pink.200}",
-    "emphasis": "{pink.300}",
-    "secondary": "{purple.250}",
-    "secondaryEmphasis": "{purple.400}",
-    "tertiary": "{blue.350}"
+    "foreground": "{pink.200}",
+    "subtle": "{pink.175}",
+    "emphasis": "{pink.250}",
+    "secondary": "{violet.225}",
+    "secondaryEmphasis": "{violet.400}",
+    "tertiary": "{blue.325}"
   },
   "brackets": {
-    "one": "{purple.250}",
-    "two": "{pink.250}",
-    "three": "{purple.250}",
-    "four": "{pink.250}",
-    "five": "{purple.250}",
-    "six": "{pink.250}"
+    "one": "{purple.225}",
+    "two": "{violet.225}",
+    "three": "{pink.225}",
+    "four": "{purple.225}",
+    "five": "{violet.225}",
+    "six": "{pink.225}"
   },
   "success": {
-    "fg": "{green.250}",
+    "foreground": "{green.250}",
     "muted": "{green.200}",
     "emphasis": "{green.300}"
   },
   "attention": {
-    "fg": "{orange.200}",
+    "foreground": "{orange.200}",
     "muted": "{orange.150}",
     "emphasis": "{orange.250}"
   },
   "danger": {
-    "fg": "{red.350}",
+    "foreground": "{red.350}",
     "muted": "{red.300}",
     "emphasis": "{red.400}"
   },
   "info": {
-    "fg": "{cyan.400}",
+    "foreground": "{cyan.400}",
     "muted": "{cyan.300}",
     "emphasis": "{cyan.500}"
   },
@@ -64,73 +62,73 @@
   },
   "control": {
     "primary": {
-      "bg": "{pink.250}",
-      "fg": "{neutral.900}",
-      "hoverBg": "{pink.225}",
+      "background": "{pink.225}",
+      "foreground": "{neutral.900}",
+      "hoverBackground": "{pink.225}",
       "border": "{neutral.800}"
     },
     "secondary": {
-      "bg": "{neutral.800}",
-      "fg": "{neutral.200}",
-      "hoverBg": "{neutral.800}",
+      "background": "{neutral.800}",
+      "foreground": "{neutral.250}",
+      "hoverBackground": "{neutral.800}",
       "border": "{neutral.800}"
     }
   },
   "syntax": {
-    "comment": "{neutral.400}",
-    "keyword": "{purple.250}",
-    "operator": "{purple.250}",
-    "punctuation": "{purple.250}",
-    "embedded": "{purple.250}",
-    "declaration": "{purple.250}",
-    "decorator": "{purple.250}",
-    "storage": "{pink.250}",
-    "string": "{pink.150}",
-    "number": "{pink.250}",
+    "comment": "{neutral.450}",
+    "keyword": "{purple.225}",
+    "operator": "{purple.225}",
+    "punctuation": "{purple.275}",
+    "embedded": "{purple.225}",
+    "declaration": "{purple.225}",
+    "decorator": "{pink.200}",
+    "storage": "{pink.225}",
+    "string": "{pink.125}",
+    "number": "{red.300}",
     "boolean": "{red.300}",
-    "regexp": "{blue.350}",
+    "regexp": "{blue.325}",
     "constant": "{purple.150}",
-    "builtin": "{pink.250}",
+    "builtin": "{pink.200}",
     "importBinding": "{purple.150}",
     "variable": "{purple.175}",
-    "parameter": "{purple.175}",
+    "parameter": "{violet.175}",
     "property": "{purple.150}",
-    "function": "{blue.350}",
-    "method": "{blue.350}",
+    "function": "{blue.325}",
+    "method": "{blue.325}",
     "type": "{purple.125}",
     "class": "{purple.125}",
-    "tag": "{pink.250}",
-    "component": "{pink.250}",
+    "tag": "{pink.150}",
+    "component": "{pink.200}",
     "invalid": "{red.300}"
   },
   "sourceControl": {
-    "added": "{green.250}",
-    "modified": "{orange.250}",
-    "renamed": "{lime.150}",
-    "deleted": "{red.250}",
+    "added": "{green.400}",
+    "modified": "{orange.300}",
+    "renamed": "{lime.300}",
+    "deleted": "{red.400}",
     "untracked": "{green.300}",
-    "ignored": "{neutral.300}",
-    "conflicting": "{red.350}",
-    "stageModified": "{orange.250}",
-    "stageDeleted": "{red.250}",
-    "submodule": "{cyan.200}"
+    "ignored": "{neutral.350}",
+    "conflicting": "{red.450}",
+    "stageModified": "{orange.300}",
+    "stageDeleted": "{red.400}",
+    "submodule": "{cyan.400}"
   },
   "ansi": {
     "black": "{neutral.800}",
-    "red": "{red.300}",
-    "green": "{green.300}",
-    "yellow": "{yellow.200}",
-    "blue": "{blue.300}",
-    "magenta": "{purple.350}",
-    "cyan": "{cyan.250}",
-    "white": "{neutral.150}",
-    "brightBlack": "{neutral.750}",
-    "brightRed": "{red.100}",
-    "brightGreen": "{green.500}",
+    "red": "{red.400}",
+    "green": "{green.450}",
+    "yellow": "{yellow.400}",
+    "blue": "{blue.400}",
+    "magenta": "{violet.375}",
+    "cyan": "{cyan.500}",
+    "white": "{neutral.250}",
+    "brightBlack": "{neutral.600}",
+    "brightRed": "{red.200}",
+    "brightGreen": "{green.300}",
     "brightYellow": "{yellow.200}",
     "brightBlue": "{blue.300}",
-    "brightMagenta": "{purple.450}",
+    "brightMagenta": "{violet.275}",
     "brightCyan": "{cyan.300}",
-    "brightWhite": "{neutral.150}"
+    "brightWhite": "{neutral.100}"
   }
 }
