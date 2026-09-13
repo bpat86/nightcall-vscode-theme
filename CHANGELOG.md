@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.0.12
+
+- Refactored and streamlined the theme build process to improve maintainability, consistency, and support for future changes. This update also expands the theme color system with a new color option and includes related cleanup across the build configuration.
+
 ## 2.0.11
 
 - Restored the intended semantic token colors after a regression caused some syntax elements to display incorrect colors.
