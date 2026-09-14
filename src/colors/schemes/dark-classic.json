@@ -16,6 +16,7 @@
   "border": {
     "default": "{classicNeutral.800}",
     "muted": "{classicNeutral.850}",
+    "subtle": "{classicNeutral.850}",
     "emphasis": "{classicNeutral.750}"
   },
   "accent": {

@@ -3,7 +3,7 @@ const path = require("path");
 const chroma = require("chroma-js");
 const { resolveColorScheme } = require("./colors/color-scheme");
 const { isHexColor, paletteSources } = require("./colors/color-scales");
-const { ITALIC_SCOPES } = require("./theme/typography");
+const { ITALIC_SCOPES } = require("./theme/token-colors/typography");
 const createTheme = require("./theme/create");
 const themeDefinitions = require("./theme/definitions");
 

@@ -1,9 +1,15 @@
 # Color Pipeline
 
-The theme build turns color data into VS Code theme values in three stages:
+The theme build transforms palette colors into VS Code theme values through three layers:
 
-1. `palettes/default.json` and `palettes/classic.json` define reusable color scales.
-2. `schemes/*.json` map semantic roles such as `canvas.default` and `syntax.keyword` to palette references.
-3. Theme builders in `../theme/` map resolved semantic roles to VS Code workbench, TextMate, and semantic-token keys.
+1. `palettes/default.json` and `palettes/classic.json` define the reusable color scales.
+2. `schemes/*.json` assign palette colors to semantic roles such as `canvas.default` and `syntax.keyword`.
+3. Theme builders in `../theme/` map those resolved semantic roles to VS Code workbench colors, TextMate scopes, and semantic token keys.
 
-`color-scales.js` loads and combines the raw color scales. `color-scheme.js` loads a scheme and resolves its palette references before the scheme is passed to the theme builders.
+`color-scales.js` loads and combines the available palette scales.
+
+`color-scheme.js` loads a color scheme, resolves its palette references into concrete color values, and passes the resulting semantic color map to the theme builders.
+
+In short:
+
+Palette → Semantic Scheme → VS Code Theme

@@ -1,4 +1,4 @@
-const { createTypographyTokenColors } = require("../typography");
+const { createTypographyTokenColors } = require("./typography");
 const {
   createSharedTokenColors,
   createSharedOverrideTokenColors,

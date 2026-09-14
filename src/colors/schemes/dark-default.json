@@ -14,8 +14,9 @@
     "onEmphasis": "{neutral.950}"
   },
   "border": {
-    "default": "{neutral.800}",
+    "default": "{neutral.825}",
     "muted": "{neutral.850}",
+    "subtle": "{neutral.875}",
     "emphasis": "{neutral.700}"
   },
   "accent": {
