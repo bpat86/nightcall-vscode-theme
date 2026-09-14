@@ -134,13 +134,13 @@ test("borderless changes only its intended workbench colors", () => {
     "activityBarTop.background",
     "sideBar.background",
     "sideBarSectionHeader.background",
+    "sideBarStickyScroll.background",
+    "sideBarStickyScroll.border",
+    "sideBarStickyScroll.shadow",
   ]) {
     expectedColors[key] = base.colors["editor.background"];
   }
-  for (const key of [
-    "sideBarSectionHeader.border",
-    "editorStickyScroll.border",
-  ]) {
+  for (const key of ["editorStickyScroll.border"]) {
     expectedColors[key] = base.colors["editorOverviewRuler.border"];
   }
 

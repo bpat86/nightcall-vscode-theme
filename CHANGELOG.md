@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.0.14
+
+- Refined the build process, fixed inconsistencies in the borderless variants, and softened theme border contrast.
+
 ## 2.0.13
 
 - Removed deprecated workbench color entries to keep the theme configuration current and maintainable.
