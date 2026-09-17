@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.1.0
+
+- Improved syntax color contrast across all themes, with major color refinements to the Classic theme for better clarity, consistency, and overall readability.
+
 ## 2.0.14
 
 - Refined the build process, fixed inconsistencies in the borderless variants, and softened theme border contrast.
