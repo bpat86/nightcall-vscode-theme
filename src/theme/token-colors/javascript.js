@@ -271,12 +271,6 @@ function createJsxTokenColors(color) {
       },
     },
     {
-      scope: ["meta.jsx.children", "meta.jsx.children.tsx"],
-      settings: {
-        foreground: color.syntax.type,
-      },
-    },
-    {
       scope: "meta.class entity.name.type.class.tsx",
       settings: {
         foreground: color.syntax.type,

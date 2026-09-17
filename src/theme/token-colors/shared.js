@@ -428,9 +428,6 @@ function createSharedTokenColors(color) {
     },
     {
       scope: [
-        "keyword.control.flow.js",
-        "keyword.control.flow.ts",
-        "keyword.control.flow.tsx",
         "keyword.control.ruby",
         "keyword.control.module.ruby",
         "keyword.control.class.ruby",
@@ -441,6 +438,16 @@ function createSharedTokenColors(color) {
       ],
       settings: {
         foreground: color.syntax.storage,
+      },
+    },
+    {
+      scope: [
+        "keyword.control.flow.js",
+        "keyword.control.flow.ts",
+        "keyword.control.flow.tsx",
+      ],
+      settings: {
+        foreground: color.syntax.controlFlow,
       },
     },
     {
@@ -639,9 +646,13 @@ function createSharedOverrideTokenColors(color) {
       },
     },
     {
-      scope: "meta.jsx.children.js",
+      scope: [
+        "meta.jsx.children",
+        "meta.jsx.children.js",
+        "meta.jsx.children.tsx",
+      ],
       settings: {
-        foreground: color.syntax.type,
+        foreground: color.syntax.children,
       },
     },
     {

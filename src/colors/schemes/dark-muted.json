@@ -6,11 +6,11 @@
     "raised": "{neutral.500}"
   },
   "foreground": {
-    "default": "{neutral.225}",
-    "emphasis": "{neutral.125}",
-    "prominent": "{purple.100}",
-    "muted": "{neutral.325}",
-    "subtle": "{neutral.425}",
+    "default": "{neutral.250}",
+    "emphasis": "{purple.100}",
+    "prominent": "{purple.75}",
+    "muted": "{neutral.350}",
+    "subtle": "{neutral.450}",
     "onEmphasis": "{neutral.950}"
   },
   "border": {
@@ -25,7 +25,7 @@
     "emphasis": "{pink.225}",
     "secondary": "{violet.200}",
     "secondaryEmphasis": "{violet.350}",
-    "tertiary": "{blue.275}"
+    "tertiary": "{blue.300}"
   },
   "brackets": {
     "one": "{purple.175}",
@@ -46,8 +46,8 @@
     "emphasis": "{orange.200}"
   },
   "danger": {
-    "foreground": "{red.250}",
-    "muted": "{red.400}",
+    "foreground": "{red.275}",
+    "muted": "{red.250}",
     "emphasis": "{red.300}"
   },
   "info": {
@@ -76,42 +76,44 @@
     }
   },
   "syntax": {
-    "comment": "{neutral.425}",
+    "comment": "{neutral.500}",
     "keyword": "{purple.200}",
     "operator": "{purple.200}",
     "punctuation": "{purple.225}",
     "embedded": "{purple.200}",
     "declaration": "{purple.200}",
     "decorator": "{pink.175}",
-    "storage": "{pink.200}",
-    "string": "{pink.100}",
-    "number": "{red.250}",
-    "boolean": "{red.250}",
-    "regexp": "{blue.275}",
+    "storage": "{pink.225}",
+    "controlFlow": "{purple.200}",
+    "string": "{pink.125}",
+    "number": "{red.275}",
+    "boolean": "{red.275}",
+    "regexp": "{blue.300}",
     "constant": "{purple.125}",
     "builtin": "{pink.175}",
     "importBinding": "{purple.125}",
     "variable": "{purple.150}",
-    "parameter": "{violet.150}",
+    "parameter": "{violet.200}",
     "property": "{purple.125}",
-    "function": "{blue.275}",
-    "method": "{blue.275}",
-    "type": "{purple.100}",
+    "function": "{blue.300}",
+    "method": "{blue.300}",
+    "type": "{violet.275}",
+    "children": "{purple.100}",
     "class": "{purple.100}",
-    "tag": "{pink.125}",
-    "component": "{pink.175}",
-    "invalid": "{red.250}"
+    "tag": "{pink.175}",
+    "component": "{pink.275}",
+    "invalid": "{red.275}"
   },
   "sourceControl": {
     "added": "{green.250}",
     "modified": "{orange.200}",
     "renamed": "{lime.150}",
-    "deleted": "{red.250}",
+    "deleted": "{red.275}",
     "untracked": "{green.200}",
     "ignored": "{neutral.300}",
     "conflicting": "{red.350}",
     "stageModified": "{orange.200}",
-    "stageDeleted": "{red.250}",
+    "stageDeleted": "{red.275}",
     "submodule": "{cyan.200}"
   },
   "ansi": {

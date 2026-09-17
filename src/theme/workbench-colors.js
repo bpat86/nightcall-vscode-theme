@@ -289,7 +289,7 @@ function createWorkbenchColors(color) {
       OVERLAY_RESTING_ALPHA,
     ),
     "editorLineNumber.foreground": color.foreground.subtle,
-    "editorLineNumber.activeForeground": color.foreground.default,
+    "editorLineNumber.activeForeground": color.foreground.emphasis,
     "editorLineNumber.dimmedForeground": color.foreground.subtle,
     "editorWhitespace.foreground": color.foreground.subtle,
     "editorCursor.foreground": color.foreground.emphasis,

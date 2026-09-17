@@ -42,3 +42,18 @@ test("shared overrides are applied after language-specific rules", () => {
     overrides,
   );
 });
+
+test("JSX children use their dedicated syntax color", () => {
+  const customColors = structuredClone(colors);
+  customColors.syntax.children = "#123456";
+
+  const childrenRule = createTokenColors(customColors).find(
+    ({ scope }) =>
+      Array.isArray(scope) &&
+      scope.includes("meta.jsx.children") &&
+      scope.includes("meta.jsx.children.js") &&
+      scope.includes("meta.jsx.children.tsx"),
+  );
+
+  assert.deepEqual(childrenRule.settings, { foreground: "#123456" });
+});

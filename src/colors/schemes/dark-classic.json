@@ -3,52 +3,52 @@
     "default": "{classicNeutral.900}",
     "inset": "{classicNeutral.950}",
     "overlay": "{classicNeutral.850}",
-    "raised": "{classicNeutral.800}"
+    "raised": "{classicNeutral.700}"
   },
   "foreground": {
-    "default": "{classicNeutral.200}",
-    "emphasis": "{classicNeutral.100}",
-    "prominent": "{classicNeutral.100}",
-    "muted": "{classicNeutral.350}",
-    "subtle": "{classicNeutral.500}",
-    "onEmphasis": "{classicNeutral.900}"
+    "default": "{classicNeutral.400}",
+    "emphasis": "{classicPurple.150}",
+    "prominent": "{classicPurple.125}",
+    "muted": "{classicNeutral.500}",
+    "subtle": "{classicNeutral.600}",
+    "onEmphasis": "{classicNeutral.950}"
   },
   "border": {
-    "default": "{classicNeutral.800}",
+    "default": "{classicNeutral.825}",
     "muted": "{classicNeutral.850}",
-    "subtle": "{classicNeutral.850}",
-    "emphasis": "{classicNeutral.750}"
+    "subtle": "{classicNeutral.875}",
+    "emphasis": "{classicNeutral.800}"
   },
   "accent": {
-    "foreground": "{classicPurple.200}",
-    "subtle": "{classicPurple.200}",
-    "emphasis": "{classicPurple.200}",
-    "secondary": "{classicPurple.250}",
-    "secondaryEmphasis": "{classicPurple.400}",
-    "tertiary": "{classicBlue.400}"
+    "foreground": "{classicPink.225}",
+    "subtle": "{classicPink.200}",
+    "emphasis": "{classicPink.275}",
+    "secondary": "{classicViolet.300}",
+    "secondaryEmphasis": "{classicViolet.500}",
+    "tertiary": "{classicBlue.425}"
   },
   "brackets": {
-    "one": "{classicPurple.250}",
-    "two": "{classicPink.300}",
-    "three": "{classicPurple.250}",
-    "four": "{classicPink.300}",
-    "five": "{classicPurple.250}",
-    "six": "{classicPink.300}"
+    "one": "{classicPurple.300}",
+    "two": "{classicViolet.350}",
+    "three": "{classicPink.225}",
+    "four": "{classicPurple.300}",
+    "five": "{classicViolet.350}",
+    "six": "{classicPink.225}"
   },
   "success": {
-    "foreground": "{classicGreen.500}",
-    "muted": "{classicGreen.400}",
-    "emphasis": "{classicGreen.550}"
+    "foreground": "{classicGreen.250}",
+    "muted": "{classicGreen.200}",
+    "emphasis": "{classicGreen.300}"
   },
   "attention": {
-    "foreground": "{classicYellow.200}",
-    "muted": "{classicYellow.100}",
-    "emphasis": "{classicYellow.300}"
+    "foreground": "{classicOrange.200}",
+    "muted": "{classicOrange.150}",
+    "emphasis": "{classicOrange.250}"
   },
   "danger": {
-    "foreground": "{classicRed.400}",
+    "foreground": "{classicRed.350}",
     "muted": "{classicRed.300}",
-    "emphasis": "{classicRed.450}"
+    "emphasis": "{classicRed.400}"
   },
   "info": {
     "foreground": "{classicCyan.400}",
@@ -63,73 +63,75 @@
   },
   "control": {
     "primary": {
-      "background": "{classicPink.300}",
+      "background": "{classicPink.275}",
       "foreground": "{classicNeutral.900}",
-      "hoverBackground": "{classicPink.300}",
+      "hoverBackground": "{classicPink.275}",
       "border": "{classicNeutral.800}"
     },
     "secondary": {
       "background": "{classicNeutral.800}",
-      "foreground": "{classicNeutral.200}",
-      "hoverBackground": "{classicNeutral.750}",
-      "border": "{classicNeutral.750}"
+      "foreground": "{classicNeutral.250}",
+      "hoverBackground": "{classicNeutral.800}",
+      "border": "{classicNeutral.800}"
     }
   },
   "syntax": {
-    "comment": "{classicNeutral.500}",
-    "keyword": "{classicPurple.250}",
-    "operator": "{classicPurple.250}",
-    "punctuation": "{classicPurple.250}",
+    "comment": "{classicNeutral.600}",
+    "keyword": "{classicPurple.300}",
+    "operator": "{classicPurple.300}",
+    "punctuation": "{classicPurple.300}",
     "embedded": "{classicRed.400}",
-    "declaration": "{classicPurple.250}",
-    "decorator": "{classicBlue.400}",
-    "storage": "{classicPink.300}",
-    "string": "{classicPink.200}",
-    "number": "{classicPink.200}",
+    "declaration": "{classicPurple.300}",
+    "decorator": "{classicPink.225}",
+    "storage": "{classicPink.275}",
+    "controlFlow": "{classicPurple.300}",
+    "string": "{classicPink.175}",
+    "number": "{classicRed.400}",
     "boolean": "{classicRed.400}",
-    "regexp": "{classicBlue.400}",
+    "regexp": "{classicBlue.425}",
     "constant": "{classicPurple.200}",
-    "builtin": "{classicPink.400}",
+    "builtin": "{classicPink.225}",
     "importBinding": "{classicPurple.200}",
-    "variable": "{classicNeutral.200}",
-    "parameter": "{classicNeutral.200}",
+    "variable": "{classicPurple.250}",
+    "parameter": "{classicViolet.275}",
     "property": "{classicPurple.200}",
-    "function": "{classicBlue.400}",
-    "method": "{classicBlue.400}",
-    "type": "{classicNeutral.200}",
-    "class": "{classicNeutral.200}",
-    "tag": "{classicPink.300}",
-    "component": "{classicPink.300}",
+    "function": "{classicBlue.425}",
+    "method": "{classicBlue.425}",
+    "type": "{classicViolet.350}",
+    "children": "{classicPurple.150}",
+    "class": "{classicPurple.150}",
+    "tag": "{classicPink.225}",
+    "component": "{classicPink.350}",
     "invalid": "{classicRed.400}"
   },
   "sourceControl": {
-    "added": "{classicGreen.500}",
-    "modified": "{classicYellow.200}",
-    "renamed": "{classicGreen.400}",
+    "added": "{classicGreen.400}",
+    "modified": "{classicOrange.300}",
+    "renamed": "{classicLime.300}",
     "deleted": "{classicRed.400}",
-    "untracked": "{classicGreen.400}",
+    "untracked": "{classicGreen.300}",
     "ignored": "{classicNeutral.350}",
-    "conflicting": "{classicRed.500}",
-    "stageModified": "{classicYellow.200}",
+    "conflicting": "{classicRed.450}",
+    "stageModified": "{classicOrange.300}",
     "stageDeleted": "{classicRed.400}",
     "submodule": "{classicCyan.400}"
   },
   "ansi": {
-    "black": "{classicNeutral.900}",
+    "black": "{classicNeutral.800}",
     "red": "{classicRed.400}",
-    "green": "{classicGreen.500}",
-    "yellow": "{classicGreen.200}",
-    "blue": "{classicBlue.400}",
-    "magenta": "{classicPurple.300}",
+    "green": "{classicGreen.450}",
+    "yellow": "{classicYellow.400}",
+    "blue": "{classicBlue.425}",
+    "magenta": "{classicViolet.375}",
     "cyan": "{classicCyan.500}",
-    "white": "{classicNeutral.200}",
-    "brightBlack": "{classicNeutral.550}",
-    "brightRed": "{classicRed.400}",
-    "brightGreen": "{classicGreen.500}",
-    "brightYellow": "{classicYellow.100}",
-    "brightBlue": "{classicBlue.400}",
-    "brightMagenta": "{classicPurple.300}",
-    "brightCyan": "{classicCyan.500}",
+    "white": "{classicNeutral.250}",
+    "brightBlack": "{classicNeutral.600}",
+    "brightRed": "{classicRed.200}",
+    "brightGreen": "{classicGreen.300}",
+    "brightYellow": "{classicYellow.200}",
+    "brightBlue": "{classicBlue.300}",
+    "brightMagenta": "{classicViolet.275}",
+    "brightCyan": "{classicCyan.300}",
     "brightWhite": "{classicNeutral.100}"
   }
 }
