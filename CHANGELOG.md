@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.1.1
+
+- Refined TypeScript class syntax colors to better match related function-like syntax, improving consistency in React and TSX files.
+
 ## 2.1.0
 
 - Improved syntax color contrast across all themes, with major color refinements to the Classic theme for better clarity, consistency, and overall readability.
