@@ -67,7 +67,11 @@ function createJavaScriptTokenColors(color) {
       },
     ]),
     {
-      scope: "meta.method.declaration storage.type.js",
+      scope: [
+        "meta.method.declaration storage.type.js",
+        "meta.method.declaration storage.type.ts",
+        "meta.method.declaration storage.type.tsx",
+      ],
       settings: {
         foreground: color.syntax.storage,
       },
@@ -80,8 +84,54 @@ function createJavaScriptTokenColors(color) {
     },
     {
       scope: "meta.js punctuation.definition.js",
+
       settings: {
         foreground: color.syntax.punctuation,
+      },
+    },
+    {
+      scope: "punctuation.definition.block.tag.jsdoc",
+      settings: {
+        foreground: color.syntax.punctuation,
+      },
+    },
+    {
+      scope: "storage.type.class.jsdoc",
+      settings: {
+        foreground: color.syntax.storage,
+      },
+    },
+    {
+      scope: "constant.language.access-type.jsdoc",
+      settings: {
+        foreground: color.syntax.storage,
+      },
+    },
+    {
+      scope: "constant.language.symbol-type.jsdoc",
+      settings: {
+        foreground: color.syntax.operator,
+      },
+    },
+    {
+      scope: [
+        "punctuation.definition.bracket.angle.begin.jsdoc",
+        "punctuation.definition.bracket.angle.end.jsdoc",
+      ],
+      settings: {
+        foreground: color.syntax.punctuation,
+      },
+    },
+    {
+      scope: "keyword.operator.control.jsdoc",
+      settings: {
+        foreground: color.syntax.operator,
+      },
+    },
+    {
+      scope: "entity.name.tag.inline.jsdoc",
+      settings: {
+        foreground: color.syntax.tag,
       },
     },
     {
@@ -233,7 +283,11 @@ function createTypeScriptTokenColors(color) {
       },
     },
     {
-      scope: "entity.name.type.ts",
+      scope: [
+        "entity.name.type.ts",
+        "entity.name.type.tsx",
+        "entity.name.type.module.tsx",
+      ],
       settings: {
         foreground: color.syntax.type,
       },
@@ -274,21 +328,6 @@ function createJsxTokenColors(color) {
       scope: "meta.class entity.name.type.class.tsx",
       settings: {
         foreground: color.syntax.type,
-      },
-    },
-    {
-      scope: ["entity.name.type.tsx", "entity.name.type.module.tsx"],
-      settings: {
-        foreground: color.syntax.type,
-      },
-    },
-    {
-      scope: [
-        "meta.method.declaration storage.type.ts",
-        "meta.method.declaration storage.type.tsx",
-      ],
-      settings: {
-        foreground: color.syntax.function,
       },
     },
   ];

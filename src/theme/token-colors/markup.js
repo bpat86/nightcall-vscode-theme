@@ -82,9 +82,27 @@ function createYamlTokenColors(color) {
       },
     },
     {
-      scope: ["variable.other.anchor.yaml", "variable.other.alias.yaml"],
+      scope: "variable.other.anchor.yaml",
       settings: {
-        foreground: color.syntax.keyword,
+        foreground: color.syntax.constant,
+      },
+    },
+    {
+      scope: "variable.other.alias.yaml",
+      settings: {
+        foreground: color.syntax.variable,
+      },
+    },
+    {
+      scope: "punctuation.definition.anchor.yaml",
+      settings: {
+        foreground: color.syntax.punctuation,
+      },
+    },
+    {
+      scope: "entity.name.type.anchor.yaml",
+      settings: {
+        foreground: color.syntax.type,
       },
     },
   ];

@@ -57,3 +57,41 @@ test("JSX children use their dedicated syntax color", () => {
 
   assert.deepEqual(childrenRule.settings, { foreground: "#123456" });
 });
+
+test("YAML anchors distinguish definitions, aliases, names, and punctuation", () => {
+  const rules = markup.createYamlTokenColors(colors);
+  const settingsFor = (scope) =>
+    rules.find((rule) => rule.scope === scope).settings;
+
+  assert.deepEqual(settingsFor("variable.other.anchor.yaml"), {
+    foreground: colors.syntax.constant,
+  });
+  assert.deepEqual(settingsFor("variable.other.alias.yaml"), {
+    foreground: colors.syntax.variable,
+  });
+  assert.deepEqual(settingsFor("punctuation.definition.anchor.yaml"), {
+    foreground: colors.syntax.punctuation,
+  });
+  assert.deepEqual(settingsFor("entity.name.type.anchor.yaml"), {
+    foreground: colors.syntax.type,
+  });
+});
+
+test("JSDoc syntax distinguishes punctuation, storage, access, and symbols", () => {
+  const rules = javascript.createJavaScriptTokenColors(colors);
+  const settingsFor = (scope) =>
+    rules.find((rule) => rule.scope === scope).settings;
+
+  assert.deepEqual(settingsFor("punctuation.definition.block.tag.jsdoc"), {
+    foreground: colors.syntax.punctuation,
+  });
+  assert.deepEqual(settingsFor("storage.type.class.jsdoc"), {
+    foreground: colors.syntax.storage,
+  });
+  assert.deepEqual(settingsFor("constant.language.access-type.jsdoc"), {
+    foreground: colors.syntax.storage,
+  });
+  assert.deepEqual(settingsFor("constant.language.symbol-type.jsdoc"), {
+    foreground: colors.syntax.operator,
+  });
+});
