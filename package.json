@@ -91,12 +91,12 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.1",
-    "@changesets/cli": "^3.0.2",
-    "@vscode/vsce": "^3.9.2",
+    "@changesets/cli": "^3.0.3",
+    "@vscode/vsce": "^4.0.0",
     "chroma-js": "^3.2.0",
     "nodemon": "^3.1.14",
-    "ovsx": "^1.1.1",
-    "prettier": "^3.9.6",
+    "ovsx": "^1.2.0",
+    "prettier": "^3.9.8",
     "vscode-oniguruma": "^2.0.1",
     "vscode-textmate": "^9.3.2"
   },
