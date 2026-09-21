@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.1.3
+
+- Refreshed the README with revised copy for improved clarity and readability.
+
 ## 2.1.2
 
 - Added iTerm2 color presets and refreshed the README to include a new banner image showcasing the theme.
