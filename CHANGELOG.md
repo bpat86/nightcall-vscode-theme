@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.1.2
+
+- Added iTerm2 color presets and refreshed the README to include a new banner image showcasing the theme.
+
 ## 2.1.1
 
 - Refined TypeScript class syntax colors to better match related function-like syntax, improving consistency in React and TSX files.
