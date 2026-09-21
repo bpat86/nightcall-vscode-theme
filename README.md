@@ -1,10 +1,12 @@
-# Nightcall
+# Nightcall ✨
 
 A mellow yet colorful Visual Studio Code theme built around vibrant shades of pink, purple, and blue.
 
-![Nightcall theme banner](images/banner.jpg)
+![Nightcall theme banner](https://raw.githubusercontent.com/bpat86/nightcall-vscode-theme/main/images/banner.jpg)
 
-Designed for productive coding sessions spent ~~reviewing 600 lines of AI-generated code to fix the one-line problem I started with~~ building exciting and personally fulfilling things, completely unbothered by the state of the industry or your future employment prospects.
+Designed for productive coding sessions spent ~~reviewing 1,000 lines of AI-generated abstractions to fix the one-line problem I started with~~ building exciting and personally fulfilling things, completely unbothered by the state of the industry or your future employment prospects.
+
+Also, it is not lost on me that, here in the year of our Lord 2026, most people are either rotating between the same two or three Very Popular Themes™ or have already moved on to the next popular non-VS Code editor. If you’re still here reading (and installing) this, know that I love you. 🫶
 
 ## Installation
 
@@ -38,6 +40,16 @@ If you prefer a cleaner, borderless look, choose one of the Borderless variants 
 
 The italic variants use italics selectively for comments, control flow, imports and exports, declarations, and contextual keywords such as `this`, `self`, and `super`.
 
+## iTerm2 Color Presets
+
+Color presets for each theme variant are also available:
+
+- [nightcall-default.itermcolors](iterm2/nightcall-default.itermcolors)
+- [nightcall-muted.itermcolors](iterm2/nightcall-muted.itermcolors)
+- [nightcall-classic.itermcolors](iterm2/nightcall-classic.itermcolors)
+
+In iTerm2, open **Settings**, select a profile, open **Colors**, then choose **Color Presets...** and **Import...**.
+
 ## Recommended Settings
 
 I personally use [Dank Mono](https://philpl.gumroad.com/l/dank-mono), though the theme should work well with any editor font.
@@ -58,19 +70,17 @@ These colors pair well with the [Indent Rainbow](https://marketplace.visualstudi
 ```json
 {
   "indentRainbow.colors": [
-    "rgba(126, 144, 255, 0.1)",
-    "rgba(187, 154, 247, 0.1)",
-    "rgba(250, 166, 216, 0.1)",
-    "rgba(255, 126, 199, 0.1)",
-    "rgba(218, 188, 254, 0.1)"
+    "rgba(126, 144, 255, 0.05)",
+    "rgba(187, 154, 247, 0.05)",
+    "rgba(250, 166, 216, 0.05)",
+    "rgba(255, 126, 199, 0.05)",
+    "rgba(218, 188, 254, 0.05)"
   ]
 }
 ```
 
 ## Feedback
 
-VS Code has a lot of languages, syntax rules, UI states, and little corners I may never personally encounter, so despite my best efforts, I’m sure I’ve missed a few things.
+This is mostly a fun creative outlet for me, and I’m trying not to take it too seriously. VS Code also has an absurd number of languages, syntax rules, UI states, and obscure little corners I may never encounter, so despite my best efforts, I may have missed some things.
 
 If you see anything that looks unintentional, or insufficiently Nightcall-y, please open an issue. Including the language or file type and, when possible, a screenshot.
-
-And with any luck, it won’t take me another five years to fix it.

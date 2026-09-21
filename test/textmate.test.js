@@ -4,9 +4,9 @@ const path = require("node:path");
 const test = require("node:test");
 const { Registry, INITIAL, parseRawGrammar } = require("vscode-textmate");
 const { loadWASM, OnigScanner, OnigString } = require("vscode-oniguruma");
-const createTokenColors = require("../src/theme/token-colors");
+const createTokenColors = require("../src/formats/vscode/token-colors");
 const { loadResolvedColorScheme } = require("../src/colors/color-scheme");
-const { applyThemeOptions } = require("../src/theme/options");
+const { applyThemeOptions } = require("../src/formats/vscode/options");
 
 const syntax = Object.fromEntries(
   Object.keys(require("../src/colors/schemes/dark-default.json").syntax).map(

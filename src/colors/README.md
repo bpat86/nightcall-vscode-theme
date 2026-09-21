@@ -4,7 +4,7 @@ The theme build transforms palette colors into VS Code theme values through thre
 
 1. `palettes/default.json` and `palettes/classic.json` define the reusable color scales.
 2. `schemes/*.json` assign palette colors to semantic roles such as `canvas.default` and `syntax.keyword`.
-3. Theme builders in `../theme/` map those resolved semantic roles to VS Code workbench colors, TextMate scopes, and semantic token keys.
+3. The VS Code format in `../formats/vscode/` maps those resolved semantic roles to workbench colors, TextMate scopes, and semantic token keys.
 
 `color-scales.js` loads and combines the available palette scales.
 

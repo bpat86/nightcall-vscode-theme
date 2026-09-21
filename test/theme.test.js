@@ -1,9 +1,9 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
 const { loadResolvedColorScheme } = require("../src/colors/color-scheme");
-const createTheme = require("../src/theme/create");
-const definitions = require("../src/theme/definitions");
-const { applyThemeOptions } = require("../src/theme/options");
+const createTheme = require("../src/formats/vscode/create-theme");
+const definitions = require("../src/formats/vscode/theme-definitions");
+const { applyThemeOptions } = require("../src/formats/vscode/options");
 
 const STANDARD_SEMANTIC_TOKEN_TYPES = new Set([
   "namespace",

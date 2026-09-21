@@ -1,4 +1,4 @@
-const { loadResolvedColorScheme } = require("../colors/color-scheme");
+const { loadResolvedColorScheme } = require("../../colors/color-scheme");
 const createSemanticTokenColors = require("./semantic-token-colors");
 const createTokenColors = require("./token-colors");
 const createWorkbenchColors = require("./workbench-colors");

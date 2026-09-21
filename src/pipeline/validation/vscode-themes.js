@@ -1,0 +1,192 @@
+const fs = require("fs");
+const path = require("path");
+const chroma = require("chroma-js");
+const { isHexColor } = require("../../colors/color-scales");
+const {
+  ITALIC_SCOPES,
+} = require("../../formats/vscode/token-colors/typography");
+const themeDefinitions = require("../../formats/vscode/theme-definitions");
+
+const root = path.join(__dirname, "..", "..", "..");
+const packageJson = require(path.join(root, "package.json"));
+
+function validateColor(value, location, errors) {
+  if (!isHexColor(value)) {
+    errors.push(`${location} is not a generated hex color`);
+  }
+}
+
+function validateTokenColors(
+  theme,
+  fileName,
+  { italics },
+  { errors, warnings },
+) {
+  const scopes = new Map();
+  const italicScopes = new Set();
+
+  theme.tokenColors.forEach(({ scope, settings }, index) => {
+    for (const property of ["foreground", "background"]) {
+      if (settings[property] !== undefined) {
+        validateColor(
+          settings[property],
+          `${fileName}: tokenColors[${index}].settings.${property}`,
+          errors,
+        );
+      }
+    }
+
+    const selectors = (Array.isArray(scope) ? scope : [scope]).flatMap(
+      (selector) => selector.split(",").map((value) => value.trim()),
+    );
+    const serializedSettings = JSON.stringify(
+      settings,
+      Object.keys(settings).sort(),
+    );
+    const isItalic = settings.fontStyle?.split(/\s+/).includes("italic");
+
+    for (const selector of selectors) {
+      if (isItalic) {
+        italicScopes.add(selector);
+      }
+
+      if (scopes.has(selector)) {
+        if (scopes.get(selector) !== serializedSettings) {
+          errors.push(
+            `${fileName}: conflicting token settings for ${selector}`,
+          );
+        } else {
+          warnings.push(
+            `${fileName}: duplicate token settings for ${selector}`,
+          );
+        }
+      } else {
+        scopes.set(selector, serializedSettings);
+      }
+    }
+  });
+
+  if (!italics) {
+    if (italicScopes.size > 0) {
+      errors.push(
+        `${fileName}: contains italic scopes: ${[...italicScopes].join(", ")}`,
+      );
+    }
+  } else {
+    const expectedItalicScopes = new Set(ITALIC_SCOPES);
+    const missingScopes = [...expectedItalicScopes].filter(
+      (scope) => !italicScopes.has(scope),
+    );
+    const unexpectedScopes = [...italicScopes].filter(
+      (scope) => !expectedItalicScopes.has(scope),
+    );
+
+    if (missingScopes.length > 0 || unexpectedScopes.length > 0) {
+      errors.push(
+        `${fileName}: invalid italic scopes (missing: ${missingScopes.join(", ") || "none"}; unexpected: ${unexpectedScopes.join(", ") || "none"})`,
+      );
+    }
+  }
+}
+
+function validateContrast(theme, fileName, { errors }) {
+  const pairs = [
+    ["foreground", "editor.background"],
+    ["input.foreground", "input.background"],
+    ["dropdown.foreground", "dropdown.background"],
+    ["notifications.foreground", "notifications.background"],
+    ["inputValidation.errorForeground", "inputValidation.errorBackground"],
+    ["inputValidation.infoForeground", "inputValidation.infoBackground"],
+    ["inputValidation.warningForeground", "inputValidation.warningBackground"],
+  ];
+
+  for (const [foregroundKey, backgroundKey] of pairs) {
+    const foreground = theme.colors[foregroundKey];
+    const background = theme.colors[backgroundKey];
+
+    if (!isHexColor(foreground) || !isHexColor(background)) {
+      continue;
+    }
+
+    const ratio = chroma.contrast(foreground, background);
+    if (ratio < 4.5) {
+      errors.push(
+        `${fileName}: ${foregroundKey} on ${backgroundKey} has ${ratio.toFixed(2)}:1 contrast`,
+      );
+    }
+  }
+}
+
+function validateTheme(theme, definition) {
+  const diagnostics = { errors: [], warnings: [] };
+  const { errors } = diagnostics;
+  const fileName = `themes/${definition.fileName}`;
+
+  if (theme.$schema !== "vscode://schemas/color-theme") {
+    errors.push(`${fileName}: missing the VS Code color-theme schema`);
+  }
+  if (theme.name !== definition.name || theme.type !== definition.type) {
+    errors.push(
+      `${fileName}: generated name or type does not match its definition`,
+    );
+  }
+  if (theme.semanticHighlighting !== true) {
+    errors.push(`${fileName}: semantic highlighting must be enabled`);
+  }
+
+  for (const [key, value] of Object.entries(theme.colors)) {
+    validateColor(value, `${fileName}: colors.${key}`, errors);
+  }
+
+  validateTokenColors(theme, fileName, definition, diagnostics);
+
+  for (const [key, value] of Object.entries(theme.semanticTokenColors)) {
+    validateColor(
+      typeof value === "string" ? value : value.foreground,
+      `${fileName}: semanticTokenColors.${key}`,
+      errors,
+    );
+    if (!definition.italics && value.italic === true) {
+      errors.push(`${fileName}: semanticTokenColors.${key} must not be italic`);
+    }
+  }
+
+  validateContrast(theme, fileName, diagnostics);
+  return diagnostics;
+}
+
+function validateGeneratedThemes() {
+  const diagnostics = { errors: [], warnings: [] };
+  const { errors, warnings } = diagnostics;
+  const definitionsByFileName = new Map(
+    themeDefinitions.map((definition) => [definition.fileName, definition]),
+  );
+  for (const contribution of packageJson.contributes.themes) {
+    const filePath = path.join(root, contribution.path);
+    const fileName = path.relative(root, filePath);
+
+    if (!fs.existsSync(filePath)) {
+      errors.push(`${fileName}: generated theme is missing`);
+      continue;
+    }
+
+    const definition = definitionsByFileName.get(path.basename(filePath));
+
+    if (!definition) {
+      errors.push(`${fileName}: missing source theme definition`);
+      continue;
+    }
+
+    try {
+      const theme = JSON.parse(fs.readFileSync(filePath, "utf8"));
+      const result = validateTheme(theme, definition);
+      errors.push(...result.errors);
+      warnings.push(...result.warnings);
+    } catch (error) {
+      errors.push(`${fileName}: ${error.message}`);
+    }
+  }
+  return diagnostics;
+}
+
+module.exports = { validateGeneratedThemes, validateTheme };

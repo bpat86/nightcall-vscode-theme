@@ -1,12 +1,15 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
-const { validateSources, validateTheme } = require("../src/validate");
+const {
+  validateSources,
+  validateTheme,
+} = require("../src/pipeline/validation");
 const {
   loadResolvedColorScheme,
   resolveColorScheme,
 } = require("../src/colors/color-scheme");
-const createTheme = require("../src/theme/create");
-const definitions = require("../src/theme/definitions");
+const createTheme = require("../src/formats/vscode/create-theme");
+const definitions = require("../src/formats/vscode/theme-definitions");
 const contributions = require("../package.json").contributes.themes;
 
 function copySchemes() {
@@ -95,15 +98,6 @@ test("duplicate definitions and mismatched contribution paths are rejected", () 
       message.includes("contribution path must be"),
     ),
   );
-});
-
-test("generated themes satisfy validation for every definition", () => {
-  for (const definition of definitions) {
-    assert.deepEqual(
-      validateTheme(createTheme(definition), definition).errors,
-      [],
-    );
-  }
 });
 
 test("disabled italics validation covers both TextMate and semantic rules", () => {

@@ -4,7 +4,8 @@ const os = require("node:os");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
 const test = require("node:test");
-const definitions = require("../src/theme/definitions");
+const definitions = require("../src/formats/vscode/theme-definitions");
+const iterm2Definitions = require("../src/formats/iterm2/preset-definitions");
 
 const root = path.join(__dirname, "..");
 
@@ -29,7 +30,7 @@ function fixture(context) {
 function runBuild(directory) {
   return spawnSync(
     process.execPath,
-    [path.join(directory, "src", "build.js")],
+    [path.join(directory, "src", "pipeline", "build", "index.js")],
     {
       cwd: directory,
       encoding: "utf8",
@@ -57,6 +58,12 @@ test("a clean build replaces output with the registered themes", (context) => {
     assert.equal(theme.type, definition.type);
     assert.equal(theme.$schema, "vscode://schemas/color-theme");
   }
+
+  const iterm2Output = path.join(directory, "iterm2");
+  assert.deepEqual(
+    fs.readdirSync(iterm2Output).sort(),
+    iterm2Definitions.map(({ fileName }) => fileName).sort(),
+  );
 });
 
 test("invalid sources leave existing output untouched", (context) => {
