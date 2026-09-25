@@ -95,22 +95,22 @@
 <key>Color Space</key>
 <string>sRGB</string>
 <key>Red Component</key>
-<real>0.9568627450980393</real>
+<real>0.9607843137254902</real>
 <key>Green Component</key>
-<real>0.34901960784313724</real>
+<real>0.4235294117647059</real>
 <key>Blue Component</key>
-<real>0.5568627450980392</real>
+<real>0.6039215686274509</real>
 </dict>
 <key>Ansi 2 Color</key>
 <dict>
 <key>Color Space</key>
 <string>sRGB</string>
 <key>Red Component</key>
-<real>0.011764705882352941</real>
+<real>0.25098039215686274</real>
 <key>Green Component</key>
-<real>0.8313725490196079</real>
+<real>0.9098039215686274</real>
 <key>Blue Component</key>
-<real>0.3803921568627451</real>
+<real>0.5529411764705883</real>
 </dict>
 <key>Ansi 3 Color</key>
 <dict>
@@ -119,42 +119,42 @@
 <key>Red Component</key>
 <real>1</real>
 <key>Green Component</key>
-<real>0.7294117647058823</real>
+<real>0.7764705882352941</real>
 <key>Blue Component</key>
-<real>0</real>
+<real>0.09411764705882353</real>
 </dict>
 <key>Ansi 4 Color</key>
 <dict>
 <key>Color Space</key>
 <string>sRGB</string>
 <key>Red Component</key>
-<real>0.49019607843137253</real>
+<real>0.5607843137254902</real>
 <key>Green Component</key>
-<real>0.615686274509804</real>
+<real>0.6666666666666666</real>
 <key>Blue Component</key>
-<real>1</real>
+<real>0.984313725490196</real>
 </dict>
 <key>Ansi 5 Color</key>
 <dict>
 <key>Color Space</key>
 <string>sRGB</string>
 <key>Red Component</key>
-<real>0.9176470588235294</real>
+<real>0.9254901960784314</real>
 <key>Green Component</key>
-<real>0.6431372549019608</real>
+<real>0.6823529411764706</real>
 <key>Blue Component</key>
-<real>0.9725490196078431</real>
+<real>0.9764705882352941</real>
 </dict>
 <key>Ansi 6 Color</key>
 <dict>
 <key>Color Space</key>
 <string>sRGB</string>
 <key>Red Component</key>
-<real>0</real>
+<real>0.16470588235294117</real>
 <key>Green Component</key>
-<real>0.7215686274509804</real>
+<real>0.8745098039215686</real>
 <key>Blue Component</key>
-<real>0.8588235294117647</real>
+<real>0.9725490196078431</real>
 </dict>
 <key>Ansi 7 Color</key>
 <dict>

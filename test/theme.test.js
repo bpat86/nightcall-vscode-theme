@@ -1,9 +1,9 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
-const { loadResolvedColorScheme } = require("../src/colors/color-scheme");
 const createTheme = require("../src/formats/vscode/create-theme");
 const definitions = require("../src/formats/vscode/theme-definitions");
 const { applyThemeOptions } = require("../src/formats/vscode/options");
+const { loadResolvedColorScheme } = require("../src/colors/color-scheme");
 
 const STANDARD_SEMANTIC_TOKEN_TYPES = new Set([
   "namespace",
@@ -67,23 +67,23 @@ test("semantic token rules use and cover the standard token types", () => {
   }
 });
 
-test("bracket colors use the dedicated palette roles", () => {
+test("secondary accent colors are used in the workbench", () => {
   const theme = createTheme(definitions[0]);
-  const brackets = loadResolvedColorScheme(definitions[0].scheme).brackets;
+  const resolved = loadResolvedColorScheme("dark-default");
 
-  for (const [index, key] of [
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-    "six",
-  ].entries()) {
-    assert.equal(
-      theme.colors[`editorBracketHighlight.foreground${index + 1}`],
-      brackets[key],
-    );
-  }
+  assert.equal(theme.colors.focusBorder, resolved.accent.secondaryEmphasis);
+  assert.equal(
+    theme.colors["window.activeBorder"],
+    resolved.accent.secondaryEmphasis,
+  );
+  assert.equal(
+    theme.colors["tab.selectedBorderTop"],
+    resolved.accent.secondary,
+  );
+  assert.equal(
+    theme.colors["terminal.tab.activeBorder"],
+    resolved.accent.secondary,
+  );
 });
 
 test("disabling italics clears both token systems and preserves other styles", () => {

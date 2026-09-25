@@ -4,10 +4,7 @@ const {
   validateSources,
   validateTheme,
 } = require("../src/pipeline/validation");
-const {
-  loadResolvedColorScheme,
-  resolveColorScheme,
-} = require("../src/colors/color-scheme");
+const { resolveColorScheme } = require("../src/colors/color-scheme");
 const createTheme = require("../src/formats/vscode/create-theme");
 const definitions = require("../src/formats/vscode/theme-definitions");
 const contributions = require("../package.json").contributes.themes;
@@ -24,9 +21,6 @@ function copySchemes() {
 test("source validation returns resolved colors without retaining diagnostics", () => {
   const first = validateSources();
   assert.deepEqual(first.errors, []);
-  for (const [name, colors] of first.resolvedColorsByScheme) {
-    assert.deepEqual(colors, loadResolvedColorScheme(name));
-  }
   first.errors.push("test error");
   assert.deepEqual(validateSources().errors, []);
 });

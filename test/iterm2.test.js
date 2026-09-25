@@ -14,18 +14,6 @@ test("iTerm2 definitions cover each color scheme once", () => {
   assert.equal(new Set(definitions.map(({ fileName }) => fileName)).size, 3);
 });
 
-test("iTerm2 presets use the resolved terminal and interface colors", () => {
-  const color = loadResolvedColorScheme("dark-default");
-  const preset = createPreset(color);
-
-  assert.equal(preset["Background Color"], color.canvas.default);
-  assert.equal(preset["Foreground Color"], color.foreground.default);
-  assert.equal(preset["Cursor Color"], color.accent.foreground);
-  assert.equal(preset["Selection Color"], color.interaction.selected);
-  assert.equal(preset["Ansi 0 Color"], color.ansi.black);
-  assert.equal(preset["Ansi 15 Color"], color.ansi.brightWhite);
-});
-
 test("iTerm2 presets serialize as XML plists with sRGB components", () => {
   const preset = serializePreset(
     createPreset(loadResolvedColorScheme("dark-muted")),

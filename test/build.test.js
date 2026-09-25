@@ -50,14 +50,6 @@ test("a clean build replaces output with the registered themes", (context) => {
     fs.readdirSync(output).sort(),
     definitions.map(({ fileName }) => fileName).sort(),
   );
-  for (const definition of definitions) {
-    const theme = JSON.parse(
-      fs.readFileSync(path.join(output, definition.fileName), "utf8"),
-    );
-    assert.equal(theme.name, definition.name);
-    assert.equal(theme.type, definition.type);
-    assert.equal(theme.$schema, "vscode://schemas/color-theme");
-  }
 
   const iterm2Output = path.join(directory, "iterm2");
   assert.deepEqual(

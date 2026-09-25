@@ -27,6 +27,10 @@
     "secondaryEmphasis": "{classicViolet.250}",
     "tertiary": "{classicBlue.375}"
   },
+  "inlayHint": {
+    "parameter": "{classicViolet.275}",
+    "type": "{classicPurple.325}"
+  },
   "brackets": {
     "one": "{classicPink.250}",
     "two": "{classicViolet.450}",
@@ -79,7 +83,7 @@
     "comment": "{classicNeutral.600}",
     "keyword": "{classicPurple.300}",
     "operator": "{classicPurple.300}",
-    "punctuation": "{classicPurple.300}",
+    "punctuation": "{classicPurple.325}",
     "embedded": "{classicRed.400}",
     "declaration": "{classicPurple.300}",
     "decorator": "{classicPink.175}",
@@ -105,25 +109,25 @@
     "invalid": "{classicRed.400}"
   },
   "sourceControl": {
-    "added": "{classicGreen.400}",
-    "modified": "{classicOrange.300}",
-    "renamed": "{classicLime.300}",
-    "deleted": "{classicRed.400}",
-    "untracked": "{classicGreen.300}",
+    "added": "{classicGreen.350}",
+    "modified": "{classicOrange.250}",
+    "renamed": "{classicLime.250}",
+    "deleted": "{classicRed.350}",
+    "untracked": "{classicGreen.250}",
     "ignored": "{classicNeutral.350}",
-    "conflicting": "{classicRed.450}",
-    "stageModified": "{classicOrange.300}",
-    "stageDeleted": "{classicRed.400}",
-    "submodule": "{classicCyan.400}"
+    "conflicting": "{classicRed.400}",
+    "stageModified": "{classicOrange.250}",
+    "stageDeleted": "{classicRed.350}",
+    "submodule": "{classicCyan.350}"
   },
   "ansi": {
     "black": "{classicNeutral.800}",
-    "red": "{classicRed.400}",
-    "green": "{classicGreen.450}",
-    "yellow": "{classicYellow.400}",
-    "blue": "{classicBlue.425}",
-    "magenta": "{classicViolet.375}",
-    "cyan": "{classicCyan.500}",
+    "red": "{classicRed.350}",
+    "green": "{classicGreen.350}",
+    "yellow": "{classicYellow.350}",
+    "blue": "{classicBlue.350}",
+    "magenta": "{classicViolet.300}",
+    "cyan": "{classicCyan.350}",
     "white": "{classicNeutral.250}",
     "brightBlack": "{classicNeutral.600}",
     "brightRed": "{classicRed.200}",

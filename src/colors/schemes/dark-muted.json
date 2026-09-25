@@ -27,6 +27,10 @@
     "secondaryEmphasis": "{violet.175}",
     "tertiary": "{blue.300}"
   },
+  "inlayHint": {
+    "parameter": "{violet.200}",
+    "type": "{purple.225}"
+  },
   "brackets": {
     "one": "{pink.200}",
     "two": "{violet.375}",
@@ -105,16 +109,16 @@
     "invalid": "{red.275}"
   },
   "sourceControl": {
-    "added": "{green.250}",
-    "modified": "{orange.200}",
-    "renamed": "{lime.150}",
-    "deleted": "{red.275}",
-    "untracked": "{green.200}",
-    "ignored": "{neutral.300}",
-    "conflicting": "{red.350}",
-    "stageModified": "{orange.200}",
-    "stageDeleted": "{red.275}",
-    "submodule": "{cyan.200}"
+    "added": "{green.300}",
+    "modified": "{orange.225}",
+    "renamed": "{lime.200}",
+    "deleted": "{red.300}",
+    "untracked": "{green.225}",
+    "ignored": "{neutral.350}",
+    "conflicting": "{red.375}",
+    "stageModified": "{orange.225}",
+    "stageDeleted": "{red.300}",
+    "submodule": "{cyan.250}"
   },
   "ansi": {
     "black": "{neutral.700}",
@@ -123,12 +127,12 @@
     "yellow": "{yellow.300}",
     "blue": "{blue.350}",
     "magenta": "{violet.350}",
-    "cyan": "{cyan.400}",
+    "cyan": "{cyan.350}",
     "white": "{neutral.250}",
     "brightBlack": "{neutral.500}",
-    "brightRed": "{red.150}",
+    "brightRed": "{red.175}",
     "brightGreen": "{green.250}",
-    "brightYellow": "{yellow.150}",
+    "brightYellow": "{yellow.175}",
     "brightBlue": "{blue.250}",
     "brightMagenta": "{violet.250}",
     "brightCyan": "{cyan.250}",
