@@ -18,7 +18,7 @@ Designed for productive coding sessions spent ~~reviewing 1,000 lines of AI-gene
 
 Choose between the balanced default theme, the lighter and softer Muted theme, and the darker Classic theme, with optional typography and layout variations.
 
-### Default
+### Nightcall (Default)
 
 The balanced default color palette.
 
@@ -26,7 +26,7 @@ The balanced default color palette.
 - **No Italics** – Without italics, if you must.
 - **Borderless** – With layout borders hidden.
 
-### Muted
+### Nightcall Muted
 
 The lighter, muted color palette.
 
@@ -34,7 +34,7 @@ The lighter, muted color palette.
 - **No Italics** – Without italics.
 - **Borderless** – With layout borders hidden.
 
-### Classic
+### Nightcall Classic
 
 The darker, mostly original Nightcall color palette.
 

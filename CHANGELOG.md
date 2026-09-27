@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.1.6
+
+- Temporarily removed Zed installation instructions from README until the theme is officially released.
+
 ## 2.1.5
 
 - Added initial Zed theme support and refined source control colors.
