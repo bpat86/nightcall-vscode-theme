@@ -8,6 +8,12 @@ const manifest = fs.readFileSync(
   "utf8",
 );
 
+// Zed requires the license inside the extension directory, not the repository root.
+const license = fs.readFileSync(
+  path.join(__dirname, "..", "..", "..", "..", "LICENSE"),
+  "utf8",
+);
+
 function createArtifacts(resolvedColorsByScheme) {
   const family = {
     $schema: "https://zed.dev/schema/themes/v0.2.0.json",
@@ -20,6 +26,7 @@ function createArtifacts(resolvedColorsByScheme) {
 
   return [
     { fileName: "extension.toml", contents: manifest },
+    { fileName: "LICENSE", contents: license },
     {
       fileName: "themes/nightcall.json",
       contents: `${JSON.stringify(family, null, 2)}\n`,

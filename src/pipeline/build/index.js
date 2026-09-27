@@ -30,7 +30,9 @@ async function build() {
     reportDiagnostics(diagnostics);
     invalid ||= diagnostics.errors.length > 0;
   }
-  const zedDiagnostics = validateFamily(zedArtifacts[1].family);
+  const zedDiagnostics = validateFamily(
+    zedArtifacts.find((artifact) => artifact.family).family,
+  );
   reportDiagnostics(zedDiagnostics);
   invalid ||= zedDiagnostics.errors.length > 0;
   if (invalid) {

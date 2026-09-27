@@ -9,7 +9,7 @@ function createFamily() {
   const colors = new Map(
     definitions.map(({ scheme }) => [scheme, loadResolvedColorScheme(scheme)]),
   );
-  return createArtifacts(colors)[1].family;
+  return createArtifacts(colors).find((artifact) => artifact.family).family;
 }
 
 test("Zed themes use the shared schemes without VS Code-specific variants", () => {

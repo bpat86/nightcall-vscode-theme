@@ -20,6 +20,7 @@ function fixture(context) {
     path.join(root, "package.json"),
     path.join(directory, "package.json"),
   );
+  fs.copyFileSync(path.join(root, "LICENSE"), path.join(directory, "LICENSE"));
   fs.symlinkSync(
     path.join(root, "node_modules"),
     path.join(directory, "node_modules"),
@@ -60,6 +61,7 @@ test("a clean build replaces output with the registered themes", (context) => {
 
   const zedOutput = path.join(directory, "zed");
   assert.deepEqual(fs.readdirSync(zedOutput).sort(), [
+    "LICENSE",
     "extension.toml",
     "themes",
   ]);
@@ -76,6 +78,10 @@ test("a clean build replaces output with the registered themes", (context) => {
   assert.match(
     fs.readFileSync(path.join(zedOutput, "extension.toml"), "utf8"),
     /id = "nightcall-theme"/,
+  );
+  assert.match(
+    fs.readFileSync(path.join(zedOutput, "LICENSE"), "utf8"),
+    /MIT License/,
   );
 });
 
