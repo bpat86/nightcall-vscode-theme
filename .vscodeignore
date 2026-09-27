@@ -7,5 +7,6 @@ test/**
 zed/**
 themes_old/**
 .gitignore
+.nvmrc
 PRIVATE_README.md
 vsc-extension-quickstart.md
