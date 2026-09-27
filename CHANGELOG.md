@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.1.5
+
+- Added initial Zed theme support and refined source control colors.
+
 ## 2.1.4
 
 - Added distinct colors for type and parameter inlay hints to improve readability and make inline type information easier to distinguish from comments.
