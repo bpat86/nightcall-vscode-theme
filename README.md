@@ -82,12 +82,6 @@ Color presets for each theme variant are also available:
 
 In iTerm2, open **Settings**, select a profile, open **Colors**, then choose **Color Presets...** and **Import...**.
 
-## Zed Themes
-
-[Nightcall, Nightcall Muted, and Nightcall Classic](zed/themes/nightcall.json) are built directly from the same color schemes for Zed's UI, Tree-sitter syntax, and terminal. The VS Code-specific No Italics and Borderless variants are not included.
-
-Run `npm run build`, then in Zed's Extensions view choose **Install Dev Extension** and select the `zed/` directory. To publish to Zed's extension registry, submit this repository as a submodule and set `path = "zed"` in its `extensions.toml` entry. Bump the version in `src/formats/zed/extension.toml` for Zed releases; the build copies it to `zed/extension.toml`.
-
 ## Feedback
 
 This is mostly a fun creative outlet for me, and I’m trying not to take it too seriously. VS Code also has an absurd number of languages, syntax rules, UI states, and obscure little corners I may never encounter, so despite my best efforts, I may have missed some things.
