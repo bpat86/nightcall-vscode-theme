@@ -4,6 +4,7 @@ demos/**
 build/**
 src/**
 test/**
+zed/**
 themes_old/**
 .gitignore
 PRIVATE_README.md

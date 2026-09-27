@@ -6,11 +6,14 @@ const {
 } = require("./write-output-directory");
 const vscode = require("./targets/vscode");
 const iterm2 = require("./targets/iterm2");
+const zed = require("./targets/zed");
 const { validateSources, reportDiagnostics } = require("../validation");
+const { validateFamily } = require("../validation/zed-themes");
 
 const root = path.join(__dirname, "..", "..", "..");
 const outputDirectory = path.join(root, "themes");
 const iterm2OutputDirectory = path.join(root, "iterm2");
+const zedOutputDirectory = path.join(root, "zed");
 
 async function build() {
   const sources = validateSources();
@@ -21,11 +24,15 @@ async function build() {
 
   const themes = vscode.createArtifacts(sources.resolvedColorsByScheme);
   const presets = iterm2.createArtifacts(sources.resolvedColorsByScheme);
+  const zedArtifacts = zed.createArtifacts(sources.resolvedColorsByScheme);
   let invalid = false;
   for (const diagnostics of vscode.validateArtifacts(themes)) {
     reportDiagnostics(diagnostics);
     invalid ||= diagnostics.errors.length > 0;
   }
+  const zedDiagnostics = validateFamily(zedArtifacts[1].family);
+  reportDiagnostics(zedDiagnostics);
+  invalid ||= zedDiagnostics.errors.length > 0;
   if (invalid) {
     throw new Error("Generated theme validation failed.");
   }
@@ -33,6 +40,7 @@ async function build() {
   const stagedOutputs = await Promise.all([
     stageOutputDirectory(root, outputDirectory, themes),
     stageOutputDirectory(root, iterm2OutputDirectory, presets),
+    stageOutputDirectory(root, zedOutputDirectory, zedArtifacts),
   ]);
 
   try {

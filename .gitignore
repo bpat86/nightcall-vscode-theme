@@ -3,7 +3,7 @@
 demos/
 node_modules/
 /themes_old/
-build
+/build/
 *.vsix
 .env
 PRIVATE_README.md

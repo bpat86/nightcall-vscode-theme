@@ -86,6 +86,39 @@ test("secondary accent colors are used in the workbench", () => {
   );
 });
 
+test("chat and diff outlines do not compete with their backgrounds", () => {
+  for (const definition of definitions) {
+    const colors = createTheme(definition).colors;
+    for (const key of [
+      "chat.requestBorder",
+      "chat.requestCodeBorder",
+      "diffEditor.insertedTextBorder",
+      "diffEditor.removedTextBorder",
+      "inlineEdit.originalBorder",
+      "inlineEdit.modifiedBorder",
+    ]) {
+      assert.match(
+        colors[key],
+        /^#[0-9a-f]{6}00$/i,
+        `${definition.name}: ${key}`,
+      );
+    }
+    assert.notEqual(
+      colors["diffEditor.insertedTextBackground"].slice(-2),
+      "00",
+    );
+    assert.notEqual(colors["diffEditor.removedTextBackground"].slice(-2), "00");
+    assert.notEqual(
+      colors["inlineEdit.originalChangedLineBackground"].slice(-2),
+      "00",
+    );
+    assert.notEqual(
+      colors["inlineEdit.modifiedChangedLineBackground"].slice(-2),
+      "00",
+    );
+  }
+});
+
 test("disabling italics clears both token systems and preserves other styles", () => {
   const base = createTheme(definitions[0]);
   base.tokenColors.push({

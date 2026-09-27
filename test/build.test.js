@@ -6,6 +6,7 @@ const { spawnSync } = require("node:child_process");
 const test = require("node:test");
 const definitions = require("../src/formats/vscode/theme-definitions");
 const iterm2Definitions = require("../src/formats/iterm2/preset-definitions");
+const zedDefinitions = require("../src/formats/zed/theme-definitions");
 
 const root = path.join(__dirname, "..");
 
@@ -56,6 +57,26 @@ test("a clean build replaces output with the registered themes", (context) => {
     fs.readdirSync(iterm2Output).sort(),
     iterm2Definitions.map(({ fileName }) => fileName).sort(),
   );
+
+  const zedOutput = path.join(directory, "zed");
+  assert.deepEqual(fs.readdirSync(zedOutput).sort(), [
+    "extension.toml",
+    "themes",
+  ]);
+  assert.deepEqual(fs.readdirSync(path.join(zedOutput, "themes")), [
+    "nightcall.json",
+  ]);
+  const family = JSON.parse(
+    fs.readFileSync(path.join(zedOutput, "themes", "nightcall.json"), "utf8"),
+  );
+  assert.deepEqual(
+    family.themes.map(({ name }) => name),
+    zedDefinitions.map(({ name }) => name),
+  );
+  assert.match(
+    fs.readFileSync(path.join(zedOutput, "extension.toml"), "utf8"),
+    /id = "nightcall-theme"/,
+  );
 });
 
 test("invalid sources leave existing output untouched", (context) => {
@@ -64,6 +85,9 @@ test("invalid sources leave existing output untouched", (context) => {
   fs.mkdirSync(output);
   const fileName = definitions[0].fileName;
   fs.writeFileSync(path.join(output, fileName), "existing output");
+  const zedOutput = path.join(directory, "zed");
+  fs.mkdirSync(zedOutput);
+  fs.writeFileSync(path.join(zedOutput, "sentinel"), "existing Zed output");
   const schemePath = path.join(
     directory,
     "src",
@@ -83,6 +107,7 @@ test("invalid sources leave existing output untouched", (context) => {
     fs.readFileSync(path.join(output, fileName), "utf8"),
     "existing output",
   );
+  assert.deepEqual(fs.readdirSync(zedOutput), ["sentinel"]);
 });
 
 test("invalid generated output is rejected before creating the output directory", (context) => {
@@ -101,4 +126,34 @@ test("invalid generated output is rejected before creating the output directory"
   assert.equal(result.status, 1, result.stderr);
   assert.match(result.stderr, /contrast/);
   assert.equal(fs.existsSync(path.join(directory, "themes")), false);
+  assert.equal(fs.existsSync(path.join(directory, "zed")), false);
+});
+
+test("invalid Zed output leaves all existing output untouched", (context) => {
+  const directory = fixture(context);
+  const output = path.join(directory, "themes");
+  const zedOutput = path.join(directory, "zed");
+  fs.mkdirSync(output);
+  fs.mkdirSync(zedOutput);
+  fs.writeFileSync(path.join(output, "sentinel"), "existing VS Code output");
+  fs.writeFileSync(path.join(zedOutput, "sentinel"), "existing Zed output");
+
+  const zedRenderer = path.join(
+    directory,
+    "src",
+    "formats",
+    "zed",
+    "create-theme.js",
+  );
+  const contents = fs.readFileSync(zedRenderer, "utf8");
+  fs.writeFileSync(
+    zedRenderer,
+    contents.replace("name,\n    appearance", 'name: "wrong",\n    appearance'),
+  );
+
+  const result = runBuild(directory);
+  assert.equal(result.status, 1, result.stderr);
+  assert.match(result.stderr, /invalid theme name or appearance/);
+  assert.deepEqual(fs.readdirSync(output), ["sentinel"]);
+  assert.deepEqual(fs.readdirSync(zedOutput), ["sentinel"]);
 });
