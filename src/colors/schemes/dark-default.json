@@ -9,8 +9,8 @@
     "default": "{neutral.300}",
     "emphasis": "{purple.125}",
     "prominent": "{purple.100}",
-    "muted": "{neutral.400}",
-    "subtle": "{neutral.500}",
+    "muted": "{neutral.350}",
+    "subtle": "{neutral.475}",
     "onEmphasis": "{neutral.950}"
   },
   "border": {
@@ -60,23 +60,23 @@
     "emphasis": "{cyan.500}"
   },
   "interaction": {
-    "hover": "{neutral.750}",
-    "pressed": "{neutral.750}",
-    "selected": "{neutral.750}",
-    "selectedInactive": "{neutral.750}"
+    "hover": "{neutral.775}",
+    "pressed": "{neutral.775}",
+    "selected": "{neutral.775}",
+    "selectedInactive": "{neutral.775}"
   },
   "control": {
     "primary": {
       "background": "{pink.225}",
       "foreground": "{neutral.900}",
-      "hoverBackground": "{pink.225}",
-      "border": "{neutral.800}"
+      "hoverBackground": "{pink.175}",
+      "border": "{pink.125}"
     },
     "secondary": {
-      "background": "{neutral.800}",
+      "background": "{neutral.725}",
       "foreground": "{neutral.250}",
-      "hoverBackground": "{neutral.800}",
-      "border": "{neutral.800}"
+      "hoverBackground": "{neutral.650}",
+      "border": "{neutral.600}"
     }
   },
   "syntax": {

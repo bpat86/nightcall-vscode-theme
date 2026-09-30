@@ -19,6 +19,17 @@ const ansiNames = {
   brightWhite: "bright_white",
 };
 
+const dimAnsiNames = [
+  "black",
+  "red",
+  "green",
+  "yellow",
+  "blue",
+  "magenta",
+  "cyan",
+  "white",
+];
+
 function createTheme(name, color) {
   const syntax = {
     attribute: color.syntax.embedded,
@@ -153,9 +164,13 @@ function createTheme(name, color) {
       "editor.line_number": color.foreground.subtle,
       "editor.active_line_number": color.foreground.emphasis,
       "editor.active_line.background": color.canvas.overlay,
+      "editor.highlighted_line.background": color.canvas.overlay,
       "editor.invisible": color.foreground.subtle,
       "editor.indent_guide": color.border.muted,
       "editor.indent_guide_active": color.border.emphasis,
+      "panel.indent_guide": color.border.muted,
+      "panel.indent_guide_active": color.border.emphasis,
+      "panel.indent_guide_hover": color.border.emphasis,
       "editor.wrap_guide": color.border.muted,
       "editor.active_wrap_guide": color.border.emphasis,
       "editor.document_highlight.bracket_background": chroma(
@@ -182,6 +197,7 @@ function createTheme(name, color) {
       "border.focused": color.accent.foreground,
       "border.selected": color.border.emphasis,
       "border.disabled": color.border.subtle,
+      "border.transparent": "#00000000",
       text: color.foreground.default,
       "text.muted": color.foreground.muted,
       "text.accent": color.accent.foreground,
@@ -192,16 +208,20 @@ function createTheme(name, color) {
       "icon.accent": color.accent.foreground,
       "icon.placeholder": color.foreground.subtle,
       "icon.disabled": color.foreground.subtle,
+      // Zed reuses element.* for panel rows, so its states track the surface ramp.
       "element.background": color.control.secondary.background,
       "element.hover": color.interaction.hover,
       "element.active": color.interaction.pressed,
-      "element.selected": color.canvas.overlay,
+      "element.selected": color.interaction.selected,
       "element.disabled": color.canvas.overlay,
       "ghost_element.background": "#00000000",
       "ghost_element.hover": color.interaction.hover,
       "ghost_element.active": color.interaction.pressed,
-      "ghost_element.selected": color.canvas.overlay,
+      "ghost_element.selected": color.interaction.selected,
       "ghost_element.disabled": "#00000000",
+      "drop_target.background": chroma(color.accent.secondary)
+        .alpha(0.24)
+        .hex(),
       "scrollbar.thumb.background": color.border.emphasis,
       "scrollbar.thumb.hover_background": color.foreground.subtle,
       "scrollbar.thumb.border": color.border.default,
@@ -212,15 +232,33 @@ function createTheme(name, color) {
       "created.background": chroma(color.sourceControl.added).alpha(0.15).hex(),
       "created.border": "#00000000",
       modified: color.sourceControl.modified,
+      "modified.background": chroma(color.sourceControl.modified)
+        .alpha(0.15)
+        .hex(),
+      "modified.border": "#00000000",
       renamed: color.sourceControl.renamed,
+      "renamed.background": chroma(color.sourceControl.renamed)
+        .alpha(0.15)
+        .hex(),
+      "renamed.border": "#00000000",
       deleted: color.sourceControl.deleted,
       "deleted.background": chroma(color.sourceControl.deleted)
         .alpha(0.15)
         .hex(),
       "deleted.border": "#00000000",
       ignored: color.sourceControl.ignored,
+      "ignored.background": chroma(color.sourceControl.ignored)
+        .alpha(0.15)
+        .hex(),
+      "ignored.border": "#00000000",
       hidden: color.foreground.subtle,
+      "hidden.background": chroma(color.foreground.subtle).alpha(0.15).hex(),
+      "hidden.border": "#00000000",
       conflict: color.sourceControl.conflicting,
+      "conflict.background": chroma(color.sourceControl.conflicting)
+        .alpha(0.15)
+        .hex(),
+      "conflict.border": "#00000000",
       success: color.success.foreground,
       "success.background": chroma(color.success.foreground).alpha(0.1).hex(),
       "success.border": color.border.emphasis,
@@ -231,13 +269,18 @@ function createTheme(name, color) {
       "error.background": chroma(color.danger.foreground).alpha(0.1).hex(),
       "error.border": color.border.emphasis,
       info: color.info.foreground,
-      "info.background": chroma(color.info.foreground).alpha(0.1).hex(),
-      "info.border": color.border.emphasis,
+      // Zed drives TintColor::Accent (selected toggles) from the info tint.
+      "info.background": chroma(color.accent.foreground).alpha(0.15).hex(),
+      "info.border": chroma(color.accent.foreground).alpha(0.4).hex(),
       hint: color.foreground.muted,
       "hint.background": "#00000000",
       "hint.border": "#00000000",
       predictive: color.foreground.subtle,
+      "predictive.background": "#00000000",
+      "predictive.border": "#00000000",
       unreachable: color.foreground.subtle,
+      "unreachable.background": "#00000000",
+      "unreachable.border": "#00000000",
       "terminal.background": color.canvas.default,
       "terminal.foreground": color.foreground.default,
       "terminal.bright_foreground": color.foreground.emphasis,
@@ -247,6 +290,13 @@ function createTheme(name, color) {
         Object.entries(ansiNames).map(([source, target]) => [
           `terminal.ansi.${target}`,
           color.ansi[source],
+        ]),
+      ),
+      // Zed's dim ANSI slots default to its own palette unless mixed here.
+      ...Object.fromEntries(
+        dimAnsiNames.map((source) => [
+          `terminal.ansi.dim_${source}`,
+          chroma.mix(color.ansi[source], color.canvas.default, 0.4).hex(),
         ]),
       ),
       syntax: Object.fromEntries(

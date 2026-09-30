@@ -40,14 +40,13 @@ test("Zed themes use the shared schemes without VS Code-specific variants", () =
     }
     assert.equal(style["ghost_element.background"], "#00000000");
     assert.equal(style["ghost_element.disabled"], "#00000000");
-    assert.equal(style["element.selected"], color.canvas.overlay);
-    assert.equal(style["ghost_element.selected"], color.canvas.overlay);
+    assert.equal(style["element.selected"], color.interaction.selected);
+    assert.equal(style["ghost_element.selected"], color.interaction.selected);
     assert.equal(style.syntax.hint.color, color.foreground.muted);
     assert.equal(style.hint, color.foreground.muted);
     assert.equal(style["hint.background"], "#00000000");
     assert.equal(style["hint.border"], "#00000000");
     for (const [status, foreground] of [
-      ["info", color.info.foreground],
       ["success", color.success.foreground],
       ["warning", color.attention.foreground],
       ["error", color.danger.foreground],
@@ -59,6 +58,14 @@ test("Zed themes use the shared schemes without VS Code-specific variants", () =
         foreground.toLowerCase(),
       );
       assert.equal(style[`${status}.background`].slice(-2), "1a");
+    }
+    // Zed resolves TintColor::Accent through the info tint, so it must stay on-accent.
+    assert.equal(style.info, color.info.foreground);
+    for (const key of ["info.background", "info.border"]) {
+      assert.equal(
+        style[key].slice(0, 7).toLowerCase(),
+        color.accent.foreground.toLowerCase(),
+      );
     }
     assert.deepEqual(style.accents, Object.values(color.brackets));
     assert.equal(style.players[0].cursor, color.accent.foreground);
