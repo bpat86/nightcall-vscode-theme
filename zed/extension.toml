@@ -1,6 +1,6 @@
 id = "nightcall-theme"
 name = "Nightcall"
-version = "0.0.1"
+version = "0.0.2"
 schema_version = 1
 authors = ["Robert Patterson"]
 description = "Nightcall color themes for Zed"
