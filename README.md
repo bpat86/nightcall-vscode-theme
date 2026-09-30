@@ -82,6 +82,15 @@ Color presets for each theme variant are also available:
 
 In iTerm2, open **Settings**, select a profile, open **Colors**, then choose **Color Presets...** and **Import...**.
 
+## Zed Themes
+
+Nightcall is available as a theme for Zed.
+
+1. Open the Command Palette and run **zed: extensions**.
+2. Search for **Nightcall** and install the theme extension.
+3. Open the Command Palette and run **theme selector: toggle**.
+4. Choose **Nightcall**, **Nightcall Muted**, or **Nightcall Classic**.
+
 ## Feedback
 
 This is mostly a fun creative outlet for me, and I’m trying not to take it too seriously. VS Code also has an absurd number of languages, syntax rules, UI states, and obscure little corners I may never encounter, so despite my best efforts, I may have missed some things.
