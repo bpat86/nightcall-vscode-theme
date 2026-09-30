@@ -1,7 +1,7 @@
 id = "nightcall-theme"
 name = "Nightcall"
-version = "0.0.2"
+version = "0.0.1"
 schema_version = 1
 authors = ["Robert Patterson"]
-description = "A mellow yet colorful Zed theme built around vibrant shades of pink, purple, and blue."
+description = "Nightcall color themes for Zed"
 repository = "https://github.com/bpat86/nightcall-vscode-theme"
