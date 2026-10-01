@@ -98,6 +98,7 @@ const commonCases = [
     "let mutable = 1;\nconst fixed = mutable;\nmutable = fixed;",
     [
       [1, "mutable", "variable"],
+      [1, "=", "operator"],
       [1, "1", "number"],
       [2, "fixed", "constant"],
       [2, "mutable", "variable"],
@@ -108,6 +109,8 @@ const commonCases = [
     [
       [1, "record", "variable"],
       [1, "name", "property"],
+      [1, "'", "punctuation"],
+      [1, "'", "punctuation", 2],
       [1, "Ada", "string"],
       [1, "run", "function"],
       [2, "record", "variable"],
@@ -161,6 +164,8 @@ const commonCases = [
     "let value = `hello ${person.name}`;\nlet tagged = html`hello ${person}`;\nlet pattern = /hello+/gi;",
     [
       [1, "hello", "string"],
+      [1, "`", "punctuation"],
+      [1, "`", "punctuation", 2],
       [1, "person", "variable"],
       [1, "name", "property"],
       [2, "html", "function"],
@@ -220,6 +225,8 @@ const jsxCases = [
   [
     "const view = <><section title='hello'><Widget value={person.name} {...props} /><UI.Button /></section></>;",
     [
+      [1, "=", "tag", 2],
+      [1, "=", "tag", 3],
       [1, "section", "tag"],
       [1, "Widget", "component"],
       [1, "UI.Button", "component"],

@@ -44,7 +44,7 @@ function createElixirTokenColors(color) {
     {
       scope: "source.elixir punctuation.definition.string",
       settings: {
-        foreground: color.syntax.string,
+        foreground: color.syntax.punctuation,
       },
     },
     {

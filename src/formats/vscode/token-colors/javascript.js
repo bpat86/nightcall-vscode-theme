@@ -200,10 +200,20 @@ function createJsonTokenColors(color) {
       scope: [
         "meta.structure.dictionary.value.json string.quoted.double",
         "string.quoted.double.json.comments",
-        "string.quoted.double.json punctuation.definition.string.json",
       ],
       settings: {
         foreground: color.syntax.string,
+      },
+    },
+    {
+      scope: [
+        "punctuation.support.type.property-name.begin.json.comments",
+        "punctuation.support.type.property-name.end.json.comments",
+        "meta.structure.dictionary.key.json punctuation.definition.string.json",
+        "meta.structure.dictionary.value.json punctuation.definition.string.json",
+      ],
+      settings: {
+        foreground: color.syntax.punctuation,
       },
     },
     {
@@ -317,6 +327,15 @@ function createTypeScriptTokenColors(color) {
 
 function createJsxTokenColors(color) {
   return [
+    {
+      scope: [
+        "meta.tag.attributes.js.jsx keyword.operator.assignment.js.jsx",
+        "meta.tag.attributes.tsx keyword.operator.assignment.tsx",
+      ],
+      settings: {
+        foreground: color.syntax.tag,
+      },
+    },
     {
       scope: ["support.class.component", "support.class.component.tsx"],
       settings: {

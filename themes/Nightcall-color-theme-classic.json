@@ -1365,7 +1365,7 @@
     {
       "scope": "punctuation.definition.string",
       "settings": {
-        "foreground": "#FFB8E0",
+        "foreground": "#B997F7",
         "fontStyle": ""
       }
     },
@@ -1564,7 +1564,7 @@
     {
       "scope": "string.template punctuation.definition.string",
       "settings": {
-        "foreground": "#FFB8E0"
+        "foreground": "#B997F7"
       }
     },
     {
@@ -1668,7 +1668,7 @@
     {
       "scope": "source.elixir punctuation.definition.string",
       "settings": {
-        "foreground": "#FFB8E0"
+        "foreground": "#B997F7"
       }
     },
     {
@@ -2235,11 +2235,21 @@
     {
       "scope": [
         "meta.structure.dictionary.value.json string.quoted.double",
-        "string.quoted.double.json.comments",
-        "string.quoted.double.json punctuation.definition.string.json"
+        "string.quoted.double.json.comments"
       ],
       "settings": {
         "foreground": "#FFB8E0"
+      }
+    },
+    {
+      "scope": [
+        "punctuation.support.type.property-name.begin.json.comments",
+        "punctuation.support.type.property-name.end.json.comments",
+        "meta.structure.dictionary.key.json punctuation.definition.string.json",
+        "meta.structure.dictionary.value.json punctuation.definition.string.json"
+      ],
+      "settings": {
+        "foreground": "#B997F7"
       }
     },
     {
@@ -2636,6 +2646,15 @@
     },
     {
       "scope": [
+        "meta.tag.attributes.js.jsx keyword.operator.assignment.js.jsx",
+        "meta.tag.attributes.tsx keyword.operator.assignment.tsx"
+      ],
+      "settings": {
+        "foreground": "#FFA3D8"
+      }
+    },
+    {
+      "scope": [
         "support.class.component",
         "support.class.component.tsx"
       ],
@@ -2769,13 +2788,13 @@
     {
       "scope": "punctuation.definition.string.begin",
       "settings": {
-        "foreground": "#FFB8E0"
+        "foreground": "#B997F7"
       }
     },
     {
       "scope": "punctuation.definition.string.end",
       "settings": {
-        "foreground": "#FFB8E0"
+        "foreground": "#B997F7"
       }
     },
     {
@@ -2845,13 +2864,13 @@
     {
       "scope": "punctuation.definition.string.template.begin",
       "settings": {
-        "foreground": "#FFB8E0"
+        "foreground": "#B997F7"
       }
     },
     {
       "scope": "punctuation.definition.string.template.end",
       "settings": {
-        "foreground": "#FFB8E0"
+        "foreground": "#B997F7"
       }
     },
     {

@@ -391,7 +391,7 @@ function createSharedTokenColors(color) {
     {
       scope: "punctuation.definition.string",
       settings: {
-        foreground: color.syntax.string,
+        foreground: color.syntax.punctuation,
         fontStyle: "",
       },
     },
@@ -587,7 +587,7 @@ function createSharedTokenColors(color) {
     {
       scope: "string.template punctuation.definition.string",
       settings: {
-        foreground: color.syntax.string,
+        foreground: color.syntax.punctuation,
       },
     },
     {
@@ -727,13 +727,13 @@ function createSharedOverrideTokenColors(color) {
     {
       scope: "punctuation.definition.string.begin",
       settings: {
-        foreground: color.syntax.string,
+        foreground: color.syntax.punctuation,
       },
     },
     {
       scope: "punctuation.definition.string.end",
       settings: {
-        foreground: color.syntax.string,
+        foreground: color.syntax.punctuation,
       },
     },
     {
@@ -803,13 +803,13 @@ function createSharedOverrideTokenColors(color) {
     {
       scope: "punctuation.definition.string.template.begin",
       settings: {
-        foreground: color.syntax.string,
+        foreground: color.syntax.punctuation,
       },
     },
     {
       scope: "punctuation.definition.string.template.end",
       settings: {
-        foreground: color.syntax.string,
+        foreground: color.syntax.punctuation,
       },
     },
     {
