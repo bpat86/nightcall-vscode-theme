@@ -207,6 +207,8 @@ function createJsonTokenColors(color) {
     },
     {
       scope: [
+        "punctuation.support.type.property-name.begin.json",
+        "punctuation.support.type.property-name.end.json",
         "punctuation.support.type.property-name.begin.json.comments",
         "punctuation.support.type.property-name.end.json.comments",
         "meta.structure.dictionary.key.json punctuation.definition.string.json",
