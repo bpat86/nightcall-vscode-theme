@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.1.9
+
+- Refined string assignment operator colors for better visual rhythm, contrast and consistency across themes.
+
 ## 2.1.8
 
 - Refined string assignment operator colors for better visual rhythm, contrast and consistency across themes.
