@@ -4,9 +4,9 @@ const {
   replaceOutputDirectory,
   stageOutputDirectory,
 } = require("./write-output-directory");
-const vscode = require("./targets/vscode");
-const iterm2 = require("./targets/iterm2");
-const zed = require("./targets/zed");
+const vscode = require("./formats/vscode");
+const iterm2 = require("./formats/iterm2");
+const zed = require("./formats/zed");
 const { validateSources, reportDiagnostics } = require("../validation");
 const { validateFamily } = require("../validation/zed-themes");
 

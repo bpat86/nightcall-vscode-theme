@@ -61,6 +61,14 @@ function validateFamily(family) {
             errors.push(`${themeLocation}: syntax.${capture}.color is invalid`);
           }
           if (
+            highlight?.background_color !== undefined &&
+            !isHexColor(highlight.background_color)
+          ) {
+            errors.push(
+              `${themeLocation}: syntax.${capture}.background_color is invalid`,
+            );
+          }
+          if (
             highlight?.font_style &&
             !["normal", "italic", "oblique"].includes(highlight.font_style)
           ) {

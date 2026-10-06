@@ -7,10 +7,10 @@
   },
   "foreground": {
     "default": "{neutral.300}",
-    "emphasis": "{purple.125}",
+    "emphasis": "{purple.150}",
     "prominent": "{purple.100}",
     "muted": "{neutral.350}",
-    "subtle": "{neutral.475}",
+    "subtle": "{neutral.400}",
     "onEmphasis": "{neutral.950}"
   },
   "border": {
@@ -20,16 +20,42 @@
     "emphasis": "{neutral.700}"
   },
   "accent": {
-    "foreground": "{pink.200}",
-    "subtle": "{pink.225}",
-    "emphasis": "{pink.150}",
-    "secondary": "{violet.300}",
-    "secondaryEmphasis": "{violet.225}",
-    "tertiary": "{blue.350}"
+    "primary": {
+      "foreground": "{pink.925}",
+      "background": "{pink.225}",
+      "border": "{pink.750}"
+    },
+    "secondary": {
+      "foreground": "{purple.875}",
+      "background": "{purple.225}",
+      "border": "{purple.550}"
+    },
+    "tertiary": {
+      "foreground": "{blue.925}",
+      "background": "{blue.350}",
+      "border": "{blue.675}"
+    }
+  },
+  "badge": {
+    "foreground": "{pink.925}",
+    "background": "{pink.225}"
+  },
+  "extensionIcon": {
+    "star": "{orange.200}",
+    "verified": "{blue.350}",
+    "preRelease": "{purple.500}",
+    "sponsor": "{orange.200}",
+    "private": "{orange.200}"
   },
   "inlayHint": {
-    "parameter": "{violet.250}",
-    "type": "{purple.275}"
+    "parameter": {
+      "foreground": "{purple.200}",
+      "background": "{neutral.950}"
+    },
+    "type": {
+      "foreground": "{purple.200}",
+      "background": "{neutral.950}"
+    }
   },
   "brackets": {
     "one": "{pink.225}",
@@ -60,23 +86,25 @@
     "emphasis": "{cyan.500}"
   },
   "interaction": {
-    "hover": "{neutral.775}",
-    "pressed": "{neutral.775}",
-    "selected": "{neutral.775}",
-    "selectedInactive": "{neutral.775}"
+    "highlighted": "{neutral.675}",
+    "hover": "{neutral.675}",
+    "pressed": "{neutral.675}",
+    "selected": "{neutral.675}",
+    "focused": "{neutral.675}",
+    "selectedInactive": "{neutral.675}"
   },
   "control": {
     "primary": {
-      "background": "{pink.225}",
-      "foreground": "{neutral.900}",
-      "hoverBackground": "{pink.175}",
-      "border": "{pink.125}"
+      "foreground": "{purple.875}",
+      "background": "{purple.225}",
+      "hoverBackground": "{purple.200}",
+      "border": "{purple.325}"
     },
     "secondary": {
-      "background": "{neutral.725}",
-      "foreground": "{neutral.250}",
-      "hoverBackground": "{neutral.650}",
-      "border": "{neutral.600}"
+      "foreground": "{purple.150}",
+      "background": "{neutral.650}",
+      "hoverBackground": "{neutral.600}",
+      "border": "{neutral.750}"
     }
   },
   "syntax": {
@@ -97,13 +125,13 @@
     "builtin": "{purple.150}",
     "importBinding": "{purple.150}",
     "variable": "{purple.175}",
-    "parameter": "{violet.250}",
+    "parameter": "{violet.225}",
     "property": "{purple.150}",
     "function": "{blue.350}",
     "method": "{blue.350}",
-    "type": "{violet.250}",
+    "type": "{violet.325}",
     "children": "{purple.125}",
-    "class": "{violet.250}",
+    "class": "{violet.225}",
     "tag": "{pink.225}",
     "component": "{pink.300}",
     "invalid": "{red.300}"

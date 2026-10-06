@@ -2,7 +2,7 @@ const assert = require("node:assert/strict");
 const test = require("node:test");
 const { loadResolvedColorScheme } = require("../src/colors/color-scheme");
 const definitions = require("../src/formats/zed/theme-definitions");
-const { createArtifacts } = require("../src/pipeline/build/targets/zed");
+const { createArtifacts } = require("../src/pipeline/build/formats/zed");
 const { validateFamily } = require("../src/pipeline/validation/zed-themes");
 
 function createFamily() {
@@ -25,7 +25,8 @@ test("Zed themes use the shared schemes without VS Code-specific variants", () =
     const { style, appearance } = family.themes[index];
     assert.equal(appearance, "dark");
     assert.equal(style["editor.background"], color.canvas.default);
-    assert.equal(style["text.accent"], color.accent.foreground);
+    assert.equal(style["editor.foreground"], color.foreground.prominent);
+    assert.equal(style["text.accent"], color.accent.primary.background);
     for (const [kind, source] of [
       ["created", color.sourceControl.added],
       ["deleted", color.sourceControl.deleted],
@@ -42,7 +43,12 @@ test("Zed themes use the shared schemes without VS Code-specific variants", () =
     assert.equal(style["ghost_element.disabled"], "#00000000");
     assert.equal(style["element.selected"], color.interaction.selected);
     assert.equal(style["ghost_element.selected"], color.interaction.selected);
-    assert.equal(style.syntax.hint.color, color.foreground.muted);
+    assert.equal(style.syntax.hint.color, color.foreground.subtle);
+    assert.equal(style.syntax.hint.font_style, "italic");
+    assert.equal(
+      style.syntax.hint.background_color,
+      color.inlayHint.parameter.background,
+    );
     assert.equal(style.hint, color.foreground.muted);
     assert.equal(style["hint.background"], "#00000000");
     assert.equal(style["hint.border"], "#00000000");
@@ -61,25 +67,27 @@ test("Zed themes use the shared schemes without VS Code-specific variants", () =
     }
     // Zed resolves TintColor::Accent through the info tint, so it must stay on-accent.
     assert.equal(style.info, color.info.foreground);
-    for (const key of ["info.background", "info.border"]) {
-      assert.equal(
-        style[key].slice(0, 7).toLowerCase(),
-        color.accent.foreground.toLowerCase(),
-      );
-    }
+    assert.equal(
+      style["info.background"].slice(0, 7).toLowerCase(),
+      color.control.primary.background.toLowerCase(),
+    );
+    assert.equal(
+      style["info.border"].slice(0, 7).toLowerCase(),
+      color.control.primary.border.toLowerCase(),
+    );
     assert.deepEqual(style.accents, Object.values(color.brackets));
-    assert.equal(style.players[0].cursor, color.accent.foreground);
-    assert.equal(style.players[0].background, color.accent.foreground);
-    assert.match(style.players[0].selection, /^#[0-9a-f]{6}3d$/i);
+    assert.equal(style.players[0].cursor, color.accent.primary.background);
+    assert.equal(style.players[0].background, color.accent.primary.background);
+    assert.match(style.players[0].selection, /^#[0-9a-f]{6}20$/i);
     assert.equal(
       style.players[0].selection.slice(0, 7).toLowerCase(),
-      color.accent.secondary.toLowerCase(),
+      color.accent.secondary.background.toLowerCase(),
     );
     assert.equal(
       style["editor.document_highlight.read_background"]
         .slice(0, 7)
         .toLowerCase(),
-      color.accent.secondary.toLowerCase(),
+      color.accent.secondary.background.toLowerCase(),
     );
     assert.equal(
       style["editor.document_highlight.read_background"]
@@ -88,12 +96,21 @@ test("Zed themes use the shared schemes without VS Code-specific variants", () =
       "20",
     );
     assert.equal(
+      style["editor.document_highlight.write_background"].slice(-2),
+      "20",
+    );
+    assert.equal(
+      style["editor.document_highlight.bracket_background"].slice(-2),
+      "00",
+    );
+    assert.equal(style["editor.active_line.background"].slice(-2), "80");
+    assert.equal(
       style["search.match_background"].slice(0, 7).toLowerCase(),
-      color.accent.subtle.toLowerCase(),
+      color.accent.primary.background.toLowerCase(),
     );
     assert.equal(
       style["search.active_match_background"].slice(0, 7).toLowerCase(),
-      color.accent.subtle.toLowerCase(),
+      color.accent.primary.background.toLowerCase(),
     );
     assert.notEqual(
       style["search.match_background"],

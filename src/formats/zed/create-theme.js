@@ -57,7 +57,7 @@ function createTheme(name, color) {
     "function.method": color.syntax.method,
     "function.method.call": color.syntax.method,
     "function.method.constructor": color.syntax.method,
-    hint: color.foreground.muted,
+    hint: color.foreground.subtle,
     keyword: color.syntax.keyword,
     "keyword.control": color.syntax.controlFlow,
     "keyword.declaration": color.syntax.storage,
@@ -67,10 +67,10 @@ function createTheme(name, color) {
     "keyword.operator.regex": color.syntax.regexp,
     keyframes: color.syntax.keyword,
     label: color.syntax.controlFlow,
-    link_text: color.accent.foreground,
-    "link_text.markup": color.accent.foreground,
-    link_uri: color.accent.tertiary,
-    "link_uri.markup": color.accent.tertiary,
+    link_text: color.accent.primary.background,
+    "link_text.markup": color.accent.primary.background,
+    link_uri: color.accent.tertiary.background,
+    "link_uri.markup": color.accent.tertiary.background,
     media: color.syntax.keyword,
     namespace: color.syntax.type,
     number: color.syntax.number,
@@ -138,17 +138,19 @@ function createTheme(name, color) {
       ],
       players: [
         {
-          cursor: color.accent.foreground,
-          background: color.accent.foreground,
-          selection: chroma(color.accent.secondary).alpha(0.24).hex(),
+          cursor: color.accent.primary.background,
+          background: color.accent.primary.background,
+          selection: chroma(color.accent.secondary.background)
+            .alpha(0.125)
+            .hex(),
         },
       ],
       background: color.canvas.default,
       "surface.background": color.canvas.default,
       "elevated_surface.background": color.canvas.overlay,
       "panel.background": color.canvas.inset,
-      "panel.focused_border": color.accent.foreground,
-      "pane.focused_border": color.accent.foreground,
+      "panel.focused_border": color.accent.primary.background,
+      "pane.focused_border": color.accent.primary.background,
       "pane_group.border": color.border.default,
       "status_bar.background": color.canvas.inset,
       "title_bar.background": color.canvas.inset,
@@ -158,13 +160,19 @@ function createTheme(name, color) {
       "tab.active_background": color.canvas.default,
       "tab.inactive_background": color.canvas.inset,
       "editor.background": color.canvas.default,
-      "editor.foreground": color.foreground.default,
+      "editor.foreground": color.foreground.prominent,
       "editor.gutter.background": color.canvas.default,
       "editor.subheader.background": color.canvas.inset,
       "editor.line_number": color.foreground.subtle,
       "editor.active_line_number": color.foreground.emphasis,
-      "editor.active_line.background": color.canvas.overlay,
-      "editor.highlighted_line.background": color.canvas.overlay,
+      "editor.active_line.background": chroma(color.interaction.highlighted)
+        .alpha(0.5)
+        .hex(),
+      "editor.highlighted_line.background": chroma(
+        color.interaction.highlighted,
+      )
+        .alpha(0.5)
+        .hex(),
       "editor.invisible": color.foreground.subtle,
       "editor.indent_guide": color.border.muted,
       "editor.indent_guide_active": color.border.emphasis,
@@ -174,38 +182,40 @@ function createTheme(name, color) {
       "editor.wrap_guide": color.border.muted,
       "editor.active_wrap_guide": color.border.emphasis,
       "editor.document_highlight.bracket_background": chroma(
-        color.accent.secondary,
+        color.accent.secondary.background,
       )
-        .alpha(0.24)
+        .alpha(0)
         .hex(),
       "editor.document_highlight.read_background": chroma(
-        color.accent.secondary,
+        color.accent.secondary.background,
       )
         .alpha(0.125)
         .hex(),
       "editor.document_highlight.write_background": chroma(
-        color.accent.secondary,
+        color.accent.secondary.background,
       )
+        .alpha(0.125)
+        .hex(),
+      "search.match_background": chroma(color.accent.primary.background)
         .alpha(0.24)
         .hex(),
-      "search.match_background": chroma(color.accent.subtle).alpha(0.24).hex(),
-      "search.active_match_background": chroma(color.accent.subtle)
+      "search.active_match_background": chroma(color.accent.primary.background)
         .alpha(0.4)
         .hex(),
       border: color.border.default,
       "border.variant": color.border.muted,
-      "border.focused": color.accent.foreground,
+      "border.focused": color.accent.primary.background,
       "border.selected": color.border.emphasis,
       "border.disabled": color.border.subtle,
       "border.transparent": "#00000000",
       text: color.foreground.default,
       "text.muted": color.foreground.muted,
-      "text.accent": color.accent.foreground,
+      "text.accent": color.accent.primary.background,
       "text.placeholder": color.foreground.subtle,
       "text.disabled": color.foreground.subtle,
       icon: color.foreground.default,
       "icon.muted": color.foreground.muted,
-      "icon.accent": color.accent.foreground,
+      "icon.accent": color.accent.primary.background,
       "icon.placeholder": color.foreground.subtle,
       "icon.disabled": color.foreground.subtle,
       // Zed reuses element.* for panel rows, so its states track the surface ramp.
@@ -219,7 +229,7 @@ function createTheme(name, color) {
       "ghost_element.active": color.interaction.pressed,
       "ghost_element.selected": color.interaction.selected,
       "ghost_element.disabled": "#00000000",
-      "drop_target.background": chroma(color.accent.secondary)
+      "drop_target.background": chroma(color.accent.secondary.background)
         .alpha(0.24)
         .hex(),
       "scrollbar.thumb.background": color.border.emphasis,
@@ -227,7 +237,7 @@ function createTheme(name, color) {
       "scrollbar.thumb.border": color.border.default,
       "scrollbar.track.background": color.canvas.default,
       "scrollbar.track.border": color.border.muted,
-      "link_text.hover": color.accent.emphasis,
+      "link_text.hover": color.accent.primary.background,
       created: color.sourceControl.added,
       "created.background": chroma(color.sourceControl.added).alpha(0.15).hex(),
       "created.border": "#00000000",
@@ -270,8 +280,10 @@ function createTheme(name, color) {
       "error.border": color.border.emphasis,
       info: color.info.foreground,
       // Zed drives TintColor::Accent (selected toggles) from the info tint.
-      "info.background": chroma(color.accent.foreground).alpha(0.15).hex(),
-      "info.border": chroma(color.accent.foreground).alpha(0.4).hex(),
+      "info.background": chroma(color.control.primary.background)
+        .alpha(0.15)
+        .hex(),
+      "info.border": chroma(color.control.primary.border).alpha(0.4).hex(),
       hint: color.foreground.muted,
       "hint.background": "#00000000",
       "hint.border": "#00000000",
@@ -304,7 +316,14 @@ function createTheme(name, color) {
           capture,
           {
             color: value,
-            ...(capture === "comment" || capture === "emphasis"
+            ...(capture === "hint"
+              ? {
+                  background_color: color.inlayHint.parameter.background,
+                }
+              : {}),
+            ...(capture === "comment" ||
+            capture === "emphasis" ||
+            capture === "hint"
               ? { font_style: "italic" }
               : {}),
             ...(capture === "emphasis.strong" ? { font_weight: 700 } : {}),

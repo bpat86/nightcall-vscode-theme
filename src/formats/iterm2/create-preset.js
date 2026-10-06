@@ -21,7 +21,7 @@ function createPreset(color) {
   const preset = {
     "Background Color": color.canvas.default,
     "Bold Color": color.foreground.emphasis,
-    "Cursor Color": color.accent.foreground,
+    "Cursor Color": color.accent.primary.background,
     "Cursor Text Color": color.foreground.onEmphasis,
     "Foreground Color": color.foreground.default,
     "Selected Text Color": color.foreground.default,

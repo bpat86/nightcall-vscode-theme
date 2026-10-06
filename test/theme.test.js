@@ -1,5 +1,6 @@
 const assert = require("node:assert/strict");
 const test = require("node:test");
+const chroma = require("chroma-js");
 const createTheme = require("../src/formats/vscode/create-theme");
 const definitions = require("../src/formats/vscode/theme-definitions");
 const { applyThemeOptions } = require("../src/formats/vscode/options");
@@ -71,26 +72,218 @@ test("secondary accent colors are used in the workbench", () => {
   const theme = createTheme(definitions[0]);
   const resolved = loadResolvedColorScheme("dark-default");
 
-  assert.equal(theme.colors.focusBorder, resolved.accent.secondaryEmphasis);
+  assert.equal(theme.colors.focusBorder, resolved.accent.secondary.background);
   assert.equal(
     theme.colors["window.activeBorder"],
-    resolved.accent.secondaryEmphasis,
+    resolved.accent.secondary.background,
   );
   assert.equal(
     theme.colors["tab.selectedBorderTop"],
-    resolved.accent.secondary,
+    resolved.accent.primary.background,
   );
   assert.equal(
     theme.colors["terminal.tab.activeBorder"],
-    resolved.accent.secondary,
+    resolved.accent.secondary.background,
   );
+});
+
+test("accent foregrounds contrast with their backgrounds", () => {
+  for (const definition of definitions) {
+    const resolved = loadResolvedColorScheme(definition.scheme);
+    for (const role of ["primary", "secondary", "tertiary"]) {
+      const accent = resolved.accent[role];
+      assert.ok(
+        chroma(accent.foreground).luminance() <
+          chroma(accent.background).luminance(),
+        `${definition.name}: ${role} accent foreground must be darker`,
+      );
+      assert.ok(
+        chroma.contrast(accent.foreground, accent.background) >= 4.5,
+        `${definition.name}: ${role} accent contrast must be at least 4.5:1`,
+      );
+      assert.ok(
+        chroma.contrast(accent.border, accent.background) >= 3,
+        `${definition.name}: ${role} accent border contrast must be at least 3:1`,
+      );
+    }
+
+    assert.equal(
+      resolved.accent.secondary.foreground,
+      resolved.control.primary.foreground,
+      `${definition.name}: secondary accent foreground matches primary control foreground`,
+    );
+    assert.equal(
+      resolved.accent.secondary.background,
+      resolved.control.primary.background,
+      `${definition.name}: secondary accent background matches primary control background`,
+    );
+  }
+});
+
+test("interaction colors cover highlighted and focused states", () => {
+  for (const definition of definitions) {
+    const colors = createTheme(definition).colors;
+    const resolved = loadResolvedColorScheme(definition.scheme);
+
+    assert.equal(
+      colors["list.filterMatchBackground"],
+      chroma(resolved.interaction.highlighted).alpha(0.5).hex(),
+      `${definition.name}: highlighted list matches`,
+    );
+    assert.equal(
+      colors["list.focusBackground"],
+      chroma(resolved.interaction.focused).alpha(0.5).hex(),
+      `${definition.name}: focused list items`,
+    );
+    assert.equal(
+      colors["settings.focusedRowBackground"],
+      chroma(resolved.interaction.focused).alpha(0.5).hex(),
+      `${definition.name}: focused settings rows`,
+    );
+    for (const key of [
+      "list.hoverBackground",
+      "tab.hoverBackground",
+      "statusBarItem.hoverBackground",
+      "welcomePage.tileHoverBackground",
+    ]) {
+      assert.equal(
+        colors[key],
+        chroma(resolved.interaction.hover).alpha(0.5).hex(),
+        `${definition.name}: ${key}`,
+      );
+    }
+    for (const key of [
+      "tab.selectedBackground",
+      "editorSuggestWidget.selectedBackground",
+    ]) {
+      assert.equal(
+        colors[key],
+        chroma(resolved.interaction.selected).alpha(0.5).hex(),
+        `${definition.name}: ${key}`,
+      );
+    }
+    assert.equal(
+      colors["notebook.selectedCellBackground"],
+      chroma(resolved.interaction.selected).alpha(0.5).hex(),
+      `${definition.name}: notebook selected cell`,
+    );
+    assert.equal(
+      colors["statusBarItem.activeBackground"],
+      resolved.interaction.pressed,
+      `${definition.name}: pressed status bar item`,
+    );
+    assert.equal(
+      colors["editor.stackFrameHighlightBackground"],
+      chroma(resolved.interaction.highlighted).alpha(0.5).hex(),
+      `${definition.name}: highlighted stack frame`,
+    );
+  }
+});
+
+test("pink badges use dedicated high-contrast colors in every theme", () => {
+  for (const definition of definitions) {
+    const colors = createTheme(definition).colors;
+    const resolved = loadResolvedColorScheme(definition.scheme);
+
+    for (const badge of [
+      "badge",
+      "activityBarBadge",
+      "profileBadge",
+      "agentsBadge",
+      "agentsUnreadBadge",
+    ]) {
+      assert.equal(
+        colors[`${badge}.background`],
+        resolved.badge.background,
+        `${definition.name}: ${badge} background`,
+      );
+      assert.equal(
+        colors[`${badge}.foreground`],
+        resolved.badge.foreground,
+        `${definition.name}: ${badge} foreground`,
+      );
+      assert.ok(
+        chroma.contrast(
+          colors[`${badge}.background`],
+          colors[`${badge}.foreground`],
+        ) >= 4.5,
+        `${definition.name}: ${badge} contrast must be at least 4.5:1`,
+      );
+    }
+
+    assert.equal(
+      colors["activityWarningBadge.background"],
+      resolved.attention.emphasis,
+    );
+    assert.equal(
+      colors["activityErrorBadge.background"],
+      resolved.danger.emphasis,
+    );
+    assert.equal(
+      colors["extensionBadge.remoteBackground"],
+      resolved.info.emphasis,
+    );
+    assert.equal(
+      colors["button.background"],
+      resolved.control.primary.background,
+    );
+    assert.equal(
+      colors["button.foreground"],
+      resolved.control.primary.foreground,
+    );
+  }
+});
+
+test("extension icon colors use their dedicated scheme roles", () => {
+  for (const definition of definitions) {
+    const colors = createTheme(definition).colors;
+    const extensionIcon = loadResolvedColorScheme(
+      definition.scheme,
+    ).extensionIcon;
+
+    for (const kind of [
+      "star",
+      "verified",
+      "preRelease",
+      "sponsor",
+      "private",
+    ]) {
+      assert.equal(
+        colors[`extensionIcon.${kind}Foreground`],
+        extensionIcon[kind],
+        `${definition.name}: ${kind} extension icon`,
+      );
+    }
+  }
+});
+
+test("inlay hint foregrounds and backgrounds use their scheme colors", () => {
+  for (const definition of definitions) {
+    const colors = createTheme(definition).colors;
+    const resolved = loadResolvedColorScheme(definition.scheme);
+
+    for (const kind of ["parameter", "type"]) {
+      const hint = resolved.inlayHint[kind];
+
+      assert.equal(
+        colors[`editorInlayHint.${kind}Foreground`],
+        hint.foreground.toLowerCase(),
+        `${definition.name}: ${kind} hint foreground`,
+      );
+      assert.equal(
+        colors[`editorInlayHint.${kind}Background`],
+        hint.background.toLowerCase(),
+        `${definition.name}: ${kind} hint background`,
+      );
+    }
+  }
 });
 
 test("chat and diff outlines do not compete with their backgrounds", () => {
   for (const definition of definitions) {
     const colors = createTheme(definition).colors;
+    const resolved = loadResolvedColorScheme(definition.scheme);
     for (const key of [
-      "chat.requestBorder",
       "chat.requestCodeBorder",
       "diffEditor.insertedTextBorder",
       "diffEditor.removedTextBorder",
@@ -103,6 +296,11 @@ test("chat and diff outlines do not compete with their backgrounds", () => {
         `${definition.name}: ${key}`,
       );
     }
+    assert.equal(
+      colors["chat.requestBorder"],
+      chroma(resolved.border.emphasis).alpha(0.6).hex(),
+      `${definition.name}: chat.requestBorder`,
+    );
     assert.notEqual(
       colors["diffEditor.insertedTextBackground"].slice(-2),
       "00",
