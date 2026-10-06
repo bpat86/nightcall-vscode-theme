@@ -8,6 +8,7 @@ function getColor(colors, key) {
   return colors[key];
 }
 
+// Border options
 function removeBorders(theme) {
   const background = getColor(theme.colors, "editor.background");
   const subtleBorder = getColor(theme.colors, "editorOverviewRuler.border");
@@ -44,8 +45,9 @@ function removeBorders(theme) {
   };
 }
 
+// Italic options
 // Keep non-italic rules explicit so VS Code defaults cannot reintroduce italics.
-function removeItalic(rule) {
+function removeTextMateItalics(rule) {
   const styles = rule.settings.fontStyle?.split(" ") ?? [];
 
   if (!styles.includes("italic")) {
@@ -75,7 +77,7 @@ function removeSemanticItalics(tokenColors) {
 function removeItalics(theme) {
   return {
     ...theme,
-    tokenColors: theme.tokenColors.map(removeItalic),
+    tokenColors: theme.tokenColors.map(removeTextMateItalics),
     semanticTokenColors: removeSemanticItalics(theme.semanticTokenColors),
   };
 }

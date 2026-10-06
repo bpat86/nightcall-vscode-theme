@@ -266,12 +266,12 @@ test("inlay hint foregrounds and backgrounds use their scheme colors", () => {
       const hint = resolved.inlayHint[kind];
 
       assert.equal(
-        colors[`editorInlayHint.${kind}Foreground`],
+        colors[`editorInlayHint.${kind}Foreground`].toLowerCase(),
         hint.foreground.toLowerCase(),
         `${definition.name}: ${kind} hint foreground`,
       );
       assert.equal(
-        colors[`editorInlayHint.${kind}Background`],
+        colors[`editorInlayHint.${kind}Background`].toLowerCase(),
         hint.background.toLowerCase(),
         `${definition.name}: ${kind} hint background`,
       );

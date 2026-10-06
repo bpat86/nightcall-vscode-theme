@@ -8,48 +8,27 @@ function alpha(value, opacity) {
   return chroma(value).alpha(opacity).hex();
 }
 
-const OPACITY_10_PERCENT = 0.1;
-const OPACITY_12_5_PERCENT = 0.125;
-const OPACITY_15_PERCENT = 0.15;
-const OPACITY_20_PERCENT = 0.2;
-const OPACITY_25_PERCENT = 0.25;
-const OPACITY_30_PERCENT = 0.3;
-const OPACITY_40_PERCENT = 0.4;
-const OPACITY_50_PERCENT = 0.5;
-const OPACITY_60_PERCENT = 0.6;
-const OPACITY_70_PERCENT = 0.7;
-const OPACITY_75_PERCENT = 0.75;
-const OPACITY_80_PERCENT = 0.8;
-const OPACITY_100_PERCENT = 1;
+const TRANSPARENT = "#00000000";
 
 function createWorkbenchColors(color) {
   return {
     // Base text and links
     focusBorder: color.accent.secondary.background,
     foreground: color.foreground.default,
-    disabledForeground: alpha(color.foreground.subtle, OPACITY_75_PERCENT),
+    disabledForeground: alpha(color.foreground.subtle, 0.75),
     descriptionForeground: color.foreground.subtle,
     errorForeground: color.danger.foreground,
     "textLink.foreground": color.accent.primary.background,
     "textLink.activeForeground": color.accent.primary.background,
     "textBlockQuote.background": color.canvas.inset,
-    "textBlockQuote.border": alpha(
-      color.accent.tertiary.background,
-      OPACITY_50_PERCENT,
-    ),
+    "textBlockQuote.border": alpha(color.accent.tertiary.background, 0.5),
     "textCodeBlock.background": color.canvas.default,
     "textPreformat.foreground": color.accent.tertiary.background,
-    "textPreformat.background": alpha(
-      color.accent.tertiary.background,
-      OPACITY_12_5_PERCENT,
-    ),
+    "textPreformat.background": alpha(color.accent.tertiary.background, 0.125),
     "textPreformat.border": color.border.muted,
     "textSeparator.foreground": color.foreground.default,
     "icon.foreground": color.foreground.muted,
-    "keybindingLabel.background": alpha(
-      color.canvas.raised,
-      OPACITY_50_PERCENT,
-    ),
+    "keybindingLabel.background": alpha(color.canvas.raised, 0.5),
     "keybindingLabel.foreground": color.accent.secondary.background,
     "keybindingLabel.border": color.border.emphasis,
     "keybindingLabel.bottomBorder": color.accent.secondary.border,
@@ -86,10 +65,7 @@ function createWorkbenchColors(color) {
     "radio.inactiveForeground": color.foreground.muted,
     "radio.inactiveBackground": color.canvas.overlay,
     "radio.inactiveBorder": color.border.emphasis,
-    "radio.inactiveHoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
+    "radio.inactiveHoverBackground": alpha(color.interaction.hover, 0.5),
     "sash.hoverBorder": color.control.primary.background,
     "input.background": color.canvas.default,
     "input.border": color.border.default,
@@ -117,13 +93,13 @@ function createWorkbenchColors(color) {
     "mcpIcon.starForeground": color.attention.foreground,
     "inputOption.activeBackground": alpha(
       color.accent.tertiary.background,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "inputOption.activeBorder": color.accent.tertiary.background,
     "inputOption.activeForeground": color.foreground.emphasis,
     "inputOption.hoverBackground": alpha(
       color.accent.tertiary.background,
-      OPACITY_25_PERCENT,
+      0.25,
     ),
     "inputValidation.errorBackground": color.danger.emphasis,
     "inputValidation.errorBorder": color.danger.emphasis,
@@ -144,81 +120,66 @@ function createWorkbenchColors(color) {
     "surface.border": color.border.muted,
     "modernPanel.border": color.border.subtle,
     "modernSash.gripForeground": color.border.emphasis,
-    "modernTab.activeBackground": alpha(
-      color.interaction.selected,
-      OPACITY_50_PERCENT,
-    ),
+    "modernTab.activeBackground": alpha(color.interaction.selected, 0.5),
     "modernTab.activeForeground": color.foreground.emphasis,
-    "modernTab.hoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
+    "modernTab.hoverBackground": alpha(color.interaction.hover, 0.5),
     "modernTab.hoverForeground": color.foreground.emphasis,
-    "modernEditorTab.activeBackground": alpha(
-      color.interaction.selected,
-      OPACITY_50_PERCENT,
-    ),
+    "modernEditorTab.activeBackground": alpha(color.interaction.selected, 0.5),
     "modernEditorTab.activeActionBackground": alpha(
       color.interaction.selected,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "modernEditorTab.activeForeground": color.foreground.emphasis,
     "modernEditorTab.inactiveBackground": color.canvas.default,
-    "modernEditorTab.hoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
+    "modernEditorTab.hoverBackground": alpha(color.interaction.hover, 0.5),
     "modernEditorTab.hoverActionBackground": alpha(
       color.interaction.hover,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "modernEditorTab.hoverForeground": color.foreground.emphasis,
     "modernEditorTab.activeHoverBackground": alpha(
       color.interaction.hover,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "modernEditorTab.activeHoverActionBackground": alpha(
       color.interaction.hover,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "modernEditorTab.selectedActionBackground": alpha(
       color.interaction.selected,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "modernActivityBar.background": color.canvas.inset,
     "modernActivityBar.inactiveBackground": color.canvas.inset,
     "modernActivityBarItem.activeForeground": color.foreground.emphasis,
     "modernActivityBarItem.activeBackground": alpha(
       color.interaction.selected,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "modernActivityBarItem.hoverForeground": color.foreground.emphasis,
     "modernActivityBarItem.hoverBackground": alpha(
       color.interaction.hover,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "modernActivityBar.border": color.border.muted,
     "modernUI.shellBackground": color.canvas.default,
     "modernUI.inactiveShellBackground": color.canvas.inset,
 
-    // Window chrome and primary navigation
+    // Workbench shell
+    // Window chrome
     "titleBar.activeForeground": color.foreground.default,
     "titleBar.activeBackground": color.canvas.default,
-    "titleBar.inactiveForeground": alpha(
-      color.foreground.subtle,
-      OPACITY_50_PERCENT,
-    ),
+    "titleBar.inactiveForeground": alpha(color.foreground.subtle, 0.5),
     "titleBar.inactiveBackground": color.canvas.inset,
     "titleBar.border": color.border.muted,
     "window.activeBorder": color.accent.secondary.background,
     "window.inactiveBorder": color.border.muted,
+
+    // Activity bar and side bar
     "activityBar.foreground": color.foreground.muted,
     "activityBar.inactiveForeground": color.foreground.muted,
     "activityBar.background": color.canvas.inset,
-    "activityBar.activeBackground": alpha(
-      color.interaction.selected,
-      OPACITY_50_PERCENT,
-    ),
+    "activityBar.activeBackground": alpha(color.interaction.selected, 0.5),
     "activityBar.activeBorder": color.accent.secondary.background,
     "activityBar.activeFocusBorder": color.accent.secondary.background,
     "activityBar.border": color.border.muted,
@@ -241,11 +202,13 @@ function createWorkbenchColors(color) {
     "sideBarSectionHeader.foreground": color.foreground.muted,
     "sideBarSectionHeader.background": color.canvas.inset,
     "sideBarSectionHeader.border": color.border.subtle,
-    "sideBar.dropBackground": alpha(color.canvas.inset, OPACITY_80_PERCENT),
+    "sideBar.dropBackground": alpha(color.canvas.inset, 0.8),
     "sideBarStickyScroll.background": color.canvas.inset,
     "sideBarStickyScroll.border": color.canvas.inset,
     "sideBarStickyScroll.shadow": color.canvas.inset,
     "sideBarActivityBarTop.border": color.border.subtle,
+
+    // Profiles and command center
     "profileBadge.background": color.badge.background,
     "profileBadge.foreground": color.badge.foreground,
     "profiles.sashBorder": color.border.muted,
@@ -260,26 +223,22 @@ function createWorkbenchColors(color) {
 
     // Lists, trees, notifications, and pickers
     "list.hoverForeground": color.foreground.prominent,
-    "list.hoverBackground": alpha(color.interaction.hover, OPACITY_50_PERCENT),
-    "list.inactiveSelectionForeground": color.foreground.prominent,
+    "list.hoverBackground": alpha(color.interaction.hover, 0.5),
+    "list.inactiveSelectionForeground": color.foreground.emphasis,
     "list.inactiveSelectionBackground": alpha(
       color.interaction.selectedInactive,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
-    "list.inactiveSelectionIconForeground": color.foreground.prominent,
     "list.activeSelectionForeground": color.accent.secondary.foreground,
     "list.activeSelectionBackground": color.accent.secondary.background,
     "list.focusHighlightForeground": color.accent.secondary.foreground,
     "list.focusAndSelectionOutline": color.accent.secondary.background,
     "list.focusForeground": color.foreground.subtle,
-    "list.focusBackground": alpha(
-      color.interaction.focused,
-      OPACITY_50_PERCENT,
-    ),
+    "list.focusBackground": alpha(color.interaction.focused, 0.5),
     "list.focusOutline": color.border.emphasis,
     "list.inactiveFocusBackground": alpha(
       color.interaction.selectedInactive,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "list.inactiveFocusOutline": color.border.muted,
     "list.deemphasizedForeground": color.foreground.subtle,
@@ -303,17 +262,11 @@ function createWorkbenchColors(color) {
     "quickInput.background": color.canvas.overlay,
     "quickInput.foreground": color.foreground.emphasis,
     "quickInput.border": color.border.default,
-    "list.dropBackground": alpha(
-      color.interaction.selected,
-      OPACITY_50_PERCENT,
-    ),
+    "list.dropBackground": alpha(color.interaction.selected, 0.5),
     "list.errorForeground": color.danger.foreground,
     "list.invalidItemForeground": color.danger.foreground,
     "list.warningForeground": color.attention.foreground,
-    "list.filterMatchBackground": alpha(
-      color.interaction.highlighted,
-      OPACITY_50_PERCENT,
-    ),
+    "list.filterMatchBackground": alpha(color.interaction.highlighted, 0.5),
     "list.filterMatchBorder": color.border.default,
     "listFilterWidget.background": color.canvas.overlay,
     "listFilterWidget.noMatchesOutline": color.danger.foreground,
@@ -321,55 +274,34 @@ function createWorkbenchColors(color) {
     "menu.background": color.canvas.overlay,
     "menu.border": color.border.default,
     "menu.foreground": color.foreground.emphasis,
-    "menu.selectionBackground": alpha(
-      color.interaction.selected,
-      OPACITY_50_PERCENT,
-    ),
+    "menu.selectionBackground": alpha(color.interaction.selected, 0.5),
     "menu.selectionBorder": color.border.muted,
     "menu.selectionForeground": color.foreground.emphasis,
     "menu.separatorBackground": color.foreground.default,
-    "menubar.selectionBackground": alpha(
-      color.interaction.selected,
-      OPACITY_50_PERCENT,
-    ),
+    "menubar.selectionBackground": alpha(color.interaction.selected, 0.5),
     "menubar.selectionBorder": color.border.muted,
     "menubar.selectionForeground": color.foreground.emphasis,
     "notificationCenter.border": color.border.muted,
     "notificationLink.foreground": color.foreground.default,
     "notificationToast.border": color.border.muted,
-    "selection.background": alpha(
-      color.interaction.selected,
-      OPACITY_50_PERCENT,
-    ),
+    "selection.background": alpha(color.interaction.selected, 0.5),
     "quickInputList.focusBackground": color.control.primary.background,
     "quickInputList.focusForeground": color.control.primary.foreground,
     "quickInputList.focusIconForeground": color.control.primary.foreground,
     "quickInputList.focusHighlightForeground": color.control.primary.foreground,
-    "quickInputList.hoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
+    "quickInputList.hoverBackground": alpha(color.interaction.hover, 0.5),
     "quickInputTitle.background": color.canvas.overlay,
-    "listFilterWidget.shadow": alpha(color.canvas.inset, OPACITY_50_PERCENT),
-    "toolbar.hoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
-    "toolbar.hoverOutline": "#00000000",
+    "listFilterWidget.shadow": alpha(color.canvas.inset, 0.5),
+    "toolbar.hoverBackground": alpha(color.interaction.hover, 0.5),
+    "toolbar.hoverOutline": TRANSPARENT,
     "toolbar.activeBackground": color.interaction.pressed,
-    "actionBar.toggledBackground": alpha(
-      color.interaction.selected,
-      OPACITY_50_PERCENT,
-    ),
+    "actionBar.toggledBackground": alpha(color.interaction.selected, 0.5),
 
     // Status bar
     "statusBar.foreground": color.foreground.muted,
     "statusBar.background": color.canvas.default,
     "statusBar.border": color.border.default,
-    "statusBar.focusBorder": alpha(
-      color.accent.primary.background,
-      OPACITY_50_PERCENT,
-    ),
+    "statusBar.focusBorder": alpha(color.accent.primary.background, 0.5),
     "statusBar.noFolderBackground": color.canvas.default,
     "statusBar.debuggingForeground": color.control.primary.foreground,
     "statusBar.debuggingBackground": color.control.primary.background,
@@ -378,22 +310,16 @@ function createWorkbenchColors(color) {
     "statusBarItem.prominentForeground": color.foreground.onEmphasis,
     "statusBarItem.prominentHoverBackground": alpha(
       color.interaction.hover,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "statusBarItem.prominentHoverForeground": color.foreground.onEmphasis,
     "statusBarItem.remoteForeground": color.foreground.default,
     "statusBarItem.remoteBackground": color.canvas.overlay,
-    "statusBarItem.hoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
+    "statusBarItem.hoverBackground": alpha(color.interaction.hover, 0.5),
     "statusBarItem.hoverForeground": color.foreground.emphasis,
     "statusBarItem.activeBackground": color.interaction.pressed,
     "statusBarItem.focusBorder": color.accent.secondary.background,
-    "statusBarItem.remoteHoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
+    "statusBarItem.remoteHoverBackground": alpha(color.interaction.hover, 0.5),
     "statusBarItem.remoteHoverForeground": color.foreground.emphasis,
     "statusBarItem.errorBackground": color.danger.emphasis,
     "statusBarItem.errorForeground": color.foreground.onEmphasis,
@@ -403,16 +329,10 @@ function createWorkbenchColors(color) {
     "statusBarItem.warningForeground": color.foreground.onEmphasis,
     "statusBarItem.warningHoverBackground": color.attention.foreground,
     "statusBarItem.warningHoverForeground": color.foreground.onEmphasis,
-    "statusBarItem.compactHoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
+    "statusBarItem.compactHoverBackground": alpha(color.interaction.hover, 0.5),
     "statusBarItem.offlineBackground": color.canvas.overlay,
     "statusBarItem.offlineForeground": color.foreground.muted,
-    "statusBarItem.offlineHoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
+    "statusBarItem.offlineHoverBackground": alpha(color.interaction.hover, 0.5),
     "statusBarItem.offlineHoverForeground": color.foreground.emphasis,
     "statusBar.noFolderBorder": color.border.default,
     "statusBar.noFolderForeground": color.foreground.muted,
@@ -427,10 +347,10 @@ function createWorkbenchColors(color) {
     "tab.inactiveBackground": color.canvas.default,
     "tab.activeBackground": color.canvas.default,
     "tab.selectedBackground": alpha(
-      alpha(color.interaction.selected, OPACITY_50_PERCENT),
-      OPACITY_50_PERCENT,
+      alpha(color.interaction.selected, 0.5),
+      0.5,
     ),
-    "tab.hoverBackground": alpha(color.interaction.hover, OPACITY_50_PERCENT),
+    "tab.hoverBackground": alpha(color.interaction.hover, 0.5),
     "tab.hoverForeground": color.foreground.emphasis,
     "tab.border": color.border.default,
     "tab.activeBorder": color.border.default,
@@ -441,14 +361,11 @@ function createWorkbenchColors(color) {
     "tab.inactiveModifiedBorder": color.border.default,
     "tab.unfocusedActiveBackground": alpha(
       color.interaction.selectedInactive,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "tab.unfocusedActiveForeground": color.foreground.emphasis,
     "tab.unfocusedActiveModifiedBorder": color.border.default,
-    "tab.unfocusedHoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
+    "tab.unfocusedHoverBackground": alpha(color.interaction.hover, 0.5),
     "tab.unfocusedHoverForeground": color.foreground.emphasis,
     "tab.unfocusedHoverBorder": color.border.default,
     "tab.unfocusedInactiveBackground": color.canvas.default,
@@ -461,7 +378,7 @@ function createWorkbenchColors(color) {
     "breadcrumb.activeSelectionForeground": color.foreground.emphasis,
     "breadcrumbPicker.background": color.canvas.default,
     "breadcrumb.background": color.canvas.default,
-    "editorGroup.dropBackground": alpha(color.canvas.inset, OPACITY_80_PERCENT),
+    "editorGroup.dropBackground": alpha(color.canvas.inset, 0.8),
     "editorGroup.emptyBackground": color.canvas.default,
     "editorGroup.focusedEmptyBorder": color.border.default,
     "editorGroupHeader.noTabsBackground": color.canvas.default,
@@ -475,11 +392,8 @@ function createWorkbenchColors(color) {
     // Editor canvas, selection, and guides
     "editor.foreground": color.foreground.prominent,
     "editor.background": color.canvas.default,
-    "editor.foldBackground": alpha(color.canvas.overlay, OPACITY_10_PERCENT),
-    "editor.lineHighlightBackground": alpha(
-      color.interaction.highlighted,
-      OPACITY_50_PERCENT,
-    ),
+    "editor.foldBackground": alpha(color.canvas.overlay, 0.1),
+    "editor.lineHighlightBackground": alpha(color.interaction.highlighted, 0.5),
     "editor.lineHighlightBorder": alpha(color.canvas.raised, 0),
     "editorLineNumber.foreground": color.foreground.subtle,
     "editorLineNumber.activeForeground": color.foreground.emphasis,
@@ -488,11 +402,11 @@ function createWorkbenchColors(color) {
     "editor.compositionBorder": color.accent.secondary.background,
     "editorUnicodeHighlight.background": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editorUnicodeHighlight.border": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editorWhitespace.foreground": color.foreground.subtle,
     "editorCursor.foreground": color.foreground.emphasis,
@@ -502,20 +416,20 @@ function createWorkbenchColors(color) {
     "editor.findMatchHighlightForeground": color.accent.primary.foreground,
     "editor.linkedEditingBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.inactiveSelectionBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.selectionForeground": color.accent.primary.background,
     "editor.selectionBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.selectionHighlightBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.selectionHighlightBorder": alpha(
       color.accent.primary.background,
@@ -523,12 +437,12 @@ function createWorkbenchColors(color) {
     ),
     "editor.wordHighlightBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.wordHighlightBorder": alpha(color.accent.primary.background, 0),
     "editor.wordHighlightStrongBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.wordHighlightStrongBorder": alpha(
       color.accent.primary.background,
@@ -538,69 +452,48 @@ function createWorkbenchColors(color) {
     "editorBracketMatch.border": color.accent.secondary.background,
     "editorInlayHint.foreground": color.foreground.muted,
     "editorInlayHint.background": alpha(color.canvas.overlay, 0),
-    "editorInlayHint.parameterForeground": alpha(
-      color.inlayHint.parameter.foreground,
-      OPACITY_100_PERCENT,
-    ),
-    "editorInlayHint.parameterBackground": alpha(
-      color.inlayHint.parameter.background,
-      OPACITY_100_PERCENT,
-    ),
-    "editorInlayHint.typeForeground": alpha(
-      color.inlayHint.type.foreground,
-      OPACITY_100_PERCENT,
-    ),
-    "editorInlayHint.typeBackground": alpha(
-      color.inlayHint.type.background,
-      OPACITY_100_PERCENT,
-    ),
-    "editor.findMatchBorder": alpha(
-      color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
-    ),
+    "editorInlayHint.parameterForeground": color.inlayHint.parameter.foreground,
+    "editorInlayHint.parameterBackground": color.inlayHint.parameter.background,
+    "editorInlayHint.typeForeground": color.inlayHint.type.foreground,
+    "editorInlayHint.typeBackground": color.inlayHint.type.background,
+    "editor.findMatchBorder": alpha(color.accent.secondary.background, 0.125),
     "editor.findRangeHighlightBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.hoverHighlightBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.rangeHighlightBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
-    "editor.rangeHighlightBorder": alpha(
-      color.accent.primary.background,
-      OPACITY_50_PERCENT,
-    ),
+    "editor.rangeHighlightBorder": alpha(color.accent.primary.background, 0.5),
     "editor.symbolHighlightBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
-    "editor.symbolHighlightBorder": alpha(
-      color.accent.primary.background,
-      OPACITY_50_PERCENT,
-    ),
+    "editor.symbolHighlightBorder": alpha(color.accent.primary.background, 0.5),
     "editor.snippetFinalTabstopHighlightBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.snippetFinalTabstopHighlightBorder": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.snippetTabstopHighlightBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.snippetTabstopHighlightBorder": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.wordHighlightTextBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "editor.wordHighlightTextBorder": alpha(color.accent.primary.background, 0),
     "editorCursor.background": color.attention.foreground,
@@ -609,10 +502,10 @@ function createWorkbenchColors(color) {
     "editorStickyScroll.background": color.canvas.default,
     "editorStickyScrollHover.background": alpha(
       color.accent.secondary.background,
-      OPACITY_40_PERCENT,
+      0.4,
     ),
     "editorStickyScroll.border": color.border.subtle,
-    "editorStickyScroll.shadow": alpha(color.canvas.inset, OPACITY_40_PERCENT),
+    "editorStickyScroll.shadow": alpha(color.canvas.inset, 0.4),
     "editorStickyScrollGutter.background": color.canvas.default,
     "editorGhostText.foreground": color.foreground.emphasis,
     "editorBracketHighlight.foreground1": color.brackets.one,
@@ -629,32 +522,23 @@ function createWorkbenchColors(color) {
     "editorCodeLens.foreground": color.foreground.default,
     "editorError.foreground": color.danger.foreground,
     "editorError.border": color.danger.foreground,
-    "editorError.background": alpha(color.danger.muted, OPACITY_20_PERCENT),
+    "editorError.background": alpha(color.danger.muted, 0.2),
     "editorHint.foreground": color.accent.primary.background,
     "editorHint.border": color.accent.secondary.background,
-    "editorHint.background": alpha(
-      color.accent.primary.background,
-      OPACITY_20_PERCENT,
-    ),
+    "editorHint.background": alpha(color.accent.primary.background, 0.2),
     "editorHoverWidget.background": color.canvas.overlay,
     "editorHoverWidget.foreground": color.foreground.emphasis,
     "editorHoverWidget.border": color.border.emphasis,
     "editorInfo.foreground": color.info.foreground,
     "editorInfo.border": color.info.foreground,
-    "editorInfo.background": alpha(color.info.muted, OPACITY_20_PERCENT),
+    "editorInfo.background": alpha(color.info.muted, 0.2),
     "editorLink.activeForeground": color.foreground.default,
     "editorMarkerNavigation.background": color.canvas.default,
-    "editorMarkerNavigationError.background": alpha(
-      color.danger.muted,
-      OPACITY_40_PERCENT,
-    ),
-    "editorMarkerNavigationInfo.background": alpha(
-      color.info.muted,
-      OPACITY_40_PERCENT,
-    ),
+    "editorMarkerNavigationError.background": alpha(color.danger.muted, 0.4),
+    "editorMarkerNavigationInfo.background": alpha(color.info.muted, 0.4),
     "editorMarkerNavigationWarning.background": alpha(
       color.attention.muted,
-      OPACITY_40_PERCENT,
+      0.4,
     ),
     "editorPane.background": color.canvas.default,
     "editorRuler.foreground": color.canvas.inset,
@@ -663,70 +547,43 @@ function createWorkbenchColors(color) {
     "editorSuggestWidget.foreground": color.foreground.emphasis,
     "editorSuggestWidget.highlightForeground": color.foreground.default,
     "editorSuggestWidget.selectedBackground": alpha(
-      alpha(color.interaction.selected, OPACITY_50_PERCENT),
-      OPACITY_50_PERCENT,
+      color.interaction.selected,
+      0.5,
     ),
-    "editorUnnecessaryCode.opacity": alpha(
-      color.foreground.emphasis,
-      OPACITY_80_PERCENT,
-    ),
+    "editorUnnecessaryCode.opacity": alpha(color.foreground.emphasis, 0.8),
     "editorWarning.foreground": color.attention.foreground,
     "editorWarning.border": color.attention.foreground,
-    "editorWarning.background": alpha(
-      color.attention.muted,
-      OPACITY_20_PERCENT,
-    ),
+    "editorWarning.background": alpha(color.attention.muted, 0.2),
     "editorWidget.foreground": color.foreground.emphasis,
     "editorWidget.border": color.border.default,
     "editorWidget.resizeBorder": color.border.default,
     "searchEditor.findMatchBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "searchEditor.findMatchBorder": color.border.default,
-    "notebook.symbolHighlightBackground": alpha(
-      color.canvas.overlay,
-      OPACITY_40_PERCENT,
-    ),
+    "notebook.symbolHighlightBackground": alpha(color.canvas.overlay, 0.4),
     "editorCommentsWidget.rangeBackground": alpha(
       color.accent.tertiary.background,
-      OPACITY_40_PERCENT,
+      0.4,
     ),
     "editorCommentsWidget.rangeActiveBackground": alpha(
       color.accent.tertiary.background,
-      OPACITY_40_PERCENT,
+      0.4,
     ),
 
     // Source control, diffs, and scrolling
-    "editorGutter.modifiedBackground": alpha(
-      color.sourceControl.modified,
-      OPACITY_60_PERCENT,
-    ),
-    "editorGutter.addedBackground": alpha(
-      color.sourceControl.added,
-      OPACITY_60_PERCENT,
-    ),
-    "editorGutter.deletedBackground": alpha(
-      color.sourceControl.deleted,
-      OPACITY_60_PERCENT,
-    ),
-    "diffEditor.insertedLineBackground": alpha(
-      color.sourceControl.added,
-      OPACITY_15_PERCENT,
-    ),
-    "diffEditor.insertedTextBackground": alpha(
-      color.sourceControl.added,
-      OPACITY_10_PERCENT,
-    ),
+    "editorGutter.modifiedBackground": alpha(color.sourceControl.modified, 0.6),
+    "editorGutter.addedBackground": alpha(color.sourceControl.added, 0.6),
+    "editorGutter.deletedBackground": alpha(color.sourceControl.deleted, 0.6),
+    "diffEditor.insertedLineBackground": alpha(color.sourceControl.added, 0.15),
+    "diffEditor.insertedTextBackground": alpha(color.sourceControl.added, 0.1),
     "diffEditor.insertedTextBorder": alpha(color.sourceControl.added, 0),
     "diffEditor.removedLineBackground": alpha(
       color.sourceControl.deleted,
-      OPACITY_15_PERCENT,
+      0.15,
     ),
-    "diffEditor.removedTextBackground": alpha(
-      color.sourceControl.deleted,
-      OPACITY_10_PERCENT,
-    ),
+    "diffEditor.removedTextBackground": alpha(color.sourceControl.deleted, 0.1),
     "diffEditor.removedTextBorder": alpha(color.sourceControl.deleted, 0),
     "diffEditor.diagonalFill": color.border.muted,
     "diffEditor.unchangedRegionBackground": color.canvas.inset,
@@ -744,31 +601,13 @@ function createWorkbenchColors(color) {
     "multiDiffEditor.border": color.border.muted,
     "scrollbar.background": alpha(color.canvas.default, 0),
     "scrollbar.shadow": color.canvas.default,
-    "scrollbarSlider.background": alpha(
-      color.canvas.raised,
-      OPACITY_60_PERCENT,
-    ),
-    "scrollbarSlider.hoverBackground": alpha(
-      color.canvas.raised,
-      OPACITY_70_PERCENT,
-    ),
-    "scrollbarSlider.activeBackground": alpha(
-      color.canvas.raised,
-      OPACITY_60_PERCENT,
-    ),
-    "editorOverviewRuler.border": alpha(
-      color.border.subtle,
-      OPACITY_50_PERCENT,
-    ),
-    "minimapSlider.background": alpha(color.canvas.raised, OPACITY_40_PERCENT),
-    "minimapSlider.hoverBackground": alpha(
-      color.canvas.raised,
-      OPACITY_50_PERCENT,
-    ),
-    "minimapSlider.activeBackground": alpha(
-      color.canvas.raised,
-      OPACITY_40_PERCENT,
-    ),
+    "scrollbarSlider.background": alpha(color.canvas.raised, 0.6),
+    "scrollbarSlider.hoverBackground": alpha(color.canvas.raised, 0.7),
+    "scrollbarSlider.activeBackground": alpha(color.canvas.raised, 0.6),
+    "editorOverviewRuler.border": alpha(color.border.subtle, 0.5),
+    "minimapSlider.background": alpha(color.canvas.raised, 0.4),
+    "minimapSlider.hoverBackground": alpha(color.canvas.raised, 0.5),
+    "minimapSlider.activeBackground": alpha(color.canvas.raised, 0.4),
     "minimap.background": alpha(color.canvas.default, 0),
     "minimap.foregroundOpacity": alpha(color.foreground.default, 0.86),
     "diffEditor.border": color.canvas.default,
@@ -785,31 +624,31 @@ function createWorkbenchColors(color) {
     "editorOverviewRuler.errorForeground": color.danger.foreground,
     "editorOverviewRuler.findMatchForeground": alpha(
       color.foreground.default,
-      OPACITY_60_PERCENT,
+      0.6,
     ),
     "editorOverviewRuler.incomingContentForeground": color.success.foreground,
     "editorOverviewRuler.infoForeground": color.info.foreground,
     "editorOverviewRuler.modifiedForeground": color.sourceControl.modified,
     "editorOverviewRuler.rangeHighlightForeground": alpha(
       color.accent.primary.background,
-      OPACITY_25_PERCENT,
+      0.25,
     ),
     "editorOverviewRuler.selectionHighlightForeground": alpha(
       color.accent.primary.background,
-      OPACITY_25_PERCENT,
+      0.25,
     ),
     "editorOverviewRuler.warningForeground": color.attention.foreground,
     "editorOverviewRuler.wordHighlightForeground": alpha(
       color.accent.primary.background,
-      OPACITY_60_PERCENT,
+      0.6,
     ),
     "editorOverviewRuler.wordHighlightStrongForeground": alpha(
       color.accent.primary.background,
-      OPACITY_60_PERCENT,
+      0.6,
     ),
     "editorOverviewRuler.wordHighlightTextForeground": alpha(
       color.accent.primary.background,
-      OPACITY_25_PERCENT,
+      0.25,
     ),
     "editorOverviewRuler.inlineChatInserted": color.sourceControl.added,
     "editorOverviewRuler.inlineChatRemoved": color.sourceControl.deleted,
@@ -820,33 +659,21 @@ function createWorkbenchColors(color) {
     "editorCommentsWidget.unresolvedBorder": color.accent.secondary.background,
     "editorCommentsWidget.replyInputBackground": color.canvas.overlay,
     "merge.border": color.border.default,
-    "merge.commonContentBackground": alpha(
-      color.canvas.inset,
-      OPACITY_10_PERCENT,
-    ),
-    "merge.commonHeaderBackground": alpha(
-      color.canvas.inset,
-      OPACITY_20_PERCENT,
-    ),
+    "merge.commonContentBackground": alpha(color.canvas.inset, 0.1),
+    "merge.commonHeaderBackground": alpha(color.canvas.inset, 0.2),
     "merge.currentContentBackground": alpha(
       color.accent.primary.background,
-      OPACITY_20_PERCENT,
+      0.2,
     ),
     "merge.currentHeaderBackground": alpha(
       color.accent.tertiary.background,
-      OPACITY_20_PERCENT,
+      0.2,
     ),
-    "merge.incomingContentBackground": alpha(
-      color.success.muted,
-      OPACITY_10_PERCENT,
-    ),
-    "merge.incomingHeaderBackground": alpha(
-      color.success.muted,
-      OPACITY_20_PERCENT,
-    ),
+    "merge.incomingContentBackground": alpha(color.success.muted, 0.1),
+    "merge.incomingHeaderBackground": alpha(color.success.muted, 0.2),
     "mergeEditor.change.background": alpha(
       color.accent.primary.background,
-      OPACITY_20_PERCENT,
+      0.2,
     ),
     "mergeEditor.change.word.background": alpha(
       color.accent.primary.background,
@@ -861,33 +688,18 @@ function createWorkbenchColors(color) {
     "mergeEditor.conflict.unhandled.minimapOverViewRuler":
       color.danger.foreground,
     "mergeEditor.conflictingLines.background": color.canvas.overlay,
-    "mergeEditor.changeBase.background": alpha(
-      color.foreground.muted,
-      OPACITY_15_PERCENT,
-    ),
+    "mergeEditor.changeBase.background": alpha(color.foreground.muted, 0.15),
     "mergeEditor.changeBase.word.background": alpha(
       color.foreground.muted,
-      OPACITY_25_PERCENT,
+      0.25,
     ),
-    "mergeEditor.conflict.input1.background": alpha(
-      color.danger.muted,
-      OPACITY_20_PERCENT,
-    ),
-    "mergeEditor.conflict.input2.background": alpha(
-      color.success.muted,
-      OPACITY_20_PERCENT,
-    ),
-    "minimap.findMatchHighlight": alpha(
-      color.canvas.overlay,
-      OPACITY_40_PERCENT,
-    ),
-    "minimap.selectionHighlight": alpha(
-      color.accent.secondary.background,
-      OPACITY_40_PERCENT,
-    ),
+    "mergeEditor.conflict.input1.background": alpha(color.danger.muted, 0.2),
+    "mergeEditor.conflict.input2.background": alpha(color.success.muted, 0.2),
+    "minimap.findMatchHighlight": alpha(color.canvas.overlay, 0.4),
+    "minimap.selectionHighlight": alpha(color.accent.secondary.background, 0.4),
     "minimap.selectionOccurrenceHighlight": alpha(
       color.accent.secondary.background,
-      OPACITY_40_PERCENT,
+      0.4,
     ),
     "minimap.errorHighlight": color.danger.foreground,
     "minimap.warningHighlight": color.attention.foreground,
@@ -898,7 +710,7 @@ function createWorkbenchColors(color) {
     "minimapGutter.deletedBackground": color.sourceControl.deleted,
     "editorMinimap.inlineChatInserted": color.sourceControl.added,
 
-    // Panels and debugging
+    // Panels and output views
     "panel.background": color.canvas.inset,
     "panel.border": color.border.muted,
     "panel.dropBorder": color.accent.secondary.background,
@@ -910,10 +722,7 @@ function createWorkbenchColors(color) {
     "panelTitleBadge.foreground": color.badge.foreground,
     "panelInput.border": color.border.muted,
     "panelSection.border": color.border.muted,
-    "panelSection.dropBackground": alpha(
-      color.canvas.inset,
-      OPACITY_80_PERCENT,
-    ),
+    "panelSection.dropBackground": alpha(color.canvas.inset, 0.8),
     "panelSectionHeader.background": color.canvas.inset,
     "panelSectionHeader.foreground": color.foreground.muted,
     "panelSectionHeader.border": color.border.subtle,
@@ -922,6 +731,8 @@ function createWorkbenchColors(color) {
     "panelStickyScroll.shadow": color.canvas.inset,
     "outputView.background": color.canvas.inset,
     "outputViewStickyScroll.background": color.canvas.inset,
+
+    // Debug controls and console
     "debugIcon.breakpointForeground": color.danger.foreground,
     "debugIcon.breakpointDisabledForeground": color.foreground.subtle,
     "debugIcon.breakpointUnverifiedForeground": color.attention.foreground,
@@ -944,10 +755,7 @@ function createWorkbenchColors(color) {
     "debugView.stateLabelBackground": color.accent.primary.background,
     "debugView.valueChangedHighlight": color.attention.foreground,
     "editor.inlineValuesForeground": color.foreground.muted,
-    "editor.inlineValuesBackground": alpha(
-      color.canvas.overlay,
-      OPACITY_60_PERCENT,
-    ),
+    "editor.inlineValuesBackground": alpha(color.canvas.overlay, 0.6),
     "debugConsole.infoForeground": color.info.foreground,
     "debugConsole.warningForeground": color.attention.foreground,
     "debugConsole.errorForeground": color.danger.foreground,
@@ -961,6 +769,8 @@ function createWorkbenchColors(color) {
     "debugTokenExpression.error": color.danger.foreground,
     "debugExceptionWidget.background": color.canvas.default,
     "debugExceptionWidget.border": color.border.muted,
+
+    // Testing
     "testing.iconFailed": color.danger.foreground,
     "testing.iconErrored": color.danger.foreground,
     "testing.iconPassed": color.success.foreground,
@@ -977,27 +787,15 @@ function createWorkbenchColors(color) {
     "testing.peekBorder": color.border.muted,
     "testing.peekHeaderBackground": color.canvas.default,
     "testing.message.info.decorationForeground": color.info.foreground,
-    "testing.message.error.lineBackground": alpha(
-      color.danger.muted,
-      OPACITY_20_PERCENT,
-    ),
-    "testing.message.info.lineBackground": alpha(
-      color.info.muted,
-      OPACITY_20_PERCENT,
-    ),
+    "testing.message.error.lineBackground": alpha(color.danger.muted, 0.2),
+    "testing.message.info.lineBackground": alpha(color.info.muted, 0.2),
     "testing.messagePeekBorder": color.border.muted,
     "testing.messagePeekHeaderBackground": color.canvas.default,
-    "testing.coveredBackground": alpha(color.success.muted, OPACITY_20_PERCENT),
+    "testing.coveredBackground": alpha(color.success.muted, 0.2),
     "testing.coveredBorder": color.success.foreground,
     "testing.coveredGutterBackground": color.success.foreground,
-    "testing.uncoveredBranchBackground": alpha(
-      color.attention.muted,
-      OPACITY_20_PERCENT,
-    ),
-    "testing.uncoveredBackground": alpha(
-      color.danger.muted,
-      OPACITY_20_PERCENT,
-    ),
+    "testing.uncoveredBranchBackground": alpha(color.attention.muted, 0.2),
+    "testing.uncoveredBackground": alpha(color.danger.muted, 0.2),
     "testing.uncoveredBorder": color.danger.foreground,
     "testing.uncoveredGutterBackground": color.danger.foreground,
     "testing.coverCountBadgeBackground": color.canvas.overlay,
@@ -1006,43 +804,30 @@ function createWorkbenchColors(color) {
     "testing.message.error.badgeBorder": color.danger.foreground,
     "testing.message.error.badgeForeground": color.foreground.onEmphasis,
     "ports.iconRunningProcessForeground": color.success.foreground,
+
+    // Notebooks
     "notebook.editorBackground": color.canvas.default,
     "notebook.cellBorderColor": color.border.muted,
-    "notebook.cellHoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
+    "notebook.cellHoverBackground": alpha(color.interaction.hover, 0.5),
     "notebook.cellInsertionIndicator": color.accent.primary.background,
     "notebook.cellStatusBarItemHoverBackground": alpha(
       color.interaction.hover,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "notebook.cellToolbarSeparator": color.border.muted,
     "notebook.cellEditorBackground": color.canvas.default,
-    "notebook.focusedCellBackground": alpha(
-      color.interaction.focused,
-      OPACITY_50_PERCENT,
-    ),
+    "notebook.focusedCellBackground": alpha(color.interaction.focused, 0.5),
     "notebook.focusedCellBorder": color.accent.secondary.background,
     "notebook.focusedEditorBorder": color.accent.secondary.background,
     "notebook.inactiveFocusedCellBorder": color.border.muted,
     "notebook.inactiveSelectedCellBorder": color.border.muted,
     "notebook.outputContainerBackgroundColor": color.canvas.inset,
     "notebook.outputContainerBorderColor": color.border.muted,
-    "notebook.selectedCellBackground": alpha(
-      color.interaction.selected,
-      OPACITY_50_PERCENT,
-    ),
+    "notebook.selectedCellBackground": alpha(color.interaction.selected, 0.5),
     "notebook.selectedCellBorder": color.accent.secondary.background,
     "notebookScrollbarSlider.activeBackground": color.canvas.raised,
-    "notebookScrollbarSlider.background": alpha(
-      color.canvas.raised,
-      OPACITY_25_PERCENT,
-    ),
-    "notebookScrollbarSlider.hoverBackground": alpha(
-      color.canvas.raised,
-      OPACITY_50_PERCENT,
-    ),
+    "notebookScrollbarSlider.background": alpha(color.canvas.raised, 0.25),
+    "notebookScrollbarSlider.hoverBackground": alpha(color.canvas.raised, 0.5),
     "notebookStatusErrorIcon.foreground": color.danger.foreground,
     "notebookStatusRunningIcon.foreground": color.accent.primary.background,
     "notebookStatusSuccessIcon.foreground": color.success.foreground,
@@ -1051,14 +836,14 @@ function createWorkbenchColors(color) {
 
     // Gauges and charts
     "gauge.foreground": color.info.foreground,
-    "gauge.background": alpha(color.info.muted, OPACITY_30_PERCENT),
+    "gauge.background": alpha(color.info.muted, 0.3),
     "gauge.border": color.border.default,
     "gauge.warningForeground": color.attention.foreground,
-    "gauge.warningBackground": alpha(color.attention.muted, OPACITY_30_PERCENT),
+    "gauge.warningBackground": alpha(color.attention.muted, 0.3),
     "gauge.errorForeground": color.danger.foreground,
-    "gauge.errorBackground": alpha(color.danger.muted, OPACITY_30_PERCENT),
+    "gauge.errorBackground": alpha(color.danger.muted, 0.3),
     "charts.foreground": color.foreground.default,
-    "charts.lines": alpha(color.foreground.default, OPACITY_50_PERCENT),
+    "charts.lines": alpha(color.foreground.default, 0.5),
     "charts.blue": color.accent.tertiary.background,
     "charts.red": color.danger.foreground,
     "charts.yellow": color.attention.foreground,
@@ -1123,31 +908,28 @@ function createWorkbenchColors(color) {
     "terminal.border": color.border.muted,
     "terminal.findMatchBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "terminal.findMatchBorder": color.border.default,
     "terminal.findMatchHighlightBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "terminal.findMatchHighlightBorder": color.border.default,
     "terminal.hoverHighlightBackground": alpha(
       color.accent.primary.background,
-      OPACITY_25_PERCENT,
+      0.25,
     ),
-    "terminal.selectionBackground": alpha(
-      color.accent.primary.background,
-      OPACITY_50_PERCENT,
-    ),
+    "terminal.selectionBackground": alpha(color.accent.primary.background, 0.5),
     "terminal.selectionForeground": color.foreground.onEmphasis,
     "terminal.inactiveSelectionBackground": alpha(
       color.accent.secondary.background,
-      OPACITY_12_5_PERCENT,
+      0.125,
     ),
     "terminal.tab.activeBorder": color.accent.secondary.background,
     "terminalCursor.background": color.canvas.inset,
     "terminalCursor.foreground": color.foreground.emphasis,
-    "terminal.dropBackground": alpha(color.canvas.inset, OPACITY_80_PERCENT),
+    "terminal.dropBackground": alpha(color.canvas.inset, 0.8),
     "terminalCommandDecoration.defaultBackground": color.border.muted,
     "terminalCommandDecoration.successBackground": color.success.foreground,
     "terminalCommandDecoration.errorBackground": color.danger.foreground,
@@ -1162,54 +944,27 @@ function createWorkbenchColors(color) {
     "terminalCommandGuide.foreground": color.foreground.subtle,
 
     // Bracket pairs
-    "editorBracketPairGuide.activeBackground1": alpha(
-      color.brackets.one,
-      OPACITY_75_PERCENT,
-    ),
-    "editorBracketPairGuide.activeBackground2": alpha(
-      color.brackets.two,
-      OPACITY_75_PERCENT,
-    ),
+    "editorBracketPairGuide.activeBackground1": alpha(color.brackets.one, 0.75),
+    "editorBracketPairGuide.activeBackground2": alpha(color.brackets.two, 0.75),
     "editorBracketPairGuide.activeBackground3": alpha(
       color.brackets.three,
-      OPACITY_75_PERCENT,
+      0.75,
     ),
     "editorBracketPairGuide.activeBackground4": alpha(
       color.brackets.four,
-      OPACITY_75_PERCENT,
+      0.75,
     ),
     "editorBracketPairGuide.activeBackground5": alpha(
       color.brackets.five,
-      OPACITY_75_PERCENT,
+      0.75,
     ),
-    "editorBracketPairGuide.activeBackground6": alpha(
-      color.brackets.six,
-      OPACITY_75_PERCENT,
-    ),
-    "editorBracketPairGuide.background1": alpha(
-      color.brackets.one,
-      OPACITY_50_PERCENT,
-    ),
-    "editorBracketPairGuide.background2": alpha(
-      color.brackets.two,
-      OPACITY_50_PERCENT,
-    ),
-    "editorBracketPairGuide.background3": alpha(
-      color.brackets.three,
-      OPACITY_50_PERCENT,
-    ),
-    "editorBracketPairGuide.background4": alpha(
-      color.brackets.four,
-      OPACITY_50_PERCENT,
-    ),
-    "editorBracketPairGuide.background5": alpha(
-      color.brackets.five,
-      OPACITY_50_PERCENT,
-    ),
-    "editorBracketPairGuide.background6": alpha(
-      color.brackets.six,
-      OPACITY_50_PERCENT,
-    ),
+    "editorBracketPairGuide.activeBackground6": alpha(color.brackets.six, 0.75),
+    "editorBracketPairGuide.background1": alpha(color.brackets.one, 0.5),
+    "editorBracketPairGuide.background2": alpha(color.brackets.two, 0.5),
+    "editorBracketPairGuide.background3": alpha(color.brackets.three, 0.5),
+    "editorBracketPairGuide.background4": alpha(color.brackets.four, 0.5),
+    "editorBracketPairGuide.background5": alpha(color.brackets.five, 0.5),
+    "editorBracketPairGuide.background6": alpha(color.brackets.six, 0.5),
 
     // Source control decorations
     "gitDecoration.addedResourceForeground": color.sourceControl.added,
@@ -1219,7 +974,7 @@ function createWorkbenchColors(color) {
     "gitDecoration.untrackedResourceForeground": color.sourceControl.untracked,
     "gitDecoration.ignoredResourceForeground": alpha(
       color.sourceControl.ignored,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "gitDecoration.conflictingResourceForeground":
       color.sourceControl.conflicting,
@@ -1248,19 +1003,19 @@ function createWorkbenchColors(color) {
     "debugToolBar.background": color.canvas.default,
     "editor.stackFrameHighlightBackground": alpha(
       color.interaction.highlighted,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "editor.focusedStackFrameHighlightBackground": alpha(
       color.interaction.focused,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "peekViewEditor.matchHighlightBackground": alpha(
       color.accent.primary.background,
-      OPACITY_25_PERCENT,
+      0.25,
     ),
     "peekViewResult.matchHighlightBackground": alpha(
       color.accent.primary.background,
-      OPACITY_25_PERCENT,
+      0.25,
     ),
     "peekViewEditor.background": color.canvas.inset,
     "peekViewResult.background": color.canvas.inset,
@@ -1275,7 +1030,7 @@ function createWorkbenchColors(color) {
     "peekViewResult.lineForeground": color.foreground.muted,
     "peekViewResult.selectionBackground": alpha(
       color.accent.primary.background,
-      OPACITY_25_PERCENT,
+      0.25,
     ),
     "peekViewResult.selectionForeground": color.foreground.emphasis,
     "peekViewTitle.background": color.canvas.inset,
@@ -1285,24 +1040,15 @@ function createWorkbenchColors(color) {
     // Settings and welcome page
     "settings.headerForeground": color.foreground.emphasis,
     "settings.modifiedItemIndicator": color.foreground.default,
-    "settings.rowHoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
-    "settings.focusedRowBackground": alpha(
-      color.interaction.focused,
-      OPACITY_50_PERCENT,
-    ),
+    "settings.rowHoverBackground": alpha(color.interaction.hover, 0.5),
+    "settings.focusedRowBackground": alpha(color.interaction.focused, 0.5),
     "settings.focusedRowBorder": color.accent.secondary.background,
     "settings.headerBorder": color.border.muted,
     "settings.sashBorder": color.border.muted,
     "settings.settingsHeaderHoverForeground": color.foreground.emphasis,
     "welcomePage.progress.foreground": color.accent.primary.background,
     "welcomePage.tileBackground": color.canvas.overlay,
-    "welcomePage.tileHoverBackground": alpha(
-      color.interaction.hover,
-      OPACITY_50_PERCENT,
-    ),
+    "welcomePage.tileHoverBackground": alpha(color.interaction.hover, 0.5),
     "settings.checkboxBackground": color.canvas.overlay,
     "settings.checkboxBorder": color.border.emphasis,
     "settings.checkboxForeground": color.foreground.emphasis,
@@ -1321,7 +1067,7 @@ function createWorkbenchColors(color) {
     "welcomePage.progress.background": color.canvas.overlay,
     "welcomePage.tileBorder": color.border.muted,
     "widget.border": color.border.default,
-    "widget.shadow": alpha(color.canvas.inset, OPACITY_50_PERCENT),
+    "widget.shadow": alpha(color.canvas.inset, 0.5),
     "commentsView.resolvedIcon": color.foreground.subtle,
     "commentsView.unresolvedIcon": color.accent.primary.background,
     "markdownAlert.note.foreground": color.info.foreground,
@@ -1332,42 +1078,30 @@ function createWorkbenchColors(color) {
 
     // Chat, agents, and inline editing
     "chat.requestBackground": alpha(color.canvas.overlay, 0),
-    "chat.requestBorder": alpha(color.border.emphasis, OPACITY_60_PERCENT),
-    "chat.requestBubbleBackground": alpha(
-      color.canvas.overlay,
-      OPACITY_60_PERCENT,
-    ),
-    "chat.requestBubbleHoverBackground": alpha(
-      color.canvas.overlay,
-      OPACITY_60_PERCENT,
-    ),
+    "chat.requestBorder": alpha(color.border.emphasis, 0.6),
+    "chat.requestBubbleBackground": alpha(color.canvas.overlay, 0.6),
+    "chat.requestBubbleHoverBackground": alpha(color.canvas.overlay, 0.6),
     "chat.requestCodeBorder": alpha(color.border.emphasis, 0),
     "chat.slashCommandBackground": color.canvas.overlay,
     "chat.slashCommandForeground": color.foreground.emphasis,
     "chat.avatarBackground": color.canvas.overlay,
     "chat.avatarForeground": color.foreground.emphasis,
     "chat.editedFileForeground": color.sourceControl.modified,
-    "chat.linesAddedForeground": alpha(
-      color.sourceControl.added,
-      OPACITY_60_PERCENT,
-    ),
-    "chat.linesRemovedForeground": alpha(
-      color.sourceControl.deleted,
-      OPACITY_60_PERCENT,
-    ),
+    "chat.linesAddedForeground": alpha(color.sourceControl.added, 0.6),
+    "chat.linesRemovedForeground": alpha(color.sourceControl.deleted, 0.6),
     "chat.checkpointSeparator": color.canvas.overlay,
     "chat.thinkingShimmer": alpha(color.accent.primary.background, 0.84),
     "chat.inputWorkingBorderColor1": alpha(
       color.accent.primary.background,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "chat.inputWorkingBorderColor2": alpha(
       color.accent.primary.background,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "chat.inputWorkingBorderColor3": alpha(
       color.accent.tertiary.background,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "chatManagement.sashBorder": color.border.muted,
     "agents.background": color.canvas.default,
@@ -1387,7 +1121,7 @@ function createWorkbenchColors(color) {
     "agentsNewSessionButton.border": color.border.default,
     "agentsNewSessionButton.hoverBackground": alpha(
       color.interaction.hover,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "activeSessionView.background": color.canvas.overlay,
     "inactiveSessionView.background": color.canvas.inset,
@@ -1409,71 +1143,47 @@ function createWorkbenchColors(color) {
     "agentSessionSelectedBadge.border": color.accent.secondary.background,
     "agentSessionSelectedUnfocusedBadge.border": alpha(
       color.accent.primary.background,
-      OPACITY_50_PERCENT,
+      0.5,
     ),
     "agentStatusIndicator.background": color.accent.primary.background,
     "aiCustomizationManagement.sashBorder": color.border.muted,
     "inlineChat.background": color.canvas.default,
     "inlineChat.foreground": color.foreground.default,
     "inlineChat.border": color.border.muted,
-    "inlineChat.shadow": alpha(color.canvas.inset, OPACITY_50_PERCENT),
+    "inlineChat.shadow": alpha(color.canvas.inset, 0.5),
     "inlineChatInput.background": color.canvas.default,
     "inlineChatInput.border": color.border.default,
     "inlineChatInput.focusBorder": color.accent.tertiary.background,
     "inlineChatInput.placeholderForeground": color.foreground.subtle,
-    "inlineChatDiff.inserted": alpha(
-      color.sourceControl.added,
-      OPACITY_20_PERCENT,
-    ),
-    "inlineChatDiff.removed": alpha(
-      color.sourceControl.deleted,
-      OPACITY_20_PERCENT,
-    ),
+    "inlineChatDiff.inserted": alpha(color.sourceControl.added, 0.2),
+    "inlineChatDiff.removed": alpha(color.sourceControl.deleted, 0.2),
     "inlineEdit.gutterIndicator.primaryBorder":
       color.accent.secondary.background,
     "inlineEdit.gutterIndicator.primaryForeground": color.foreground.emphasis,
     "inlineEdit.gutterIndicator.primaryBackground": alpha(
       color.accent.primary.background,
-      OPACITY_20_PERCENT,
+      0.2,
     ),
     "inlineEdit.gutterIndicator.secondaryBorder":
       color.accent.primary.background,
     "inlineEdit.gutterIndicator.secondaryForeground": color.foreground.emphasis,
     "inlineEdit.gutterIndicator.secondaryBackground": alpha(
       color.accent.primary.background,
-      OPACITY_20_PERCENT,
+      0.2,
     ),
     "inlineEdit.gutterIndicator.successfulBorder": color.success.foreground,
     "inlineEdit.gutterIndicator.successfulForeground": color.success.foreground,
     "inlineEdit.gutterIndicator.successfulBackground": alpha(
       color.success.muted,
-      OPACITY_20_PERCENT,
+      0.2,
     ),
     "inlineEdit.gutterIndicator.background": color.canvas.overlay,
-    "inlineEdit.originalBackground": alpha(
-      color.danger.muted,
-      OPACITY_10_PERCENT,
-    ),
-    "inlineEdit.modifiedBackground": alpha(
-      color.success.muted,
-      OPACITY_10_PERCENT,
-    ),
-    "inlineEdit.originalChangedLineBackground": alpha(
-      color.danger.muted,
-      OPACITY_20_PERCENT,
-    ),
-    "inlineEdit.originalChangedTextBackground": alpha(
-      color.danger.muted,
-      OPACITY_30_PERCENT,
-    ),
-    "inlineEdit.modifiedChangedLineBackground": alpha(
-      color.success.muted,
-      OPACITY_20_PERCENT,
-    ),
-    "inlineEdit.modifiedChangedTextBackground": alpha(
-      color.success.muted,
-      OPACITY_30_PERCENT,
-    ),
+    "inlineEdit.originalBackground": alpha(color.danger.muted, 0.1),
+    "inlineEdit.modifiedBackground": alpha(color.success.muted, 0.1),
+    "inlineEdit.originalChangedLineBackground": alpha(color.danger.muted, 0.2),
+    "inlineEdit.originalChangedTextBackground": alpha(color.danger.muted, 0.3),
+    "inlineEdit.modifiedChangedLineBackground": alpha(color.success.muted, 0.2),
+    "inlineEdit.modifiedChangedTextBackground": alpha(color.success.muted, 0.3),
     "inlineEdit.originalBorder": alpha(color.danger.foreground, 0),
     "inlineEdit.modifiedBorder": alpha(color.success.foreground, 0),
     "inlineEdit.tabWillAcceptModifiedBorder": color.success.foreground,
