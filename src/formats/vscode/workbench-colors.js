@@ -1,5 +1,7 @@
 const chroma = require("chroma-js");
 
+const TRANSPARENT = "#00000000";
+
 function alpha(value, opacity) {
   if (!Number.isFinite(opacity) || opacity < 0 || opacity > 1) {
     throw new RangeError("Alpha opacity must be between 0 and 1");
@@ -7,8 +9,6 @@ function alpha(value, opacity) {
 
   return chroma(value).alpha(opacity).hex();
 }
-
-const TRANSPARENT = "#00000000";
 
 function createWorkbenchColors(color) {
   return {
