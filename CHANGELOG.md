@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.2.0
+
+- Refined Nightcall’s color hierarchy across Default, Muted, and Classic with clearer accent roles, improved selection and focus states, updated search highlights, stronger badge and icon contrast, and more distinct syntax and inlay hint colors. Zed mappings were also updated to better match the revised visual system while preserving platform-specific behavior.
+
 ## 2.1.9
 
 - Refined string assignment operator colors for better visual rhythm, contrast and consistency across themes.
