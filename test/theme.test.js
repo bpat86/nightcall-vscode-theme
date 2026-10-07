@@ -132,8 +132,18 @@ test("interaction colors cover highlighted and focused states", () => {
     );
     assert.equal(
       colors["list.focusBackground"],
-      chroma(resolved.interaction.focused).alpha(0.5).hex(),
+      resolved.accent.secondary.background,
       `${definition.name}: focused list items`,
+    );
+    assert.equal(
+      colors["list.focusForeground"],
+      resolved.accent.secondary.foreground,
+      `${definition.name}: focused list text`,
+    );
+    assert.equal(
+      colors["list.focusHighlightForeground"],
+      resolved.accent.secondary.foreground,
+      `${definition.name}: focused list match highlights`,
     );
     assert.equal(
       colors["settings.focusedRowBackground"],

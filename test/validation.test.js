@@ -131,3 +131,73 @@ test("output validation retains conflict, color, contrast, and metadata checks",
     );
   }
 });
+
+test("floating and selected UI colors retain readable contrast in every variant", () => {
+  for (const definition of definitions) {
+    const { errors } = validateTheme(createTheme(definition), definition);
+    assert.deepEqual(errors, [], definition.name);
+  }
+});
+
+test("contrast validation composites translucent hover backgrounds", () => {
+  const definition = definitions[0];
+  const theme = createTheme(definition);
+  theme.colors["statusBarItem.prominentHoverForeground"] = "#ffffff";
+  theme.colors["statusBarItem.prominentHoverBackground"] = "#00000080";
+  theme.colors["statusBar.background"] = "#ffffff";
+
+  const { errors } = validateTheme(theme, definition);
+  assert.ok(
+    errors.some((message) =>
+      message.includes(
+        "statusBarItem.prominentHoverForeground on statusBarItem.prominentHoverBackground has 3.98:1 contrast",
+      ),
+    ),
+  );
+});
+
+test("contrast validation rejects unreadable overlay and selection foregrounds", () => {
+  const pairs = [
+    ["pickerGroup.foreground", "quickInput.background"],
+    ["list.focusForeground", "list.focusBackground"],
+    ["list.focusHighlightForeground", "list.activeSelectionBackground"],
+    ["quickInputList.focusIconForeground", "quickInputList.focusBackground"],
+    [
+      "quickInputList.focusHighlightForeground",
+      "quickInputList.focusBackground",
+    ],
+    [
+      "scmGraph.historyItemHoverDefaultLabelForeground",
+      "scmGraph.historyItemHoverDefaultLabelBackground",
+    ],
+    [
+      "scmGraph.historyItemHoverLabelForeground",
+      "scmGraph.historyItemRefColor",
+    ],
+    ["statusBarItem.prominentForeground", "statusBarItem.prominentBackground"],
+    ["statusBarItem.prominentHoverForeground", "statusBar.background"],
+    [
+      "editorSuggestWidget.selectedIconForeground",
+      "editorSuggestWidget.background",
+    ],
+    [
+      "editorSuggestWidget.focusHighlightForeground",
+      "editorSuggestWidget.background",
+    ],
+  ];
+
+  for (const definition of definitions) {
+    for (const [foregroundKey, backgroundKey] of pairs) {
+      const theme = createTheme(definition);
+      theme.colors[foregroundKey] = theme.colors[backgroundKey];
+      const { errors } = validateTheme(theme, definition);
+      assert.ok(
+        errors.some(
+          (message) =>
+            message.includes(foregroundKey) && message.includes("contrast"),
+        ),
+        `${definition.name}: ${foregroundKey}`,
+      );
+    }
+  }
+});

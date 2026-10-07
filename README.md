@@ -43,6 +43,8 @@ The darker, mostly original Nightcall color palette.
 
 The italic variants use italics selectively for comments, control flow, imports and exports, declarations, and contextual keywords such as `this`, `self`, and `super`.
 
+Focused and actively selected list rows use bright lavender backgrounds with dark text and match highlights. Floating suggestions and hover widgets retain light text on dark backgrounds.
+
 ## Recommended Settings
 
 I personally use [Dank Mono](https://philpl.gumroad.com/l/dank-mono). I've tried other fonts, but I always come back to this one.

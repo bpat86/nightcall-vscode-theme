@@ -95,20 +95,80 @@ function validateContrast(theme, fileName, { errors }) {
     ["input.foreground", "input.background"],
     ["dropdown.foreground", "dropdown.background"],
     ["notifications.foreground", "notifications.background"],
+    ["pickerGroup.foreground", "quickInput.background"],
+    ["list.focusForeground", "list.focusBackground"],
+    ["list.focusHighlightForeground", "list.focusBackground"],
+    ["list.focusHighlightForeground", "list.activeSelectionBackground"],
+    ["quickInputList.focusForeground", "quickInputList.focusBackground"],
+    ["quickInputList.focusIconForeground", "quickInputList.focusBackground"],
+    [
+      "quickInputList.focusHighlightForeground",
+      "quickInputList.focusBackground",
+    ],
+    ["editorHoverWidget.foreground", "editorHoverWidget.background"],
+    ["editorHoverWidget.highlightForeground", "editorHoverWidget.background"],
+    ["editorSuggestWidget.foreground", "editorSuggestWidget.background"],
+    [
+      "editorSuggestWidget.selectedForeground",
+      "editorSuggestWidget.selectedBackground",
+      "editorSuggestWidget.background",
+    ],
+    [
+      "editorSuggestWidget.selectedIconForeground",
+      "editorSuggestWidget.selectedBackground",
+      "editorSuggestWidget.background",
+    ],
+    [
+      "editorSuggestWidget.focusHighlightForeground",
+      "editorSuggestWidget.selectedBackground",
+      "editorSuggestWidget.background",
+    ],
+    [
+      "scmGraph.historyItemHoverDefaultLabelForeground",
+      "scmGraph.historyItemHoverDefaultLabelBackground",
+    ],
+    [
+      "scmGraph.historyItemHoverLabelForeground",
+      "scmGraph.historyItemRefColor",
+    ],
+    [
+      "scmGraph.historyItemHoverLabelForeground",
+      "scmGraph.historyItemRemoteRefColor",
+    ],
+    [
+      "scmGraph.historyItemHoverLabelForeground",
+      "scmGraph.historyItemBaseRefColor",
+    ],
+    ["statusBarItem.prominentForeground", "statusBarItem.prominentBackground"],
+    ...["statusBar.background", "statusBar.debuggingBackground"].map(
+      (baseKey) => [
+        "statusBarItem.prominentHoverForeground",
+        "statusBarItem.prominentHoverBackground",
+        baseKey,
+      ],
+    ),
     ["inputValidation.errorForeground", "inputValidation.errorBackground"],
     ["inputValidation.infoForeground", "inputValidation.infoBackground"],
     ["inputValidation.warningForeground", "inputValidation.warningBackground"],
   ];
 
-  for (const [foregroundKey, backgroundKey] of pairs) {
+  for (const [foregroundKey, backgroundKey, baseKey] of pairs) {
     const foreground = theme.colors[foregroundKey];
     const background = theme.colors[backgroundKey];
+    const base = baseKey ? theme.colors[baseKey] : undefined;
 
-    if (!isHexColor(foreground) || !isHexColor(background)) {
+    if (
+      !isHexColor(foreground) ||
+      !isHexColor(background) ||
+      (baseKey && !isHexColor(base))
+    ) {
       continue;
     }
 
-    const ratio = chroma.contrast(foreground, background);
+    const renderedBackground = base
+      ? chroma.mix(background, base, 1 - chroma(background).alpha(), "rgb")
+      : background;
+    const ratio = chroma.contrast(foreground, renderedBackground);
     if (ratio < 4.5) {
       errors.push(
         `${fileName}: ${foregroundKey} on ${backgroundKey} has ${ratio.toFixed(2)}:1 contrast`,
