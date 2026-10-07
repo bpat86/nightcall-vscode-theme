@@ -4,9 +4,7 @@ All notable changes to the "nightcall" extension will be documented in this file
 
 ## 2.2.2
 
-### Patch Changes
-
-- [`e6d8117`](https://github.com/bpat86/nightcall-vscode-theme/commit/e6d8117bb9c0e5b83f3fdb2ba9a18b665b05aa20) Thanks [@bpat86](https://github.com/bpat86)! - Aligned Modern UI activity bar and tab styling for a more consistent appearance.
+- Aligned Modern UI activity bar and tab styling for a more consistent appearance.
 
 ## 2.2.1
 
