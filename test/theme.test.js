@@ -79,7 +79,7 @@ test("secondary accent colors are used in the workbench", () => {
   );
   assert.equal(
     theme.colors["tab.selectedBorderTop"],
-    resolved.accent.primary.background,
+    resolved.accent.secondary.background,
   );
   assert.equal(
     theme.colors["terminal.tab.activeBorder"],
