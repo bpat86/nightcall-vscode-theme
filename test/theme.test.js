@@ -251,19 +251,27 @@ test("agent sessions use distinct shell, panel, and card surfaces", () => {
 
     assert.equal(
       colors["agents.background"],
-      resolved.canvas.default,
+      definition.borders ? resolved.canvas.inset : resolved.canvas.default,
       `${definition.name}: agent shell background`,
     );
     assert.equal(
       colors["agentsPanel.background"],
-      resolved.canvas.inset,
+      resolved.canvas.default,
       `${definition.name}: agent panel background`,
     );
-    assert.notEqual(
-      colors["agentsPanel.background"],
-      colors["agents.background"],
-      `${definition.name}: agent shell and panel surfaces must differ`,
-    );
+    if (definition.borders) {
+      assert.notEqual(
+        colors["agentsPanel.background"],
+        colors["agents.background"],
+        `${definition.name}: agent shell and panel surfaces must differ`,
+      );
+    } else {
+      assert.equal(
+        colors["agentsPanel.background"],
+        colors["agents.background"],
+        `${definition.name}: borderless surfaces share the editor background`,
+      );
+    }
     assert.equal(
       colors["agentsDetail.background"],
       resolved.canvas.default,
@@ -272,7 +280,7 @@ test("agent sessions use distinct shell, panel, and card surfaces", () => {
   }
 });
 
-test("agent frames and input borders remain visible in every theme", () => {
+test("agent frames and input borders use their intended scheme roles", () => {
   for (const definition of definitions) {
     const colors = createTheme(definition).colors;
     const resolved = loadResolvedColorScheme(definition.scheme);
@@ -281,31 +289,18 @@ test("agent frames and input borders remain visible in every theme", () => {
       "agentsPanel.border",
       "agentsCard.border",
       "agentsBottomPanel.border",
-      "agentsChatInput.border",
     ]) {
-      assert.match(
-        colors[key],
-        /^#[0-9a-f]{6}$/i,
-        `${definition.name}: ${key} must be opaque`,
-      );
       assert.equal(
         colors[key],
-        colors["agentsPanel.border"],
-        `${definition.name}: ${key} uses the shared agent frame color`,
+        resolved.border.default,
+        `${definition.name}: ${key} uses the subdued agent frame color`,
       );
-      for (const background of [
-        "agents.background",
-        "agentsPanel.background",
-        "agentsDetail.background",
-        "activeSessionView.background",
-        "agentsChatInput.background",
-      ]) {
-        assert.ok(
-          chroma.contrast(colors[key], colors[background]) >= 3,
-          `${definition.name}: ${key} against ${background} must reach 3:1`,
-        );
-      }
     }
+    assert.equal(
+      colors["agentsChatInput.border"],
+      chroma(resolved.border.emphasis).alpha(0.8).hex(),
+      `${definition.name}: input uses the emphasized translucent border`,
+    );
     assert.equal(
       colors["agentsChatInput.focusBorder"],
       resolved.accent.secondary.background,
@@ -438,7 +433,6 @@ test("borderless changes only its intended workbench colors", () => {
   for (const key of [
     "editor.border",
     "surface.border",
-    "titleBar.border",
     "activityBar.border",
     "sideBar.border",
     "statusBar.border",
@@ -451,6 +445,8 @@ test("borderless changes only its intended workbench colors", () => {
   ]) {
     expectedColors[key] = "#00000000";
   }
+  expectedColors["agents.background"] = base.colors["editor.background"];
+  expectedColors["editorGroupHeader.tabsBackground"] = "#00000000";
   for (const key of [
     "activityBar.background",
     "activityBarTop.background",

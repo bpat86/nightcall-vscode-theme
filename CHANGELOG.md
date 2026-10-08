@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.2.3
+
+- Refined Agents window colors and contrast for better consistency with the rest of the theme.
+
 ## 2.2.2
 
 - Aligned Modern UI activity bar and tab styling for a more consistent appearance.
