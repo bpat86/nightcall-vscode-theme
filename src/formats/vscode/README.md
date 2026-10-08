@@ -13,3 +13,13 @@ This target turns resolved semantic colors into complete VS Code theme files thr
 In short:
 
 Theme Definition → Base Theme → VS Code Color Systems → Theme Options → Artifact
+
+## Agents window
+
+The Agents shell and details pane use the default canvas, while card panels use
+the inset canvas. Agents panel, card, bottom-panel, and chat-input borders share
+an opaque, subdued secondary-accent color with at least 3:1 contrast against
+their surfaces. The focused input retains the full secondary accent.
+
+The Agents editor frame uses `agentsPanel.border`, rather than `editor.border`.
+These component borders remain present in borderless variants, as before.

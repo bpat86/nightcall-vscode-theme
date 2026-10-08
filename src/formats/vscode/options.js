@@ -13,9 +13,9 @@ function removeBorders(theme) {
   const background = getColor(theme.colors, "editor.background");
   const subtleBorder = getColor(theme.colors, "editorOverviewRuler.border");
   const overrides = {
+    "agents.background": background,
     "editor.border": TRANSPARENT,
     "surface.border": TRANSPARENT,
-    "titleBar.border": TRANSPARENT,
     "activityBar.border": TRANSPARENT,
     "activityBar.background": background,
     "activityBarTop.background": background,
@@ -28,6 +28,7 @@ function removeBorders(theme) {
     "statusBar.border": TRANSPARENT,
     "statusBar.debuggingBorder": TRANSPARENT,
     "statusBar.noFolderBorder": TRANSPARENT,
+    "editorGroupHeader.tabsBackground": TRANSPARENT,
     "editorGroupHeader.tabsBorder": TRANSPARENT,
     "editorGroup.border": TRANSPARENT,
     "tab.border": TRANSPARENT,

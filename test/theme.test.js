@@ -244,6 +244,87 @@ test("pink badges use dedicated high-contrast colors in every theme", () => {
   }
 });
 
+test("agent sessions use distinct shell, panel, and card surfaces", () => {
+  for (const definition of definitions) {
+    const colors = createTheme(definition).colors;
+    const resolved = loadResolvedColorScheme(definition.scheme);
+
+    assert.equal(
+      colors["agents.background"],
+      resolved.canvas.default,
+      `${definition.name}: agent shell background`,
+    );
+    assert.equal(
+      colors["agentsPanel.background"],
+      resolved.canvas.inset,
+      `${definition.name}: agent panel background`,
+    );
+    assert.notEqual(
+      colors["agentsPanel.background"],
+      colors["agents.background"],
+      `${definition.name}: agent shell and panel surfaces must differ`,
+    );
+    assert.equal(
+      colors["agentsDetail.background"],
+      resolved.canvas.default,
+      `${definition.name}: agent details background`,
+    );
+  }
+});
+
+test("agent frames and input borders remain visible in every theme", () => {
+  for (const definition of definitions) {
+    const colors = createTheme(definition).colors;
+    const resolved = loadResolvedColorScheme(definition.scheme);
+
+    for (const key of [
+      "agentsPanel.border",
+      "agentsCard.border",
+      "agentsBottomPanel.border",
+      "agentsChatInput.border",
+    ]) {
+      assert.match(
+        colors[key],
+        /^#[0-9a-f]{6}$/i,
+        `${definition.name}: ${key} must be opaque`,
+      );
+      assert.equal(
+        colors[key],
+        colors["agentsPanel.border"],
+        `${definition.name}: ${key} uses the shared agent frame color`,
+      );
+      for (const background of [
+        "agents.background",
+        "agentsPanel.background",
+        "agentsDetail.background",
+        "activeSessionView.background",
+        "agentsChatInput.background",
+      ]) {
+        assert.ok(
+          chroma.contrast(colors[key], colors[background]) >= 3,
+          `${definition.name}: ${key} against ${background} must reach 3:1`,
+        );
+      }
+    }
+    assert.equal(
+      colors["agentsChatInput.focusBorder"],
+      resolved.accent.secondary.background,
+      `${definition.name}: focused agent input retains the secondary accent`,
+    );
+    assert.ok(
+      chroma.contrast(
+        colors["agentsChatInput.focusBorder"],
+        colors["agentsChatInput.background"],
+      ) >
+        chroma.contrast(
+          colors["agentsChatInput.border"],
+          colors["agentsChatInput.background"],
+        ),
+      `${definition.name}: focused agent input must be more prominent`,
+    );
+  }
+});
+
 test("extension icon colors use their dedicated scheme roles", () => {
   for (const definition of definitions) {
     const colors = createTheme(definition).colors;
