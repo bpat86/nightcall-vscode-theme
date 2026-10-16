@@ -120,6 +120,56 @@ test("accent foregrounds contrast with their backgrounds", () => {
   }
 });
 
+test("editor search highlights preserve readable matches in every theme", () => {
+  for (const definition of definitions) {
+    const colors = createTheme(definition).colors;
+    const resolved = loadResolvedColorScheme(definition.scheme);
+    assert.ok(
+      !Object.hasOwn(colors, "editor.findMatchHighlightForeground"),
+      `${definition.name}: inactive matches preserve syntax foregrounds`,
+    );
+    for (const [highlightKey, opacity] of [
+      ["editor.findMatchBackground", 0.2],
+      ["editor.findMatchHighlightBackground", 0.125],
+    ]) {
+      const highlight = colors[highlightKey];
+      assert.equal(
+        highlight,
+        chroma(resolved.accent.primary.background).alpha(opacity).hex(),
+        `${definition.name}: ${highlightKey} uses a translucent highlight`,
+      );
+      for (const backgroundKey of [
+        "editor.background",
+        "peekViewEditor.background",
+      ]) {
+        const renderedBackground = chroma.mix(
+          highlight,
+          colors[backgroundKey],
+          1 - chroma(highlight).alpha(),
+          "rgb",
+        );
+        for (const foreground of [
+          colors["editor.foreground"],
+          colors["editor.findMatchForeground"],
+          colors["editor.selectionForeground"],
+          resolved.accent.primary.background,
+        ]) {
+          assert.ok(
+            chroma.contrast(foreground, renderedBackground) >= 4.5,
+            `${definition.name}: ${foreground} on ${highlightKey} over ${backgroundKey} must have at least 4.5:1 contrast`,
+          );
+        }
+      }
+    }
+
+    assert.equal(
+      colors["editor.findMatchForeground"],
+      resolved.foreground.prominent,
+      `${definition.name}: active matches use a readable light foreground`,
+    );
+  }
+});
+
 test("interaction colors cover highlighted and focused states", () => {
   for (const definition of definitions) {
     const colors = createTheme(definition).colors;

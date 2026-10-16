@@ -156,8 +156,28 @@ test("contrast validation composites translucent hover backgrounds", () => {
   );
 });
 
+test("contrast validation rejects search backgrounds matching selected text", () => {
+  for (const definition of definitions) {
+    const theme = createTheme(definition);
+    theme.colors["editor.findMatchBackground"] =
+      theme.colors["editor.selectionForeground"];
+
+    const { errors } = validateTheme(theme, definition);
+    assert.ok(
+      errors.some((message) =>
+        message.includes(
+          "editor.selectionForeground on editor.findMatchBackground has 1.00:1 contrast",
+        ),
+      ),
+      definition.name,
+    );
+  }
+});
+
 test("contrast validation rejects unreadable overlay and selection foregrounds", () => {
   const pairs = [
+    ["editor.findMatchForeground", "editor.background"],
+    ["editor.selectionForeground", "editor.background"],
     ["pickerGroup.foreground", "quickInput.background"],
     ["list.focusForeground", "list.focusBackground"],
     ["list.focusHighlightForeground", "list.activeSelectionBackground"],

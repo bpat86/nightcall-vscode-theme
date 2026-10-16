@@ -92,6 +92,16 @@ function validateTokenColors(
 function validateContrast(theme, fileName, { errors }) {
   const pairs = [
     ["foreground", "editor.background"],
+    [
+      "editor.findMatchForeground",
+      "editor.findMatchBackground",
+      "editor.background",
+    ],
+    [
+      "editor.selectionForeground",
+      "editor.findMatchBackground",
+      "editor.background",
+    ],
     ["input.foreground", "input.background"],
     ["dropdown.foreground", "dropdown.background"],
     ["notifications.foreground", "notifications.background"],

@@ -23,3 +23,11 @@ their surfaces. The focused input retains the full secondary accent.
 
 The Agents editor frame uses `agentsPanel.border`, rather than `editor.border`.
 These component borders remain present in borderless variants, as before.
+
+## Editor search highlights
+
+Inactive find matches use a translucent primary-accent background without a
+foreground override, preserving syntax colors even for background-only search
+decorations. The active match uses a stronger translucent tint and a light
+foreground. Both remain readable when the pink selection foreground takes
+precedence. Regression tests check at least 4.5:1 contrast in every variant.
