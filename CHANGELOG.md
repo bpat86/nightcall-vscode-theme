@@ -2,6 +2,10 @@
 
 All notable changes to the "nightcall" extension will be documented in this file.
 
+## 2.2.4
+
+- Improved highlighted text contrast for better readability across the theme.
+
 ## 2.2.3
 
 - Refined Agents window colors and contrast for better consistency with the rest of the theme.
