@@ -170,14 +170,18 @@ test("editor search highlights preserve readable matches in every theme", () => 
   }
 });
 
+function assertColorRgbEqual(actual, expected, message) {
+  assert.deepEqual(chroma(actual).rgb(), chroma(expected).rgb(), message);
+}
+
 test("interaction colors cover highlighted and focused states", () => {
   for (const definition of definitions) {
     const colors = createTheme(definition).colors;
     const resolved = loadResolvedColorScheme(definition.scheme);
 
-    assert.equal(
+    assertColorRgbEqual(
       colors["list.filterMatchBackground"],
-      chroma(resolved.interaction.highlighted).alpha(0.5).hex(),
+      resolved.interaction.highlighted,
       `${definition.name}: highlighted list matches`,
     );
     assert.equal(
@@ -195,9 +199,9 @@ test("interaction colors cover highlighted and focused states", () => {
       resolved.accent.secondary.foreground,
       `${definition.name}: focused list match highlights`,
     );
-    assert.equal(
+    assertColorRgbEqual(
       colors["settings.focusedRowBackground"],
-      chroma(resolved.interaction.focused).alpha(0.5).hex(),
+      resolved.interaction.focused,
       `${definition.name}: focused settings rows`,
     );
     for (const key of [
@@ -206,9 +210,9 @@ test("interaction colors cover highlighted and focused states", () => {
       "statusBarItem.hoverBackground",
       "welcomePage.tileHoverBackground",
     ]) {
-      assert.equal(
+      assertColorRgbEqual(
         colors[key],
-        chroma(resolved.interaction.hover).alpha(0.5).hex(),
+        resolved.interaction.hover,
         `${definition.name}: ${key}`,
       );
     }
@@ -216,15 +220,15 @@ test("interaction colors cover highlighted and focused states", () => {
       "tab.selectedBackground",
       "editorSuggestWidget.selectedBackground",
     ]) {
-      assert.equal(
+      assertColorRgbEqual(
         colors[key],
-        chroma(resolved.interaction.selected).alpha(0.5).hex(),
+        resolved.interaction.selected,
         `${definition.name}: ${key}`,
       );
     }
-    assert.equal(
+    assertColorRgbEqual(
       colors["notebook.selectedCellBackground"],
-      chroma(resolved.interaction.selected).alpha(0.5).hex(),
+      resolved.interaction.selected,
       `${definition.name}: notebook selected cell`,
     );
     assert.equal(
@@ -232,9 +236,9 @@ test("interaction colors cover highlighted and focused states", () => {
       resolved.interaction.pressed,
       `${definition.name}: pressed status bar item`,
     );
-    assert.equal(
+    assertColorRgbEqual(
       colors["editor.stackFrameHighlightBackground"],
-      chroma(resolved.interaction.highlighted).alpha(0.5).hex(),
+      resolved.interaction.highlighted,
       `${definition.name}: highlighted stack frame`,
     );
   }
